@@ -6,12 +6,13 @@ import WidgetKit
 struct TextNoteControl: ControlWidget {
   var body: some ControlWidgetConfiguration {
     StaticControlConfiguration(kind: "ch.masdatos.redpanda.control.text") {
-      ControlWidgetButton(action: CaptureTextNoteIntent()) {
+      // Opens the app: controls can't prompt for the text (see OpenComposeIntent).
+      ControlWidgetButton(action: OpenComposeIntent()) {
         Label("Text note", systemImage: "square.and.pencil")
       }
     }
     .displayName("Text note")
-    .description("Capture a quick text note.")
+    .description("Open Red Panda to write a quick note.")
   }
 }
 

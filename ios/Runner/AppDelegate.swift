@@ -20,6 +20,14 @@ import UIKit
     )
     channel.setMethodCallHandler { call, result in
       switch call.method {
+      case "takeCompose":
+        // Set by the Text note control (OpenComposeIntent).
+        result(ComposeRequest.take())
+      case "transcribePending":
+        // Called by Flutter on start/resume; may ask for Speech permission.
+        Task { @MainActor in
+          result(await Transcriber.transcribePending(askPermission: true))
+        }
       case "containerPath":
         do {
           try NoteStore.ensureDirectories()
@@ -31,5 +39,8 @@ import UIKit
         result(FlutterMethodNotImplemented)
       }
     }
+    // App already running: tell Dart to take the request now.
+    ComposeRequest.onRequest = { channel.invokeMethod("compose", arguments: nil) }
+    Transcriber.onNotesChanged = { channel.invokeMethod("notesChanged", arguments: nil) }
   }
 }

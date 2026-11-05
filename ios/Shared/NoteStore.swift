@@ -55,6 +55,31 @@ enum NoteStore {
     try data.write(to: url, options: [.atomic, .completeFileProtectionUnlessOpen])
   }
 
+  static func read(id: String) -> StoredNote? {
+    decode(notesDir.appendingPathComponent("\(id).json"))
+  }
+
+  static func readAll() -> [StoredNote] {
+    let files = (try? FileManager.default.contentsOfDirectory(
+      at: notesDir, includingPropertiesForKeys: nil)) ?? []
+    return files.filter { $0.pathExtension == "json" }.compactMap(decode)
+      .sorted { $0.createdAt < $1.createdAt }
+  }
+
+  /// Dart writes dates with fractional seconds, Swift without: accept both.
+  private static func decode(_ url: URL) -> StoredNote? {
+    guard let data = try? Data(contentsOf: url) else { return nil }
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .custom { d in
+      let s = try d.singleValueContainer().decode(String.self)
+      let fractional = ISO8601DateFormatter()
+      fractional.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+      if let date = fractional.date(from: s) ?? ISO8601DateFormatter().date(from: s) { return date }
+      throw DecodingError.dataCorrupted(.init(codingPath: d.codingPath, debugDescription: "Bad date \(s)"))
+    }
+    return try? decoder.decode(StoredNote.self, from: data)
+  }
+
   @discardableResult
   static func saveText(_ text: String) throws -> StoredNote {
     let note = StoredNote(id: newId(), createdAt: Date(), kind: "text", text: text)

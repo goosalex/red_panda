@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Red Panda records your voice notes.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Red Panda turns your voice notes into text.</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

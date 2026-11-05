@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../gamification/progress.dart';
 import '../models/note.dart';
+import '../platform/compose_requests.dart';
 import '../storage/note_store.dart';
 import 'confetti.dart';
 import 'mascot.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   List<Note> _notes = const [];
   String _query = '';
   bool _searching = false;
+  bool _composing = false;
 
   Progress get _progress => Progress.from(_notes);
 
@@ -30,11 +32,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _reload(greet: true);
+    ComposeRequests.listen(_checkCompose, onNotesChanged: _reload);
+    _reload(greet: true).then((_) => _checkCompose());
+    Transcripts.transcribePending();
   }
 
   @override
   void dispose() {
+    ComposeRequests.stopListening();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -42,7 +47,19 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // Notes captured from the Lock Screen land on disk while we are away.
-    if (state == AppLifecycleState.resumed) _reload(greet: true);
+    if (state == AppLifecycleState.resumed) {
+      _reload(greet: true);
+      _checkCompose();
+      Transcripts.transcribePending();
+    }
+  }
+
+  /// Opens the compose sheet if the Text note control asked for it.
+  Future<void> _checkCompose() async {
+    // Always take (clear) the request, so a tap while the sheet is already
+    // open doesn't reopen it later.
+    final wanted = await ComposeRequests.take();
+    if (wanted && !_composing && mounted) await _addText();
   }
 
   Future<void> _reload({bool greet = false}) async {
@@ -78,6 +95,16 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _addText() async {
+    if (_composing) return;
+    _composing = true;
+    try {
+      await _composeAndSave();
+    } finally {
+      _composing = false;
+    }
+  }
+
+  Future<void> _composeAndSave() async {
     final ctl = TextEditingController();
     final text = await showModalBottomSheet<String>(
       context: context,
@@ -215,9 +242,15 @@ class _NoteTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final time = DateFormat('d MMM, HH:mm').format(note.createdAt.toLocal());
-    final title = note.kind == NoteKind.voice
-        ? 'Voice note${note.durationSeconds != null ? ' · ${note.durationSeconds!.round()} s' : ''}'
-        : (note.text ?? '');
+    final length = note.durationSeconds != null ? ' · ${note.durationSeconds!.round()} s' : '';
+    final words = note.text ?? '';
+    final title = note.kind == NoteKind.text
+        ? words
+        : words.isNotEmpty
+            ? words
+            : note.text == null
+                ? 'Voice note$length'
+                : 'Voice note$length (no words heard)';
     return ListTile(
       leading: Checkbox(value: note.isDone, onChanged: (_) => onToggle()),
       title: Text(
