@@ -1,0 +1,4 @@
+// Build settings for the widget extension. Version numbers come from pubspec.yaml
+// via Flutter's Generated.xcconfig; team id from Signing.xcconfig.
+#include? "../Flutter/Generated.xcconfig"
+#include? "../Flutter/Signing.xcconfig"

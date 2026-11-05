@@ -1,0 +1,3 @@
+// Copy to Signing.xcconfig (git-ignored) and put your company team id here.
+// Find it at developer.apple.com > Account > Membership details.
+DEVELOPMENT_TEAM = ABCDE12345
