@@ -13,6 +13,9 @@ class FakeNative {
   bool pending = false;
   int takes = 0;
   int transcribeCalls = 0;
+  final calls = <String>[];
+  DateTime? recordingSince;
+  String? startError; // e.g. 'noMicrophonePermission'
 
   void install() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -22,6 +25,18 @@ class FakeNative {
         final p = pending;
         pending = false;
         return p;
+      }
+      calls.add(call.method);
+      switch (call.method) {
+        case 'startRecording':
+          if (startError != null) throw PlatformException(code: startError!);
+          recordingSince = DateTime.now();
+          return null;
+        case 'stopRecording':
+          recordingSince = null;
+          return null;
+        case 'recordingStartedAt':
+          return recordingSince?.millisecondsSinceEpoch;
       }
       if (call.method == 'transcribePending') {
         transcribeCalls++;
@@ -133,5 +148,51 @@ void main() {
     await settle(tester);
     expect(find.text('water the plants'), findsOneWidget);
     expect(find.text('Voice note · 4 s'), findsNothing);
+  });
+
+  final micButton = find.byTooltip('Record a voice note');
+  final stopButton = find.byTooltip('Stop and save the voice note');
+
+  testWidgets('mic button records and stops a voice note', (tester) async {
+    await pumpHome(tester);
+    expect(micButton, findsOneWidget);
+    expect(find.byTooltip('New text note'), findsOneWidget);
+
+    await tester.tap(micButton);
+    await settle(tester);
+    expect(native.calls, contains('startRecording'));
+    expect(stopButton, findsOneWidget);
+    expect(find.text('0:00'), findsOneWidget);
+
+    await tester.tap(stopButton);
+    await settle(tester);
+    expect(native.calls, contains('stopRecording'));
+    expect(micButton, findsOneWidget);
+    expect(stopButton, findsNothing);
+  });
+
+  testWidgets('mic button explains a missing microphone permission', (tester) async {
+    native.startError = 'noMicrophonePermission';
+    await pumpHome(tester);
+    await tester.tap(micButton);
+    await settle(tester);
+    expect(find.textContaining('needs the microphone'), findsOneWidget);
+    expect(micButton, findsOneWidget);
+  });
+
+  testWidgets('shows a recording started from the Voice note control', (tester) async {
+    await pumpHome(tester);
+    expect(micButton, findsOneWidget);
+
+    native.recordingSince = DateTime.now().subtract(const Duration(seconds: 65));
+    await native.send('recordingChanged');
+    await settle(tester);
+    expect(stopButton, findsOneWidget);
+    expect(find.textContaining('1:0'), findsOneWidget); // 1:05 or a little later
+
+    native.recordingSince = null; // stopped from the Live Activity
+    await native.send('recordingChanged');
+    await settle(tester);
+    expect(micButton, findsOneWidget);
   });
 }

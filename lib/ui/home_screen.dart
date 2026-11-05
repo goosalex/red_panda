@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -5,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../gamification/progress.dart';
 import '../models/note.dart';
 import '../platform/compose_requests.dart';
+import '../platform/voice_recording.dart';
 import '../storage/note_store.dart';
 import 'confetti.dart';
 import 'mascot.dart';
@@ -26,13 +29,20 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   bool _searching = false;
   bool _composing = false;
 
+  /// Set while a voice note records (from the mic button or the control).
+  DateTime? _recordingSince;
+  bool _recordBusy = false;
+  Timer? _ticker;
+
   Progress get _progress => Progress.from(_notes);
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    ComposeRequests.listen(_checkCompose, onNotesChanged: _reload);
+    ComposeRequests.listen(_checkCompose,
+        onNotesChanged: _reload, onRecordingChanged: _syncRecording);
+    _syncRecording();
     _reload(greet: true).then((_) => _checkCompose());
     Transcripts.transcribePending();
   }
@@ -40,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     ComposeRequests.stopListening();
+    _ticker?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -50,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     if (state == AppLifecycleState.resumed) {
       _reload(greet: true);
       _checkCompose();
+      _syncRecording();
       Transcripts.transcribePending();
     }
   }
@@ -60,6 +72,50 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     // open doesn't reopen it later.
     final wanted = await ComposeRequests.take();
     if (wanted && !_composing && mounted) await _addText();
+  }
+
+  /// Mirrors the native recorder: it can also be started by the Voice note
+  /// control and stopped from the Live Activity.
+  Future<void> _syncRecording() async {
+    final since = await VoiceRecording.startedAt();
+    if (!mounted) return;
+    _setRecording(since);
+    if (since == null) _reload();
+  }
+
+  void _setRecording(DateTime? since) {
+    _ticker?.cancel();
+    _ticker = since == null
+        ? null
+        : Timer.periodic(const Duration(seconds: 1), (_) => setState(() {}));
+    setState(() => _recordingSince = since);
+  }
+
+  Future<void> _toggleRecording() async {
+    if (_recordBusy) return;
+    setState(() => _recordBusy = true);
+    try {
+      if (_recordingSince == null) {
+        await VoiceRecording.start();
+        HapticFeedback.mediumImpact();
+        _setRecording(DateTime.now());
+      } else {
+        _setRecording(null);
+        HapticFeedback.lightImpact();
+        await VoiceRecording.stop();
+        await _reload();
+        _mascot.celebrate();
+      }
+    } on RecordingException catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(e.error == RecordingError.noMicrophonePermission
+            ? 'Red Panda needs the microphone. Allow it in Settings > Red Panda.'
+            : "Couldn't start recording."),
+      ));
+    } finally {
+      if (mounted) setState(() => _recordBusy = false);
+    }
   }
 
   Future<void> _reload({bool greet = false}) async {
@@ -159,9 +215,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: _addText,
-            child: const Icon(Icons.add),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _RecordButton(
+                  since: _recordingSince,
+                  busy: _recordBusy,
+                  onPressed: _toggleRecording,
+                ),
+                FloatingActionButton(
+                  heroTag: 'add',
+                  tooltip: 'New text note',
+                  onPressed: _addText,
+                  child: const Icon(Icons.add),
+                ),
+              ],
+            ),
           ),
           body: RefreshIndicator(
             onRefresh: _reload,
@@ -263,6 +335,39 @@ class _NoteTile extends StatelessWidget {
       // TODO(voice): audio playback row (e.g. just_audio) for voice notes.
       trailing: note.kind == NoteKind.voice ? const Icon(Icons.mic_none) : null,
       onTap: onToggle,
+    );
+  }
+}
+
+/// Mic button: tap to record a voice note, tap again to stop and save it.
+class _RecordButton extends StatelessWidget {
+  const _RecordButton({required this.since, required this.busy, required this.onPressed});
+  final DateTime? since;
+  final bool busy;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = since;
+    if (s == null) {
+      return FloatingActionButton(
+        heroTag: 'record',
+        tooltip: 'Record a voice note',
+        onPressed: busy ? null : onPressed,
+        child: const Icon(Icons.mic),
+      );
+    }
+    final elapsed = DateTime.now().difference(s);
+    final seconds = elapsed.inSeconds.clamp(0, 359999);
+    final label = '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}';
+    return FloatingActionButton.extended(
+      heroTag: 'record',
+      tooltip: 'Stop and save the voice note',
+      backgroundColor: Colors.red.shade600,
+      foregroundColor: Colors.white,
+      onPressed: busy ? null : onPressed,
+      icon: const Icon(Icons.stop),
+      label: Text(label, style: const TextStyle(fontFeatures: [FontFeature.tabularFigures()])),
     );
   }
 }

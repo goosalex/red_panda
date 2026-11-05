@@ -59,7 +59,10 @@ enum ComposeRequest {
 }
 
 /// Voice note: starts recording + Live Activity; stop from the Live Activity.
-struct StartVoiceNoteIntent: AudioRecordingIntent {
+/// LiveActivityIntent makes the system run perform() in the app's process:
+/// in the controls extension it can't start the Live Activity iOS requires
+/// while recording, and the system kills it.
+struct StartVoiceNoteIntent: AudioRecordingIntent, LiveActivityIntent {
   static let title: LocalizedStringResource = "Voice note"
   static let description = IntentDescription("Record a quick voice note with Red Panda.")
   static let authenticationPolicy: IntentAuthenticationPolicy = .alwaysAllowed

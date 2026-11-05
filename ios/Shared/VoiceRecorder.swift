@@ -3,54 +3,96 @@ import AVFoundation
 import Foundation
 import Speech
 
-enum VoiceRecorderError: Error {
+enum VoiceRecorderError: Error, CustomLocalizedStringResourceConvertible {
   case couldNotStart
+  case noMicrophonePermission
+  case noLiveActivity
+
+  var localizedStringResource: LocalizedStringResource {
+    switch self {
+    case .couldNotStart: return "Red Panda couldn't start recording."
+    case .noMicrophonePermission: return "Open Red Panda once to allow the microphone."
+    case .noLiveActivity: return "Allow Live Activities for Red Panda to record voice notes."
+    }
+  }
+}
+
+/// Microphone and Speech permission prompts only show while the app is in
+/// front, so the app asks for both when it opens (see AppDelegate).
+@MainActor
+enum VoicePermissions {
+  static func request() async {
+    if AVAudioApplication.shared.recordPermission == .undetermined {
+      _ = await AVAudioApplication.requestRecordPermission()
+    }
+  }
 }
 
 /// Records AAC/m4a into the App Group audio/ folder. Runs in the app process
-/// (AudioRecordingIntent / LiveActivityIntent are executed by the app).
+/// (StartVoiceNoteIntent / StopVoiceNoteIntent are LiveActivityIntents).
 @MainActor
 final class VoiceRecorder {
   static let shared = VoiceRecorder()
 
+  /// Set by the app to tell Flutter that recording started or stopped.
+  static var onStateChanged: (() -> Void)?
+
   private var recorder: AVAudioRecorder?
   private var noteId: String?
-  private var startedAt: Date?
+  private(set) var startedAt: Date?
 
   var isRecording: Bool { recorder?.isRecording == true }
 
-  func start() async throws {
+  /// [fromApp]: started with the app's mic button, so the app is in front:
+  /// it may ask for the microphone, and the Live Activity is optional (it only
+  /// shows the recording once you leave the app). From the control or Siri
+  /// (AudioRecordingIntent) iOS requires the Live Activity.
+  func start(fromApp: Bool = false) async throws {
     if isRecording { return }
     let id = NoteStore.newId()
     let start = Date()
 
-    // iOS requires a Live Activity while an AudioRecordingIntent records.
-    if ActivityAuthorizationInfo().areActivitiesEnabled {
-      _ = try? Activity.request(
+    if fromApp { await VoicePermissions.request() }
+    guard AVAudioApplication.shared.recordPermission == .granted else {
+      throw VoiceRecorderError.noMicrophonePermission
+    }
+    // iOS kills an AudioRecordingIntent that records without a Live
+    // Activity: start it before the microphone.
+    let activity: Activity<VoiceActivityAttributes>? =
+      ActivityAuthorizationInfo().areActivitiesEnabled
+      ? try? Activity.request(
         attributes: VoiceActivityAttributes(noteId: id),
         content: .init(state: .init(startedAt: start), staleDate: nil))
+      : nil
+    if activity == nil && !fromApp {
+      throw VoiceRecorderError.noLiveActivity
     }
 
-    let session = AVAudioSession.sharedInstance()
-    try session.setCategory(.record, mode: .default)
-    try session.setActive(true)
+    let r: AVAudioRecorder
+    do {
+      let session = AVAudioSession.sharedInstance()
+      try session.setCategory(.record, mode: .default)
+      try session.setActive(true)
 
-    try NoteStore.ensureDirectories()
-    let url = NoteStore.audioDir.appendingPathComponent("\(id).m4a")
-    let settings: [String: Any] = [
-      AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-      AVSampleRateKey: 44_100,
-      AVNumberOfChannelsKey: 1,
-      AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
-    ]
-    let r = try AVAudioRecorder(url: url, settings: settings)
-    guard r.record() else {
+      try NoteStore.ensureDirectories()
+      let url = NoteStore.audioDir.appendingPathComponent("\(id).m4a")
+      let settings: [String: Any] = [
+        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVSampleRateKey: 44_100,
+        AVNumberOfChannelsKey: 1,
+        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
+      ]
+      r = try AVAudioRecorder(url: url, settings: settings)
+      guard r.record() else { throw VoiceRecorderError.couldNotStart }
+    } catch {
+      try? AVAudioSession.sharedInstance().setActive(false)
       await endActivities()
-      throw VoiceRecorderError.couldNotStart
+      throw error
     }
     recorder = r
     noteId = id
     startedAt = start
+    Self.onStateChanged?()
   }
 
   func stop() async throws {
@@ -75,6 +117,7 @@ final class VoiceRecorder {
     noteId = nil
     startedAt = nil
     await endActivities()
+    Self.onStateChanged?()
 
     // Turn the recording into text now if we may; if the phone is locked or
     // permission is still unknown, the app catches up the next time it opens.

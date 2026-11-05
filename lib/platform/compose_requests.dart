@@ -6,12 +6,15 @@ import 'package:flutter/services.dart';
 class ComposeRequests {
   static const channel = MethodChannel('red_panda/app_group');
 
-  /// Calls [onPing] whenever native says a request may be waiting, and
-  /// [onNotesChanged] when native rewrote notes (e.g. a new transcript).
-  static void listen(VoidCallback onPing, {VoidCallback? onNotesChanged}) {
+  /// Calls [onPing] whenever native says a request may be waiting,
+  /// [onNotesChanged] when native rewrote notes (e.g. a new transcript), and
+  /// [onRecordingChanged] when a voice recording started or stopped.
+  static void listen(VoidCallback onPing,
+      {VoidCallback? onNotesChanged, VoidCallback? onRecordingChanged}) {
     channel.setMethodCallHandler((call) async {
       if (call.method == 'compose') onPing();
       if (call.method == 'notesChanged') onNotesChanged?.call();
+      if (call.method == 'recordingChanged') onRecordingChanged?.call();
     });
   }
 
