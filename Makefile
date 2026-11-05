@@ -7,9 +7,10 @@
 #   make run-device install + run on a connected iPhone
 #   make ipa        App Store build -> build/ios/ipa/*.ipa
 #   make upload     upload the ipa to App Store Connect / TestFlight
+#   make icon       regenerate the app icon set from the mascot painter
 FLUTTER ?= flutter
 
-.PHONY: doctor setup check sim run-sim device run-device ipa upload clean
+.PHONY: doctor setup check sim run-sim device run-device ipa upload icon clean
 
 doctor:
 	$(FLUTTER) doctor -v
@@ -45,6 +46,9 @@ upload:
 	@test -n "$(ASC_KEY_ID)" -a -n "$(ASC_ISSUER_ID)" || (echo "Set ASC_KEY_ID and ASC_ISSUER_ID"; exit 1)
 	xcrun altool --upload-app -t ios -f "$$(ls build/ios/ipa/*.ipa | head -1)" \
 		--apiKey "$(ASC_KEY_ID)" --apiIssuer "$(ASC_ISSUER_ID)"
+
+icon: setup
+	sh tool/app_icon/make_icons.sh
 
 clean:
 	$(FLUTTER) clean
