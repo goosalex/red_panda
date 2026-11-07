@@ -22,6 +22,13 @@ struct StoredNote: Codable {
   var audioFile: String?
   var durationSeconds: Double?
   var doneAt: Date?
+  // v0.2 fields; keep in sync with lib/models/note.dart so a Swift rewrite
+  // (e.g. a transcript) doesn't drop them.
+  var rank: Double?
+  var dueAt: Date?
+  var categoryId: String?
+  var snoozedUntil: Date?
+  var remindAt: Date?
 }
 
 enum NoteStore {

@@ -5,10 +5,16 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../gamification/bamboo.dart';
+import '../models/app_settings.dart';
+import '../models/category.dart';
 import '../models/note.dart';
 
 /// Reads and writes notes in the shared App Group container, so notes saved
 /// by the Lock Screen / Action Button intents (Swift) show up here.
+///
+/// Besides notes/: categories.json (clouds), settings.json (preferences) and
+/// panda_state.json (bamboo stash).
 class NoteStore {
   NoteStore._(this.root);
 
@@ -17,6 +23,9 @@ class NoteStore {
   final Directory root;
   Directory get _notesDir => Directory('${root.path}/notes');
   Directory get audioDir => Directory('${root.path}/audio');
+  File get _categoriesFile => File('${root.path}/categories.json');
+  File get _settingsFile => File('${root.path}/settings.json');
+  File get _stateFile => File('${root.path}/panda_state.json');
 
   /// Uses the App Group container on iOS; falls back to the app's documents
   /// folder (tests, simulator without entitlements).
@@ -54,26 +63,75 @@ class NoteStore {
     return notes;
   }
 
-  Future<void> save(Note note) async {
-    final f = File('${_notesDir.path}/${note.id}.json');
-    final tmp = File('${f.path}.tmp');
-    await tmp.writeAsString(jsonEncode(note.toJson()), flush: true);
-    await tmp.rename(f.path);
+  Future<void> save(Note note) => _writeJson(File('${_notesDir.path}/${note.id}.json'), note.toJson());
+
+  Future<void> saveAll(Iterable<Note> notes) async {
+    for (final n in notes) {
+      await save(n);
+    }
   }
 
-  Future<void> delete(Note note) async {
+  Future<void> delete(Note note, {bool keepAudio = false}) async {
     final f = File('${_notesDir.path}/${note.id}.json');
     if (await f.exists()) await f.delete();
-    if (note.audioFile != null) {
+    if (!keepAudio && note.audioFile != null) {
       final a = File('${audioDir.path}/${note.audioFile}');
       if (await a.exists()) await a.delete();
     }
   }
 
-  Future<Note> addText(String text) async {
-    final note = Note(id: newId(), createdAt: DateTime.now(), kind: NoteKind.text, text: text);
+  Future<Note> addText(String text, {DateTime? dueAt, String? categoryId}) async {
+    final note = Note(
+      id: newId(),
+      createdAt: DateTime.now(),
+      kind: NoteKind.text,
+      text: text,
+      dueAt: dueAt,
+      categoryId: categoryId,
+    );
     await save(note);
     return note;
+  }
+
+  Future<List<Category>> loadCategories() async {
+    final j = await _readJson(_categoriesFile);
+    final list = (j?['categories'] as List?) ?? const [];
+    return [
+      for (final c in list)
+        if (c is Map<String, dynamic>) Category.fromJson(c),
+    ];
+  }
+
+  Future<void> saveCategories(List<Category> categories) =>
+      _writeJson(_categoriesFile, {'categories': [for (final c in categories) c.toJson()]});
+
+  Future<AppSettings> loadSettings() async {
+    final j = await _readJson(_settingsFile);
+    return j == null ? const AppSettings() : AppSettings.fromJson(j);
+  }
+
+  Future<void> saveSettings(AppSettings s) => _writeJson(_settingsFile, s.toJson());
+
+  Future<BambooWallet> loadWallet() async {
+    final j = await _readJson(_stateFile);
+    return j == null ? const BambooWallet() : BambooWallet.fromJson(j);
+  }
+
+  Future<void> saveWallet(BambooWallet w) => _writeJson(_stateFile, w.toJson());
+
+  Future<Map<String, dynamic>?> _readJson(File f) async {
+    try {
+      if (!await f.exists()) return null;
+      return jsonDecode(await f.readAsString()) as Map<String, dynamic>;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> _writeJson(File f, Map<String, dynamic> json) async {
+    final tmp = File('${f.path}.tmp');
+    await tmp.writeAsString(jsonEncode(json), flush: true);
+    await tmp.rename(f.path);
   }
 
   static String newId() {

@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 # Idempotently configures ios/Runner.xcodeproj for Red Panda:
 #  - Runner: iOS 18, bundle id, entitlements, shared Swift sources
-#  - RedPandaControls widget extension (Controls + Live Activity), embedded in Runner
+#  - RedPandaControls widget extension (Controls, Live Activity, Lock/Home Screen
+#    widget + its Assets.xcassets), embedded in Runner
 # Already applied to the committed project; re-run after `flutter create .` or if the
 # project gets regenerated:  gem install xcodeproj && ruby scripts/setup_xcode_targets.rb
 require 'xcodeproj'
@@ -43,7 +44,7 @@ def add_sources(group, target, files)
 end
 
 runner_group = project.main_group.groups.find { |g| g.path == 'Runner' }
-add_sources(runner_group, runner, ['RedPandaShortcuts.swift'])
+add_sources(runner_group, runner, %w[RedPandaShortcuts.swift Reminders.swift Motion.swift])
 unless runner_group.files.any? { |r| r.path == 'Runner.entitlements' }
   runner_group.new_reference('Runner.entitlements')
 end
@@ -63,6 +64,11 @@ add_sources(ext_group, ext, ext_sources)
 add_sources(shared, ext, shared_files)
 %w[Info.plist RedPandaControls.entitlements RedPandaControls.xcconfig].each do |f|
   ext_group.new_reference(f) unless ext_group.files.any? { |r| r.path == f }
+end
+# Panda mood artwork for the widget (PandaSad/PandaSleeping/PandaCurious/PandaExcited).
+assets_ref = ext_group.files.find { |r| r.path == 'Assets.xcassets' } || ext_group.new_reference('Assets.xcassets')
+unless ext.resources_build_phase.files_references.include?(assets_ref)
+  ext.resources_build_phase.add_file_reference(assets_ref)
 end
 xcconfig_ref = ext_group.files.find { |r| r.path == 'RedPandaControls.xcconfig' }
 

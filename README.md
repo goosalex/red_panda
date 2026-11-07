@@ -9,8 +9,10 @@ with a cheerful red panda mascot. Design doc: https://claude.ai/artifact/Lqv8riw
 
 | Path | What |
 | --- | --- |
-| `lib/` | Flutter app: note list, ticking off, streak/XP, mascot, confetti |
-| `lib/ui/mascot.dart` | Mascot. Uses `assets/rive/red_panda.riv` if present, else a drawn placeholder |
+| `lib/` | Flutter app: note list, ticking off, streak/XP, bamboo, categories, deadlines |
+| `lib/ui/panda/` | Panda stage: drawn placeholder poses (sleeping, curious, excited, sad); swap in image frames via `assets/panda/` |
+| `lib/ui/mascot.dart` | Old face painter, still used for the app icon (`make icon`) |
+| `lib/logic/`, `lib/gamification/` | List order and filters, bamboo stash (pure Dart, unit-tested) |
 | `ios/Shared/` | Swift shared by app + extension: storage, App Intents, voice recorder |
 | `ios/RedPandaControls/` | Widget extension: Lock Screen / Control Center controls, Live Activity |
 | `ios/Runner/` | Flutter host app; `AppDelegate.swift` exposes the App Group path to Dart |
@@ -36,7 +38,12 @@ Runner and RedPandaControls targets > Signing & Capabilities, and pick the team.
 
 `make ipa` then `make upload` (App Store Connect API key, see Makefile), or open the ipa in Transporter.
 
-## Rive mascot contract
+## Data files (App Group container)
+
+`notes/<id>.json` (schema shared with `ios/Shared/NoteStore.swift`), `categories.json`,
+`settings.json`, `panda_state.json` (bamboo).
+
+## Rive mascot contract (v0.1, unused since v0.2's panda stage)
 
 State machine `Panda`; triggers `greet`, `celebrate`, `sad`; number `streak`.
 Save the file as `assets/rive/red_panda.riv`.
