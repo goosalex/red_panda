@@ -59,3 +59,8 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 
 - [x] Lock screen widgets can go anywhere, not just in the two small round slots at the bottom
   - v0.2: a widget for every slot iOS offers: the line above the clock, the widget row under it (round and rectangular), plus Home Screen small/medium. Free placement elsewhere is not possible on iOS.
+
+## 0.2.1
+
+- [x] Settings collapse to one line each; choices open in a drawer, the leave basket and quick capture on their own pages
+- [x] Direct links into the Shortcuts app to wire Wi-Fi and location automations to "Remind me of my leave basket"

@@ -100,6 +100,17 @@ import UIKit
           }
           result(nil)
         }
+      case "openUrl":
+        // {url}: e.g. shortcuts://create-automation (lib/platform/shortcuts_links.dart).
+        // Returns whether iOS opened it.
+        let raw = (call.arguments as? [String: Any])?["url"] as? String ?? ""
+        Task { @MainActor in
+          guard let url = URL(string: raw) else {
+            result(false)
+            return
+          }
+          result(await UIApplication.shared.open(url))
+        }
       case "share":
         // {text}: the system share sheet for one item (swipe action "Share").
         let text = (call.arguments as? [String: Any])?["text"] as? String ?? ""
