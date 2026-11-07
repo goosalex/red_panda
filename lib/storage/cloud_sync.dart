@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/l10n.dart';
 import 'note_store.dart';
 
 /// iCloud sync: mirrors the notes, voice recordings, categories and the
@@ -213,12 +214,13 @@ class CloudStatus {
   final DateTime? at;
   final int pending;
 
-  String get label => switch (state) {
-        CloudState.off => 'Off',
-        CloudState.unavailable => 'Not signed in',
-        CloudState.syncing => 'Syncing…',
-        CloudState.synced => pending > 0 ? 'Downloading…' : 'On',
-        CloudState.failed => 'Failed, retrying',
+  /// Short status for the Settings row, in [l]'s language.
+  String label(AppLocalizations l) => switch (state) {
+        CloudState.off => l.settingsOff,
+        CloudState.unavailable => l.cloudNotSignedIn,
+        CloudState.syncing => l.cloudSyncing,
+        CloudState.synced => pending > 0 ? l.cloudDownloading : l.settingsOn,
+        CloudState.failed => l.cloudFailed,
       };
 }
 
