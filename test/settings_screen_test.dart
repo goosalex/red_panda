@@ -167,7 +167,12 @@ void main() {
     await tester.tap(find.text('Siri'));
     await settle(tester);
     expect(find.bySemanticsLabel('Siri preview'), findsOneWidget);
+    // The link shows the way in iOS Settings first, then can open them.
     await tester.tap(find.text('Siri & Search'));
+    await settle(tester);
+    expect(find.text('Red Panda and Siri'), findsOneWidget);
+    expect(opened, isEmpty);
+    await tester.tap(find.text('Open Settings'));
     await settle(tester);
     expect(opened, ['app-settings']);
 

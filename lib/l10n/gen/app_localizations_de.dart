@@ -95,7 +95,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get basketNeedsLocation =>
-      'Red Panda braucht deinen Standort, um zu merken, wann du gehst. Erlaube ihn in den Einstellungen.';
+      'Red Panda braucht deinen Standort, um zu merken, wann du gehst. Erlaube ihn in den [Einstellungen](location).';
 
   @override
   String get basketWatching => 'Ich passe auf';
@@ -130,7 +130,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'Damit Red Panda dein Losgehen auch geschlossen bemerkt, stell Ortungsdienste in den Einstellungen auf „Immer“.';
+      'Damit Red Panda dein Losgehen auch geschlossen bemerkt, stell Ortungsdienste in den [Einstellungen](location) auf „Immer“.';
 
   @override
   String get basketWatchHere => 'Ab hier aufpassen';
@@ -248,7 +248,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get micNeeded =>
-      'Red Panda braucht das Mikrofon. Erlaube es unter Einstellungen > Red Panda.';
+      'Red Panda braucht das Mikrofon. Erlaube es in den [Einstellungen](microphone).';
 
   @override
   String get recordFailed => 'Aufnahme konnte nicht starten.';
@@ -696,7 +696,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      'Mit „Beim Verwenden der App“ sagt iOS Red Panda nichts mehr, sobald die App zu ist – der Korb könnte dich nur bei offener App erinnern. Mit „Immer“ weckt iOS Red Panda, sobald du gehst.';
+      'Mit „Beim Verwenden der App“ sagt iOS Red Panda nichts mehr, sobald die App zu ist – der Korb könnte dich nur bei offener App erinnern. Mit [„Immer“](location) weckt iOS Red Panda, sobald du gehst.';
 
   @override
   String get locationInfoBatteryTitle => 'Kein Akkuverbrauch';
@@ -746,7 +746,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Einstellungen > Aktionstaste > Steuerelemente, dann Red Panda > Textnotiz, Sprachnotiz oder Pandas Korb zeigen wählen.';
+      '[Einstellungen > Aktionstaste > Steuerelemente](actionButton), dann Red Panda > Textnotiz, Sprachnotiz oder Pandas Korb zeigen wählen.';
 
   @override
   String get captureSiri => 'Siri';
@@ -768,4 +768,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get wifi => 'WLAN';
+
+  @override
+  String get walkLocationTitle => 'Standort: Immer';
+
+  @override
+  String get walkMicrophoneTitle => 'Mikrofon & Spracherkennung';
+
+  @override
+  String get walkSiriTitle => 'Red Panda und Siri';
+
+  @override
+  String get walkActionButtonTitle => 'Red Panda auf der Aktionstaste';
+
+  @override
+  String get walkActionButtonNote =>
+      'Auf deinem iPhone wischst du weiter, bis Steuerelemente kommt.';
+
+  @override
+  String walkSemantics(String path) {
+    return 'Animation des Wegs in den Einstellungen: $path';
+  }
 }

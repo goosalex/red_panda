@@ -23,10 +23,12 @@ import 'category_clouds.dart';
 import 'confetti.dart';
 import 'days_dial.dart';
 import 'leave_basket_button.dart';
+import 'link_text.dart';
 import 'note_editor.dart';
 import 'note_tile.dart';
 import 'panda/panda_stage.dart';
 import 'settings_screen.dart';
+import 'walkthrough.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.store});
@@ -206,10 +208,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             children: [
               Text(t.basketSheetTitle(count), style: Theme.of(ctx).textTheme.titleMedium),
               const SizedBox(height: 8),
-              Text(status),
+              LinkText(status),
               if (needsAlways) ...[
                 const SizedBox(height: 8),
-                Text(t.basketNeedsAlways),
+                LinkText(t.basketNeedsAlways),
               ],
               const SizedBox(height: 12),
               Wrap(
@@ -302,7 +304,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       ..hideCurrentSnackBar()
       // Bars with an action would otherwise stay until tapped (persist).
       ..showSnackBar(SnackBar(
-        content: Text(text),
+        content: LinkText(text, onLink: (w) => showWalkthrough(context, w)),
         action: action,
         duration: action == null ? const Duration(milliseconds: 4000) : undoDuration,
         persist: false,

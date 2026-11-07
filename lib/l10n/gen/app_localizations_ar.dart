@@ -92,7 +92,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get basketNeedsLocation =>
-      'Red Panda بدّه موقعك ليعرف إيمتى طلعت. اسمحله من الإعدادات.';
+      'Red Panda بدّه موقعك ليعرف إيمتى طلعت. اسمحله من [الإعدادات](location).';
 
   @override
   String get basketWatching => 'عم راقب';
@@ -126,7 +126,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'لحتى ينتبه Red Panda إنك طلعت وهو مسكّر، حطّ الموقع على \"دائماً\" من الإعدادات.';
+      'لحتى ينتبه Red Panda إنك طلعت وهو مسكّر، حطّ الموقع على \"دائمًا\" من [الإعدادات](location).';
 
   @override
   String get basketWatchHere => 'راقب من هون';
@@ -245,7 +245,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get micNeeded =>
-      'Red Panda بدّه المايكروفون. اسمحله من الإعدادات > Red Panda.';
+      'Red Panda بدّه المايكروفون. اسمحله من [الإعدادات](microphone).';
 
   @override
   String get recordFailed => 'ما قدرت بلّش التسجيل.';
@@ -700,7 +700,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      'مع \"أثناء استخدام التطبيق\"، iOS ما بيقول لـ Red Panda شي بس يتسكّر، فالسلّة ما فيها تذكّرك إلا والتطبيق مفتوح. \"دائمًا\" بتخلّي iOS يفيّق Red Panda أول ما تطلع.';
+      'مع \"أثناء استخدام التطبيق\"، iOS ما بيقول لـ Red Panda شي بس يتسكّر، فالسلّة ما فيها تذكّرك إلا والتطبيق مفتوح. [\"دائمًا\"](location) بتخلّي iOS يفيّق Red Panda أول ما تطلع.';
 
   @override
   String get locationInfoBatteryTitle => 'ما بياكل بطارية';
@@ -749,7 +749,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'الإعدادات > زر الإجراءات > عناصر التحكم، وبعدين اختار Red Panda > ملاحظة نصية، ملاحظة صوتية أو فرجيني سلّة الباندا.';
+      '[الإعدادات > زر الإجراءات > عناصر التحكم](actionButton)، وبعدين اختار Red Panda > ملاحظة نصية، ملاحظة صوتية أو فرجيني سلّة الباندا.';
 
   @override
   String get captureSiri => 'Siri';
@@ -771,4 +771,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get wifi => 'Wi-Fi';
+
+  @override
+  String get walkLocationTitle => 'الموقع: دائمًا';
+
+  @override
+  String get walkMicrophoneTitle => 'المايكروفون والتعرّف على الكلام';
+
+  @override
+  String get walkSiriTitle => 'Red Panda وSiri';
+
+  @override
+  String get walkActionButtonTitle => 'Red Panda على زر الإجراءات';
+
+  @override
+  String get walkActionButtonNote =>
+      'عالآيفون، ضلّك اسحب لحتى توصل لعناصر التحكم.';
+
+  @override
+  String walkSemantics(String path) {
+    return 'رسوم متحركة للطريق بالإعدادات: $path';
+  }
 }

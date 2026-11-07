@@ -91,3 +91,10 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [x] News entries in every language
 - [ ] Quick capture preview images still show English text
 - [ ] Shortcuts button names in the automation guides ("Leaves", "Run Immediately", …) checked against a localised iOS only by memory
+
+## 0.5.0
+
+- [x] References to iOS Settings are blue links (basket sheet, microphone message, leave basket, "Why Always?", Quick capture)
+- [x] Each link plays a walkthrough: real screenshots of the Settings app with blue tap pulses, recorded per language (tool/walkthroughs)
+- [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
+- [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping

@@ -1,0 +1,1137 @@
+{
+ "actionButton": {
+  "ar": [
+   {
+    "image": "ar_actionButton_00.jpg",
+    "label": "زر الإجراءات",
+    "tap": {
+     "x": 0.5,
+     "y": 0.761632341723875
+    }
+   },
+   {
+    "image": "ar_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.25,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.75,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "ar_actionButton_02.jpg",
+    "label": "اختيار عنصر تحكم…",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7435163996948894
+    }
+   },
+   {
+    "image": "ar_actionButton_03.jpg",
+    "label": "بحث في عناصر التحكم",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "ar_actionButton_04.jpg",
+    "label": "ملاحظة نصّية",
+    "tap": {
+     "x": 0.8557213930348259,
+     "y": 0.30663615560640733
+    }
+   },
+   {
+    "image": "ar_actionButton_05.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_actionButton_00.jpg",
+    "label": "Aktionstaste",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5148741418764302
+    }
+   },
+   {
+    "image": "de_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "de_actionButton_02.jpg",
+    "label": "Steuerelement auswählen …",
+    "tap": {
+     "x": 0.5000000000000001,
+     "y": 0.7698321891685735
+    }
+   },
+   {
+    "image": "de_actionButton_03.jpg",
+    "label": "Steuerelemente suchen",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "de_actionButton_04.jpg",
+    "label": "Textnotiz",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "de_actionButton_05.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_actionButton_00.jpg",
+    "label": "Action Button",
+    "tap": {
+     "x": 0.5,
+     "y": 0.494279176201373
+    }
+   },
+   {
+    "image": "en_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "en_actionButton_02.jpg",
+    "label": "Choose a Control…",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.7435163996948894
+    }
+   },
+   {
+    "image": "en_actionButton_03.jpg",
+    "label": "Search Controls",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "en_actionButton_04.jpg",
+    "label": "Text note",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "en_actionButton_05.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_actionButton_00.jpg",
+    "label": "Botón de acción",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5652173913043478
+    }
+   },
+   {
+    "image": "es_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "es_actionButton_02.jpg",
+    "label": "Seleccionar un control…",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.7435163996948894
+    }
+   },
+   {
+    "image": "es_actionButton_03.jpg",
+    "label": "Buscar controles",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "es_actionButton_04.jpg",
+    "label": "Nota de texto",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "es_actionButton_05.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_actionButton_00.jpg",
+    "label": "Bouton Action",
+    "tap": {
+     "x": 0.5,
+     "y": 0.6155606407322655
+    }
+   },
+   {
+    "image": "fr_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "fr_actionButton_02.jpg",
+    "label": "Choisir une commande…",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7698321891685735
+    }
+   },
+   {
+    "image": "fr_actionButton_03.jpg",
+    "label": "Rechercher des commandes",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "fr_actionButton_04.jpg",
+    "label": "Note texte",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "fr_actionButton_05.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_actionButton_00.jpg",
+    "label": "Tasto Azione",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7665903890160183
+    }
+   },
+   {
+    "image": "it_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "it_actionButton_02.jpg",
+    "label": "Scegli un controllo…",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7698321891685735
+    }
+   },
+   {
+    "image": "it_actionButton_03.jpg",
+    "label": "Cerca nei controlli",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "it_actionButton_04.jpg",
+    "label": "Nota di testo",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "it_actionButton_05.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_actionButton_00.jpg",
+    "label": "アクションボタン",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5652173913043478
+    }
+   },
+   {
+    "image": "ja_actionButton_01.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.75,
+      "y": 0.62
+     },
+     "to": {
+      "x": 0.25,
+      "y": 0.62
+     }
+    }
+   },
+   {
+    "image": "ja_actionButton_02.jpg",
+    "label": "コントロールを選択…",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7698321891685735
+    }
+   },
+   {
+    "image": "ja_actionButton_03.jpg",
+    "label": "コントロールを検索",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2913806254767353
+    }
+   },
+   {
+    "image": "ja_actionButton_04.jpg",
+    "label": "テキストメモ",
+    "tap": {
+     "x": 0.14427860696517414,
+     "y": 0.30434782608695654
+    }
+   },
+   {
+    "image": "ja_actionButton_05.jpg"
+   }
+  ]
+ },
+ "location": {
+  "ar": [
+   {
+    "image": "ar_location_00.jpg",
+    "label": "الخصوصية والأمن",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "ar_location_01.jpg",
+    "label": "خدمات الموقع",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5244088482074752
+    }
+   },
+   {
+    "image": "ar_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5122044204665358
+    }
+   },
+   {
+    "image": "ar_location_03.jpg",
+    "label": "دائمًا",
+    "tap": {
+     "x": 0.8706467661691543,
+     "y": 0.36937452180980274
+    }
+   },
+   {
+    "image": "ar_location_04.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_location_00.jpg",
+    "label": "Datenschutz & Sicherheit",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "de_location_01.jpg",
+    "label": "Ortungsdienste",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5221205186880244
+    }
+   },
+   {
+    "image": "de_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.4412662053635609
+    }
+   },
+   {
+    "image": "de_location_03.jpg",
+    "label": "Immer",
+    "tap": {
+     "x": 0.14966832504145938,
+     "y": 0.3545003799333725
+    }
+   },
+   {
+    "image": "de_location_04.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_location_00.jpg",
+    "label": "Privacy & Security",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "en_location_01.jpg",
+    "label": "Location Services",
+    "tap": {
+     "x": 0.5,
+     "y": 0.49923722349351646
+    }
+   },
+   {
+    "image": "en_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.4229595692079545
+    }
+   },
+   {
+    "image": "en_location_03.jpg",
+    "label": "Always",
+    "tap": {
+     "x": 0.15588723051409617,
+     "y": 0.3545003799333725
+    }
+   },
+   {
+    "image": "en_location_04.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_location_00.jpg",
+    "label": "Privacidad y seguridad",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "es_location_01.jpg",
+    "label": "Localización",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5221205186880244
+    }
+   },
+   {
+    "image": "es_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.47330281863587215
+    }
+   },
+   {
+    "image": "es_location_03.jpg",
+    "label": "Siempre",
+    "tap": {
+     "x": 0.16791044776119404,
+     "y": 0.3545003799333725
+    }
+   },
+   {
+    "image": "es_location_04.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_location_00.jpg",
+    "label": "Confidentialité et sécurité",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "fr_location_01.jpg",
+    "label": "Service de localisation",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5221205186880244
+    }
+   },
+   {
+    "image": "fr_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.509916090947085
+    }
+   },
+   {
+    "image": "fr_location_03.jpg",
+    "label": "Toujours",
+    "tap": {
+     "x": 0.17039800995024876,
+     "y": 0.3785278398876059
+    }
+   },
+   {
+    "image": "fr_location_04.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_location_00.jpg",
+    "label": "Privacy e sicurezza",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "it_location_01.jpg",
+    "label": "Localizzazione",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5221205186880244
+    }
+   },
+   {
+    "image": "it_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.49160945479147855
+    }
+   },
+   {
+    "image": "it_location_03.jpg",
+    "label": "Sempre",
+    "tap": {
+     "x": 0.16334991708126034,
+     "y": 0.3785278398876059
+    }
+   },
+   {
+    "image": "it_location_04.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_location_00.jpg",
+    "label": "プライバシーとセキュリティ",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "ja_location_01.jpg",
+    "label": "位置情報サービス",
+    "tap": {
+     "x": 0.5,
+     "y": 0.49923722349351646
+    }
+   },
+   {
+    "image": "ja_location_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.42734553702999667
+    }
+   },
+   {
+    "image": "ja_location_03.jpg",
+    "label": "常に",
+    "tap": {
+     "x": 0.12935323383084577,
+     "y": 0.3579328742125487
+    }
+   },
+   {
+    "image": "ja_location_04.jpg"
+   }
+  ]
+ },
+ "microphone": {
+  "ar": [
+   {
+    "image": "ar_microphone_00.jpg",
+    "label": "الخصوصية والأمن",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "ar_microphone_01.jpg",
+    "label": "الميكروفون",
+    "tap": {
+     "x": 0.5,
+     "y": 0.677726926010679
+    }
+   },
+   {
+    "image": "ar_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.15298507462686567,
+     "y": 0.21758199774700662
+    }
+   },
+   {
+    "image": "ar_microphone_03.jpg",
+    "label": "التعرف على الكلام",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8790999237223494
+    }
+   },
+   {
+    "image": "ar_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.15298507462686567,
+     "y": 0.1626620892801874
+    }
+   },
+   {
+    "image": "ar_microphone_05.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_microphone_00.jpg",
+    "label": "Datenschutz & Sicherheit",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "de_microphone_01.jpg",
+    "label": "Mikrofon",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5961098398169338
+    }
+   },
+   {
+    "image": "de_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.21071700918865421
+    }
+   },
+   {
+    "image": "de_microphone_03.jpg",
+    "label": "Spracherkennung",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7974828375286043
+    }
+   },
+   {
+    "image": "de_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1603737597607366
+    }
+   },
+   {
+    "image": "de_microphone_05.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_microphone_00.jpg",
+    "label": "Privacy & Security",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "en_microphone_01.jpg",
+    "label": "Microphone",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5350877192982457
+    }
+   },
+   {
+    "image": "en_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.21071700918865421
+    }
+   },
+   {
+    "image": "en_microphone_03.jpg",
+    "label": "Speech Recognition",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7364607170099162
+    }
+   },
+   {
+    "image": "en_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1603737597607366
+    }
+   },
+   {
+    "image": "en_microphone_05.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_microphone_00.jpg",
+    "label": "Privacidad y seguridad",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "es_microphone_01.jpg",
+    "label": "Micrófono",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5968726163234174
+    }
+   },
+   {
+    "image": "es_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.21071700918865421
+    }
+   },
+   {
+    "image": "es_microphone_03.jpg",
+    "label": "Reconocimiento de voz",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8470633104500381
+    }
+   },
+   {
+    "image": "es_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1603737597607366
+    }
+   },
+   {
+    "image": "es_microphone_05.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_microphone_00.jpg",
+    "label": "Confidentialité et sécurité",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "fr_microphone_01.jpg",
+    "label": "Micro",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5968726163234174
+    }
+   },
+   {
+    "image": "fr_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.21071700918865421
+    }
+   },
+   {
+    "image": "fr_microphone_03.jpg",
+    "label": "Reconnaissance vocale",
+    "tap": {
+     "x": 0.5,
+     "y": 0.872234935163997
+    }
+   },
+   {
+    "image": "fr_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1603737597607366
+    }
+   },
+   {
+    "image": "fr_microphone_05.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_microphone_00.jpg",
+    "label": "Privacy e sicurezza",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "it_microphone_01.jpg",
+    "label": "Microfono",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5808543096872617
+    }
+   },
+   {
+    "image": "it_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.21071700918865421
+    }
+   },
+   {
+    "image": "it_microphone_03.jpg",
+    "label": "Riconoscimento vocale",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8058733790999236
+    }
+   },
+   {
+    "image": "it_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1603737597607366
+    }
+   },
+   {
+    "image": "it_microphone_05.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_microphone_00.jpg",
+    "label": "プライバシーとセキュリティ",
+    "tap": {
+     "x": 0.5,
+     "y": 0.540045766590389
+    }
+   },
+   {
+    "image": "ja_microphone_01.jpg",
+    "label": "マイク",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5739893211289093
+    }
+   },
+   {
+    "image": "ja_microphone_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.2122425622016214
+    }
+   },
+   {
+    "image": "ja_microphone_03.jpg",
+    "label": "音声認識",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8241800152555302
+    }
+   },
+   {
+    "image": "ja_microphone_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.8470149253731343,
+     "y": 0.1607551480139784
+    }
+   },
+   {
+    "image": "ja_microphone_05.jpg"
+   }
+  ]
+ },
+ "siri": {
+  "ar": [
+   {
+    "image": "ar_siri_00.jpg",
+    "label": "ذكاء Apple و Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7112890922959574
+    }
+   },
+   {
+    "image": "ar_siri_01.jpg",
+    "label": "التطبيقات",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8066361556064073
+    }
+   },
+   {
+    "image": "ar_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.4680762852404643,
+     "y": 0.7810831419117663
+    }
+   },
+   {
+    "image": "ar_siri_03.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_siri_00.jpg",
+    "label": "Apple Intelligence & Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5652173913043478
+    }
+   },
+   {
+    "image": "de_siri_01.jpg",
+    "label": "Apps",
+    "tap": {
+     "x": 0.5,
+     "y": 0.799771167048055
+    }
+   },
+   {
+    "image": "de_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.8146453081970448
+    }
+   },
+   {
+    "image": "de_siri_03.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_siri_00.jpg",
+    "label": "Apple Intelligence & Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5446224256292906
+    }
+   },
+   {
+    "image": "en_siri_01.jpg",
+    "label": "Apps",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7997711692303761
+    }
+   },
+   {
+    "image": "en_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.6636155599132919
+    }
+   },
+   {
+    "image": "en_siri_03.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_siri_00.jpg",
+    "label": "Apple Intelligence y Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5148741418764302
+    }
+   },
+   {
+    "image": "es_siri_01.jpg",
+    "label": "Apps",
+    "tap": {
+     "x": 0.5,
+     "y": 0.799771167048055
+    }
+   },
+   {
+    "image": "es_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.8146453081970448
+    }
+   },
+   {
+    "image": "es_siri_03.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_siri_00.jpg",
+    "label": "Apple Intelligence et Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5652173913043478
+    }
+   },
+   {
+    "image": "fr_siri_01.jpg",
+    "label": "Apps",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7814645308924485
+    }
+   },
+   {
+    "image": "fr_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.7643020587691272
+    }
+   },
+   {
+    "image": "fr_siri_03.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_siri_00.jpg",
+    "label": "Apple Intelligence e Siri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5148741418764302
+    }
+   },
+   {
+    "image": "it_siri_01.jpg",
+    "label": "App",
+    "tap": {
+     "x": 0.5,
+     "y": 0.799771167048055
+    }
+   },
+   {
+    "image": "it_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.7643020587691272
+    }
+   },
+   {
+    "image": "it_siri_03.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_siri_00.jpg",
+    "label": "Apple IntelligenceとSiri",
+    "tap": {
+     "x": 0.5,
+     "y": 0.5148741418764302
+    }
+   },
+   {
+    "image": "ja_siri_01.jpg",
+    "label": "アプリ",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7988177000521522
+    }
+   },
+   {
+    "image": "ja_siri_02.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5319237147595357,
+     "y": 0.26372997638926443
+    }
+   },
+   {
+    "image": "ja_siri_03.jpg"
+   }
+  ]
+ }
+}
