@@ -26,6 +26,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await widget.store.saveSettings(s);
   }
 
+  static int _nearestRadius(int m) => AppSettings.leaveRadiusChoices
+      .reduce((a, b) => (a - m).abs() <= (b - m).abs() ? a : b);
+
+  static String _radiusLabel(int m) => m >= 1000 ? '${m ~/ 1000} km' : '$m m';
+
   String _hour(int h) => '${h.toString().padLeft(2, '0')}:00';
 
   Future<void> _pickHour(int current, ValueChanged<int> onPicked) async {
@@ -95,6 +100,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ],
                   ),
+                ),
+                const Divider(height: 32),
+                Text('🧺 Leave basket', style: t.titleMedium),
+                const Text('Items in the basket remind you as soon as you leave the place where you '
+                    'put them in, or your Wi-Fi drops.'),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('When I leave this place'),
+                  subtitle: Text('More than ${s.leaveRadiusMeters} m away. Needs location "Always" to work '
+                      'while Red Panda is closed.'),
+                  value: s.leaveOnPlace,
+                  onChanged: (v) => _update(s.copyWith(leaveOnPlace: v)),
+                ),
+                if (s.leaveOnPlace)
+                  Row(
+                    children: [
+                      const Text('Radius'),
+                      Expanded(
+                        child: Slider(
+                          value: AppSettings.leaveRadiusChoices.indexOf(_nearestRadius(s.leaveRadiusMeters)).toDouble(),
+                          min: 0,
+                          max: (AppSettings.leaveRadiusChoices.length - 1).toDouble(),
+                          divisions: AppSettings.leaveRadiusChoices.length - 1,
+                          label: _radiusLabel(s.leaveRadiusMeters),
+                          onChanged: (v) => setState(
+                              () => _s = s.copyWith(leaveRadiusMeters: AppSettings.leaveRadiusChoices[v.round()])),
+                          onChangeEnd: (v) =>
+                              _update(s.copyWith(leaveRadiusMeters: AppSettings.leaveRadiusChoices[v.round()])),
+                        ),
+                      ),
+                      SizedBox(width: 56, child: Text(_radiusLabel(s.leaveRadiusMeters), textAlign: TextAlign.end)),
+                    ],
+                  ),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('When my Wi-Fi drops'),
+                  subtitle: const Text('Noticed while Red Panda is open or was just in use. For a '
+                      'reliable trigger: Shortcuts > Automation > Wi-Fi > "Leaves", '
+                      'run "Remind me of my leave basket" immediately.'),
+                  value: s.leaveOnWifi,
+                  onChanged: (v) => _update(s.copyWith(leaveOnWifi: v)),
                 ),
                 const Divider(height: 32),
                 Text('Bamboo', style: t.titleMedium),

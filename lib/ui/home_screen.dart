@@ -10,6 +10,7 @@ import '../models/app_settings.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 import '../platform/compose_requests.dart';
+import '../platform/leave_basket.dart';
 import '../platform/motion.dart';
 import '../platform/reminders.dart';
 import '../platform/share.dart';
@@ -18,6 +19,7 @@ import '../storage/note_store.dart';
 import 'category_clouds.dart';
 import 'confetti.dart';
 import 'days_dial.dart';
+import 'leave_basket_button.dart';
 import 'note_editor.dart';
 import 'note_tile.dart';
 import 'panda/panda_stage.dart';
@@ -43,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   BambooWallet _wallet = const BambooWallet();
 
   String? _filterId;
+  bool _basketOnly = false;
+  LeaveStatus _leave = const LeaveStatus();
   String _query = '';
   bool _searching = false;
   bool _showSnoozed = false;
@@ -116,6 +120,113 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     _updateMood();
     if (greet) _stage.greet();
     _scheduleNag();
+    _syncBasket();
+  }
+
+  /// Hands the open basket items to the native leave reminder: arms it at
+  /// the current place when the basket gets its first item, disarms it when
+  /// the basket is empty.
+  Future<void> _syncBasket({bool rearmHere = false}) async {
+    final status = await LeaveBasket.sync(
+      titles: basketTitles(_notes, DateTime.now()),
+      radiusMeters: _settings.leaveRadiusMeters,
+      onPlace: _settings.leaveOnPlace,
+      onWifi: _settings.leaveOnWifi,
+      rearmHere: rearmHere,
+    );
+    if (mounted) setState(() => _leave = status);
+  }
+
+  Future<void> _toggleBasket(Note n) async {
+    final into = !n.leaveBasket;
+    await widget.store.save(n.copyWith(leaveBasket: into));
+    if (into) await _ensureNotifications();
+    await _reload();
+    _say(into
+        ? 'In the leave basket 🧺 The panda reminds you when you leave this place.'
+        : 'Out of the leave basket.');
+  }
+
+  Future<void> _basketSheet() async {
+    final s = _settings;
+    final count = basketTitles(_notes, DateTime.now()).length;
+    final l = _leave;
+    final triggers = [
+      if (s.leaveOnPlace) 'you move more than ${s.leaveRadiusMeters} m away',
+      if (s.leaveOnWifi) 'your Wi-Fi drops',
+    ].join(' or ');
+    final String status;
+    if (count == 0) {
+      status = 'The basket is empty. Drag items into it to be reminded about them when you leave.';
+    } else if (s.leaveOnPlace &&
+        (l.permission == LocationPermission.denied || l.permission == LocationPermission.notDetermined)) {
+      status = 'Red Panda needs your location to notice when you leave. Allow it in Settings.';
+    } else if (l.armed) {
+      final at = l.armedAt == null ? '' : ' (since ${TimeOfDay.fromDateTime(l.armedAt!).format(context)})';
+      status = 'Watching$at: you get a reminder when $triggers.';
+    } else {
+      status = 'Not watching right now. Tap "Watch from here" to start.';
+    }
+    final needsAlways = s.leaveOnPlace && count > 0 && l.permission == LocationPermission.whenInUse;
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('🧺 Leave basket · $count', style: Theme.of(ctx).textTheme.titleMedium),
+              const SizedBox(height: 8),
+              Text(status),
+              if (needsAlways) ...[
+                const SizedBox(height: 8),
+                const Text('To notice leaving while Red Panda is closed, set Location to "Always" in Settings.'),
+              ],
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  if (count > 0)
+                    FilledButton.icon(
+                      icon: const Icon(Icons.my_location),
+                      label: const Text('Watch from here'),
+                      onPressed: () => Navigator.pop(ctx, 'here'),
+                    ),
+                  if (needsAlways ||
+                      l.permission == LocationPermission.denied)
+                    OutlinedButton(
+                      onPressed: () => Navigator.pop(ctx, 'settings'),
+                      child: const Text('Open Settings'),
+                    ),
+                  if (count > 0)
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx, 'empty'),
+                      child: const Text('Empty the basket'),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    switch (action) {
+      case 'here':
+        await _syncBasket(rearmHere: true);
+        _say(_leave.armed ? 'Watching from here 📍' : "Couldn't get your location.");
+      case 'settings':
+        await LeaveBasket.openSettings();
+      case 'empty':
+        await widget.store.saveAll([
+          for (final n in _notes)
+            if (n.leaveBasket) n.copyWith(leaveBasket: false),
+        ]);
+        await _reload();
+    }
   }
 
   /// Idle panda: sleeps, or sits there sad while something is overdue.
@@ -191,11 +302,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         context,
         categories: _categories,
         initialCategoryId: _filterId,
+        initialLeaveBasket: _basketOnly,
         onTyping: _onTyping,
       );
       if (draft == null) return;
       final due = draft.days == null ? null : endOfDayIn(draft.days!, DateTime.now());
-      await widget.store.addText(draft.text, dueAt: due, categoryId: draft.categoryId);
+      final added = await widget.store.addText(draft.text, dueAt: due, categoryId: draft.categoryId);
+      if (draft.leaveBasket) await widget.store.save(added.copyWith(leaveBasket: true));
       if (due != null) await _ensureNotifications();
       await _reload();
     } finally {
@@ -217,6 +330,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       text: draft.text,
       categoryId: draft.categoryId,
       clearCategory: draft.categoryId == null,
+      leaveBasket: draft.leaveBasket,
     );
     if (draft.days == null) {
       updated = updated.copyWith(clearDue: true);
@@ -324,6 +438,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         await _reload();
       case SwipeAction.share:
         await NoteShare.share(n.title);
+      case SwipeAction.basket:
+        await _toggleBasket(n);
     }
     return false;
   }
@@ -622,7 +738,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final now = DateTime.now();
     final p = _progress;
     final visible = visibleNotes(_notes,
-        now: now, categoryId: _filterId, query: _query, showSnoozed: _showSnoozed);
+        now: now, categoryId: _filterId, query: _query, showSnoozed: _showSnoozed, basketOnly: _basketOnly);
+    final basketCount = basketTitles(_notes, now).length;
     final visibleOpen = visible.where((n) => !n.isDone).toList();
     final snoozedCount = _notes.where((n) => !n.isDone && n.isSnoozed(now)).length;
     final summary = dueSummary(_notes, now);
@@ -697,18 +814,37 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   onAdd: _addCategory,
                   onEdit: _editCategory,
                 ),
-                foreground: Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: SkyButton(
-                      filtered: _filterId != null || _query.isNotEmpty || _showSnoozed,
-                      onTap: () => setState(() {
-                        _filterId = null;
-                        _showSnoozed = false;
-                      }),
+                foreground: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: SkyButton(
+                          filtered: _filterId != null || _basketOnly || _query.isNotEmpty || _showSnoozed,
+                          onTap: () => setState(() {
+                            _filterId = null;
+                            _basketOnly = false;
+                            _showSnoozed = false;
+                          }),
+                        ),
+                      ),
                     ),
-                  ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(4, 4, 12, 8),
+                        child: LeaveBasketButton(
+                          count: basketCount,
+                          armed: _leave.armed && basketCount > 0,
+                          selected: _basketOnly,
+                          onTap: () => setState(() => _basketOnly = !_basketOnly),
+                          onLongPress: _basketSheet,
+                          onDropNote: _toggleBasket,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               _ProgressHeader(progress: p, bamboo: _wallet.balance, overdue: summary.overdue, dueToday: summary.dueToday),
@@ -719,6 +855,16 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     avatar: CircleAvatar(backgroundColor: filter.color, radius: 8),
                     label: Text('Only ${filter.name}'),
                     onDeleted: () => setState(() => _filterId = null),
+                  ),
+                ),
+              if (_basketOnly)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: InputChip(
+                    avatar: const Icon(Icons.shopping_basket_outlined, size: 18),
+                    label: const Text('Only the leave basket'),
+                    onPressed: _basketSheet,
+                    onDeleted: () => setState(() => _basketOnly = false),
                   ),
                 ),
               Expanded(
@@ -733,7 +879,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         Padding(
                           padding: const EdgeInsets.all(32),
                           child: Text(
-                            filter != null
+                            _basketOnly
+                                ? 'The leave basket is empty. Drag items onto the basket to be reminded '
+                                    'about them when you leave.'
+                                : filter != null
                                 ? 'Nothing in ${filter.name}. Drag an item onto its cloud, or tap the '
                                     '${SkyButton.isDay(now) ? 'sun' : 'moon'} to see everything.'
                                 : 'No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.',
@@ -818,6 +967,7 @@ class _SwipeBackground extends StatelessWidget {
         SwipeAction.remindLater => Icons.notifications_active_outlined,
         SwipeAction.duplicate => Icons.copy_outlined,
         SwipeAction.share => Icons.ios_share,
+        SwipeAction.basket => Icons.shopping_basket_outlined,
       };
 
   @override

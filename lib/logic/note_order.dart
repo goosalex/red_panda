@@ -12,11 +12,13 @@ List<Note> visibleNotes(
   String? categoryId,
   String query = '',
   bool showSnoozed = false,
+  bool basketOnly = false,
 }) {
   final q = query.trim().toLowerCase();
   final shown = notes.where((n) {
     if (!showSnoozed && !n.isDone && n.isSnoozed(now)) return false;
     if (categoryId != null && n.categoryId != categoryId) return false;
+    if (basketOnly && !n.leaveBasket) return false;
     if (q.isNotEmpty && !n.title.toLowerCase().contains(q)) return false;
     return true;
   }).toList();
@@ -75,6 +77,12 @@ double topRank(List<Note> notes) {
   final ranks = notes.map((n) => n.rank).whereType<double>();
   return ranks.isEmpty ? 0 : ranks.reduce((a, b) => a < b ? a : b) - 1;
 }
+
+/// Titles of the open leave-basket items, for the leave reminder.
+List<String> basketTitles(List<Note> notes, DateTime now) => [
+      for (final n in notes)
+        if (n.leaveBasket && !n.isDone && !n.isSnoozed(now)) n.title,
+    ];
 
 /// Counts for the sad-panda nagging.
 ({int open, int overdue, int dueToday}) dueSummary(List<Note> notes, DateTime now) {

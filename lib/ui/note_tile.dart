@@ -95,6 +95,14 @@ class NoteTile extends StatelessWidget {
                 ),
                 if (note.kind == NoteKind.voice)
                   Icon(Icons.mic_none, size: 18, color: scheme.onSurfaceVariant),
+                if (note.leaveBasket && !done)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: Tooltip(
+                      message: 'In the leave basket',
+                      child: Icon(Icons.shopping_basket_outlined, size: 18, color: scheme.onSurfaceVariant),
+                    ),
+                  ),
                 if (note.dueAt != null && !done) DeadlineBadge(note: note, now: now),
                 if (!done)
                   _DragHandle(note: note, onDragUpdate: onDragUpdate, onDragEnd: onDragEnd)

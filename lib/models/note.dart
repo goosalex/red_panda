@@ -23,6 +23,7 @@ class Note {
     this.categoryId,
     this.snoozedUntil,
     this.remindAt,
+    this.leaveBasket = false,
   });
 
   final String id;
@@ -50,6 +51,9 @@ class Note {
 
   /// One-off "remind me later" notification time.
   final DateTime? remindAt;
+
+  /// In the leave basket: remind me when I leave this place or my Wi-Fi.
+  final bool leaveBasket;
 
   bool get isDone => doneAt != null;
 
@@ -87,6 +91,7 @@ class Note {
     bool clearSnooze = false,
     DateTime? remindAt,
     bool clearRemind = false,
+    bool? leaveBasket,
   }) =>
       Note(
         id: id,
@@ -101,6 +106,7 @@ class Note {
         categoryId: clearCategory ? null : (categoryId ?? this.categoryId),
         snoozedUntil: clearSnooze ? null : (snoozedUntil ?? this.snoozedUntil),
         remindAt: clearRemind ? null : (remindAt ?? this.remindAt),
+        leaveBasket: leaveBasket ?? this.leaveBasket,
       );
 
   /// A fresh copy (new id, not done, no snooze) for "Duplicate".
@@ -112,6 +118,7 @@ class Note {
         rank: rank == null ? null : rank! + 0.5,
         dueAt: dueAt,
         categoryId: categoryId,
+        leaveBasket: leaveBasket,
       );
 
   static DateTime? _date(Object? v) => v == null ? null : DateTime.parse(v as String);
@@ -130,6 +137,7 @@ class Note {
         categoryId: j['categoryId'] as String?,
         snoozedUntil: _date(j['snoozedUntil']),
         remindAt: _date(j['remindAt']),
+        leaveBasket: j['leaveBasket'] == true,
       );
 
   Map<String, dynamic> toJson() => {
@@ -145,6 +153,7 @@ class Note {
         if (categoryId != null) 'categoryId': categoryId,
         if (snoozedUntil != null) 'snoozedUntil': _iso(snoozedUntil!),
         if (remindAt != null) 'remindAt': _iso(remindAt!),
+        if (leaveBasket) 'leaveBasket': true,
       };
 }
 

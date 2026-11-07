@@ -9,6 +9,9 @@ import UIKit
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    // Re-open the leave basket's location monitor: a "left the place" event
+    // may be why iOS launched us in the background.
+    LeaveBasket.shared.start()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
@@ -76,6 +79,27 @@ import UIKit
       case "reloadWidgets":
         Reminders.reloadWidgets()
         result(nil)
+      case "leaveBasketSync":
+        // {titles, radius, onPlace, onWifi, rearmHere}; see lib/platform/leave_basket.dart.
+        let args = call.arguments as? [String: Any] ?? [:]
+        Task { @MainActor in
+          result(
+            await LeaveBasket.shared.sync(
+              titles: args["titles"] as? [String] ?? [],
+              radius: args["radius"] as? Int ?? 50,
+              onPlace: args["onPlace"] as? Bool ?? true,
+              onWifi: args["onWifi"] as? Bool ?? true,
+              rearmHere: args["rearmHere"] as? Bool ?? false))
+        }
+      case "leaveBasketStatus":
+        Task { @MainActor in result(LeaveBasket.shared.status()) }
+      case "openAppSettings":
+        Task { @MainActor in
+          if let url = URL(string: UIApplication.openSettingsURLString) {
+            await UIApplication.shared.open(url)
+          }
+          result(nil)
+        }
       case "share":
         // {text}: the system share sheet for one item (swipe action "Share").
         let text = (call.arguments as? [String: Any])?["text"] as? String ?? ""
