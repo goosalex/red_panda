@@ -265,9 +265,10 @@ class CloudPainter extends CustomPainter {
       old.color != color || old.outline != outline || old.dashed != dashed;
 }
 
-/// Sun by day, moon by night, in the corner of the stage. Tapping it clears
-/// all filters and shows every item, by importance or deadline.
-class SkyButton extends StatelessWidget {
+/// Sun by day, moon by night (with twinkling stars), in the corner of the
+/// stage. Tapping it clears all filters and shows every item, by importance
+/// or deadline.
+class SkyButton extends StatefulWidget {
   const SkyButton({super.key, required this.onTap, required this.filtered, this.now});
   final VoidCallback onTap;
   final bool filtered;
@@ -276,8 +277,46 @@ class SkyButton extends StatelessWidget {
   static bool isDay(DateTime t) => t.hour >= 6 && t.hour < 19;
 
   @override
+  State<SkyButton> createState() => _SkyButtonState();
+}
+
+class _SkyButtonState extends State<SkyButton> with SingleTickerProviderStateMixin {
+  late final _twinkle = AnimationController(vsync: this, duration: const Duration(seconds: 3));
+
+  bool get _day => SkyButton.isDay(widget.now ?? DateTime.now());
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _animate();
+  }
+
+  @override
+  void didUpdateWidget(SkyButton old) {
+    super.didUpdateWidget(old);
+    _animate(); // rebuilt after dusk or dawn
+  }
+
+  /// Twinkles only at night, and not with Reduce Motion.
+  void _animate() {
+    final still = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    if (_day || still) {
+      _twinkle.stop();
+      _twinkle.value = 0.25;
+    } else if (!_twinkle.isAnimating) {
+      _twinkle.repeat();
+    }
+  }
+
+  @override
+  void dispose() {
+    _twinkle.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final day = isDay(now ?? DateTime.now());
+    final day = _day;
     return Semantics(
       button: true,
       label: day ? 'Sun' : 'Moon',
@@ -285,14 +324,14 @@ class SkyButton extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           HapticFeedback.lightImpact();
-          onTap();
+          widget.onTap();
         },
         child: AnimatedScale(
-          scale: filtered ? 1.15 : 1,
+          scale: widget.filtered ? 1.15 : 1,
           duration: const Duration(milliseconds: 200),
           child: SizedBox.square(
             dimension: 44,
-            child: CustomPaint(painter: _SkyPainter(day: day, glow: filtered)),
+            child: CustomPaint(painter: SkyPainter(day: day, glow: widget.filtered, twinkle: _twinkle)),
           ),
         ),
       ),
@@ -300,10 +339,26 @@ class SkyButton extends StatelessWidget {
   }
 }
 
-class _SkyPainter extends CustomPainter {
-  _SkyPainter({required this.day, required this.glow});
+/// A star near the moon: where (in moon radii from the centre), how big, and
+/// when in the twinkle cycle it shines brightest.
+typedef Star = ({Offset at, double size, double phase});
+
+class SkyPainter extends CustomPainter {
+  SkyPainter({required this.day, required this.glow, required this.twinkle}) : super(repaint: twinkle);
   final bool day;
   final bool glow;
+  final Animation<double> twinkle;
+
+  static const stars = <Star>[
+    (at: Offset(1.35, 0.95), size: 2.6, phase: 0.0),
+    (at: Offset(0.95, -1.45), size: 2.1, phase: 0.35),
+    (at: Offset(-1.55, -1.15), size: 1.8, phase: 0.6),
+    (at: Offset(1.75, -0.35), size: 1.5, phase: 0.8),
+    (at: Offset(-1.25, 1.45), size: 1.6, phase: 0.15),
+  ];
+
+  /// 0..1 brightness of a star at time t (0..1 through the cycle).
+  static double brightness(double phase, double t) => 0.5 + 0.5 * math.sin(2 * math.pi * (t + phase));
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -339,12 +394,34 @@ class _SkyPainter extends CustomPainter {
         Path()..addOval(Rect.fromCircle(center: c + Offset(r * 0.6, -r * 0.35), radius: r)),
       );
       canvas.drawPath(moon, Paint()..color = const Color(0xFFF3E7B5));
-      final star = Paint()..color = const Color(0xFFF3E7B5);
-      canvas.drawCircle(c + Offset(r * 1.3, r * 0.9), 1.4, star);
-      canvas.drawCircle(c + Offset(r * 0.9, -r * 1.4), 1.1, star);
+      for (final s in stars) {
+        final b = brightness(s.phase, twinkle.value);
+        _sparkle(canvas, c + s.at * r, s.size * (0.6 + 0.6 * b), 0.25 + 0.75 * b);
+      }
     }
   }
 
+  /// A four-pointed star with a soft halo.
+  void _sparkle(Canvas canvas, Offset p, double s, double alpha) {
+    const color = Color(0xFFF2C94C); // warm gold: visible on the light stage too
+    canvas.drawCircle(
+      p,
+      s * 1.4,
+      Paint()
+        ..color = color.withValues(alpha: alpha * 0.35)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2),
+    );
+    final w = s * 0.32;
+    final path = Path()
+      ..moveTo(p.dx, p.dy - s * 1.6)
+      ..quadraticBezierTo(p.dx + w, p.dy - w, p.dx + s * 1.6, p.dy)
+      ..quadraticBezierTo(p.dx + w, p.dy + w, p.dx, p.dy + s * 1.6)
+      ..quadraticBezierTo(p.dx - w, p.dy + w, p.dx - s * 1.6, p.dy)
+      ..quadraticBezierTo(p.dx - w, p.dy - w, p.dx, p.dy - s * 1.6)
+      ..close();
+    canvas.drawPath(path, Paint()..color = color.withValues(alpha: alpha));
+  }
+
   @override
-  bool shouldRepaint(_SkyPainter old) => old.day != day || old.glow != glow;
+  bool shouldRepaint(SkyPainter old) => old.day != day || old.glow != glow || old.twinkle != twinkle;
 }
