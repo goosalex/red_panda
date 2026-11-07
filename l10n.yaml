@@ -1,0 +1,8 @@
+# Flutter app texts: lib/l10n/app_<lang>.arb (English is the template).
+# Every key exists in all seven languages; see lib/l10n/README.md.
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+output-dir: lib/l10n/gen
+nullable-getter: true
+required-resource-attributes: false
