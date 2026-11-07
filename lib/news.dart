@@ -10,6 +10,9 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.3.1', 5, [
+    'Widgets count notes shared from other apps straight away',
+  ]),
   NewsEntry('0.3.0', 4, [
     'iCloud sync across your devices',
     "Panda's basket: control, Siri and widget button",

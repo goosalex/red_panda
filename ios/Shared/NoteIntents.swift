@@ -1,5 +1,6 @@
 import AppIntents
 import Foundation
+import WidgetKit
 
 /// Text note: system prompts for the text (type or dictate), works while locked.
 struct CaptureTextNoteIntent: AppIntent {
@@ -14,7 +15,9 @@ struct CaptureTextNoteIntent: AppIntent {
   init() {}
 
   func perform() async throws -> some IntentResult & ProvidesDialog {
-    try NoteStore.saveText(text)
+    let note = try NoteStore.saveText(text)
+    WidgetCache.didSave([note])
+    WidgetCenter.shared.reloadAllTimelines()
     return .result(dialog: "Saved. The panda is happy.")
   }
 }

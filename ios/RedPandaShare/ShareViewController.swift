@@ -71,6 +71,7 @@ final class ShareModel: ObservableObject {
     // timestamp so the list shows the shared order. Whole seconds, because
     // NoteStore.write encodes dates without fractional seconds.
     let now = Date()
+    var saved: [StoredNote] = []
     do {
       for (i, text) in texts.enumerated() {
         var note = StoredNote(
@@ -78,11 +79,14 @@ final class ShareModel: ObservableObject {
           kind: "text", text: text)
         if leaveBasket { note.leaveBasket = true }
         try NoteStore.write(note)
+        saved.append(note)
       }
     } catch {
       self.error = "Couldn't save: \(error.localizedDescription)"
       return
     }
+    // Cache first: the reload may only run once the iPhone is locked again.
+    WidgetCache.didSave(saved)
     WidgetCenter.shared.reloadAllTimelines()
     phase = .added
     Task {

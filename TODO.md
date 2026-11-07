@@ -73,3 +73,7 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [x] Info (blue "i") on why the leave basket needs "Always" location, and why it costs no battery or privacy
 - [x] Quick capture: settings links and a rendered preview for every spot
 - [x] Settings > Panda > News with a one-line summary per version and a link to its PR
+
+## 0.3.1
+
+- [x] Fix: notes added via Share (and Siri / Action Button) now update the widgets' open count, also on the Lock Screen
