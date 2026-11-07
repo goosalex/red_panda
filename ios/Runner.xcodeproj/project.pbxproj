@@ -37,6 +37,7 @@
 		AD4BE059DECB4888708B373D /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		B0F75AEDCC33391873FE46D2 /* RedPandaShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */; };
 		B734EAF694EACB16200C7A4A /* LeaveBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30314E0F7955E9156306AB /* LeaveBasket.swift */; };
+		C10D5A1E2B3C4D5E6F708192 /* ICloudSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */; };
 		C34059417177181D1DD36363 /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
 		C51A57052BE6412C6B02C667 /* SharedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407C6EB7625969BF31F5D77 /* SharedText.swift */; };
 		C9C31423FDB374360180E262 /* PandaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5BED17B790374C085BBC7 /* PandaWidget.swift */; };
@@ -114,6 +115,7 @@
 		4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceLiveActivity.swift; sourceTree = "<group>"; };
 		56547D8A827EE3C74F9DE06D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedPandaShortcuts.swift; sourceTree = "<group>"; };
+		C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ICloudSync.swift; sourceTree = "<group>"; };
 		5A30314E0F7955E9156306AB /* LeaveBasket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LeaveBasket.swift; sourceTree = "<group>"; };
 		5B98CCBB9A04DA65818D9817 /* NoteStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceRecorder.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				ECE2B21416617BF8125F0198 /* Reminders.swift */,
 				960C28C0F3E1233276D693F7 /* Motion.swift */,
 				5A30314E0F7955E9156306AB /* LeaveBasket.swift */,
+				C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				9A92C17A83F83767CF09E4EE /* Motion.swift in Sources */,
 				AD4BE059DECB4888708B373D /* WidgetCache.swift in Sources */,
 				B734EAF694EACB16200C7A4A /* LeaveBasket.swift in Sources */,
+				C10D5A1E2B3C4D5E6F708192 /* ICloudSync.swift in Sources */,
 				59F5F3114E1942ECC6719092 /* SharedText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

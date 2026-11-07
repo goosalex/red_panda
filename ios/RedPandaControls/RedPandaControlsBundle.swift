@@ -7,6 +7,7 @@ struct RedPandaControlsBundle: WidgetBundle {
     PandaWidget()
     TextNoteControl()
     VoiceNoteControl()
+    BasketControl()
     VoiceLiveActivity()
   }
 }

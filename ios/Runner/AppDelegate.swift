@@ -28,6 +28,15 @@ import UIKit
       case "takeCompose":
         // Set by the Text note control (OpenComposeIntent).
         result(ComposeRequest.take())
+      case "takeBasket":
+        // Set by the Panda's basket control / widget button (OpenBasketIntent).
+        result(ComposeRequest.takeBasket())
+      case "cloudContainer":
+        // iCloud sync folder or nil (lib/storage/cloud_sync.dart).
+        Task { @MainActor in result(await ICloudSync.shared.folder()) }
+      case "cloudStop":
+        ICloudSync.shared.stop()
+        result(nil)
       case "transcribePending":
         // Called by Flutter on start/resume; asks for the microphone and
         // Speech permissions the first time (prompts need the app in front).
@@ -150,5 +159,6 @@ import UIKit
     ComposeRequest.onRequest = { channel.invokeMethod("compose", arguments: nil) }
     Transcriber.onNotesChanged = { channel.invokeMethod("notesChanged", arguments: nil) }
     VoiceRecorder.onStateChanged = { channel.invokeMethod("recordingChanged", arguments: nil) }
+    ICloudSync.onChanged = { channel.invokeMethod("cloudChanged", arguments: nil) }
   }
 }

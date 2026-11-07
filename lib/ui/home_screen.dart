@@ -15,6 +15,7 @@ import '../platform/motion.dart';
 import '../platform/reminders.dart';
 import '../platform/share.dart';
 import '../platform/voice_recording.dart';
+import '../storage/cloud_sync.dart';
 import '../storage/note_store.dart';
 import 'category_clouds.dart';
 import 'confetti.dart';
@@ -54,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   Stream<Offset>? _tilt;
   Timer? _autoScroll;
   Timer? _nagDebounce;
+  Timer? _cloudDebounce;
+  late final _cloud = CloudSyncController(widget.store);
 
   /// Set while a voice note records (from the mic button or the control).
   DateTime? _recordingSince;
@@ -68,15 +71,21 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     ComposeRequests.listen(_checkCompose,
-        onNotesChanged: _reload, onRecordingChanged: _syncRecording);
+        onNotesChanged: _reload, onRecordingChanged: _syncRecording, onCloudChanged: _cloudSync);
+    widget.store.onChanged = _cloudSoon;
     _syncRecording();
-    _reload(greet: true).then((_) => _checkCompose());
+    _reload(greet: true).then((_) {
+      _checkCompose();
+      _cloudSync();
+    });
     Transcripts.transcribePending();
   }
 
   @override
   void dispose() {
     ComposeRequests.stopListening();
+    widget.store.onChanged = null;
+    _cloudDebounce?.cancel();
     _ticker?.cancel();
     _autoScroll?.cancel();
     _nagDebounce?.cancel();
@@ -90,11 +99,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // Notes captured from the Lock Screen land on disk while we are away.
     if (state == AppLifecycleState.resumed) {
-      _reload(greet: true);
+      _reload(greet: true).then((_) => _cloudSync());
       _checkCompose();
       _syncRecording();
       Transcripts.transcribePending();
     }
+  }
+
+  // ------------------------------------------------------------ iCloud sync
+
+  /// Syncs with iCloud; reloads when another device changed something.
+  Future<void> _cloudSync() async {
+    final changed = await _cloud.run(enabled: _settings.icloudSync);
+    if (changed && mounted) await _reload();
+  }
+
+  /// After a local edit: sync once the burst of writes is over.
+  void _cloudSoon() {
+    _cloudDebounce?.cancel();
+    _cloudDebounce = Timer(const Duration(seconds: 3), _cloudSync);
   }
 
   // ---------------------------------------------------------------- loading
@@ -280,7 +303,22 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     // Always take (clear) the request, so a tap while the sheet is already
     // open doesn't reopen it later.
     final wanted = await ComposeRequests.take();
+    final basket = await ComposeRequests.takeBasket();
+    if (basket && mounted) await _showBasket();
     if (wanted && !_composing && mounted) await _addText();
+  }
+
+  /// "Panda's basket" control / widget button: the list shows only the
+  /// basket's items; an empty basket explains itself.
+  Future<void> _showBasket() async {
+    Navigator.of(context).popUntil((r) => r.isFirst);
+    setState(() {
+      _basketOnly = true;
+      _filterId = null;
+      _searching = false;
+      _query = '';
+    });
+    if (basketTitles(_notes, DateTime.now()).isEmpty) await _basketSheet();
   }
 
   void _onTyping(bool typing) {
@@ -775,7 +813,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 tooltip: 'Settings',
                 onPressed: () async {
                   await Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => SettingsScreen(store: widget.store)));
+                      MaterialPageRoute(builder: (_) => SettingsScreen(store: widget.store, cloud: _cloud)));
                   await _reload();
                 },
               ),

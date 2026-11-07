@@ -1,10 +1,13 @@
+import AppIntents
 import SwiftUI
 import UIKit
 import WidgetKit
 
 // Lock Screen (inline above the clock, rectangular / circular below it) and
 // Home Screen / StandBy widget: the panda's mood plus what is due next.
-// Reloaded by the app via Reminders.reloadWidgets().
+// Reloaded by the app via Reminders.reloadWidgets(). The Home Screen sizes
+// carry quick actions: Panda's basket (small), plus text and voice note
+// (medium).
 
 enum PandaMood {
   case sleeping, curious, excited, sad
@@ -201,8 +204,11 @@ private let pandaRed = Color(red: 0.80, green: 0.33, blue: 0.16)
 private let cream = Color(red: 1.0, green: 0.96, blue: 0.90)
 
 struct PandaWidgetView: View {
-  @Environment(\.widgetFamily) private var family
+  @Environment(\.widgetFamily) private var environmentFamily
   let entry: PandaEntry
+  /// Renders a given size outside WidgetKit (tool/previews).
+  var familyOverride: WidgetFamily? = nil
+  private var family: WidgetFamily { familyOverride ?? environmentFamily }
 
   var body: some View {
     content.containerBackground(for: .widget) {
@@ -274,6 +280,7 @@ struct PandaWidgetView: View {
         if entry.overdueCount > 0 {
           Image(systemName: "alarm.fill").foregroundStyle(pandaRed)
         }
+        QuickButton(intent: OpenBasketIntent(), glyph: "redpanda.basket", label: "Panda's basket")
       }
       Text(entry.mood.headline)
         .font(.caption.weight(.semibold)).foregroundStyle(pandaRed).lineLimit(1)
@@ -289,14 +296,14 @@ struct PandaWidgetView: View {
   }
 
   private var medium: some View {
-    HStack(spacing: 12) {
+    HStack(spacing: 10) {
       VStack(spacing: 4) {
-        PandaImage(mood: entry.mood).frame(width: 80, height: 80)
+        PandaImage(mood: entry.mood).frame(width: 74, height: 74)
         Text(entry.mood.headline)
           .font(.caption2.weight(.semibold)).foregroundStyle(pandaRed)
           .multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
       }
-      .frame(width: 96)
+      .frame(width: 84)
       VStack(alignment: .leading, spacing: 6) {
         Text(entry.countsLine).font(.subheadline.weight(.semibold))
         if entry.top.isEmpty {
@@ -309,8 +316,33 @@ struct PandaWidgetView: View {
         Spacer(minLength: 0)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
+      VStack(spacing: 6) {
+        QuickButton(intent: OpenComposeIntent(), glyph: "redpanda.note", label: "Text note")
+        QuickButton(intent: StartVoiceNoteIntent(), glyph: "redpanda.voice", label: "Voice note")
+        QuickButton(intent: OpenBasketIntent(), glyph: "redpanda.basket", label: "Panda's basket")
+      }
     }
     .foregroundStyle(.black)
+  }
+}
+
+/// Round quick-action button on the Home Screen widget.
+private struct QuickButton<I: AppIntent>: View {
+  let intent: I
+  let glyph: String
+  let label: String
+
+  var body: some View {
+    Button(intent: intent) {
+      Image(glyph)
+        .symbolRenderingMode(.hierarchical)
+        .font(.system(size: 16, weight: .regular))
+        .foregroundStyle(pandaRed)
+        .frame(width: 30, height: 30)
+        .background(Circle().fill(pandaRed.opacity(0.14)))
+    }
+    .buttonStyle(.plain)
+    .accessibilityLabel(label)
   }
 }
 

@@ -64,3 +64,12 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 
 - [x] Settings collapse to one line each; choices open in a drawer, the leave basket and quick capture on their own pages
 - [x] Direct links into the Shortcuts app to wire Wi-Fi and location automations to "Remind me of my leave basket"
+
+## 0.3.0
+
+- [x] iCloud sync of notes, voice notes, categories and bamboo (Settings > iCloud sync; settings stay per device)
+- [x] "Show Panda's basket" as a control (Lock Screen, Control Centre, Action Button), Siri phrase and Home Screen widget button, with a basket glyph
+- [x] Text and voice note glyphs with a light grey panda behind them
+- [x] Info (blue "i") on why the leave basket needs "Always" location, and why it costs no battery or privacy
+- [x] Quick capture: settings links and a rendered preview for every spot
+- [x] Settings > Panda > News with a one-line summary per version and a link to its PR

@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../gamification/bamboo.dart';
 import '../models/app_settings.dart';
+import '../news.dart';
 import '../platform/leave_basket.dart';
 import '../platform/shortcuts_links.dart';
+import '../storage/cloud_sync.dart';
 import '../storage/note_store.dart';
 
 /// Settings: one line per setting. Choices open in a drawer (bottom sheet),
 /// groups (leave basket, quick capture) on their own page.
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, required this.store});
+  const SettingsScreen({super.key, required this.store, this.cloud});
   final NoteStore store;
+
+  /// The home screen's iCloud sync (status, switching it on and off).
+  final CloudSyncController? cloud;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -61,6 +66,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (n != null) await _update(_s!.copyWith(nagIntensity: n));
   }
 
+  Future<void> _pickCloud(AppSettings s) async {
+    final on = await showSettingsDrawer<bool>(
+      context,
+      title: 'iCloud sync',
+      note: 'Notes, voice notes, categories and bamboo sync through your iCloud Drive to every '
+          'iPhone and iPad signed in to the same Apple Account. Settings stay on each device.',
+      builder: (ctx) => [
+        _ChoiceTile(selected: s.icloudSync, title: 'On', onTap: () => Navigator.pop(ctx, true)),
+        _ChoiceTile(selected: !s.icloudSync, title: 'Off', onTap: () => Navigator.pop(ctx, false)),
+      ],
+    );
+    if (on == null) return;
+    await _update(_s!.copyWith(icloudSync: on));
+    await widget.cloud?.run(enabled: on);
+  }
+
   Future<void> _pickHour(int current, AppSettings Function(int h) apply) async {
     final t = await showTimePicker(
       context: context,
@@ -94,9 +115,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (mounted) setState(() {});
   }
 
+  void _openQuickCapture() => Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) => QuickCapturePage(
+          onNagSettings: () => _pickNag(_s!),
+          onBasketSettings: _openBasket,
+        ),
+      ));
+
   @override
   Widget build(BuildContext context) {
     final s = _s;
+    final cloud = widget.cloud?.status ?? ValueNotifier(const CloudStatus(CloudState.off));
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
       body: s == null
@@ -104,6 +133,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
           : ListView(
               children: [
                 const _Header('List'),
+                ValueListenableBuilder(
+                  valueListenable: cloud,
+                  builder: (_, st, _) => SettingRow(
+                    icon: Icons.cloud_outlined,
+                    title: 'iCloud sync',
+                    value: s.icloudSync ? st.label : 'Off',
+                    warn: s.icloudSync && (st.state == CloudState.unavailable || st.state == CloudState.failed),
+                    onTap: () => _pickCloud(s),
+                  ),
+                ),
                 SettingRow(
                   icon: Icons.swipe_right_outlined,
                   title: 'Swipe right',
@@ -148,8 +187,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'Quick capture',
                   value: 'Lock Screen, Siri…',
                   page: true,
-                  onTap: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => const QuickCapturePage())),
+                  onTap: _openQuickCapture,
+                ),
+                SettingRow(
+                  icon: Icons.campaign_outlined,
+                  title: 'News',
+                  value: 'Version ${news.first.version}',
+                  page: true,
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NewsPage())),
                 ),
               ],
             ),
@@ -276,6 +321,13 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
             external: true,
             onTap: LeaveBasket.openSettings,
           ),
+          SettingRow(
+            icon: Icons.info,
+            iconColor: Colors.blue,
+            title: 'Why "Always"?',
+            value: 'No tracking',
+            onTap: () => showLocationInfo(context),
+          ),
           const _Header('Shortcuts automations'),
           const _Note('Red Panda only notices a Wi-Fi drop while it is open or was just in use. A '
               'Shortcuts automation catches it any time, and can watch a fixed place like home.'),
@@ -355,46 +407,195 @@ Future<void> showAutomationGuide(BuildContext context, AutomationGuide g) => sho
       ],
     );
 
+/// Why the leave basket asks for "Always" location access, and why that
+/// costs neither battery nor privacy.
+Future<void> showLocationInfo(BuildContext context) => showSettingsDrawer<void>(
+      context,
+      title: 'Why "Always" location?',
+      builder: (_) => const [
+        _InfoPoint(Icons.door_front_door_outlined, 'Only to notice you leaving',
+            'With "While using", iOS tells Red Panda nothing once it is closed, so the basket could only '
+                'remind you while the app is open. "Always" lets iOS wake Red Panda the moment you leave.'),
+        _InfoPoint(Icons.battery_full, 'No battery drain',
+            'Red Panda does not follow you. It asks iOS once for where you are and draws one circle '
+                'around it. iOS watches that circle with the cell and Wi-Fi signals it uses anyway, and '
+                'Red Panda sleeps until you cross the edge. Then the circle is removed.'),
+        _InfoPoint(Icons.lock_outline, 'Your location stays on your iPhone',
+            'Red Panda has no server and sends your location nowhere. Only the circle\'s centre is '
+                'kept, on this device, until the reminder fires. iCloud sync never includes it.'),
+        _InfoPoint(Icons.wifi_off, 'Wi-Fi needs no location',
+            'The "Wi-Fi drops" trigger works without location access.'),
+      ],
+    );
+
+class _InfoPoint extends StatelessWidget {
+  const _InfoPoint(this.icon, this.title, this.body);
+  final IconData icon;
+  final String title;
+  final String body;
+
+  @override
+  Widget build(BuildContext context) => ListTile(
+        leading: Icon(icon, color: Colors.blue),
+        title: Text(title),
+        subtitle: Text(body),
+      );
+}
+
+/// A quick-capture spot: where to add Red Panda, a preview of how it looks
+/// there, and links to the settings it uses.
+class CaptureSpot {
+  const CaptureSpot(this.icon, this.title, this.how, this.image, [this.links = const []]);
+  final IconData icon;
+  final String title;
+  final String how;
+
+  /// Preview image in assets/quick_capture/ (rendered from the real widgets).
+  final String image;
+  final List<CaptureLink> links;
+}
+
+enum CaptureLink {
+  microphone('Microphone & Speech access', Icons.mic_none, external: true),
+  siri('Siri & Search', Icons.record_voice_over_outlined, external: true),
+  nag('Sad panda reminders', Icons.notifications_outlined),
+  basket('Leave basket', Icons.shopping_basket_outlined);
+
+  const CaptureLink(this.label, this.icon, {this.external = false});
+  final String label;
+  final IconData icon;
+
+  /// Opens Red Panda's page in the iOS Settings app (not an in-app page).
+  final bool external;
+}
+
 /// Where to put Red Panda's quick-capture buttons; one line each until opened.
 class QuickCapturePage extends StatelessWidget {
-  const QuickCapturePage({super.key});
+  const QuickCapturePage({super.key, this.onNagSettings, this.onBasketSettings, this.open});
 
-  static const _steps = [
-    (
+  /// Title of a spot to show unfolded.
+  final String? open;
+  final VoidCallback? onNagSettings;
+  final VoidCallback? onBasketSettings;
+
+  static const spots = [
+    CaptureSpot(
       Icons.lock_outline,
       'Lock Screen buttons',
       'Long-press the Lock Screen, tap Customise > Lock Screen, tap a control slot at the bottom and '
-          'pick Red Panda > Text note or Voice note.',
+          "pick Red Panda > Text note, Voice note or Show Panda's basket.",
+      'lock_screen',
+      [CaptureLink.microphone],
     ),
-    (
+    CaptureSpot(
       Icons.widgets_outlined,
       'Widgets',
       'Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add '
           'the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > '
-          'Add Widget and search "Red Panda".',
+          "Add Widget and search \"Red Panda\": its buttons add a note or show Panda's basket.",
+      'widgets',
+      [CaptureLink.nag, CaptureLink.basket],
     ),
-    (Icons.tune, 'Control Centre', 'Open Control Centre, tap +, Add a Control, search "Red Panda".'),
-    (
+    CaptureSpot(
+      Icons.tune,
+      'Control Centre',
+      'Open Control Centre, tap +, Add a Control, search "Red Panda".',
+      'control_centre',
+      [CaptureLink.microphone, CaptureLink.basket],
+    ),
+    CaptureSpot(
       Icons.radio_button_checked,
       'Action Button',
-      'Settings > Action Button > Controls, then choose Red Panda > Text note or Voice note.',
+      "Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show "
+          "Panda's basket.",
+      'action_button',
+      [CaptureLink.microphone],
     ),
-    (Icons.record_voice_over_outlined, 'Siri', 'Say "Note with Red Panda" or "Voice note with Red Panda".'),
+    CaptureSpot(
+      Icons.record_voice_over_outlined,
+      'Siri',
+      'Say "Note with Red Panda", "Voice note with Red Panda" or "Show my Red Panda basket".',
+      'siri',
+      [CaptureLink.siri],
+    ),
   ];
+
+  void _open(BuildContext context, CaptureLink l) {
+    switch (l) {
+      case CaptureLink.microphone || CaptureLink.siri:
+        LeaveBasket.openSettings();
+      case CaptureLink.nag:
+        onNagSettings?.call();
+      case CaptureLink.basket:
+        onBasketSettings?.call();
+    }
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Quick capture')),
         body: ListView(
           children: [
-            for (final (icon, title, body) in _steps)
+            for (final spot in spots)
               ExpansionTile(
-                leading: Icon(icon),
-                title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
-                childrenPadding: const EdgeInsets.fromLTRB(72, 0, 16, 12),
-                expandedAlignment: Alignment.centerLeft,
-                children: [Text(body)],
+                initiallyExpanded: spot.title == open,
+                leading: Icon(spot.icon),
+                title: Text(spot.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.asset(
+                      'assets/quick_capture/${spot.image}.png',
+                      height: 150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      semanticLabel: '${spot.title} preview',
+                      errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(spot.how),
+                  for (final l in spot.links)
+                    TextButton.icon(
+                      icon: Icon(l.icon, size: 18),
+                      label: Text(l.label),
+                      iconAlignment: IconAlignment.start,
+                      onPressed: () => _open(context, l),
+                    ),
+                ],
               ),
+          ],
+        ),
+      );
+}
+
+/// What's new per version, with a link to each pull request.
+class NewsPage extends StatelessWidget {
+  const NewsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('News')),
+        body: ListView(
+          children: [
+            for (final (i, n) in news.indexed) ...[
+              ListTile(
+                title: Text('Version ${n.version}${i == 0 ? ' · new' : ''}',
+                    style: Theme.of(context).textTheme.titleMedium),
+                trailing: TextButton.icon(
+                  icon: const Icon(Icons.open_in_new, size: 16),
+                  label: Text('PR #${n.pr}'),
+                  onPressed: () => ShortcutsLinks.openExternal(n.url),
+                ),
+              ),
+              for (final item in n.items)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 0, 16, 6),
+                  child: Text('• $item'),
+                ),
+            ],
           ],
         ),
       );
@@ -413,9 +614,11 @@ class SettingRow extends StatelessWidget {
     this.external = false,
     this.enabled = true,
     this.warn = false,
+    this.iconColor,
   });
 
   final IconData icon;
+  final Color? iconColor;
   final String title;
   final String value;
   final VoidCallback onTap;
@@ -434,7 +637,7 @@ class SettingRow extends StatelessWidget {
     final valueStyle = TextStyle(color: warn ? scheme.error : scheme.onSurfaceVariant);
     return ListTile(
       enabled: enabled,
-      leading: Icon(icon),
+      leading: Icon(icon, color: enabled ? iconColor : null),
       title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,

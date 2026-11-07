@@ -38,17 +38,47 @@ struct OpenComposeIntent: AppIntent {
   }
 }
 
-/// Hand-off from OpenComposeIntent to the Flutter UI (see AppDelegate).
+/// Panda's basket control and widget button: opens the app showing only the
+/// leave basket's items. Compiled into the app and the extension, like
+/// OpenComposeIntent.
+struct OpenBasketIntent: AppIntent {
+  static let title: LocalizedStringResource = "Show Panda's basket"
+  static let description = IntentDescription("Open Red Panda on your leave basket.")
+  static let openAppWhenRun: Bool = true
+
+  init() {}
+
+  @MainActor
+  func perform() async throws -> some IntentResult {
+    ComposeRequest.requestBasket()
+    return .result()
+  }
+}
+
+/// Hand-off from OpenComposeIntent / OpenBasketIntent to the Flutter UI
+/// (see AppDelegate).
 /// The flag covers a cold start, where the intent can run before Flutter is up;
 /// Dart takes it on start/resume and whenever onRequest pings it.
 @MainActor
 enum ComposeRequest {
   private static var pending = false
+  private static var pendingBasket = false
   static var onRequest: (() -> Void)?
 
   static func request() {
     pending = true
     onRequest?()
+  }
+
+  static func requestBasket() {
+    pendingBasket = true
+    onRequest?()
+  }
+
+  /// Returns whether a basket request was waiting, and clears it.
+  static func takeBasket() -> Bool {
+    defer { pendingBasket = false }
+    return pendingBasket
   }
 
   /// Returns whether a compose request was waiting, and clears it.
