@@ -1,4 +1,26 @@
 {
   "@@locale": "ja",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "明日までスヌーズ",
+  "swipeSnoozeInfo": "明日の朝まで項目を隠します。竹を使います。",
+  "swipePostpone": "期限を1日延ばす",
+  "swipePostponeInfo": "期限が先なら無料、近いと竹を使います。",
+  "swipePin": "一番上に固定",
+  "swipePinInfo": "項目をリストの一番上に移動します。",
+  "swipeCategory": "カテゴリへ移動",
+  "swipeCategoryInfo": "項目の雲を選びます。",
+  "swipeDeadline": "期限を設定",
+  "swipeDeadlineInfo": "今日から何日後かのダイヤルを開きます。",
+  "swipeRemindLater": "今日あとで通知",
+  "swipeRemindLaterInfo": "3時間後に一度だけお知らせします。",
+  "swipeDuplicate": "複製",
+  "swipeDuplicateInfo": "項目をコピーします。繰り返しの用事に便利です。",
+  "swipeBasket": "お出かけかごに入れる",
+  "swipeBasketInfo": "この場所やWi-Fiを離れるときにお知らせします。",
+  "swipeShare": "共有",
+  "swipeShareInfo": "項目をテキストとして共有します。",
+  "nagOff": "オフ",
+  "nagGentle": "控えめ",
+  "nagNormal": "ふつう",
+  "nagPersistent": "しつこく"
 }

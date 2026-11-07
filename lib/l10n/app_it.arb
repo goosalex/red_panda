@@ -1,4 +1,26 @@
 {
   "@@locale": "it",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "Rimanda a domani",
+  "swipeSnoozeInfo": "Nasconde la voce fino a domani mattina. Costa bambù.",
+  "swipePostpone": "Sposta la scadenza di un giorno",
+  "swipePostponeInfo": "Gratis finché la scadenza è lontana; costa bambù quando è vicina.",
+  "swipePin": "Fissa in alto",
+  "swipePinInfo": "Sposta la voce in cima alla lista.",
+  "swipeCategory": "Sposta in categoria",
+  "swipeCategoryInfo": "Scegli una nuvola per la voce.",
+  "swipeDeadline": "Imposta scadenza",
+  "swipeDeadlineInfo": "Apre la rotella dei giorni da oggi.",
+  "swipeRemindLater": "Ricordamelo più tardi",
+  "swipeRemindLaterInfo": "Un promemoria unico tra tre ore.",
+  "swipeDuplicate": "Duplica",
+  "swipeDuplicateInfo": "Copia la voce, comodo per le faccende ricorrenti.",
+  "swipeBasket": "Metti nel cestino da portare",
+  "swipeBasketInfo": "Te lo ricorda quando lasci questo posto o il tuo Wi-Fi.",
+  "swipeShare": "Condividi",
+  "swipeShareInfo": "Condivide la voce come testo.",
+  "nagOff": "Disattivato",
+  "nagGentle": "Delicato",
+  "nagNormal": "Normale",
+  "nagPersistent": "Insistente"
 }

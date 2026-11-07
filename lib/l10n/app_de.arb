@@ -1,4 +1,26 @@
 {
   "@@locale": "de",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "Bis morgen schlummern",
+  "swipeSnoozeInfo": "Blendet den Eintrag bis morgen früh aus. Kostet Bambus.",
+  "swipePostpone": "Frist um einen Tag verschieben",
+  "swipePostponeInfo": "Kostenlos, solange die Frist weit weg ist; kostet Bambus, wenn sie nah ist.",
+  "swipePin": "Oben anheften",
+  "swipePinInfo": "Schiebt den Eintrag an den Anfang der Liste.",
+  "swipeCategory": "In Kategorie verschieben",
+  "swipeCategoryInfo": "Wähle eine Wolke für den Eintrag.",
+  "swipeDeadline": "Frist setzen",
+  "swipeDeadlineInfo": "Öffnet die Tage-Drehscheibe.",
+  "swipeRemindLater": "Später heute erinnern",
+  "swipeRemindLaterInfo": "Ein einmaliger Stups in drei Stunden.",
+  "swipeDuplicate": "Duplizieren",
+  "swipeDuplicateInfo": "Kopiert den Eintrag, praktisch für wiederkehrende Aufgaben.",
+  "swipeBasket": "In den Mitnehm-Korb legen",
+  "swipeBasketInfo": "Erinnert dich, wenn du diesen Ort oder dein WLAN verlässt.",
+  "swipeShare": "Teilen",
+  "swipeShareInfo": "Teilt den Eintrag als Text.",
+  "nagOff": "Aus",
+  "nagGentle": "Sanft",
+  "nagNormal": "Normal",
+  "nagPersistent": "Hartnäckig"
 }

@@ -1,4 +1,26 @@
 {
   "@@locale": "fr",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "Reporter à demain",
+  "swipeSnoozeInfo": "Masque l'élément jusqu'à demain matin. Coûte du bambou.",
+  "swipePostpone": "Repousser l'échéance d'un jour",
+  "swipePostponeInfo": "Gratuit tant que l'échéance est loin ; coûte du bambou quand elle approche.",
+  "swipePin": "Épingler en haut",
+  "swipePinInfo": "Place l'élément en haut de la liste.",
+  "swipeCategory": "Déplacer vers une catégorie",
+  "swipeCategoryInfo": "Choisissez un nuage pour l'élément.",
+  "swipeDeadline": "Fixer une échéance",
+  "swipeDeadlineInfo": "Ouvre le cadran des jours à venir.",
+  "swipeRemindLater": "Me le rappeler plus tard",
+  "swipeRemindLaterInfo": "Un rappel unique dans trois heures.",
+  "swipeDuplicate": "Dupliquer",
+  "swipeDuplicateInfo": "Copie l'élément, pratique pour les tâches récurrentes.",
+  "swipeBasket": "Mettre dans le panier de départ",
+  "swipeBasketInfo": "Vous le rappelle quand vous quittez ce lieu ou votre Wi-Fi.",
+  "swipeShare": "Partager",
+  "swipeShareInfo": "Partage l'élément sous forme de texte.",
+  "nagOff": "Désactivé",
+  "nagGentle": "Doux",
+  "nagNormal": "Normal",
+  "nagPersistent": "Insistant"
 }

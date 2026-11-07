@@ -1,4 +1,26 @@
 {
   "@@locale": "ar",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "أجّل لبكرا",
+  "swipeSnoozeInfo": "بيخبّي الشغلة لبكرا الصبح. بتكلّف خيزران.",
+  "swipePostpone": "أجّل الموعد يوم",
+  "swipePostponeInfo": "ببلاش طالما الموعد بعيد، وبيكلّف خيزران لما يقرّب.",
+  "swipePin": "ثبّت فوق",
+  "swipePinInfo": "بينقل الشغلة لأول القائمة.",
+  "swipeCategory": "انقل لتصنيف",
+  "swipeCategoryInfo": "اختار غيمة للشغلة.",
+  "swipeDeadline": "حطّ موعد",
+  "swipeDeadlineInfo": "بيفتح دولاب الأيام من اليوم.",
+  "swipeRemindLater": "ذكّرني بعدين اليوم",
+  "swipeRemindLaterInfo": "تذكير مرة وحدة بعد تلت ساعات.",
+  "swipeDuplicate": "اعمل نسخة",
+  "swipeDuplicateInfo": "بينسخ الشغلة، منيح للشغلات اللي بتتكرر.",
+  "swipeBasket": "حطّ بسلّة الطلعة",
+  "swipeBasketInfo": "بيذكّرك لما تطلع من هالمحل أو من الواي فاي.",
+  "swipeShare": "شارك",
+  "swipeShareInfo": "بيشارك الشغلة كنص.",
+  "nagOff": "مطفي",
+  "nagGentle": "خفيف",
+  "nagNormal": "عادي",
+  "nagPersistent": "لحوح"
 }

@@ -1,4 +1,26 @@
 {
   "@@locale": "en",
-  "appTitle": "Red Panda"
+  "appTitle": "Red Panda",
+  "swipeSnooze": "Snooze until tomorrow",
+  "swipeSnoozeInfo": "Hides the item until tomorrow morning. Costs bamboo.",
+  "swipePostpone": "Postpone deadline by a day",
+  "swipePostponeInfo": "Free while the deadline is far; costs bamboo when it is close.",
+  "swipePin": "Pin to top",
+  "swipePinInfo": "Moves the item to the top of the list.",
+  "swipeCategory": "Move to category",
+  "swipeCategoryInfo": "Pick a cloud for the item.",
+  "swipeDeadline": "Set deadline",
+  "swipeDeadlineInfo": "Opens the days-from-now dial.",
+  "swipeRemindLater": "Remind me later today",
+  "swipeRemindLaterInfo": "A one-off nudge in three hours.",
+  "swipeDuplicate": "Duplicate",
+  "swipeDuplicateInfo": "Copies the item, handy for recurring chores.",
+  "swipeBasket": "Put in leave basket",
+  "swipeBasketInfo": "Reminds you when you leave this place or your Wi-Fi.",
+  "swipeShare": "Share",
+  "swipeShareInfo": "Shares the item as text.",
+  "nagOff": "Off",
+  "nagGentle": "Gentle",
+  "nagNormal": "Normal",
+  "nagPersistent": "Persistent"
 }
