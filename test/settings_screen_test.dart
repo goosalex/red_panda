@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:red_panda/l10n/l10n.dart';
 import 'package:red_panda/models/app_settings.dart';
 import 'package:red_panda/news.dart';
 import 'package:red_panda/platform/shortcuts_links.dart';
@@ -50,18 +52,37 @@ void main() {
     }
   }
 
-  Future<void> pumpSettings(WidgetTester tester, {CloudSyncController? cloud}) async {
+  /// A bare MaterialApp (English fallback) unless [locale] is given.
+  Future<void> pumpSettings(WidgetTester tester, {CloudSyncController? cloud, Locale? locale}) async {
     tester.view.physicalSize = const Size(1170, 2532);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
-    await tester.pumpWidget(MaterialApp(home: SettingsScreen(store: store, cloud: cloud)));
+    final home = SettingsScreen(store: store, cloud: cloud);
+    await tester.pumpWidget(locale == null
+        ? MaterialApp(home: home)
+        : MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: appLocales,
+            locale: locale,
+            home: home,
+          ));
     await settle(tester);
   }
 
+  final en = lookupAppLocalizations(const Locale('en'));
+
   test('basket summary', () {
-    expect(basketSummary(const AppSettings()), '50 m · Wi-Fi');
-    expect(basketSummary(const AppSettings(leaveOnWifi: false, leaveRadiusMeters: 1000)), '1 km');
-    expect(basketSummary(const AppSettings(leaveOnWifi: false, leaveOnPlace: false)), 'Off');
+    expect(basketSummary(const AppSettings(), en), '50 m · Wi-Fi');
+    expect(basketSummary(const AppSettings(leaveOnWifi: false, leaveRadiusMeters: 1000), en), '1 km');
+    expect(basketSummary(const AppSettings(leaveOnWifi: false, leaveOnPlace: false), en), 'Off');
+    final de = lookupAppLocalizations(const Locale('de'));
+    expect(basketSummary(const AppSettings(), de), '50 m · WLAN');
+    expect(basketSummary(const AppSettings(leaveOnWifi: false, leaveOnPlace: false), de), 'Aus');
+  });
+
+  test('bamboo rules name the wallet numbers', () {
+    expect(bambooRulesText(en), contains('free until 2 days before it'));
+    expect(bambooRulesText(lookupAppLocalizations(const Locale('ar'))), contains('يومين'));
   });
 
   testWidgets('every setting is one line until opened', (tester) async {
@@ -180,5 +201,69 @@ void main() {
     openWorks = false;
     expect(await ShortcutsLinks.open(ShortcutsLinks.automations), isTrue);
     expect(opened, [ShortcutsLinks.automations, ShortcutsLinks.app]);
+  });
+
+  testWidgets('settings in German', (tester) async {
+    await pumpSettings(tester, locale: const Locale('de'));
+    expect(find.text('Einstellungen'), findsOneWidget);
+    expect(find.text('iCloud-Sync'), findsOneWidget);
+    expect(find.text('Nach rechts wischen'), findsOneWidget);
+    expect(find.text('Bis morgen schlummern'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Neuigkeiten'), 100);
+    expect(find.text('Version ${news.first.version}'), findsOneWidget);
+
+    await tester.tap(find.text('Neuigkeiten'));
+    await settle(tester);
+    expect(find.text('Version ${news.first.version} · neu'), findsOneWidget);
+    expect(find.textContaining('Red Panda spricht jetzt Französisch'), findsOneWidget);
+  });
+
+  testWidgets('German leave basket uses the iOS names', (tester) async {
+    await pumpSettings(tester, locale: const Locale('de'));
+    await tester.tap(find.text('Mitnehm-Korb'));
+    await settle(tester);
+    expect(find.text('Beim Verwenden'), findsOneWidget);
+    await tester.tap(find.text('Wenn ich ein WLAN verlasse'));
+    await settle(tester);
+    expect(find.textContaining('„Sofort ausführen“'), findsOneWidget);
+    expect(find.text('Kurzbefehle öffnen'), findsOneWidget);
+  });
+
+  testWidgets('settings in Arabic are right-to-left', (tester) async {
+    await pumpSettings(tester, locale: const Locale('ar'));
+    expect(Directionality.of(tester.element(find.byType(SettingsScreen))), TextDirection.rtl);
+    expect(find.text('الإعدادات'), findsOneWidget);
+    expect(find.text('القائمة'), findsOneWidget);
+    expect(find.text('التذكيرات'), findsOneWidget);
+  });
+
+  test('every ARB file has exactly the keys of app_en.arb', () {
+    Set<String> keys(String lang) {
+      final arb = jsonDecode(File('lib/l10n/app_$lang.arb').readAsStringSync()) as Map<String, dynamic>;
+      return arb.keys.where((k) => !k.startsWith('@')).toSet();
+    }
+
+    final source = keys('en');
+    for (final locale in appLocales) {
+      final lang = locale.languageCode;
+      final have = keys(lang);
+      expect(source.difference(have), isEmpty, reason: 'missing in app_$lang.arb');
+      expect(have.difference(source), isEmpty, reason: 'extra in app_$lang.arb');
+    }
+  });
+
+  test('every news line is in every language', () {
+    for (final n in news) {
+      for (final item in n.items) {
+        for (final locale in appLocales) {
+          expect(item[locale.languageCode], isNotEmpty, reason: '${n.version} ${item['en']} ${locale.languageCode}');
+        }
+      }
+    }
+    expect(news.first.itemsIn('xx'), news.first.itemsIn('en')); // English fallback
+  });
+
+  test('the guide names the Shortcuts action as iOS does', () {
+    expect(en.shortcutsRemindAction, ShortcutsLinks.remindAction);
   });
 }

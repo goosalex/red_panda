@@ -81,4 +81,298 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get nagPersistent => 'Hartnäckig';
+
+  @override
+  String get settingsTitle => 'Einstellungen';
+
+  @override
+  String get settingsHeaderList => 'Liste';
+
+  @override
+  String get settingsHeaderReminders => 'Erinnerungen';
+
+  @override
+  String get settingsHeaderPanda => 'Panda';
+
+  @override
+  String get settingsCloudSync => 'iCloud-Sync';
+
+  @override
+  String get settingsCloudNote =>
+      'Notizen, Sprachnotizen, Kategorien und Bambus werden über dein iCloud Drive mit jedem iPhone und iPad synchronisiert, das mit demselben Apple Account angemeldet ist. Einstellungen bleiben auf jedem Gerät.';
+
+  @override
+  String get settingsOn => 'An';
+
+  @override
+  String get settingsOff => 'Aus';
+
+  @override
+  String get settingsSwipeRight => 'Nach rechts wischen';
+
+  @override
+  String get settingsSwipeDrawerTitle => 'Eintrag nach rechts wischen';
+
+  @override
+  String get settingsSwipeDrawerNote =>
+      'Abgehakte Einträge werden immer wieder offen; schlummernde wachen auf.';
+
+  @override
+  String get settingsNag => 'Traurige-Panda-Erinnerungen';
+
+  @override
+  String get settingsNagNote =>
+      'Mitteilungen und Widgets drängeln, je näher die Fristen rücken.';
+
+  @override
+  String get settingsQuietFrom => 'Ruhe ab';
+
+  @override
+  String get settingsQuietUntil => 'Ruhe bis';
+
+  @override
+  String get settingsLeaveBasket => 'Mitnehm-Korb';
+
+  @override
+  String get settingsBambooRules => 'Bambus-Regeln';
+
+  @override
+  String settingsBambooMax(int cap) {
+    return 'Max. $cap';
+  }
+
+  @override
+  String get bambooTitle => '🎋 Bambus';
+
+  @override
+  String bambooRules(
+    int perCompletion,
+    int earlyBonus,
+    int snoozeCost,
+    int freeDays,
+    int lateCost,
+    int cap,
+  ) {
+    String _temp0 = intl.Intl.pluralLogic(
+      freeDays,
+      locale: localeName,
+      other: '$freeDays Tage',
+      one: '$freeDays Tag',
+    );
+    return 'Jeder erledigte Eintrag füttert den Panda mit $perCompletion 🎋 (+$earlyBonus, wenn er vor dem Fristtag fertig ist). Schlummern kostet $snoozeCost 🎋; eine Frist zu verschieben ist bis $_temp0 vorher kostenlos, danach kostet es $lateCost 🎋. Der Vorrat fasst höchstens $cap.';
+  }
+
+  @override
+  String get settingsQuickCapture => 'Schnell notieren';
+
+  @override
+  String get settingsQuickCaptureValue => 'Sperrbildschirm, Siri …';
+
+  @override
+  String get settingsNews => 'Neuigkeiten';
+
+  @override
+  String newsVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String newsVersionNew(String version) {
+    return 'Version $version · neu';
+  }
+
+  @override
+  String newsPr(int pr) {
+    return 'PR #$pr';
+  }
+
+  @override
+  String get cloudNotSignedIn => 'Nicht angemeldet';
+
+  @override
+  String get cloudSyncing => 'Synchronisiert …';
+
+  @override
+  String get cloudDownloading => 'Lädt …';
+
+  @override
+  String get cloudFailed => 'Fehlgeschlagen, neuer Versuch';
+
+  @override
+  String get basketTitle => '🧺 Mitnehm-Korb';
+
+  @override
+  String get basketNote =>
+      'Einträge im Korb erinnern dich, sobald du den Ort verlässt, an dem du sie hineingelegt hast, oder dein WLAN wegfällt.';
+
+  @override
+  String get basketOnPlace => 'Wenn ich diesen Ort verlasse';
+
+  @override
+  String get basketRadius => 'Radius';
+
+  @override
+  String get basketRadiusTitle => 'Erinnere mich, wenn ich weiter weg bin als';
+
+  @override
+  String get basketRadiusNote =>
+      'Das iPhone ortet dich auf etwa 100 m genau, ein kleiner Radius kann also etwas spät auslösen.';
+
+  @override
+  String get basketOnWifi => 'Wenn mein WLAN wegfällt';
+
+  @override
+  String get basketLocationAccess => 'Standortzugriff';
+
+  @override
+  String get locationAlways => 'Immer';
+
+  @override
+  String get locationWhileUsing => 'Beim Verwenden';
+
+  @override
+  String get locationNotAsked => 'Noch nicht gefragt';
+
+  @override
+  String get basketWhyAlways => 'Warum „Immer“?';
+
+  @override
+  String get basketNoTracking => 'Kein Tracking';
+
+  @override
+  String get basketHeaderShortcuts => 'Kurzbefehle-Automationen';
+
+  @override
+  String get basketShortcutsNote =>
+      'Red Panda merkt einen WLAN-Abbruch nur, solange die App offen ist oder gerade benutzt wurde. Eine Kurzbefehle-Automation erkennt ihn jederzeit und kann einen festen Ort wie dein Zuhause beobachten.';
+
+  @override
+  String get automationWifi => 'Wenn ich ein WLAN verlasse';
+
+  @override
+  String get automationPlace => 'Wenn ich einen Ort verlasse';
+
+  @override
+  String get automationSetUp => 'Einrichten';
+
+  @override
+  String get automationMine => 'Meine Automationen';
+
+  @override
+  String get shortcutsApp => 'Kurzbefehle';
+
+  @override
+  String get shortcutsOpen => 'Kurzbefehle öffnen';
+
+  @override
+  String get shortcutsRemindAction => 'An meinen Mitnehm-Korb erinnern';
+
+  @override
+  String get guideOpenShortcuts =>
+      'Tippe unten auf „Kurzbefehle öffnen“: Die Liste „Neue Automation“ öffnet sich.';
+
+  @override
+  String get guideWifiScroll => 'Scrolle nach unten und tippe auf „WLAN“.';
+
+  @override
+  String get guideWifiNetwork =>
+      'Wähle dein Netzwerk, hake „Trennt“ an und „Verbindet“ ab.';
+
+  @override
+  String get guideRunImmediately =>
+      'Wähle „Sofort ausführen“ und tippe dann auf „Weiter“.';
+
+  @override
+  String get guidePlaceLeave =>
+      'Tippe auf „Verlassen“, dann „Ort“ > „Auswählen“, und wähle den Ort (z. B. Zuhause).';
+
+  @override
+  String guideAddAction(String action) {
+    return 'Tippe auf „Neue leere Automation“, dann „Aktion hinzufügen“, suche nach „Mitnehm-Korb“ und wähle „$action“.';
+  }
+
+  @override
+  String get guideDone =>
+      'Tippe auf „Fertig“. Ab jetzt erinnert dich der Panda an deinen Korb.';
+
+  @override
+  String get locationInfoTitle => 'Warum Standort „Immer“?';
+
+  @override
+  String get locationInfoLeaveTitle => 'Nur, um zu merken, dass du gehst';
+
+  @override
+  String get locationInfoLeaveBody =>
+      'Mit „Beim Verwenden der App“ sagt iOS Red Panda nichts mehr, sobald die App zu ist – der Korb könnte dich nur bei offener App erinnern. Mit „Immer“ weckt iOS Red Panda, sobald du gehst.';
+
+  @override
+  String get locationInfoBatteryTitle => 'Kein Akkuverbrauch';
+
+  @override
+  String get locationInfoBatteryBody =>
+      'Red Panda verfolgt dich nicht. Die App fragt iOS einmal, wo du bist, und zieht einen Kreis darum. iOS beobachtet diesen Kreis mit den Mobilfunk- und WLAN-Signalen, die es sowieso nutzt, und Red Panda schläft, bis du den Rand überquerst. Dann wird der Kreis entfernt.';
+
+  @override
+  String get locationInfoPrivacyTitle =>
+      'Dein Standort bleibt auf deinem iPhone';
+
+  @override
+  String get locationInfoPrivacyBody =>
+      'Red Panda hat keinen Server und schickt deinen Standort nirgendwohin. Nur der Mittelpunkt des Kreises wird auf diesem Gerät gespeichert, bis die Erinnerung kommt. Die iCloud-Sync nimmt ihn nie mit.';
+
+  @override
+  String get locationInfoWifiTitle => 'WLAN braucht keinen Standort';
+
+  @override
+  String get locationInfoWifiBody =>
+      '„Wenn mein WLAN wegfällt“ funktioniert ohne Standortzugriff.';
+
+  @override
+  String get captureLockScreen => 'Sperrbildschirm-Tasten';
+
+  @override
+  String get captureLockScreenHow =>
+      'Sperrbildschirm lange drücken, auf „Anpassen“ > „Sperrbildschirm“ tippen, unten auf einen Platz für Steuerelemente tippen und Red Panda > Textnotiz, Sprachnotiz oder Pandas Korb zeigen wählen.';
+
+  @override
+  String get captureWidgets => 'Widgets';
+
+  @override
+  String get captureWidgetsHow =>
+      'Passe den Sperrbildschirm an und tippe auf den Widget-Bereich unter der Uhr (oder die Zeile darüber), um das Red Panda-Widget mit deiner nächsten Frist hinzuzufügen. Auf dem Home-Bildschirm lange drücken, „Bearbeiten“ > „Widget hinzufügen“ tippen und nach „Red Panda“ suchen: Seine Tasten fügen eine Notiz hinzu oder zeigen Pandas Korb.';
+
+  @override
+  String get captureControlCentre => 'Kontrollzentrum';
+
+  @override
+  String get captureControlCentreHow =>
+      'Öffne das Kontrollzentrum, tippe auf +, dann „Steuerelement hinzufügen“ und suche nach „Red Panda“.';
+
+  @override
+  String get captureActionButton => 'Aktionstaste';
+
+  @override
+  String get captureActionButtonHow =>
+      'Einstellungen > Aktionstaste > Steuerelemente, dann Red Panda > Textnotiz, Sprachnotiz oder Pandas Korb zeigen wählen.';
+
+  @override
+  String get captureSiri => 'Siri';
+
+  @override
+  String get captureSiriHow =>
+      'Sag „Notiz mit Red Panda“, „Sprachnotiz mit Red Panda“ oder „Zeig meinen Red Panda-Korb“.';
+
+  @override
+  String capturePreview(String spot) {
+    return 'Vorschau: $spot';
+  }
+
+  @override
+  String get captureLinkMicrophone => 'Mikrofon & Spracherkennung';
+
+  @override
+  String get captureLinkSiri => 'Siri & Suchen';
+
+  @override
+  String get wifi => 'WLAN';
 }

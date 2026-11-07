@@ -22,5 +22,151 @@
   "nagOff": "Off",
   "nagGentle": "Gentle",
   "nagNormal": "Normal",
-  "nagPersistent": "Persistent"
+  "nagPersistent": "Persistent",
+  "settingsTitle": "Settings",
+  "settingsHeaderList": "List",
+  "settingsHeaderReminders": "Reminders",
+  "settingsHeaderPanda": "Panda",
+  "settingsCloudSync": "iCloud sync",
+  "settingsCloudNote": "Notes, voice notes, categories and bamboo sync through your iCloud Drive to every iPhone and iPad signed in to the same Apple Account. Settings stay on each device.",
+  "settingsOn": "On",
+  "settingsOff": "Off",
+  "settingsSwipeRight": "Swipe right",
+  "settingsSwipeDrawerTitle": "Swipe right on an item",
+  "settingsSwipeDrawerNote": "Ticked-off items always un-tick; snoozed items wake up.",
+  "settingsNag": "Sad panda reminders",
+  "settingsNagNote": "Notifications and widgets nag you as deadlines come closer.",
+  "settingsQuietFrom": "Quiet from",
+  "settingsQuietUntil": "Quiet until",
+  "settingsLeaveBasket": "Leave basket",
+  "settingsBambooRules": "Bamboo rules",
+  "settingsBambooMax": "Max {cap}",
+  "@settingsBambooMax": {
+    "placeholders": {
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooTitle": "🎋 Bamboo",
+  "bambooRules": "Every finished item feeds the panda {perCompletion} 🎋 (+{earlyBonus} when done before its deadline day). Snoozing costs {snoozeCost} 🎋; postponing a deadline is free until {freeDays, plural, =1{1 day} other{{freeDays} days}} before it, then costs {lateCost} 🎋. The stash holds at most {cap}.",
+  "@bambooRules": {
+    "placeholders": {
+      "perCompletion": {
+        "type": "int"
+      },
+      "earlyBonus": {
+        "type": "int"
+      },
+      "snoozeCost": {
+        "type": "int"
+      },
+      "freeDays": {
+        "type": "int"
+      },
+      "lateCost": {
+        "type": "int"
+      },
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsQuickCapture": "Quick capture",
+  "settingsQuickCaptureValue": "Lock Screen, Siri…",
+  "settingsNews": "News",
+  "newsVersion": "Version {version}",
+  "@newsVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newsVersionNew": "Version {version} · new",
+  "@newsVersionNew": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newsPr": "PR #{pr}",
+  "@newsPr": {
+    "placeholders": {
+      "pr": {
+        "type": "int"
+      }
+    }
+  },
+  "cloudNotSignedIn": "Not signed in",
+  "cloudSyncing": "Syncing…",
+  "cloudDownloading": "Downloading…",
+  "cloudFailed": "Failed, retrying",
+  "basketTitle": "🧺 Leave basket",
+  "basketNote": "Items in the basket remind you as soon as you leave the place where you put them in, or your Wi-Fi drops.",
+  "basketOnPlace": "When I leave this place",
+  "basketRadius": "Radius",
+  "basketRadiusTitle": "Remind me when I am further away than",
+  "basketRadiusNote": "iPhones place you to about 100 m, so a small radius may fire a little late.",
+  "basketOnWifi": "When my Wi-Fi drops",
+  "basketLocationAccess": "Location access",
+  "locationAlways": "Always",
+  "locationWhileUsing": "While using",
+  "locationNotAsked": "Not asked yet",
+  "basketWhyAlways": "Why \"Always\"?",
+  "basketNoTracking": "No tracking",
+  "basketHeaderShortcuts": "Shortcuts automations",
+  "basketShortcutsNote": "Red Panda only notices a Wi-Fi drop while it is open or was just in use. A Shortcuts automation catches it any time, and can watch a fixed place like home.",
+  "automationWifi": "When I leave a Wi-Fi",
+  "automationPlace": "When I leave a place",
+  "automationSetUp": "Set up",
+  "automationMine": "My automations",
+  "shortcutsApp": "Shortcuts",
+  "shortcutsOpen": "Open Shortcuts",
+  "shortcutsRemindAction": "Remind me of my leave basket",
+  "guideOpenShortcuts": "Tap \"Open Shortcuts\" below: the New Automation list opens.",
+  "guideWifiScroll": "Scroll down and tap Wi-Fi.",
+  "guideWifiNetwork": "Choose your network, tick \"Leaves\" and untick \"Joins\".",
+  "guideRunImmediately": "Pick \"Run Immediately\", then tap Next.",
+  "guidePlaceLeave": "Tap Leave, then Location > Choose, and pick the place (e.g. home).",
+  "guideAddAction": "Tap \"New Blank Automation\", then Add Action, search \"leave basket\" and pick \"{action}\".",
+  "@guideAddAction": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      }
+    }
+  },
+  "guideDone": "Tap Done. From now on the panda reminds you of your basket.",
+  "locationInfoTitle": "Why \"Always\" location?",
+  "locationInfoLeaveTitle": "Only to notice you leaving",
+  "locationInfoLeaveBody": "With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. \"Always\" lets iOS wake Red Panda the moment you leave.",
+  "locationInfoBatteryTitle": "No battery drain",
+  "locationInfoBatteryBody": "Red Panda does not follow you. It asks iOS once for where you are and draws one circle around it. iOS watches that circle with the cell and Wi-Fi signals it uses anyway, and Red Panda sleeps until you cross the edge. Then the circle is removed.",
+  "locationInfoPrivacyTitle": "Your location stays on your iPhone",
+  "locationInfoPrivacyBody": "Red Panda has no server and sends your location nowhere. Only the circle's centre is kept, on this device, until the reminder fires. iCloud sync never includes it.",
+  "locationInfoWifiTitle": "Wi-Fi needs no location",
+  "locationInfoWifiBody": "The \"Wi-Fi drops\" trigger works without location access.",
+  "captureLockScreen": "Lock Screen buttons",
+  "captureLockScreenHow": "Long-press the Lock Screen, tap Customise > Lock Screen, tap a control slot at the bottom and pick Red Panda > Text note, Voice note or Show Panda's basket.",
+  "captureWidgets": "Widgets",
+  "captureWidgetsHow": "Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > Add Widget and search \"Red Panda\": its buttons add a note or show Panda's basket.",
+  "captureControlCentre": "Control Centre",
+  "captureControlCentreHow": "Open Control Centre, tap +, Add a Control, search \"Red Panda\".",
+  "captureActionButton": "Action Button",
+  "captureActionButtonHow": "Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show Panda's basket.",
+  "captureSiri": "Siri",
+  "captureSiriHow": "Say \"Note with Red Panda\", \"Voice note with Red Panda\" or \"Show my Red Panda basket\".",
+  "capturePreview": "{spot} preview",
+  "@capturePreview": {
+    "placeholders": {
+      "spot": {
+        "type": "String"
+      }
+    }
+  },
+  "captureLinkMicrophone": "Microphone & Speech access",
+  "captureLinkSiri": "Siri & Search",
+  "wifi": "Wi-Fi"
 }

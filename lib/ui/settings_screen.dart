@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../gamification/bamboo.dart';
+import '../l10n/l10n.dart';
+import '../l10n/labels.dart';
 import '../models/app_settings.dart';
 import '../news.dart';
 import '../platform/leave_basket.dart';
@@ -36,16 +38,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _pickSwipe(AppSettings s) async {
+    final l = context.l10n;
     final a = await showSettingsDrawer<SwipeAction>(
       context,
-      title: 'Swipe right on an item',
-      note: 'Ticked-off items always un-tick; snoozed items wake up.',
+      title: l.settingsSwipeDrawerTitle,
+      note: l.settingsSwipeDrawerNote,
       builder: (ctx) => [
         for (final a in SwipeAction.values)
           _ChoiceTile(
             selected: a == s.swipeAction,
-            title: a.label,
-            subtitle: a.description,
+            title: a.title(l),
+            subtitle: a.info(l),
             onTap: () => Navigator.pop(ctx, a),
           ),
       ],
@@ -54,27 +57,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _pickNag(AppSettings s) async {
+    final l = context.l10n;
     final n = await showSettingsDrawer<NagIntensity>(
       context,
-      title: 'Sad panda reminders',
-      note: 'Notifications and widgets nag you as deadlines come closer.',
+      title: l.settingsNag,
+      note: l.settingsNagNote,
       builder: (ctx) => [
         for (final n in NagIntensity.values)
-          _ChoiceTile(selected: n == s.nagIntensity, title: n.label, onTap: () => Navigator.pop(ctx, n)),
+          _ChoiceTile(selected: n == s.nagIntensity, title: n.title(l), onTap: () => Navigator.pop(ctx, n)),
       ],
     );
     if (n != null) await _update(_s!.copyWith(nagIntensity: n));
   }
 
   Future<void> _pickCloud(AppSettings s) async {
+    final l = context.l10n;
     final on = await showSettingsDrawer<bool>(
       context,
-      title: 'iCloud sync',
-      note: 'Notes, voice notes, categories and bamboo sync through your iCloud Drive to every '
-          'iPhone and iPad signed in to the same Apple Account. Settings stay on each device.',
+      title: l.settingsCloudSync,
+      note: l.settingsCloudNote,
       builder: (ctx) => [
-        _ChoiceTile(selected: s.icloudSync, title: 'On', onTap: () => Navigator.pop(ctx, true)),
-        _ChoiceTile(selected: !s.icloudSync, title: 'Off', onTap: () => Navigator.pop(ctx, false)),
+        _ChoiceTile(selected: s.icloudSync, title: l.settingsOn, onTap: () => Navigator.pop(ctx, true)),
+        _ChoiceTile(selected: !s.icloudSync, title: l.settingsOff, onTap: () => Navigator.pop(ctx, false)),
       ],
     );
     if (on == null) return;
@@ -93,17 +97,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _showBamboo() => showSettingsDrawer<void>(
         context,
-        title: '🎋 Bamboo',
-        builder: (_) => [
+        title: context.l10n.bambooTitle,
+        builder: (ctx) => [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-            child: Text(
-              'Every finished item feeds the panda ${BambooWallet.perCompletion} 🎋 '
-              '(+${BambooWallet.earlyBonus} when done before its deadline day). '
-              'Snoozing costs ${BambooWallet.snoozeCost} 🎋; postponing a deadline is free until '
-              '${BambooWallet.freePostponeDays} days before it, then costs ${BambooWallet.latePostponeCost} 🎋. '
-              'The stash holds at most ${BambooWallet.cap}.',
-            ),
+            child: Text(bambooRulesText(ctx.l10n)),
           ),
         ],
       );
@@ -126,73 +124,74 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final s = _s;
     final cloud = widget.cloud?.status ?? ValueNotifier(const CloudStatus(CloudState.off));
+    final l = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(l.settingsTitle)),
       body: s == null
           ? const Center(child: CircularProgressIndicator())
           : ListView(
               children: [
-                const _Header('List'),
+                _Header(l.settingsHeaderList),
                 ValueListenableBuilder(
                   valueListenable: cloud,
                   builder: (_, st, _) => SettingRow(
                     icon: Icons.cloud_outlined,
-                    title: 'iCloud sync',
-                    value: s.icloudSync ? st.label : 'Off',
+                    title: l.settingsCloudSync,
+                    value: s.icloudSync ? st.label(l) : l.settingsOff,
                     warn: s.icloudSync && (st.state == CloudState.unavailable || st.state == CloudState.failed),
                     onTap: () => _pickCloud(s),
                   ),
                 ),
                 SettingRow(
                   icon: Icons.swipe_right_outlined,
-                  title: 'Swipe right',
-                  value: s.swipeAction.label,
+                  title: l.settingsSwipeRight,
+                  value: s.swipeAction.title(l),
                   onTap: () => _pickSwipe(s),
                 ),
-                const _Header('Reminders'),
+                _Header(l.settingsHeaderReminders),
                 SettingRow(
                   icon: Icons.notifications_outlined,
-                  title: 'Sad panda reminders',
-                  value: s.nagIntensity.label,
+                  title: l.settingsNag,
+                  value: s.nagIntensity.title(l),
                   onTap: () => _pickNag(s),
                 ),
                 SettingRow(
                   icon: Icons.bedtime_outlined,
-                  title: 'Quiet from',
+                  title: l.settingsQuietFrom,
                   value: hourLabel(s.quietStartHour),
                   onTap: () => _pickHour(s.quietStartHour, (h) => _s!.copyWith(quietStartHour: h)),
                 ),
                 SettingRow(
                   icon: Icons.wb_twilight_outlined,
-                  title: 'Quiet until',
+                  title: l.settingsQuietUntil,
                   value: hourLabel(s.quietEndHour),
                   onTap: () => _pickHour(s.quietEndHour, (h) => _s!.copyWith(quietEndHour: h)),
                 ),
                 SettingRow(
                   icon: Icons.shopping_basket_outlined,
-                  title: 'Leave basket',
-                  value: basketSummary(s),
+                  title: l.settingsLeaveBasket,
+                  value: basketSummary(s, l),
                   page: true,
                   onTap: _openBasket,
                 ),
-                const _Header('Panda'),
+                _Header(l.settingsHeaderPanda),
                 SettingRow(
                   icon: Icons.grass_outlined,
-                  title: 'Bamboo rules',
-                  value: 'Max ${BambooWallet.cap}',
+                  title: l.settingsBambooRules,
+                  value: l.settingsBambooMax(BambooWallet.cap),
                   onTap: _showBamboo,
                 ),
                 SettingRow(
                   icon: Icons.bolt_outlined,
-                  title: 'Quick capture',
-                  value: 'Lock Screen, Siri…',
+                  title: l.settingsQuickCapture,
+                  value: l.settingsQuickCaptureValue,
                   page: true,
                   onTap: _openQuickCapture,
                 ),
                 SettingRow(
                   icon: Icons.campaign_outlined,
-                  title: 'News',
-                  value: 'Version ${news.first.version}',
+                  title: l.settingsNews,
+                  value: l.newsVersion(news.first.version),
                   page: true,
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NewsPage())),
                 ),
@@ -204,15 +203,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
 String hourLabel(int h) => '${h.toString().padLeft(2, '0')}:00';
 
+/// The bamboo rules drawer text, with the numbers from [BambooWallet].
+String bambooRulesText(AppLocalizations l) => l.bambooRules(
+      BambooWallet.perCompletion,
+      BambooWallet.earlyBonus,
+      BambooWallet.snoozeCost,
+      BambooWallet.freePostponeDays,
+      BambooWallet.latePostponeCost,
+      BambooWallet.cap,
+    );
+
 String radiusLabel(int m) => m >= 1000 ? '${m ~/ 1000} km' : '$m m';
 
 /// One-line summary of the leave basket triggers, e.g. "50 m · Wi-Fi".
-String basketSummary(AppSettings s) {
+String basketSummary(AppSettings s, AppLocalizations l) {
   final parts = [
     if (s.leaveOnPlace) radiusLabel(s.leaveRadiusMeters),
-    if (s.leaveOnWifi) 'Wi-Fi',
+    if (s.leaveOnWifi) l.wifi,
   ];
-  return parts.isEmpty ? 'Off' : parts.join(' · ');
+  return parts.isEmpty ? l.settingsOff : parts.join(' · ');
 }
 
 /// Leave basket: triggers, radius, location access and Shortcuts automations.
@@ -259,10 +268,11 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
   }
 
   Future<void> _pickRadius() async {
+    final l = context.l10n;
     final m = await showSettingsDrawer<int>(
       context,
-      title: 'Remind me when I am further away than',
-      note: 'iPhones place you to about 100 m, so a small radius may fire a little late.',
+      title: l.basketRadiusTitle,
+      note: l.basketRadiusNote,
       builder: (ctx) => [
         for (final m in AppSettings.leaveRadiusChoices)
           _ChoiceTile(
@@ -275,11 +285,11 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
     if (m != null) await _set(_s.copyWith(leaveRadiusMeters: m));
   }
 
-  static String _permissionLabel(LocationPermission? p) => switch (p) {
-        LocationPermission.always => 'Always',
-        LocationPermission.whenInUse => 'While using',
-        LocationPermission.denied => 'Off',
-        LocationPermission.notDetermined => 'Not asked yet',
+  static String _permissionLabel(LocationPermission? p, AppLocalizations l) => switch (p) {
+        LocationPermission.always => l.locationAlways,
+        LocationPermission.whenInUse => l.locationWhileUsing,
+        LocationPermission.denied => l.settingsOff,
+        LocationPermission.notDetermined => l.locationNotAsked,
         _ => '—',
       };
 
@@ -287,35 +297,35 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
   Widget build(BuildContext context) {
     final s = _s;
     final permission = _status?.permission;
+    final l = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('🧺 Leave basket')),
+      appBar: AppBar(title: Text(l.basketTitle)),
       body: ListView(
         children: [
-          const _Note('Items in the basket remind you as soon as you leave the place where you put '
-              'them in, or your Wi-Fi drops.'),
+          _Note(l.basketNote),
           SwitchListTile(
             secondary: const Icon(Icons.directions_walk),
-            title: const Text('When I leave this place', maxLines: 1, overflow: TextOverflow.ellipsis),
+            title: Text(l.basketOnPlace, maxLines: 1, overflow: TextOverflow.ellipsis),
             value: s.leaveOnPlace,
             onChanged: (v) => _set(s.copyWith(leaveOnPlace: v)),
           ),
           SettingRow(
             icon: Icons.radar,
-            title: 'Radius',
+            title: l.basketRadius,
             value: radiusLabel(s.leaveRadiusMeters),
             enabled: s.leaveOnPlace,
             onTap: _pickRadius,
           ),
           SwitchListTile(
             secondary: const Icon(Icons.wifi_off),
-            title: const Text('When my Wi-Fi drops', maxLines: 1, overflow: TextOverflow.ellipsis),
+            title: Text(l.basketOnWifi, maxLines: 1, overflow: TextOverflow.ellipsis),
             value: s.leaveOnWifi,
             onChanged: (v) => _set(s.copyWith(leaveOnWifi: v)),
           ),
           SettingRow(
             icon: Icons.location_on_outlined,
-            title: 'Location access',
-            value: _permissionLabel(permission),
+            title: l.basketLocationAccess,
+            value: _permissionLabel(permission, l),
             warn: s.leaveOnPlace && permission != null && permission != LocationPermission.always &&
                 permission != LocationPermission.unknown,
             external: true,
@@ -324,29 +334,28 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
           SettingRow(
             icon: Icons.info,
             iconColor: Colors.blue,
-            title: 'Why "Always"?',
-            value: 'No tracking',
+            title: l.basketWhyAlways,
+            value: l.basketNoTracking,
             onTap: () => showLocationInfo(context),
           ),
-          const _Header('Shortcuts automations'),
-          const _Note('Red Panda only notices a Wi-Fi drop while it is open or was just in use. A '
-              'Shortcuts automation catches it any time, and can watch a fixed place like home.'),
+          _Header(l.basketHeaderShortcuts),
+          _Note(l.basketShortcutsNote),
           SettingRow(
             icon: Icons.wifi,
-            title: 'When I leave a Wi-Fi',
-            value: 'Set up',
+            title: AutomationGuide.wifi.title(l),
+            value: l.automationSetUp,
             onTap: () => showAutomationGuide(context, AutomationGuide.wifi),
           ),
           SettingRow(
             icon: Icons.home_outlined,
-            title: 'When I leave a place',
-            value: 'Set up',
+            title: AutomationGuide.place.title(l),
+            value: l.automationSetUp,
             onTap: () => showAutomationGuide(context, AutomationGuide.place),
           ),
           SettingRow(
             icon: Icons.checklist,
-            title: 'My automations',
-            value: 'Shortcuts',
+            title: l.automationMine,
+            value: l.shortcutsApp,
             external: true,
             onTap: () => ShortcutsLinks.open(ShortcutsLinks.automations),
           ),
@@ -358,36 +367,36 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
 
 /// Step-by-step wiring of a Shortcuts personal automation to Red Panda's
 /// "Remind me of my leave basket" action.
+/// The steps name the Shortcuts app's buttons as iOS shows them in each
+/// language.
 enum AutomationGuide {
-  wifi('When I leave a Wi-Fi', [
-    'Tap "Open Shortcuts" below: the New Automation list opens.',
-    'Scroll down and tap Wi-Fi.',
-    'Choose your network, tick "Leaves" and untick "Joins".',
-    'Pick "Run Immediately", then tap Next.',
-  ]),
-  place('When I leave a place', [
-    'Tap "Open Shortcuts" below: the New Automation list opens.',
-    'Tap Leave, then Location > Choose, and pick the place (e.g. home).',
-    'Pick "Run Immediately", then tap Next.',
-  ]);
+  wifi,
+  place;
 
-  const AutomationGuide(this.title, this.triggerSteps);
-  final String title;
-  final List<String> triggerSteps;
+  String title(AppLocalizations l) => switch (this) {
+        AutomationGuide.wifi => l.automationWifi,
+        AutomationGuide.place => l.automationPlace,
+      };
 
-  List<String> get steps => [
-        ...triggerSteps,
-        'Tap "New Blank Automation", then Add Action, search "leave basket" and pick '
-            '"${ShortcutsLinks.remindAction}".',
-        'Tap Done. From now on the panda reminds you of your basket.',
+  List<String> steps(AppLocalizations l) => [
+        l.guideOpenShortcuts,
+        ...switch (this) {
+          AutomationGuide.wifi => [l.guideWifiScroll, l.guideWifiNetwork],
+          AutomationGuide.place => [l.guidePlaceLeave],
+        },
+        l.guideRunImmediately,
+        // The action's name as Shortcuts shows it (ShortcutsLinks.remindAction
+        // in English).
+        l.guideAddAction(l.shortcutsRemindAction),
+        l.guideDone,
       ];
 }
 
 Future<void> showAutomationGuide(BuildContext context, AutomationGuide g) => showSettingsDrawer<void>(
       context,
-      title: g.title,
+      title: g.title(context.l10n),
       builder: (ctx) => [
-        for (final (i, step) in g.steps.indexed)
+        for (final (i, step) in g.steps(ctx.l10n).indexed)
           ListTile(
             dense: true,
             leading: CircleAvatar(radius: 12, child: Text('${i + 1}', style: const TextStyle(fontSize: 12))),
@@ -397,7 +406,7 @@ Future<void> showAutomationGuide(BuildContext context, AutomationGuide g) => sho
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
           child: FilledButton.icon(
             icon: const Icon(Icons.open_in_new),
-            label: const Text('Open Shortcuts'),
+            label: Text(ctx.l10n.shortcutsOpen),
             onPressed: () {
               Navigator.pop(ctx);
               ShortcutsLinks.open(ShortcutsLinks.newAutomation);
@@ -411,21 +420,16 @@ Future<void> showAutomationGuide(BuildContext context, AutomationGuide g) => sho
 /// costs neither battery nor privacy.
 Future<void> showLocationInfo(BuildContext context) => showSettingsDrawer<void>(
       context,
-      title: 'Why "Always" location?',
-      builder: (_) => const [
-        _InfoPoint(Icons.door_front_door_outlined, 'Only to notice you leaving',
-            'With "While using", iOS tells Red Panda nothing once it is closed, so the basket could only '
-                'remind you while the app is open. "Always" lets iOS wake Red Panda the moment you leave.'),
-        _InfoPoint(Icons.battery_full, 'No battery drain',
-            'Red Panda does not follow you. It asks iOS once for where you are and draws one circle '
-                'around it. iOS watches that circle with the cell and Wi-Fi signals it uses anyway, and '
-                'Red Panda sleeps until you cross the edge. Then the circle is removed.'),
-        _InfoPoint(Icons.lock_outline, 'Your location stays on your iPhone',
-            'Red Panda has no server and sends your location nowhere. Only the circle\'s centre is '
-                'kept, on this device, until the reminder fires. iCloud sync never includes it.'),
-        _InfoPoint(Icons.wifi_off, 'Wi-Fi needs no location',
-            'The "Wi-Fi drops" trigger works without location access.'),
-      ],
+      title: context.l10n.locationInfoTitle,
+      builder: (ctx) {
+        final l = ctx.l10n;
+        return [
+          _InfoPoint(Icons.door_front_door_outlined, l.locationInfoLeaveTitle, l.locationInfoLeaveBody),
+          _InfoPoint(Icons.battery_full, l.locationInfoBatteryTitle, l.locationInfoBatteryBody),
+          _InfoPoint(Icons.lock_outline, l.locationInfoPrivacyTitle, l.locationInfoPrivacyBody),
+          _InfoPoint(Icons.wifi_off, l.locationInfoWifiTitle, l.locationInfoWifiBody),
+        ];
+      },
     );
 
 class _InfoPoint extends StatelessWidget {
@@ -444,81 +448,68 @@ class _InfoPoint extends StatelessWidget {
 
 /// A quick-capture spot: where to add Red Panda, a preview of how it looks
 /// there, and links to the settings it uses.
-class CaptureSpot {
-  const CaptureSpot(this.icon, this.title, this.how, this.image, [this.links = const []]);
+enum CaptureSpot {
+  lockScreen(Icons.lock_outline, 'lock_screen', [CaptureLink.microphone]),
+  widgets(Icons.widgets_outlined, 'widgets', [CaptureLink.nag, CaptureLink.basket]),
+  controlCentre(Icons.tune, 'control_centre', [CaptureLink.microphone, CaptureLink.basket]),
+  actionButton(Icons.radio_button_checked, 'action_button', [CaptureLink.microphone]),
+  siri(Icons.record_voice_over_outlined, 'siri', [CaptureLink.siri]);
+
+  const CaptureSpot(this.icon, this.image, [this.links = const []]);
   final IconData icon;
-  final String title;
-  final String how;
 
   /// Preview image in assets/quick_capture/ (rendered from the real widgets).
   final String image;
   final List<CaptureLink> links;
+
+  String title(AppLocalizations l) => switch (this) {
+        CaptureSpot.lockScreen => l.captureLockScreen,
+        CaptureSpot.widgets => l.captureWidgets,
+        CaptureSpot.controlCentre => l.captureControlCentre,
+        CaptureSpot.actionButton => l.captureActionButton,
+        CaptureSpot.siri => l.captureSiri,
+      };
+
+  /// How to add it, with the iOS names in [l]'s language.
+  String how(AppLocalizations l) => switch (this) {
+        CaptureSpot.lockScreen => l.captureLockScreenHow,
+        CaptureSpot.widgets => l.captureWidgetsHow,
+        CaptureSpot.controlCentre => l.captureControlCentreHow,
+        CaptureSpot.actionButton => l.captureActionButtonHow,
+        CaptureSpot.siri => l.captureSiriHow,
+      };
 }
 
 enum CaptureLink {
-  microphone('Microphone & Speech access', Icons.mic_none, external: true),
-  siri('Siri & Search', Icons.record_voice_over_outlined, external: true),
-  nag('Sad panda reminders', Icons.notifications_outlined),
-  basket('Leave basket', Icons.shopping_basket_outlined);
+  microphone(Icons.mic_none, external: true),
+  siri(Icons.record_voice_over_outlined, external: true),
+  nag(Icons.notifications_outlined),
+  basket(Icons.shopping_basket_outlined);
 
-  const CaptureLink(this.label, this.icon, {this.external = false});
-  final String label;
+  const CaptureLink(this.icon, {this.external = false});
   final IconData icon;
 
   /// Opens Red Panda's page in the iOS Settings app (not an in-app page).
   final bool external;
+
+  String label(AppLocalizations l) => switch (this) {
+        CaptureLink.microphone => l.captureLinkMicrophone,
+        CaptureLink.siri => l.captureLinkSiri,
+        CaptureLink.nag => l.settingsNag,
+        CaptureLink.basket => l.settingsLeaveBasket,
+      };
 }
 
 /// Where to put Red Panda's quick-capture buttons; one line each until opened.
 class QuickCapturePage extends StatelessWidget {
   const QuickCapturePage({super.key, this.onNagSettings, this.onBasketSettings, this.open});
 
-  /// Title of a spot to show unfolded.
-  final String? open;
+  /// A spot to show unfolded.
+  final CaptureSpot? open;
   final VoidCallback? onNagSettings;
   final VoidCallback? onBasketSettings;
 
-  static const spots = [
-    CaptureSpot(
-      Icons.lock_outline,
-      'Lock Screen buttons',
-      'Long-press the Lock Screen, tap Customise > Lock Screen, tap a control slot at the bottom and '
-          "pick Red Panda > Text note, Voice note or Show Panda's basket.",
-      'lock_screen',
-      [CaptureLink.microphone],
-    ),
-    CaptureSpot(
-      Icons.widgets_outlined,
-      'Widgets',
-      'Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add '
-          'the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > '
-          "Add Widget and search \"Red Panda\": its buttons add a note or show Panda's basket.",
-      'widgets',
-      [CaptureLink.nag, CaptureLink.basket],
-    ),
-    CaptureSpot(
-      Icons.tune,
-      'Control Centre',
-      'Open Control Centre, tap +, Add a Control, search "Red Panda".',
-      'control_centre',
-      [CaptureLink.microphone, CaptureLink.basket],
-    ),
-    CaptureSpot(
-      Icons.radio_button_checked,
-      'Action Button',
-      "Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show "
-          "Panda's basket.",
-      'action_button',
-      [CaptureLink.microphone],
-    ),
-    CaptureSpot(
-      Icons.record_voice_over_outlined,
-      'Siri',
-      'Say "Note with Red Panda", "Voice note with Red Panda" or "Show my Red Panda basket".',
-      'siri',
-      [CaptureLink.siri],
-    ),
-  ];
+  static const spots = CaptureSpot.values;
 
   void _open(BuildContext context, CaptureLink l) {
     switch (l) {
@@ -532,73 +523,80 @@ class QuickCapturePage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Quick capture')),
-        body: ListView(
-          children: [
-            for (final spot in spots)
-              ExpansionTile(
-                initiallyExpanded: spot.title == open,
-                leading: Icon(spot.icon),
-                title: Text(spot.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(
-                      'assets/quick_capture/${spot.image}.png',
-                      height: 150,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      semanticLabel: '${spot.title} preview',
-                      errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                    ),
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Scaffold(
+      appBar: AppBar(title: Text(l.settingsQuickCapture)),
+      body: ListView(
+        children: [
+          for (final spot in spots)
+            ExpansionTile(
+              initiallyExpanded: spot == open,
+              leading: Icon(spot.icon),
+              title: Text(spot.title(l), maxLines: 1, overflow: TextOverflow.ellipsis),
+              childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    'assets/quick_capture/${spot.image}.png',
+                    height: 150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    semanticLabel: l.capturePreview(spot.title(l)),
+                    errorBuilder: (_, _, _) => const SizedBox.shrink(),
                   ),
-                  const SizedBox(height: 10),
-                  Text(spot.how),
-                  for (final l in spot.links)
-                    TextButton.icon(
-                      icon: Icon(l.icon, size: 18),
-                      label: Text(l.label),
-                      iconAlignment: IconAlignment.start,
-                      onPressed: () => _open(context, l),
-                    ),
-                ],
-              ),
-          ],
-        ),
-      );
+                ),
+                const SizedBox(height: 10),
+                Text(spot.how(l)),
+                for (final link in spot.links)
+                  TextButton.icon(
+                    icon: Icon(link.icon, size: 18),
+                    label: Text(link.label(l)),
+                    iconAlignment: IconAlignment.start,
+                    onPressed: () => _open(context, link),
+                  ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
 }
 
-/// What's new per version, with a link to each pull request.
+/// What's new per version, with a link to each pull request; the lines in
+/// the app's language (English where one is missing).
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('News')),
-        body: ListView(
-          children: [
-            for (final (i, n) in news.indexed) ...[
-              ListTile(
-                title: Text('Version ${n.version}${i == 0 ? ' · new' : ''}',
-                    style: Theme.of(context).textTheme.titleMedium),
-                trailing: TextButton.icon(
-                  icon: const Icon(Icons.open_in_new, size: 16),
-                  label: Text('PR #${n.pr}'),
-                  onPressed: () => ShortcutsLinks.openExternal(n.url),
-                ),
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Scaffold(
+      appBar: AppBar(title: Text(l.settingsNews)),
+      body: ListView(
+        children: [
+          for (final (i, n) in news.indexed) ...[
+            ListTile(
+              title: Text(i == 0 ? l.newsVersionNew(n.version) : l.newsVersion(n.version),
+                  style: Theme.of(context).textTheme.titleMedium),
+              trailing: TextButton.icon(
+                icon: const Icon(Icons.open_in_new, size: 16),
+                label: Text(l.newsPr(n.pr)),
+                onPressed: () => ShortcutsLinks.openExternal(n.url),
               ),
-              for (final item in n.items)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 0, 16, 6),
-                  child: Text('• $item'),
-                ),
-            ],
+            ),
+            for (final item in n.itemsIn(l.localeName))
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 0, 16, 6),
+                child: Text('• $item'),
+              ),
           ],
-        ),
-      );
+        ],
+      ),
+    );
+  }
 }
 
 /// A one-line setting: title on the left, current value and a chevron (or

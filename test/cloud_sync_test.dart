@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:red_panda/l10n/l10n.dart';
 import 'package:red_panda/storage/cloud_sync.dart';
 import 'package:red_panda/storage/note_store.dart';
 
@@ -155,7 +157,7 @@ void main() {
 
     expect(await c.run(enabled: true), isFalse);
     expect(c.status.value.state, CloudState.unavailable);
-    expect(c.status.value.label, 'Not signed in');
+    expect(c.status.value.label(lookupAppLocalizations(const Locale('en'))), 'Not signed in');
 
     write(cloud, 'notes/b.json', 'B');
     path = cloud.path;
@@ -164,7 +166,7 @@ void main() {
     expect(read(phone, 'notes/b.json'), 'B');
 
     await c.run(enabled: false);
-    expect(c.status.value.label, 'Off');
+    expect(c.status.value.label(lookupAppLocalizations(const Locale('en'))), 'Off');
     expect(f(phone, '.cloud_sync.json').existsSync(), isFalse);
   });
 
