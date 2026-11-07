@@ -9,6 +9,8 @@ import '../platform/leave_basket.dart';
 import '../platform/shortcuts_links.dart';
 import '../storage/cloud_sync.dart';
 import '../storage/note_store.dart';
+import 'link_text.dart';
+import 'walkthrough.dart';
 
 /// Settings: one line per setting. Choices open in a drawer (bottom sheet),
 /// groups (leave basket, quick capture) on their own page.
@@ -328,8 +330,8 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
             value: _permissionLabel(permission, l),
             warn: s.leaveOnPlace && permission != null && permission != LocationPermission.always &&
                 permission != LocationPermission.unknown,
-            external: true,
-            onTap: LeaveBasket.openSettings,
+            link: true,
+            onTap: () => showWalkthrough(context, Walkthrough.location),
           ),
           SettingRow(
             icon: Icons.info,
@@ -442,7 +444,7 @@ class _InfoPoint extends StatelessWidget {
   Widget build(BuildContext context) => ListTile(
         leading: Icon(icon, color: Colors.blue),
         title: Text(title),
-        subtitle: Text(body),
+        subtitle: LinkText(body),
       );
 }
 
@@ -489,7 +491,7 @@ enum CaptureLink {
   const CaptureLink(this.icon, {this.external = false});
   final IconData icon;
 
-  /// Opens Red Panda's page in the iOS Settings app (not an in-app page).
+  /// Shows the way in the iOS Settings app (a walkthrough), not an in-app page.
   final bool external;
 
   String label(AppLocalizations l) => switch (this) {
@@ -513,8 +515,10 @@ class QuickCapturePage extends StatelessWidget {
 
   void _open(BuildContext context, CaptureLink l) {
     switch (l) {
-      case CaptureLink.microphone || CaptureLink.siri:
-        LeaveBasket.openSettings();
+      case CaptureLink.microphone:
+        showWalkthrough(context, Walkthrough.microphone);
+      case CaptureLink.siri:
+        showWalkthrough(context, Walkthrough.siri);
       case CaptureLink.nag:
         onNagSettings?.call();
       case CaptureLink.basket:
@@ -549,12 +553,13 @@ class QuickCapturePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Text(spot.how(l)),
+                LinkText(spot.how(l)),
                 for (final link in spot.links)
                   TextButton.icon(
                     icon: Icon(link.icon, size: 18),
                     label: Text(link.label(l)),
                     iconAlignment: IconAlignment.start,
+                    style: link.external ? TextButton.styleFrom(foregroundColor: linkBlue) : null,
                     onPressed: () => _open(context, link),
                   ),
               ],
@@ -612,6 +617,7 @@ class SettingRow extends StatelessWidget {
     this.external = false,
     this.enabled = true,
     this.warn = false,
+    this.link = false,
     this.iconColor,
   });
 
@@ -629,6 +635,9 @@ class SettingRow extends StatelessWidget {
   final bool enabled;
   final bool warn;
 
+  /// Plays a walkthrough of the iOS Settings: the title is a blue link.
+  final bool link;
+
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
@@ -636,7 +645,8 @@ class SettingRow extends StatelessWidget {
     return ListTile(
       enabled: enabled,
       leading: Icon(icon, color: enabled ? iconColor : null),
-      title: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
+      title: Text(title,
+          maxLines: 1, overflow: TextOverflow.ellipsis, style: link && enabled ? const TextStyle(color: linkBlue) : null),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -646,7 +656,11 @@ class SettingRow extends StatelessWidget {
           ),
           const SizedBox(width: 4),
           Icon(
-            external ? Icons.open_in_new : (page ? Icons.chevron_right : Icons.unfold_more),
+            link
+                ? Icons.play_circle_outline
+                : external
+                    ? Icons.open_in_new
+                    : (page ? Icons.chevron_right : Icons.unfold_more),
             size: 18,
             color: scheme.onSurfaceVariant,
           ),

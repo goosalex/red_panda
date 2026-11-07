@@ -19,6 +19,17 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.5.0', 8, [
+    {
+      'en': 'Blue links to iOS Settings show the way there with a short animation, in your language',
+      'fr': 'Les liens bleus vers Réglages montrent le chemin en une courte animation, dans votre langue',
+      'de': 'Blaue Links zu den Einstellungen zeigen den Weg dorthin als kurze Animation, in deiner Sprache',
+      'es': 'Los enlaces azules a Configuración muestran el camino con una animación corta, en tu idioma',
+      'it': 'I link blu alle Impostazioni mostrano la strada con una breve animazione, nella tua lingua',
+      'ja': '青いリンクから、設定までの道順を短いアニメーションでご案内（各言語対応）',
+      'ar': 'الروابط الزرقا للإعدادات بتفرجيك الطريق بأنيميشن قصير، بلغتك',
+    },
+  ]),
   NewsEntry('0.4.0', 7, [
     {
       'en': 'Red Panda speaks French, German, Spanish, Italian, Japanese and Arabic',

@@ -88,7 +88,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get basketEmptyStatus => 'かごは空です。項目をドラッグして入れると、出かけるときにお知らせします。';
 
   @override
-  String get basketNeedsLocation => '出かけたことに気づくには位置情報が必要です。「設定」で許可してください。';
+  String get basketNeedsLocation =>
+      '出かけたことに気づくには位置情報が必要です。「[設定](location)」で許可してください。';
 
   @override
   String get basketWatching => '見守り中';
@@ -121,7 +122,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'Red Pandaを閉じていても気づけるように、「設定」で位置情報を「常に」にしてください。';
+      'Red Pandaを閉じていても気づけるように、「[設定](location)」で位置情報を「常に」にしてください。';
 
   @override
   String get basketWatchHere => 'ここから見守る';
@@ -236,7 +237,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cloudNameHint => '例：家、仕事、買い物';
 
   @override
-  String get micNeeded => 'マイクが必要です。「設定」>「Red Panda」で許可してください。';
+  String get micNeeded => 'マイクが必要です。「[設定](microphone)」で許可してください。';
 
   @override
   String get recordFailed => '録音を開始できませんでした。';
@@ -660,7 +661,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      '「このAppの使用中のみ」では、閉じたあとiOSはRed Pandaに何も知らせないため、かごはアプリを開いている間しか知らせられません。「常に」なら、離れた瞬間にiOSがRed Pandaを起こします。';
+      '「このAppの使用中のみ」では、閉じたあとiOSはRed Pandaに何も知らせないため、かごはアプリを開いている間しか知らせられません。[「常に」](location)なら、離れた瞬間にiOSがRed Pandaを起こします。';
 
   @override
   String get locationInfoBatteryTitle => 'バッテリーを消耗しません';
@@ -708,7 +709,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      '「設定」>「アクションボタン」>「コントロール」で、Red Panda >「テキストメモ」「ボイスメモ」「パンダのかごを表示」から選びます。';
+      '[「設定」>「アクションボタン」>「コントロール」](actionButton)で、Red Panda >「テキストメモ」「ボイスメモ」「パンダのかごを表示」から選びます。';
 
   @override
   String get captureSiri => 'Siri';
@@ -730,4 +731,24 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get wifi => 'Wi-Fi';
+
+  @override
+  String get walkLocationTitle => '位置情報：常に';
+
+  @override
+  String get walkMicrophoneTitle => 'マイクと音声認識';
+
+  @override
+  String get walkSiriTitle => 'Red PandaとSiri';
+
+  @override
+  String get walkActionButtonTitle => 'アクションボタンにRed Panda';
+
+  @override
+  String get walkActionButtonNote => 'iPhoneでは「コントロール」が出るまでスワイプを続けてください。';
+
+  @override
+  String walkSemantics(String path) {
+    return '設定での手順のアニメーション：$path';
+  }
 }

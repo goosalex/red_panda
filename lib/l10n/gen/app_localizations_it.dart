@@ -95,7 +95,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get basketNeedsLocation =>
-      'Red Panda ha bisogno della tua posizione per capire quando esci. Consentila in Impostazioni.';
+      'Red Panda ha bisogno della tua posizione per capire quando esci. Consentila in [Impostazioni](location).';
 
   @override
   String get basketWatching => 'In ascolto';
@@ -129,7 +129,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'Per accorgersi che esci anche con Red Panda chiuso, imposta Posizione su \"Sempre\" in Impostazioni.';
+      'Per accorgersi che esci anche con Red Panda chiuso, imposta Posizione su \"Sempre\" in [Impostazioni](location).';
 
   @override
   String get basketWatchHere => 'Controlla da qui';
@@ -247,7 +247,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get micNeeded =>
-      'Red Panda ha bisogno del microfono. Consentilo in Impostazioni > Red Panda.';
+      'Red Panda ha bisogno del microfono. Consentilo in [Impostazioni](microphone).';
 
   @override
   String get recordFailed => 'Impossibile avviare la registrazione.';
@@ -695,7 +695,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      'Con “Mentre usi l\'app”, iOS non dice nulla a Red Panda quando è chiusa, quindi il cestino potrebbe avvisarti solo con l\'app aperta. “Sempre” permette a iOS di svegliare Red Panda appena te ne vai.';
+      'Con “Mentre usi l\'app”, iOS non dice nulla a Red Panda quando è chiusa, quindi il cestino potrebbe avvisarti solo con l\'app aperta. [“Sempre”](location) permette a iOS di svegliare Red Panda appena te ne vai.';
 
   @override
   String get locationInfoBatteryTitle => 'Nessun consumo di batteria';
@@ -745,7 +745,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Impostazioni > Tasto Azione > Controlli, poi scegli Red Panda > Nota di testo, Nota vocale o Mostra il cestino del panda.';
+      '[Impostazioni > Tasto Azione > Controlli](actionButton), poi scegli Red Panda > Nota di testo, Nota vocale o Mostra il cestino del panda.';
 
   @override
   String get captureSiri => 'Siri';
@@ -767,4 +767,25 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get wifi => 'Wi-Fi';
+
+  @override
+  String get walkLocationTitle => 'Posizione: Sempre';
+
+  @override
+  String get walkMicrophoneTitle => 'Microfono e riconoscimento vocale';
+
+  @override
+  String get walkSiriTitle => 'Red Panda e Siri';
+
+  @override
+  String get walkActionButtonTitle => 'Red Panda sul tasto Azione';
+
+  @override
+  String get walkActionButtonNote =>
+      'Sul tuo iPhone continua a scorrere fino a Controlli.';
+
+  @override
+  String walkSemantics(String path) {
+    return 'Animazione del percorso in Impostazioni: $path';
+  }
 }

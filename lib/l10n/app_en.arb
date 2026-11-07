@@ -26,7 +26,7 @@
   "basketIn": "In the leave basket 🧺 The panda reminds you when you leave this place.",
   "basketOut": "Out of the leave basket.",
   "basketEmptyStatus": "The basket is empty. Drag items into it to be reminded about them when you leave.",
-  "basketNeedsLocation": "Red Panda needs your location to notice when you leave. Allow it in Settings.",
+  "basketNeedsLocation": "Red Panda needs your location to notice when you leave. Allow it in [Settings](location).",
   "basketWatching": "Watching",
   "basketWatchingSince": "Watching (since {time})",
   "@basketWatchingSince": {
@@ -62,7 +62,7 @@
       }
     }
   },
-  "basketNeedsAlways": "To notice leaving while Red Panda is closed, set Location to \"Always\" in Settings.",
+  "basketNeedsAlways": "To notice leaving while Red Panda is closed, set Location to \"Always\" in [Settings](location).",
   "basketWatchHere": "Watch from here",
   "openSettings": "Open Settings",
   "basketEmptyAction": "Empty the basket",
@@ -171,7 +171,7 @@
   "removeCloud": "Remove cloud",
   "removeCloudInfo": "Its items stay, just without a category",
   "cloudNameHint": "e.g. Home, Work, Shopping",
-  "micNeeded": "Red Panda needs the microphone. Allow it in Settings > Red Panda.",
+  "micNeeded": "Red Panda needs the microphone. Allow it in [Settings](microphone).",
   "recordFailed": "Couldn't start recording.",
   "search": "Search",
   "closeSearch": "Close search",
@@ -470,7 +470,7 @@
   "guideDone": "Tap Done. From now on the panda reminds you of your basket.",
   "locationInfoTitle": "Why \"Always\" location?",
   "locationInfoLeaveTitle": "Only to notice you leaving",
-  "locationInfoLeaveBody": "With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. \"Always\" lets iOS wake Red Panda the moment you leave.",
+  "locationInfoLeaveBody": "With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. [\"Always\"](location) lets iOS wake Red Panda the moment you leave.",
   "locationInfoBatteryTitle": "No battery drain",
   "locationInfoBatteryBody": "Red Panda does not follow you. It asks iOS once for where you are and draws one circle around it. iOS watches that circle with the cell and Wi-Fi signals it uses anyway, and Red Panda sleeps until you cross the edge. Then the circle is removed.",
   "locationInfoPrivacyTitle": "Your location stays on your iPhone",
@@ -484,7 +484,7 @@
   "captureControlCentre": "Control Centre",
   "captureControlCentreHow": "Open Control Centre, tap +, Add a Control, search \"Red Panda\".",
   "captureActionButton": "Action Button",
-  "captureActionButtonHow": "Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show Panda's basket.",
+  "captureActionButtonHow": "[Settings > Action Button > Controls](actionButton), then choose Red Panda > Text note, Voice note or Show Panda's basket.",
   "captureSiri": "Siri",
   "captureSiriHow": "Say \"Note with Red Panda\", \"Voice note with Red Panda\" or \"Show my Red Panda basket\".",
   "capturePreview": "{spot} preview",
@@ -497,5 +497,18 @@
   },
   "captureLinkMicrophone": "Microphone & Speech access",
   "captureLinkSiri": "Siri & Search",
-  "wifi": "Wi-Fi"
+  "wifi": "Wi-Fi",
+  "walkLocationTitle": "Location: Always",
+  "walkMicrophoneTitle": "Microphone & speech recognition",
+  "walkSiriTitle": "Red Panda and Siri",
+  "walkActionButtonTitle": "Red Panda on the Action Button",
+  "walkActionButtonNote": "On your iPhone, keep swiping until you reach Controls.",
+  "walkSemantics": "Animation of the way in Settings: {path}",
+  "@walkSemantics": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

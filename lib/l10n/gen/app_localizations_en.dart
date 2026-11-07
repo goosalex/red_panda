@@ -95,7 +95,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get basketNeedsLocation =>
-      'Red Panda needs your location to notice when you leave. Allow it in Settings.';
+      'Red Panda needs your location to notice when you leave. Allow it in [Settings](location).';
 
   @override
   String get basketWatching => 'Watching';
@@ -129,7 +129,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'To notice leaving while Red Panda is closed, set Location to \"Always\" in Settings.';
+      'To notice leaving while Red Panda is closed, set Location to \"Always\" in [Settings](location).';
 
   @override
   String get basketWatchHere => 'Watch from here';
@@ -247,7 +247,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get micNeeded =>
-      'Red Panda needs the microphone. Allow it in Settings > Red Panda.';
+      'Red Panda needs the microphone. Allow it in [Settings](microphone).';
 
   @override
   String get recordFailed => 'Couldn\'t start recording.';
@@ -693,7 +693,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      'With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. \"Always\" lets iOS wake Red Panda the moment you leave.';
+      'With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. [\"Always\"](location) lets iOS wake Red Panda the moment you leave.';
 
   @override
   String get locationInfoBatteryTitle => 'No battery drain';
@@ -742,7 +742,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show Panda\'s basket.';
+      '[Settings > Action Button > Controls](actionButton), then choose Red Panda > Text note, Voice note or Show Panda\'s basket.';
 
   @override
   String get captureSiri => 'Siri';
@@ -764,4 +764,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wifi => 'Wi-Fi';
+
+  @override
+  String get walkLocationTitle => 'Location: Always';
+
+  @override
+  String get walkMicrophoneTitle => 'Microphone & speech recognition';
+
+  @override
+  String get walkSiriTitle => 'Red Panda and Siri';
+
+  @override
+  String get walkActionButtonTitle => 'Red Panda on the Action Button';
+
+  @override
+  String get walkActionButtonNote =>
+      'On your iPhone, keep swiping until you reach Controls.';
+
+  @override
+  String walkSemantics(String path) {
+    return 'Animation of the way in Settings: $path';
+  }
 }

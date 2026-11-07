@@ -267,7 +267,7 @@ abstract class AppLocalizations {
   /// No description provided for @basketNeedsLocation.
   ///
   /// In en, this message translates to:
-  /// **'Red Panda needs your location to notice when you leave. Allow it in Settings.'**
+  /// **'Red Panda needs your location to notice when you leave. Allow it in [Settings](location).'**
   String get basketNeedsLocation;
 
   /// No description provided for @basketWatching.
@@ -315,7 +315,7 @@ abstract class AppLocalizations {
   /// No description provided for @basketNeedsAlways.
   ///
   /// In en, this message translates to:
-  /// **'To notice leaving while Red Panda is closed, set Location to \"Always\" in Settings.'**
+  /// **'To notice leaving while Red Panda is closed, set Location to \"Always\" in [Settings](location).'**
   String get basketNeedsAlways;
 
   /// No description provided for @basketWatchHere.
@@ -495,7 +495,7 @@ abstract class AppLocalizations {
   /// No description provided for @micNeeded.
   ///
   /// In en, this message translates to:
-  /// **'Red Panda needs the microphone. Allow it in Settings > Red Panda.'**
+  /// **'Red Panda needs the microphone. Allow it in [Settings](microphone).'**
   String get micNeeded;
 
   /// No description provided for @recordFailed.
@@ -1222,7 +1222,7 @@ abstract class AppLocalizations {
   /// No description provided for @locationInfoLeaveBody.
   ///
   /// In en, this message translates to:
-  /// **'With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. \"Always\" lets iOS wake Red Panda the moment you leave.'**
+  /// **'With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. [\"Always\"](location) lets iOS wake Red Panda the moment you leave.'**
   String get locationInfoLeaveBody;
 
   /// No description provided for @locationInfoBatteryTitle.
@@ -1306,7 +1306,7 @@ abstract class AppLocalizations {
   /// No description provided for @captureActionButtonHow.
   ///
   /// In en, this message translates to:
-  /// **'Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show Panda\'s basket.'**
+  /// **'[Settings > Action Button > Controls](actionButton), then choose Red Panda > Text note, Voice note or Show Panda\'s basket.'**
   String get captureActionButtonHow;
 
   /// No description provided for @captureSiri.
@@ -1344,6 +1344,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wi-Fi'**
   String get wifi;
+
+  /// No description provided for @walkLocationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Location: Always'**
+  String get walkLocationTitle;
+
+  /// No description provided for @walkMicrophoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone & speech recognition'**
+  String get walkMicrophoneTitle;
+
+  /// No description provided for @walkSiriTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda and Siri'**
+  String get walkSiriTitle;
+
+  /// No description provided for @walkActionButtonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda on the Action Button'**
+  String get walkActionButtonTitle;
+
+  /// No description provided for @walkActionButtonNote.
+  ///
+  /// In en, this message translates to:
+  /// **'On your iPhone, keep swiping until you reach Controls.'**
+  String get walkActionButtonNote;
+
+  /// No description provided for @walkSemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'Animation of the way in Settings: {path}'**
+  String walkSemantics(String path);
 }
 
 class _AppLocalizationsDelegate

@@ -95,7 +95,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get basketNeedsLocation =>
-      'Red Panda necesita tu ubicación para saber cuándo sales. Permítela en Configuración.';
+      'Red Panda necesita tu ubicación para saber cuándo sales. Permítela en [Configuración](location).';
 
   @override
   String get basketWatching => 'Vigilando';
@@ -130,7 +130,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get basketNeedsAlways =>
-      'Para notar que sales con Red Panda cerrado, pon la Ubicación en \"Siempre\" en Configuración.';
+      'Para notar que sales con Red Panda cerrado, pon la Ubicación en \"Siempre\" en [Configuración](location).';
 
   @override
   String get basketWatchHere => 'Vigilar desde aquí';
@@ -249,7 +249,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get micNeeded =>
-      'Red Panda necesita el micrófono. Permítelo en Configuración > Red Panda.';
+      'Red Panda necesita el micrófono. Permítelo en [Configuración](microphone).';
 
   @override
   String get recordFailed => 'No se pudo iniciar la grabación.';
@@ -696,7 +696,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get locationInfoLeaveBody =>
-      'Con “Al usar la app”, iOS no le avisa nada a Red Panda cuando está cerrada, así que la canasta solo podría avisarte con la app abierta. “Siempre” deja que iOS despierte a Red Panda en cuanto te vas.';
+      'Con “Al usar la app”, iOS no le avisa nada a Red Panda cuando está cerrada, así que la canasta solo podría avisarte con la app abierta. [“Siempre”](location) deja que iOS despierte a Red Panda en cuanto te vas.';
 
   @override
   String get locationInfoBatteryTitle => 'No gasta batería';
@@ -745,7 +745,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Configuración > Botón de acción > Controles, luego elige Red Panda > Nota de texto, Nota de voz o Mostrar la canasta del panda.';
+      '[Configuración > Botón de acción > Controles](actionButton), luego elige Red Panda > Nota de texto, Nota de voz o Mostrar la canasta del panda.';
 
   @override
   String get captureSiri => 'Siri';
@@ -767,4 +767,25 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get wifi => 'Wi-Fi';
+
+  @override
+  String get walkLocationTitle => 'Ubicación: Siempre';
+
+  @override
+  String get walkMicrophoneTitle => 'Micrófono y reconocimiento de voz';
+
+  @override
+  String get walkSiriTitle => 'Red Panda y Siri';
+
+  @override
+  String get walkActionButtonTitle => 'Red Panda en el botón de acción';
+
+  @override
+  String get walkActionButtonNote =>
+      'En tu iPhone, sigue deslizando hasta llegar a Controles.';
+
+  @override
+  String walkSemantics(String path) {
+    return 'Animación del camino en Configuración: $path';
+  }
 }

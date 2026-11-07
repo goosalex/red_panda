@@ -1,0 +1,56 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		A0000000000000000000A001 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000F001; };
+		A0000000000000000000F001 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		A0000000000000000000F002 /* Walkthroughs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Walkthroughs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0000000000000000000G001 = {isa = PBXGroup; children = (A0000000000000000000G002, A0000000000000000000G003, ); sourceTree = "<group>"; };
+		A0000000000000000000G002 /* Walkthroughs */ = {isa = PBXGroup; children = (A0000000000000000000F001, ); path = Walkthroughs; sourceTree = "<group>"; };
+		A0000000000000000000G003 /* Products */ = {isa = PBXGroup; children = (A0000000000000000000F002, ); name = Products; sourceTree = "<group>"; };
+		A0000000000000000000P001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A0000000000000000000A001, ); runOnlyForDeploymentPostprocessing = 0; };
+		A0000000000000000000T001 /* Walkthroughs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0000000000000000000L002;
+			buildPhases = (A0000000000000000000P001, );
+			buildRules = ( );
+			dependencies = ( );
+			name = Walkthroughs;
+			productName = Walkthroughs;
+			productReference = A0000000000000000000F002;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A0000000000000000000R001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1620; LastUpgradeCheck = 1620; };
+			buildConfigurationList = A0000000000000000000L001;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base, );
+			mainGroup = A0000000000000000000G001;
+			productRefGroup = A0000000000000000000G003;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A0000000000000000000T001, );
+		};
+		A0000000000000000000C001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 18.0; SWIFT_VERSION = 5.0; ONLY_ACTIVE_ARCH = YES; }; name = Debug; };
+		A0000000000000000000C002 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {
+			GENERATE_INFOPLIST_FILE = YES;
+			PRODUCT_BUNDLE_IDENTIFIER = ch.masdatos.redpanda.walkthroughs;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			CODE_SIGN_STYLE = Manual;
+			CODE_SIGN_IDENTITY = "-";
+			CODE_SIGNING_ALLOWED = YES;
+			DEVELOPMENT_TEAM = "";
+			TARGETED_DEVICE_FAMILY = 1;
+			SWIFT_EMIT_LOC_STRINGS = NO;
+		}; name = Debug; };
+		A0000000000000000000L001 = {isa = XCConfigurationList; buildConfigurations = (A0000000000000000000C001, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+		A0000000000000000000L002 = {isa = XCConfigurationList; buildConfigurations = (A0000000000000000000C002, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+	};
+	rootObject = A0000000000000000000R001;
+}
