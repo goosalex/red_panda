@@ -22,14 +22,14 @@ void main() {
         expect(frames.length, greaterThanOrEqualTo(3), reason: '${w.name}/$lang');
         for (final f in frames) {
           expect(File(f.image).existsSync(), isTrue, reason: f.image);
-          for (final o in [f.tap, f.swipeFrom, f.swipeTo].whereType<Offset>()) {
+          for (final o in [f.tap, f.press, f.swipeFrom, f.swipeTo].whereType<Offset>()) {
             expect(o.dx, inInclusiveRange(0, 1));
             expect(o.dy, inInclusiveRange(0, 1));
           }
         }
         // Every frame but the last shows where to tap or swipe; the last one the result.
-        expect(frames.take(frames.length - 1).every((f) => f.tap != null || f.isSwipe), isTrue, reason: '${w.name}/$lang');
-        expect(frames.last.tap == null && !frames.last.isSwipe, isTrue);
+        expect(frames.take(frames.length - 1).every((f) => f.acts), isTrue, reason: '${w.name}/$lang');
+        expect(frames.last.acts, isFalse);
         expect(frames.where((f) => f.tap != null).every((f) => (f.label ?? '').isNotEmpty), isTrue);
       }
     }
@@ -41,7 +41,10 @@ void main() {
       for (final e in en.entries)
         if (!e.key.startsWith('@') && LinkText.targets(e.value as String).isNotEmpty) e.key: LinkText.targets(e.value as String),
     };
-    expect(linked.keys, containsAll(['basketNeedsLocation', 'basketNeedsAlways', 'micNeeded', 'captureActionButtonHow']));
+    expect(linked.keys, containsAll(['basketNeedsLocation', 'basketNeedsAlways', 'micNeeded', 'captureActionButtonHow', 'captureWidgetsHow']));
+    // Every walkthrough is linked from somewhere (or from a Settings row).
+    final rows = {'location', 'microphone', 'siri'};
+    expect({...linked.values.expand((t) => t), ...rows}, containsAll(Walkthrough.values.map((w) => w.name)));
     for (final targets in linked.values) {
       for (final t in targets) {
         expect(Walkthrough.byName(t), isNotNull, reason: t);
@@ -88,6 +91,12 @@ void main() {
     await tester.pump(WalkthroughPlayer.step);
     await tester.pump(const Duration(milliseconds: 400));
     expect(tester.takeException(), isNull);
+  });
+
+  test('a long press is named in the path in the app language', () {
+    const f = WalkFrame(image: 'x', press: Offset(0.5, 0.5));
+    expect(f.acts, isTrue);
+    expect(f.name(lookupAppLocalizations(const Locale('de'))), 'Lange drücken');
   });
 
   test('the finger shows only in the middle of a frame', () {

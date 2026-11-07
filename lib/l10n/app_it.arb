@@ -194,7 +194,7 @@
   "captureLockScreen": "Pulsanti della schermata di blocco",
   "captureLockScreenHow": "Tieni premuto sulla schermata di blocco, tocca Personalizza > Schermata di blocco, tocca uno spazio per i controlli in basso e scegli Red Panda > Nota di testo, Nota vocale o Mostra il cestino del panda.",
   "captureWidgets": "Widget",
-  "captureWidgetsHow": "Personalizza la schermata di blocco e tocca l'area dei widget sotto l'orologio (o la riga sopra) per aggiungere il widget di Red Panda con la tua prossima scadenza. Nella schermata Home tieni premuto, tocca Modifica > Aggiungi widget e cerca “Red Panda”: i suoi pulsanti aggiungono una nota o mostrano il cestino del panda.",
+  "captureWidgetsHow": "[Personalizza la schermata di blocco](lockScreenWidget) e tocca l'area dei widget sotto l'orologio (o la riga sopra) per aggiungere il widget di Red Panda con la tua prossima scadenza. Nella schermata Home [tieni premuto, tocca Modifica > Aggiungi widget](homeScreenWidget) e cerca “Red Panda”: i suoi pulsanti aggiungono una nota o mostrano il cestino del panda.",
   "captureControlCentre": "Centro di Controllo",
   "captureControlCentreHow": "Apri Centro di Controllo, tocca +, Aggiungi un controllo, cerca “Red Panda”.",
   "captureActionButton": "Tasto Azione",
@@ -210,5 +210,8 @@
   "walkSiriTitle": "Red Panda e Siri",
   "walkActionButtonTitle": "Red Panda sul tasto Azione",
   "walkActionButtonNote": "Sul tuo iPhone continua a scorrere fino a Controlli.",
-  "walkSemantics": "Animazione del percorso in Impostazioni: {path}"
+  "walkSemantics": "Animazione del percorso in Impostazioni: {path}",
+  "walkLockScreenTitle": "Red Panda sulla schermata di blocco",
+  "walkHomeScreenTitle": "Red Panda nella schermata Home",
+  "walkLongPress": "Tieni premuto"
 }

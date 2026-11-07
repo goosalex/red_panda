@@ -731,7 +731,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'Personalizza la schermata di blocco e tocca l\'area dei widget sotto l\'orologio (o la riga sopra) per aggiungere il widget di Red Panda con la tua prossima scadenza. Nella schermata Home tieni premuto, tocca Modifica > Aggiungi widget e cerca “Red Panda”: i suoi pulsanti aggiungono una nota o mostrano il cestino del panda.';
+      '[Personalizza la schermata di blocco](lockScreenWidget) e tocca l\'area dei widget sotto l\'orologio (o la riga sopra) per aggiungere il widget di Red Panda con la tua prossima scadenza. Nella schermata Home [tieni premuto, tocca Modifica > Aggiungi widget](homeScreenWidget) e cerca “Red Panda”: i suoi pulsanti aggiungono una nota o mostrano il cestino del panda.';
 
   @override
   String get captureControlCentre => 'Centro di Controllo';
@@ -788,4 +788,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String walkSemantics(String path) {
     return 'Animazione del percorso in Impostazioni: $path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'Red Panda sulla schermata di blocco';
+
+  @override
+  String get walkHomeScreenTitle => 'Red Panda nella schermata Home';
+
+  @override
+  String get walkLongPress => 'Tieni premuto';
 }

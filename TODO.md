@@ -98,3 +98,7 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [x] Each link plays a walkthrough: real screenshots of the Settings app with blue tap pulses, recorded per language (tool/walkthroughs)
 - [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
 - [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping
+
+## 0.5.1
+
+- [x] Walkthroughs for the widgets: Lock Screen (long-press › Customise › Lock Screen › Add Widget › Red Panda) and Home Screen (long-press › Edit › Add Widget › Red Panda), linked from Quick capture › Widgets

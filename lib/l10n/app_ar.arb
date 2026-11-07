@@ -194,7 +194,7 @@
   "captureLockScreen": "أزرار شاشة القفل",
   "captureLockScreenHow": "اضغط مطوّل على شاشة القفل، كبوس \"تخصيص\" > \"شاشة القفل\"، كبوس على محل تحكّم تحت واختار Red Panda > ملاحظة نصية، ملاحظة صوتية أو فرجيني سلّة الباندا.",
   "captureWidgets": "الأدوات",
-  "captureWidgetsHow": "خصّص شاشة القفل وكبوس على محل الأدوات تحت الساعة (أو السطر اللي فوقها) لتضيف أداة Red Panda مع أقرب موعد عندك. على الشاشة الرئيسية، اضغط مطوّل، كبوس \"تعديل\" > \"إضافة أداة\" ودوّر على \"Red Panda\": أزرارها بتضيف ملاحظة أو بتفرجيك سلّة الباندا.",
+  "captureWidgetsHow": "[خصّص شاشة القفل](lockScreenWidget) وكبوس على محل الأدوات تحت الساعة (أو السطر اللي فوقها) لتضيف أداة Red Panda مع أقرب موعد عندك. على الشاشة الرئيسية، [اضغط مطوّل، كبوس \"تعديل\" > \"إضافة أداة\"](homeScreenWidget) ودوّر على \"Red Panda\": أزرارها بتضيف ملاحظة أو بتفرجيك سلّة الباندا.",
   "captureControlCentre": "مركز التحكم",
   "captureControlCentreHow": "افتح مركز التحكم، كبوس +، \"إضافة عنصر تحكم\"، ودوّر على \"Red Panda\".",
   "captureActionButton": "زر الإجراءات",
@@ -210,5 +210,8 @@
   "walkSiriTitle": "Red Panda وSiri",
   "walkActionButtonTitle": "Red Panda على زر الإجراءات",
   "walkActionButtonNote": "عالآيفون، ضلّك اسحب لحتى توصل لعناصر التحكم.",
-  "walkSemantics": "رسوم متحركة للطريق بالإعدادات: {path}"
+  "walkSemantics": "رسوم متحركة للطريق بالإعدادات: {path}",
+  "walkLockScreenTitle": "Red Panda على شاشة القفل",
+  "walkHomeScreenTitle": "Red Panda على الشاشة الرئيسية",
+  "walkLongPress": "ضغط مطوّل"
 }

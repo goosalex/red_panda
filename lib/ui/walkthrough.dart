@@ -8,8 +8,8 @@ import '../l10n/l10n.dart';
 import '../platform/leave_basket.dart';
 
 /// Short animations of the way to Red Panda's settings in the iOS Settings
-/// app: real screenshots of the Settings app in each app language, with blue
-/// pulses where to tap.
+/// app, and of adding its widgets to the Lock and Home Screen: real
+/// screenshots in each app language, with blue pulses where to tap.
 ///
 /// Recorded by tool/walkthroughs/record.sh into assets/walkthroughs/. When a
 /// language is added to the app, record it there too: a test checks that every
@@ -25,17 +25,25 @@ enum Walkthrough {
   siri,
 
   /// Action Button > Controls > Red Panda > Text note.
-  actionButton;
+  actionButton,
+
+  /// Long-press the Lock Screen > Customise > Lock Screen > Add Widget > Red Panda.
+  lockScreenWidget,
+
+  /// Long-press the Home Screen > Edit > Add Widget > Red Panda.
+  homeScreenWidget;
 
   String title(AppLocalizations l) => switch (this) {
         location => l.walkLocationTitle,
         microphone => l.walkMicrophoneTitle,
         siri => l.walkSiriTitle,
         actionButton => l.walkActionButtonTitle,
+        lockScreenWidget => l.walkLockScreenTitle,
+        homeScreenWidget => l.walkHomeScreenTitle,
       };
 
   /// Whether "Open Settings" (Red Panda's page in Settings) helps here.
-  bool get opensSettings => this != actionButton;
+  bool get opensSettings => this == location || this == microphone || this == siri;
 
   static Walkthrough? byName(String name) => values.where((w) => w.name == name).firstOrNull;
 }
@@ -43,7 +51,7 @@ enum Walkthrough {
 /// One screenshot of a walkthrough: where the finger taps or swipes
 /// (fractions of the screen) and the name of what it taps.
 class WalkFrame {
-  const WalkFrame({required this.image, this.tap, this.swipeFrom, this.swipeTo, this.label});
+  const WalkFrame({required this.image, this.tap, this.press, this.swipeFrom, this.swipeTo, this.label});
 
   factory WalkFrame.fromJson(Map<String, dynamic> j) {
     Offset? at(Object? o) => o is Map ? Offset((o['x'] as num).toDouble(), (o['y'] as num).toDouble()) : null;
@@ -51,6 +59,7 @@ class WalkFrame {
     return WalkFrame(
       image: 'assets/walkthroughs/${j['image']}',
       tap: at(j['tap']),
+      press: at(j['press']),
       swipeFrom: at(swipe?['from']),
       swipeTo: at(swipe?['to']),
       label: j['label'] as String?,
@@ -59,11 +68,20 @@ class WalkFrame {
 
   final String image;
   final Offset? tap;
+
+  /// A long press (on the Lock or Home Screen), with no name of its own.
+  final Offset? press;
   final Offset? swipeFrom;
   final Offset? swipeTo;
   final String? label;
 
   bool get isSwipe => swipeFrom != null && swipeTo != null;
+
+  /// Whether the finger does something here (every frame but the result).
+  bool get acts => tap != null || press != null || isSwipe;
+
+  /// The step's name in the path: what is tapped, or "Long-press".
+  String? name(AppLocalizations l) => press != null ? l.walkLongPress : label;
 }
 
 /// The recorded walkthroughs, from assets/walkthroughs/walkthroughs.json.
@@ -208,20 +226,21 @@ class _WalkthroughPlayerState extends State<WalkthroughPlayer> with SingleTicker
     final frame = frames[_i];
     final screenH = MediaQuery.sizeOf(context).height;
     final phoneH = (screenH * 0.5).clamp(260.0, 500.0);
-    final steps = [for (final f in frames) f.label].whereType<String>().toList();
-    final current = frames.take(_i + 1).where((f) => f.label != null).length - 1;
+    final l = context.l10n;
+    final steps = [for (final f in frames) f.name(l)].whereType<String>().toList();
+    final current = frames.take(_i + 1).where((f) => f.name(l) != null).length - 1;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         _Path(steps: steps, current: _i == frames.length - 1 ? steps.length : current, onTap: (n) {
           var seen = -1;
           for (final (i, f) in frames.indexed) {
-            if (f.label != null && ++seen == n) return _jump(i);
+            if (f.name(l) != null && ++seen == n) return _jump(i);
           }
         }),
         const SizedBox(height: 10),
         Semantics(
-          label: context.l10n.walkSemantics(steps.join(' › ')),
+          label: l.walkSemantics(steps.join(' › ')),
           image: true,
           child: ExcludeSemantics(
             child: Container(
@@ -320,6 +339,19 @@ class TouchPainter extends CustomPainter {
         ..strokeWidth = r * 1.4
         ..strokeCap = StrokeCap.round);
       canvas.drawCircle(at, r, fill);
+      return;
+    }
+    final press = frame.press;
+    if (press != null) {
+      // A long press: the dot grows and stays, with a ring that fills in.
+      final c = Offset(press.dx * size.width, press.dy * size.height);
+      final grow = calm ? 1.0 : Curves.easeOut.transform((p * 1.6).clamp(0.0, 1.0));
+      canvas.drawCircle(c, r * (0.7 + 0.5 * grow), fill);
+      canvas.drawArc(Rect.fromCircle(center: c, radius: r * 2), -1.5708, 6.2832 * (calm ? 1 : p), false,
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = r * 0.28
+            ..color = linkBlue.withValues(alpha: 0.75));
       return;
     }
     final tap = frame.tap;

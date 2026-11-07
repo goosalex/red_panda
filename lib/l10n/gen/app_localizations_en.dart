@@ -728,7 +728,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > Add Widget and search \"Red Panda\": its buttons add a note or show Panda\'s basket.';
+      '[Customise the Lock Screen](lockScreenWidget) and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, [long-press, tap Edit > Add Widget](homeScreenWidget) and search \"Red Panda\": its buttons add a note or show Panda\'s basket.';
 
   @override
   String get captureControlCentre => 'Control Centre';
@@ -785,4 +785,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String walkSemantics(String path) {
     return 'Animation of the way in Settings: $path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'Red Panda on the Lock Screen';
+
+  @override
+  String get walkHomeScreenTitle => 'Red Panda on the Home Screen';
+
+  @override
+  String get walkLongPress => 'Long-press';
 }

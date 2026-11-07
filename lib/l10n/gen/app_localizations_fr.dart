@@ -734,7 +734,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'Personnalisez l\'écran verrouillé et touchez la zone des widgets sous l\'heure (ou la ligne au-dessus) pour ajouter le widget Red Panda avec votre prochaine échéance. Sur l\'écran d\'accueil, appuyez longuement, touchez Modifier > Ajouter un widget et cherchez « Red Panda » : ses boutons ajoutent une note ou montrent le panier du panda.';
+      '[Personnalisez l\'écran verrouillé](lockScreenWidget) et touchez la zone des widgets sous l\'heure (ou la ligne au-dessus) pour ajouter le widget Red Panda avec votre prochaine échéance. Sur l\'écran d\'accueil, [appuyez longuement, touchez Modifier > Ajouter un widget](homeScreenWidget) et cherchez « Red Panda » : ses boutons ajoutent une note ou montrent le panier du panda.';
 
   @override
   String get captureControlCentre => 'Centre de contrôle';
@@ -791,4 +791,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String walkSemantics(String path) {
     return 'Animation du chemin dans Réglages : $path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'Red Panda sur l\'écran verrouillé';
+
+  @override
+  String get walkHomeScreenTitle => 'Red Panda sur l\'écran d\'accueil';
+
+  @override
+  String get walkLongPress => 'Appui long';
 }

@@ -695,7 +695,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'ロック画面をカスタマイズし、時計の下のウィジェット欄（またはその上の行）をタップすると、次の期限を表示するRed Pandaウィジェットを追加できます。ホーム画面では長押しして「編集」>「ウィジェットを追加」をタップし、「Red Panda」を検索。ボタンでメモを追加したり、パンダのかごを表示したりできます。';
+      '[ロック画面をカスタマイズ](lockScreenWidget)し、時計の下のウィジェット欄（またはその上の行）をタップすると、次の期限を表示するRed Pandaウィジェットを追加できます。ホーム画面では[長押しして「編集」>「ウィジェットを追加」をタップ](homeScreenWidget)し、「Red Panda」を検索。ボタンでメモを追加したり、パンダのかごを表示したりできます。';
 
   @override
   String get captureControlCentre => 'コントロールセンター';
@@ -751,4 +751,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String walkSemantics(String path) {
     return '設定での手順のアニメーション：$path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'ロック画面にRed Panda';
+
+  @override
+  String get walkHomeScreenTitle => 'ホーム画面にRed Panda';
+
+  @override
+  String get walkLongPress => '長押し';
 }

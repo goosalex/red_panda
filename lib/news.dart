@@ -19,6 +19,17 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.5.1', 9, [
+    {
+      'en': 'Walkthroughs for adding the widgets to the Lock Screen and Home Screen',
+      'fr': "Des guides animés pour ajouter les widgets à l'écran verrouillé et à l'écran d'accueil",
+      'de': 'Animierte Anleitungen, um die Widgets auf Sperr- und Home-Bildschirm zu legen',
+      'es': 'Guías animadas para agregar los widgets a la pantalla bloqueada y de inicio',
+      'it': 'Guide animate per aggiungere i widget alla schermata di blocco e alla Home',
+      'ja': 'ロック画面とホーム画面にウィジェットを追加する手順アニメーション',
+      'ar': 'شروحات متحركة لتضيف الأدوات على شاشة القفل والشاشة الرئيسية',
+    },
+  ]),
   NewsEntry('0.5.0', 8, [
     {
       'en': 'Blue links to iOS Settings show the way there with a short animation, in your language',

@@ -1282,7 +1282,7 @@ abstract class AppLocalizations {
   /// No description provided for @captureWidgetsHow.
   ///
   /// In en, this message translates to:
-  /// **'Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > Add Widget and search \"Red Panda\": its buttons add a note or show Panda\'s basket.'**
+  /// **'[Customise the Lock Screen](lockScreenWidget) and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, [long-press, tap Edit > Add Widget](homeScreenWidget) and search \"Red Panda\": its buttons add a note or show Panda\'s basket.'**
   String get captureWidgetsHow;
 
   /// No description provided for @captureControlCentre.
@@ -1380,6 +1380,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Animation of the way in Settings: {path}'**
   String walkSemantics(String path);
+
+  /// No description provided for @walkLockScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda on the Lock Screen'**
+  String get walkLockScreenTitle;
+
+  /// No description provided for @walkHomeScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda on the Home Screen'**
+  String get walkHomeScreenTitle;
+
+  /// No description provided for @walkLongPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Long-press'**
+  String get walkLongPress;
 }
 
 class _AppLocalizationsDelegate
