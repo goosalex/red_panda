@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 
@@ -34,6 +35,7 @@ class NoteTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final t = Theme.of(context).textTheme;
+    final locale = Localizations.localeOf(context).toString();
     final done = note.isDone;
     final snoozed = !done && note.isSnoozed(now);
     final subtitle = <InlineSpan>[
@@ -49,11 +51,12 @@ class NoteTile extends StatelessWidget {
         ),
         TextSpan(text: '${category!.name} · '),
       ],
-      TextSpan(text: DateFormat('d MMM, HH:mm').format(note.createdAt.toLocal())),
-      if (snoozed) TextSpan(text: ' · 💤 until ${DateFormat('EEE HH:mm').format(note.snoozedUntil!.toLocal())}'),
+      TextSpan(text: DateFormat.MMMd(locale).add_Hm().format(note.createdAt.toLocal())),
+      if (snoozed)
+        TextSpan(text: context.l10n.snoozedUntil(DateFormat.E(locale).add_Hm().format(note.snoozedUntil!.toLocal()))),
     ];
     return Semantics(
-      onLongPressHint: 'Edit',
+      onLongPressHint: context.l10n.edit,
       child: InkWell(
         onLongPress: () {
           HapticFeedback.mediumImpact();
@@ -69,7 +72,7 @@ class NoteTile extends StatelessWidget {
                   value: done,
                   onChanged: (_) => onToggle(),
                   shape: const CircleBorder(),
-                  semanticLabel: done ? 'Done' : 'Tick off',
+                  semanticLabel: done ? context.l10n.done : context.l10n.tickOff,
                 ),
                 Expanded(
                   child: Padding(
@@ -99,7 +102,7 @@ class NoteTile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 4),
                     child: Tooltip(
-                      message: 'In the leave basket',
+                      message: context.l10n.inLeaveBasket,
                       child: Icon(Icons.shopping_basket_outlined, size: 18, color: scheme.onSurfaceVariant),
                     ),
                   ),
@@ -123,11 +126,10 @@ class DeadlineBadge extends StatelessWidget {
   final Note note;
   final DateTime now;
 
-  static String shortLabel(int days) => switch (days) {
-        < 0 => '${-days}d late',
-        0 => 'today',
-        1 => '1d',
-        _ => '${days}d',
+  static String shortLabel(AppLocalizations l, int days) => switch (days) {
+        < 0 => l.daysLate(-days),
+        0 => l.today,
+        _ => l.daysShort(days),
       };
 
   @override
@@ -140,14 +142,14 @@ class DeadlineBadge extends StatelessWidget {
             ? const Color(0xFFE07A1F)
             : scheme.onSurfaceVariant.withValues(alpha: 0.7);
     return Tooltip(
-      message: 'Due ${DateFormat('EEE d MMM').format(note.dueAt!.toLocal())}',
+      message: context.l10n.dueOn(DateFormat.MMMEd(Localizations.localeOf(context).toString()).format(note.dueAt!.toLocal())),
       child: Padding(
         padding: const EdgeInsets.only(left: 6),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox.square(dimension: 18, child: CustomPaint(painter: AlarmClockPainter(color))),
-            Text(shortLabel(days), style: TextStyle(fontSize: 9, color: color)),
+            Text(shortLabel(context.l10n, days), style: TextStyle(fontSize: 9, color: color)),
           ],
         ),
       ),
@@ -204,7 +206,7 @@ class _DragHandle extends StatelessWidget {
       child: Icon(Icons.drag_indicator, color: Theme.of(context).colorScheme.onSurfaceVariant),
     );
     return Semantics(
-      label: 'Drag to reorder or onto a category cloud',
+      label: context.l10n.dragHint,
       child: Draggable<Note>(
         data: note,
         dragAnchorStrategy: pointerDragAnchorStrategy,

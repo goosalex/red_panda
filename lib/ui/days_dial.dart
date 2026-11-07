@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+
+import '../l10n/l10n.dart';
 import 'package:flutter/services.dart';
 
 /// A small round dial to pick a deadline in "days from now".
@@ -28,11 +30,11 @@ class DaysDial extends StatefulWidget {
   @override
   State<DaysDial> createState() => _DaysDialState();
 
-  static String label(int? days) => switch (days) {
-        null => 'no deadline',
-        0 => 'today',
-        1 => 'tomorrow',
-        _ => 'in $days days',
+  static String label(AppLocalizations l, int? days) => switch (days) {
+        null => l.noDeadline,
+        0 => l.today,
+        1 => l.tomorrow,
+        _ => l.inDays(days),
       };
 }
 
@@ -79,10 +81,10 @@ class _DaysDialState extends State<DaysDial> {
     final scheme = Theme.of(context).colorScheme;
     final days = _value(_pos);
     return Semantics(
-      label: 'Deadline',
-      value: DaysDial.label(days),
-      increasedValue: DaysDial.label((days ?? -1) + 1),
-      decreasedValue: DaysDial.label(days == null || days == 0 ? null : days - 1),
+      label: context.l10n.deadline,
+      value: DaysDial.label(context.l10n, days),
+      increasedValue: DaysDial.label(context.l10n, (days ?? -1) + 1),
+      decreasedValue: DaysDial.label(context.l10n, days == null || days == 0 ? null : days - 1),
       onIncrease: () => _step(1),
       onDecrease: () => _step(-1),
       child: GestureDetector(
@@ -115,7 +117,7 @@ class _DaysDialState extends State<DaysDial> {
                         ),
                   ),
                   Text(
-                    days == null ? 'no date' : (days == 1 ? 'day' : 'days'),
+                    days == null ? context.l10n.noDate : context.l10n.dayUnit(days),
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ],

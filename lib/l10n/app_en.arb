@@ -22,5 +22,334 @@
   "nagOff": "Off",
   "nagGentle": "Gentle",
   "nagNormal": "Normal",
-  "nagPersistent": "Persistent"
+  "nagPersistent": "Persistent",
+  "basketIn": "In the leave basket 🧺 The panda reminds you when you leave this place.",
+  "basketOut": "Out of the leave basket.",
+  "basketEmptyStatus": "The basket is empty. Drag items into it to be reminded about them when you leave.",
+  "basketNeedsLocation": "Red Panda needs your location to notice when you leave. Allow it in Settings.",
+  "basketWatching": "Watching",
+  "basketWatchingSince": "Watching (since {time})",
+  "@basketWatchingSince": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "basketReasonPlace": "you get a reminder when you move more than {radius} m away.",
+  "@basketReasonPlace": {
+    "placeholders": {
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "basketReasonWifi": "you get a reminder when your Wi-Fi drops.",
+  "basketReasonBoth": "you get a reminder when you move more than {radius} m away or your Wi-Fi drops.",
+  "@basketReasonBoth": {
+    "placeholders": {
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "basketNotWatching": "Not watching right now. Tap \"Watch from here\" to start.",
+  "basketSheetTitle": "🧺 Leave basket · {count}",
+  "@basketSheetTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "basketNeedsAlways": "To notice leaving while Red Panda is closed, set Location to \"Always\" in Settings.",
+  "basketWatchHere": "Watch from here",
+  "openSettings": "Open Settings",
+  "basketEmptyAction": "Empty the basket",
+  "basketWatchingHere": "Watching from here 📍",
+  "noLocation": "Couldn't get your location.",
+  "streakPraise": "{days, plural, =1{1-day streak! The panda is proud.} other{{days}-day streak! The panda is proud.}}",
+  "@streakPraise": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooEarned": "+{earned} 🎋 bamboo for the panda ({balance} in the stash)",
+  "@bambooEarned": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "balance": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooFull": "The bamboo stash is full ({cap}). Snooze something, or keep going!",
+  "@bambooFull": {
+    "placeholders": {
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "deleted": "Deleted",
+  "undo": "Undo",
+  "wokenUp": "Woken up early.",
+  "nudgeAt": "The panda will nudge you at {time}.",
+  "@nudgeAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "snoozeTooPoor": "Not enough bamboo to snooze (needs {cost}, you have {balance}). Finish a task to earn some 🎋",
+  "@snoozeTooPoor": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      },
+      "balance": {
+        "type": "int"
+      }
+    }
+  },
+  "snoozed": "Snoozed until tomorrow · −{cost} 🎋",
+  "@snoozed": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "postponeTooPoor": "Postponing this close to the deadline costs {cost} 🎋, and the stash is empty.",
+  "@postponeTooPoor": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "deadlineMoved": "Deadline moved to {when}",
+  "@deadlineMoved": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "deadlineMovedCost": "Deadline moved to {when} · −{cost} 🎋",
+  "@deadlineMovedCost": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "set": "Set",
+  "ok": "OK",
+  "noCloudsYet": "No clouds yet. Tap \"+ category\" next to the panda.",
+  "noCategory": "No category",
+  "filedUnder": "Filed under {name} ☁️",
+  "@filedUnder": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCloud": "New category cloud",
+  "rename": "Rename",
+  "renameCloud": "Rename cloud",
+  "removeCloud": "Remove cloud",
+  "removeCloudInfo": "Its items stay, just without a category",
+  "cloudNameHint": "e.g. Home, Work, Shopping",
+  "micNeeded": "Red Panda needs the microphone. Allow it in Settings > Red Panda.",
+  "recordFailed": "Couldn't start recording.",
+  "search": "Search",
+  "closeSearch": "Close search",
+  "settings": "Settings",
+  "newTextNote": "New text note",
+  "onlyCategory": "Only {name}",
+  "@onlyCategory": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onlyBasket": "Only the leave basket",
+  "emptyBasketList": "The leave basket is empty. Drag items onto the basket to be reminded about them when you leave.",
+  "emptyCategoryDay": "Nothing in {name}. Drag an item onto its cloud, or tap the sun to see everything.",
+  "@emptyCategoryDay": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyCategoryNight": "Nothing in {name}. Drag an item onto its cloud, or tap the moon to see everything.",
+  "@emptyCategoryNight": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noNotes": "No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.",
+  "hideSnoozed": "Hide snoozed",
+  "showSnoozed": "{count} snoozed · show",
+  "@showSnoozed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "undoCheck": "Undo check",
+  "wakeUp": "Wake up",
+  "streakChip": "🔥 {days}d",
+  "@streakChip": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "tickedToday": "✓ {count} today",
+  "@tickedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooTooltip": "Bamboo: earn it by finishing tasks, spend it on snoozes",
+  "level": "Lv {level}",
+  "@level": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "pandaSadOverdue": "🥺 The panda is sad: {count} overdue",
+  "@pandaSadOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueTodayWatching": "⏰ {count} due today. The panda is watching.",
+  "@dueTodayWatching": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordVoice": "Record a voice note",
+  "stopVoice": "Stop and save the voice note",
+  "snoozedUntil": " · 💤 until {time}",
+  "@snoozedUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "edit": "Edit",
+  "done": "Done",
+  "tickOff": "Tick off",
+  "inLeaveBasket": "In the leave basket",
+  "daysLate": "{days}d late",
+  "@daysLate": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "today": "today",
+  "daysShort": "{days}d",
+  "@daysShort": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dueOn": "Due {date}",
+  "@dueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "dragHint": "Drag to reorder or onto a category cloud",
+  "noteHint": "Note",
+  "newNoteHint": "New note",
+  "deadline": "Deadline",
+  "leaveBasket": "Leave basket",
+  "leaveBasketTooltip": "Remind me when I leave this place",
+  "save": "Save",
+  "add": "Add",
+  "turnDial": "Turn the dial",
+  "clear": "Clear",
+  "cloudSemantics": "Category {name}, {count} open",
+  "@cloudSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cloudHintShowAll": "Double tap to show all items",
+  "cloudHintOnly": "Double tap to show only this category",
+  "addCategory": "Add a category",
+  "plusCategory": "+ category",
+  "sun": "Sun",
+  "moon": "Moon",
+  "showsAllItems": "Shows all items",
+  "noDeadline": "no deadline",
+  "tomorrow": "tomorrow",
+  "inDays": "in {days} days",
+  "@inDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "noDate": "no date",
+  "dayUnit": "{days, plural, =1{day} other{days}}",
+  "@dayUnit": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "basketSemantics": "{count, plural, =1{Leave basket, 1 item} other{Leave basket, {count} items}}",
+  "@basketSemantics": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "basketWatchingSuffix": ", watching",
+  "basketHint": "Drop items here to be reminded when you leave. Double tap to filter."
 }

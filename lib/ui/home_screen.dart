@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../gamification/bamboo.dart';
+import '../l10n/l10n.dart';
+import '../l10n/labels.dart';
 import '../gamification/progress.dart';
 import '../logic/note_order.dart';
 import '../models/app_settings.dart';
@@ -165,30 +167,31 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     await widget.store.save(n.copyWith(leaveBasket: into));
     if (into) await _ensureNotifications();
     await _reload();
-    _say(into
-        ? 'In the leave basket 🧺 The panda reminds you when you leave this place.'
-        : 'Out of the leave basket.');
+    if (!mounted) return;
+    _say(into ? context.l10n.basketIn : context.l10n.basketOut);
   }
 
   Future<void> _basketSheet() async {
     final s = _settings;
     final count = basketTitles(_notes, DateTime.now()).length;
     final l = _leave;
-    final triggers = [
-      if (s.leaveOnPlace) 'you move more than ${s.leaveRadiusMeters} m away',
-      if (s.leaveOnWifi) 'your Wi-Fi drops',
-    ].join(' or ');
+    final t = context.l10n;
+    final reason = s.leaveOnPlace && s.leaveOnWifi
+        ? t.basketReasonBoth(s.leaveRadiusMeters)
+        : (s.leaveOnPlace ? t.basketReasonPlace(s.leaveRadiusMeters) : t.basketReasonWifi);
     final String status;
     if (count == 0) {
-      status = 'The basket is empty. Drag items into it to be reminded about them when you leave.';
+      status = t.basketEmptyStatus;
     } else if (s.leaveOnPlace &&
         (l.permission == LocationPermission.denied || l.permission == LocationPermission.notDetermined)) {
-      status = 'Red Panda needs your location to notice when you leave. Allow it in Settings.';
+      status = t.basketNeedsLocation;
     } else if (l.armed) {
-      final at = l.armedAt == null ? '' : ' (since ${TimeOfDay.fromDateTime(l.armedAt!).format(context)})';
-      status = 'Watching$at: you get a reminder when $triggers.';
+      final watching = l.armedAt == null
+          ? t.basketWatching
+          : t.basketWatchingSince(TimeOfDay.fromDateTime(l.armedAt!).format(context));
+      status = '$watching: $reason';
     } else {
-      status = 'Not watching right now. Tap "Watch from here" to start.';
+      status = t.basketNotWatching;
     }
     final needsAlways = s.leaveOnPlace && count > 0 && l.permission == LocationPermission.whenInUse;
     final action = await showModalBottomSheet<String>(
@@ -201,12 +204,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('🧺 Leave basket · $count', style: Theme.of(ctx).textTheme.titleMedium),
+              Text(t.basketSheetTitle(count), style: Theme.of(ctx).textTheme.titleMedium),
               const SizedBox(height: 8),
               Text(status),
               if (needsAlways) ...[
                 const SizedBox(height: 8),
-                const Text('To notice leaving while Red Panda is closed, set Location to "Always" in Settings.'),
+                Text(t.basketNeedsAlways),
               ],
               const SizedBox(height: 12),
               Wrap(
@@ -216,19 +219,19 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   if (count > 0)
                     FilledButton.icon(
                       icon: const Icon(Icons.my_location),
-                      label: const Text('Watch from here'),
+                      label: Text(t.basketWatchHere),
                       onPressed: () => Navigator.pop(ctx, 'here'),
                     ),
                   if (needsAlways ||
                       l.permission == LocationPermission.denied)
                     OutlinedButton(
                       onPressed: () => Navigator.pop(ctx, 'settings'),
-                      child: const Text('Open Settings'),
+                      child: Text(t.openSettings),
                     ),
                   if (count > 0)
                     TextButton(
                       onPressed: () => Navigator.pop(ctx, 'empty'),
-                      child: const Text('Empty the basket'),
+                      child: Text(t.basketEmptyAction),
                     ),
                 ],
               ),
@@ -240,7 +243,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     switch (action) {
       case 'here':
         await _syncBasket(rearmHere: true);
-        _say(_leave.armed ? 'Watching from here 📍' : "Couldn't get your location.");
+        if (!mounted) return;
+        _say(_leave.armed ? context.l10n.basketWatchingHere : context.l10n.noLocation);
       case 'settings':
         await LeaveBasket.openSettings();
       case 'empty':
@@ -411,12 +415,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     _stage.celebrate();
     _confetti.currentState?.burst();
     final p = _progress;
+    if (!mounted) return;
     if (p.streakDays != before && p.isMilestone) {
-      _say('${p.streakDays}-day streak! The panda is proud.');
+      _say(context.l10n.streakPraise(p.streakDays));
     } else if (earned > 0) {
-      _say('+$earned 🎋 bamboo for the panda (${_wallet.balance} in the stash)');
+      _say(context.l10n.bambooEarned(earned, _wallet.balance));
     } else if (owed > 0) {
-      _say('The bamboo stash is full (${BambooWallet.cap}). Snooze something, or keep going!');
+      _say(context.l10n.bambooFull(BambooWallet.cap));
     }
   }
 
@@ -428,11 +433,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final ctl = ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar();
     final bar = ctl.showSnackBar(SnackBar(
-      content: const Text('Deleted'),
+      content: Text(context.l10n.deleted),
       duration: undoDuration,
       persist: false, // with an action it would otherwise stay until tapped
       action: SnackBarAction(
-        label: 'Undo',
+        label: context.l10n.undo,
         onPressed: () async {
           undone = true;
           await widget.store.save(n);
@@ -460,7 +465,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     if (n.isSnoozed(now)) {
       await widget.store.save(n.copyWith(clearSnooze: true));
       await _reload();
-      _say('Woken up early.');
+      if (!mounted) return false;
+      _say(context.l10n.wokenUp);
       return false;
     }
     switch (_settings.swipeAction) {
@@ -481,7 +487,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         await widget.store.save(n.copyWith(remindAt: at));
         await _ensureNotifications();
         await _reload();
-        _say('The panda will nudge you at $time.');
+        if (!mounted) return false;
+        _say(context.l10n.nudgeAt(time));
       case SwipeAction.duplicate:
         await widget.store.save(n.duplicate(NoteStore.newId(), now));
         await _reload();
@@ -497,18 +504,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final paid = _wallet.spend(BambooWallet.snoozeCost);
     if (paid == null) {
       _stage.greet();
-      _say('Not enough bamboo to snooze (needs ${BambooWallet.snoozeCost}, you have '
-          '${_wallet.balance}). Finish a task to earn some 🎋');
+      _say(context.l10n.snoozeTooPoor(BambooWallet.snoozeCost, _wallet.balance));
       return;
     }
     final now = DateTime.now();
     final until = DateTime(now.year, now.month, now.day + 1, _settings.quietEndHour);
     await widget.store.save(n.copyWith(snoozedUntil: until));
     await _saveWallet(paid);
+    if (!mounted) return;
     _say(
-      'Snoozed until tomorrow · −${BambooWallet.snoozeCost} 🎋',
+      context.l10n.snoozed(BambooWallet.snoozeCost),
       action: SnackBarAction(
-        label: 'Undo',
+        label: context.l10n.undo,
         onPressed: () async {
           await widget.store.save(n.copyWith(clearSnooze: true));
           await _saveWallet(_wallet.spend(-BambooWallet.snoozeCost) ?? _wallet);
@@ -524,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final cost = BambooWallet.postponeCost(n, now);
     final paid = _wallet.spend(cost);
     if (paid == null) {
-      _say('Postponing this close to the deadline costs $cost 🎋, and the stash is empty.');
+      _say(context.l10n.postponeTooPoor(cost));
       return;
     }
     final base = n.dueAt == null || n.dueAt!.isBefore(now) ? endOfDayIn(0, now) : n.dueAt!.toLocal();
@@ -532,8 +539,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     await widget.store.save(n.copyWith(dueAt: due));
     if (cost > 0) await _saveWallet(paid);
     await _reload();
-    _say('Deadline moved to ${DaysDial.label(n.copyWith(dueAt: due).daysLeft(now))}'
-        '${cost > 0 ? ' · −$cost 🎋' : ''}');
+    if (!mounted) return;
+    final when = DaysDial.label(context.l10n, n.copyWith(dueAt: due).daysLeft(now));
+    _say(cost > 0 ? context.l10n.deadlineMovedCost(when, cost) : context.l10n.deadlineMoved(when));
   }
 
   Future<void> _pickDeadline(Note n) async {
@@ -544,14 +552,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setLocal) => AlertDialog(
-          title: Text(DaysDial.label(days)),
+          title: Text(DaysDial.label(context.l10n, days)),
           content: Center(
             heightFactor: 1,
             child: DaysDial(days: days, size: 160, onChanged: (d) => setLocal(() => days = d)),
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-            FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Set')),
+            TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+            FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(context.l10n.set)),
           ],
         ),
       ),
@@ -564,7 +572,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   Future<void> _pickCategory(Note n) async {
     if (_categories.isEmpty) {
-      _say('No clouds yet. Tap "+ category" next to the panda.');
+      _say(context.l10n.noCloudsYet);
       return;
     }
     final picked = await showModalBottomSheet<String>(
@@ -583,7 +591,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
             ListTile(
               leading: const Icon(Icons.cloud_off_outlined),
-              title: const Text('No category'),
+              title: Text(context.l10n.noCategory),
               onTap: () => Navigator.pop(ctx, ''),
             ),
           ],
@@ -612,7 +620,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   Future<void> _dropOnCloud(Note n, Category c) async {
     await widget.store.save(n.copyWith(categoryId: c.id));
     await _reload();
-    _say('Filed under ${c.name} ☁️');
+    if (!mounted) return;
+    _say(context.l10n.filedUnder(c.name));
   }
 
   /// Scrolls the list while an item is dragged near its top or bottom edge.
@@ -639,7 +648,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // ------------------------------------------------------------ categories
 
   Future<void> _addCategory() async {
-    final name = await _askName(title: 'New category cloud');
+    final name = await _askName(title: context.l10n.newCloud);
     if (name == null) return;
     final used = _categories.map((c) => c.color).toSet();
     final color = Category.palette.firstWhere((c) => !used.contains(c), orElse: () => Category.palette.first);
@@ -659,7 +668,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ListTile(title: Text(c.name, style: Theme.of(ctx).textTheme.titleMedium)),
             ListTile(
               leading: const Icon(Icons.edit_outlined),
-              title: const Text('Rename'),
+              title: Text(context.l10n.rename),
               onTap: () => Navigator.pop(ctx, 'rename'),
             ),
             Padding(
@@ -681,8 +690,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
             ListTile(
               leading: const Icon(Icons.delete_outline),
-              title: const Text('Remove cloud'),
-              subtitle: const Text('Its items stay, just without a category'),
+              title: Text(context.l10n.removeCloud),
+              subtitle: Text(context.l10n.removeCloudInfo),
               onTap: () => Navigator.pop(ctx, 'delete'),
             ),
           ],
@@ -691,8 +700,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     );
     if (action == null) return;
     var cats = [..._categories];
+    if (!mounted) return;
     if (action == 'rename') {
-      final name = await _askName(title: 'Rename cloud', initial: c.name);
+      final name = await _askName(title: context.l10n.renameCloud, initial: c.name);
       if (name == null) return;
       cats = [for (final x in cats) x.id == c.id ? x.copyWith(name: name) : x];
     } else if (action.startsWith('color')) {
@@ -720,12 +730,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           autofocus: true,
           maxLength: 14,
           textCapitalization: TextCapitalization.words,
-          decoration: const InputDecoration(hintText: 'e.g. Home, Work, Shopping'),
+          decoration: InputDecoration(hintText: context.l10n.cloudNameHint),
           onSubmitted: (v) => Navigator.pop(ctx, v),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, ctl.text), child: const Text('OK')),
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(context.l10n.cancel)),
+          FilledButton(onPressed: () => Navigator.pop(ctx, ctl.text), child: Text(context.l10n.ok)),
         ],
       ),
     );
@@ -772,9 +782,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       }
     } on RecordingException catch (e) {
       _stage.stopTyping();
+      if (!mounted) return;
       _say(e.error == RecordingError.noMicrophonePermission
-          ? 'Red Panda needs the microphone. Allow it in Settings > Red Panda.'
-          : "Couldn't start recording.");
+          ? context.l10n.micNeeded
+          : context.l10n.recordFailed);
     } finally {
       if (mounted) setState(() => _recordBusy = false);
     }
@@ -806,14 +817,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             title: _searching
                 ? TextField(
                     autofocus: true,
-                    decoration: const InputDecoration(hintText: 'Search', border: InputBorder.none),
+                    decoration: InputDecoration(hintText: context.l10n.search, border: InputBorder.none),
                     onChanged: (v) => setState(() => _query = v),
                   )
-                : const Text('Red Panda'),
+                : Text(context.l10n.appTitle),
             actions: [
               IconButton(
                 icon: Icon(_searching ? Icons.close : Icons.search),
-                tooltip: _searching ? 'Close search' : 'Search',
+                tooltip: _searching ? context.l10n.closeSearch : context.l10n.search,
                 onPressed: () => setState(() {
                   _searching = !_searching;
                   _query = '';
@@ -821,7 +832,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
               IconButton(
                 icon: const Icon(Icons.settings_outlined),
-                tooltip: 'Settings',
+                tooltip: context.l10n.settings,
                 onPressed: () async {
                   await Navigator.push(context,
                       MaterialPageRoute(builder: (_) => SettingsScreen(store: widget.store, cloud: _cloud)));
@@ -839,7 +850,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 _RecordButton(since: _recordingSince, busy: _recordBusy, onPressed: _toggleRecording),
                 FloatingActionButton(
                   heroTag: 'add',
-                  tooltip: 'New text note',
+                  tooltip: context.l10n.newTextNote,
                   onPressed: _addText,
                   child: const Icon(Icons.add),
                 ),
@@ -902,7 +913,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   padding: const EdgeInsets.only(bottom: 4),
                   child: InputChip(
                     avatar: CircleAvatar(backgroundColor: filter.color, radius: 8),
-                    label: Text('Only ${filter.name}'),
+                    label: Text(context.l10n.onlyCategory(filter.name)),
                     onDeleted: () => setState(() => _filterId = null),
                   ),
                 ),
@@ -911,7 +922,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   padding: const EdgeInsets.only(bottom: 4),
                   child: InputChip(
                     avatar: const Icon(Icons.shopping_basket_outlined, size: 18),
-                    label: const Text('Only the leave basket'),
+                    label: Text(context.l10n.onlyBasket),
                     onPressed: _basketSheet,
                     onDeleted: () => setState(() => _basketOnly = false),
                   ),
@@ -929,12 +940,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           padding: const EdgeInsets.all(32),
                           child: Text(
                             _basketOnly
-                                ? 'The leave basket is empty. Drag items onto the basket to be reminded '
-                                    'about them when you leave.'
+                                ? context.l10n.emptyBasketList
                                 : filter != null
-                                ? 'Nothing in ${filter.name}. Drag an item onto its cloud, or tap the '
-                                    '${SkyButton.isDay(now) ? 'sun' : 'moon'} to see everything.'
-                                : 'No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.',
+                                ? (SkyButton.isDay(now)
+                                    ? context.l10n.emptyCategoryDay(filter.name)
+                                    : context.l10n.emptyCategoryNight(filter.name))
+                                : context.l10n.noNotes,
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -968,7 +979,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         Center(
                           child: TextButton.icon(
                             icon: const Text('💤'),
-                            label: Text(_showSnoozed ? 'Hide snoozed' : '$snoozedCount snoozed · show'),
+                            label: Text(_showSnoozed ? context.l10n.hideSnoozed : context.l10n.showSnoozed(snoozedCount)),
                             onPressed: () => setState(() => _showSnoozed = !_showSnoozed),
                           ),
                         ),
@@ -1029,7 +1040,8 @@ class _SwipeBackground extends StatelessWidget {
         child: const Icon(Icons.delete, color: Colors.white),
       );
     }
-    final label = undo ? 'Undo check' : (action == null ? 'Wake up' : action!.label);
+    final l = context.l10n;
+    final label = undo ? l.undoCheck : (action == null ? l.wakeUp : action!.title(l));
     return Container(
       color: undo ? Colors.blueGrey.shade400 : const Color(0xFF6BAF5B),
       alignment: Alignment.centerLeft,
@@ -1072,17 +1084,17 @@ class _ProgressHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('🔥 ${progress.streakDays}d', style: t.titleSmall),
-              Text('✓ ${progress.tickedToday} today', style: t.titleSmall),
+              Text(context.l10n.streakChip(progress.streakDays), style: t.titleSmall),
+              Text(context.l10n.tickedToday(progress.tickedToday), style: t.titleSmall),
               Tooltip(
-                message: 'Bamboo: earn it by finishing tasks, spend it on snoozes',
+                message: context.l10n.bambooTooltip,
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
                   transitionBuilder: (child, a) => ScaleTransition(scale: a, child: child),
                   child: Text('🎋 $bamboo', key: ValueKey(bamboo), style: t.titleSmall),
                 ),
               ),
-              Text('Lv ${progress.level}', style: t.titleSmall),
+              Text(context.l10n.level(progress.level), style: t.titleSmall),
             ],
           ),
           const SizedBox(height: 6),
@@ -1095,8 +1107,8 @@ class _ProgressHeader extends StatelessWidget {
               padding: const EdgeInsets.only(top: 6),
               child: Text(
                 overdue > 0
-                    ? '🥺 The panda is sad: $overdue overdue'
-                    : '⏰ $dueToday due today. The panda is watching.',
+                    ? context.l10n.pandaSadOverdue(overdue)
+                    : context.l10n.dueTodayWatching(dueToday),
                 style: t.bodySmall?.copyWith(color: overdue > 0 ? scheme.error : scheme.onSurfaceVariant),
               ),
             ),
@@ -1119,7 +1131,7 @@ class _RecordButton extends StatelessWidget {
     if (s == null) {
       return FloatingActionButton(
         heroTag: 'record',
-        tooltip: 'Record a voice note',
+        tooltip: context.l10n.recordVoice,
         onPressed: busy ? null : onPressed,
         child: const Icon(Icons.mic),
       );
@@ -1129,7 +1141,7 @@ class _RecordButton extends StatelessWidget {
     final label = '${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}';
     return FloatingActionButton.extended(
       heroTag: 'record',
-      tooltip: 'Stop and save the voice note',
+      tooltip: context.l10n.stopVoice,
       backgroundColor: Colors.red.shade600,
       foregroundColor: Colors.white,
       onPressed: busy ? null : onPressed,

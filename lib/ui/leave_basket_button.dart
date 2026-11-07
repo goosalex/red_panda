@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/l10n.dart';
 import '../models/note.dart';
 
 /// The leave basket next to the panda.
@@ -40,8 +41,8 @@ class LeaveBasketButton extends StatelessWidget {
         return Semantics(
           button: true,
           selected: selected,
-          label: 'Leave basket, $count ${count == 1 ? 'item' : 'items'}${armed ? ', watching' : ''}',
-          hint: 'Drop items here to be reminded when you leave. Double tap to filter.',
+          label: context.l10n.basketSemantics(count) + (armed ? context.l10n.basketWatchingSuffix : ''),
+          hint: context.l10n.basketHint,
           child: GestureDetector(
             onTap: () {
               HapticFeedback.selectionClick();

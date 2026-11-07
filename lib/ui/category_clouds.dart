@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 
@@ -141,8 +142,8 @@ class _Cloud extends StatelessWidget {
         return Semantics(
           button: true,
           selected: selected,
-          label: 'Category ${category.name}, $count open',
-          hint: selected ? 'Double tap to show all items' : 'Double tap to show only this category',
+          label: context.l10n.cloudSemantics(category.name, count),
+          hint: selected ? context.l10n.cloudHintShowAll : context.l10n.cloudHintOnly,
           child: GestureDetector(
             onTap: onTap,
             onLongPress: onLongPress,
@@ -201,7 +202,7 @@ class _AddCloud extends StatelessWidget {
     final color = Theme.of(context).colorScheme.surfaceContainerHighest;
     return Semantics(
       button: true,
-      label: 'Add a category',
+      label: context.l10n.addCategory,
       child: GestureDetector(
         onTap: onTap,
         child: CustomPaint(
@@ -209,7 +210,7 @@ class _AddCloud extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 10, 12, 6),
             child: Text(
-              hint ? '+ category' : '+',
+              hint ? context.l10n.plusCategory : '+',
               style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
           ),
@@ -319,8 +320,8 @@ class _SkyButtonState extends State<SkyButton> with SingleTickerProviderStateMix
     final day = _day;
     return Semantics(
       button: true,
-      label: day ? 'Sun' : 'Moon',
-      hint: 'Shows all items',
+      label: day ? context.l10n.sun : context.l10n.moon,
+      hint: context.l10n.showsAllItems,
       child: GestureDetector(
         onTap: () {
           HapticFeedback.lightImpact();
