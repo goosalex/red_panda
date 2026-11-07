@@ -6,8 +6,11 @@ import 'days_dial.dart';
 
 /// Result of the compose / edit sheet.
 class NoteDraft {
-  const NoteDraft({required this.text, this.days, this.categoryId});
+  const NoteDraft({required this.text, this.days, this.categoryId, this.leaveBasket = false});
   final String text;
+
+  /// Remind when leaving this place / the Wi-Fi.
+  final bool leaveBasket;
 
   /// Deadline in days from now, null for none.
   final int? days;
@@ -24,6 +27,7 @@ Future<NoteDraft?> showNoteEditor(
   Note? note,
   required List<Category> categories,
   String? initialCategoryId,
+  bool initialLeaveBasket = false,
   bool showDeadline = true,
   ValueChanged<bool>? onTyping,
 }) async {
@@ -35,6 +39,7 @@ Future<NoteDraft?> showNoteEditor(
       note: note,
       categories: categories,
       initialCategoryId: note?.categoryId ?? initialCategoryId,
+      initialLeaveBasket: note?.leaveBasket ?? initialLeaveBasket,
       showDeadline: showDeadline,
       onTyping: onTyping,
     ),
@@ -48,6 +53,7 @@ class _NoteEditor extends StatefulWidget {
     required this.note,
     required this.categories,
     required this.initialCategoryId,
+    required this.initialLeaveBasket,
     required this.showDeadline,
     required this.onTyping,
   });
@@ -55,6 +61,7 @@ class _NoteEditor extends StatefulWidget {
   final Note? note;
   final List<Category> categories;
   final String? initialCategoryId;
+  final bool initialLeaveBasket;
   final bool showDeadline;
   final ValueChanged<bool>? onTyping;
 
@@ -66,6 +73,7 @@ class _NoteEditorState extends State<_NoteEditor> {
   late final _text = TextEditingController(text: widget.note?.title ?? '');
   late int? _days = widget.note == null ? null : _clampDays(widget.note!.daysLeft(DateTime.now()));
   late String? _categoryId = widget.initialCategoryId;
+  late bool _basket = widget.initialLeaveBasket;
   late bool _showDial = widget.showDeadline && _days != null;
   bool _typing = false;
 
@@ -96,7 +104,7 @@ class _NoteEditorState extends State<_NoteEditor> {
       Navigator.pop(context);
       return;
     }
-    Navigator.pop(context, NoteDraft(text: t, days: _days, categoryId: _categoryId));
+    Navigator.pop(context, NoteDraft(text: t, days: _days, categoryId: _categoryId, leaveBasket: _basket));
   }
 
   @override
@@ -120,17 +128,34 @@ class _NoteEditorState extends State<_NoteEditor> {
           ),
           const SizedBox(height: 8),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (widget.showDeadline)
-                ActionChip(
-                  avatar: Icon(_days == null ? Icons.alarm_add_outlined : Icons.alarm, size: 18),
-                  label: Text(_days == null ? 'Deadline' : DaysDial.label(_days)),
-                  onPressed: () => setState(() {
-                    _showDial = !_showDial;
-                    if (_showDial && _days == null) _days = 1;
-                  }),
+              Expanded(
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 4,
+                  children: [
+                    if (widget.showDeadline)
+                      ActionChip(
+                        avatar: Icon(_days == null ? Icons.alarm_add_outlined : Icons.alarm, size: 18),
+                        label: Text(_days == null ? 'Deadline' : DaysDial.label(_days)),
+                        onPressed: () => setState(() {
+                          _showDial = !_showDial;
+                          if (_showDial && _days == null) _days = 1;
+                        }),
+                      ),
+                    FilterChip(
+                      avatar: const Icon(Icons.shopping_basket_outlined, size: 18),
+                      label: const Text('Leave basket'),
+                      tooltip: 'Remind me when I leave this place',
+                      selected: _basket,
+                      showCheckmark: false,
+                      onSelected: (v) => setState(() => _basket = v),
+                    ),
+                  ],
                 ),
-              const Spacer(),
+              ),
+              const SizedBox(width: 8),
               FilledButton(onPressed: _submit, child: Text(editing ? 'Save' : 'Add')),
             ],
           ),

@@ -3,6 +3,7 @@
 #  - Runner: iOS 18, bundle id, entitlements, shared Swift sources
 #  - RedPandaControls widget extension (Controls, Live Activity, Lock/Home Screen
 #    widget + its Assets.xcassets), embedded in Runner
+#  - RedPandaShare share extension (text/links -> to-dos), embedded in Runner
 # Already applied to the committed project; re-run after `flutter create .` or if the
 # project gets regenerated:  gem install xcodeproj && ruby scripts/setup_xcode_targets.rb
 require 'xcodeproj'
@@ -12,6 +13,8 @@ project = Xcodeproj::Project.open(File.join(ROOT, 'Runner.xcodeproj'))
 
 BUNDLE_ID = 'ch.masdatos.redpanda'
 EXT_NAME = 'RedPandaControls'
+SHARE_NAME = 'RedPandaShare'
+TEAM = '92CR5QLW8P' # Mas Datos GmbH; Xcode Cloud needs it in the project
 IOS = '18.0'
 
 runner = project.targets.find { |t| t.name == 'Runner' }
@@ -22,6 +25,7 @@ runner.build_configurations.each do |c|
   s['PRODUCT_BUNDLE_IDENTIFIER'] = BUNDLE_ID
   s['CODE_SIGN_ENTITLEMENTS'] = 'Runner/Runner.entitlements'
   s['CODE_SIGN_STYLE'] = 'Automatic'
+  s['DEVELOPMENT_TEAM'] = TEAM
   s['TARGETED_DEVICE_FAMILY'] = '1'
 end
 project.targets.select { |t| t.name == 'RunnerTests' }.each do |t|
@@ -44,7 +48,7 @@ def add_sources(group, target, files)
 end
 
 runner_group = project.main_group.groups.find { |g| g.path == 'Runner' }
-add_sources(runner_group, runner, %w[RedPandaShortcuts.swift Reminders.swift Motion.swift])
+add_sources(runner_group, runner, %w[RedPandaShortcuts.swift Reminders.swift Motion.swift LeaveBasket.swift])
 unless runner_group.files.any? { |r| r.path == 'Runner.entitlements' }
   runner_group.new_reference('Runner.entitlements')
 end
@@ -53,62 +57,78 @@ shared = group_for(project, 'Shared', 'Shared')
 shared_files = Dir.children(File.join(ROOT, 'Shared')).select { |f| f.end_with?('.swift') }.sort
 add_sources(shared, runner, shared_files)
 
-# Widget extension
-ext = project.targets.find { |t| t.name == EXT_NAME }
-unless ext
-  ext = project.new_target(:app_extension, EXT_NAME, :ios, IOS)
-end
-ext_group = group_for(project, EXT_NAME, EXT_NAME)
-ext_sources = Dir.children(File.join(ROOT, EXT_NAME)).select { |f| f.end_with?('.swift') }.sort
-add_sources(ext_group, ext, ext_sources)
-add_sources(shared, ext, shared_files)
-%w[Info.plist RedPandaControls.entitlements RedPandaControls.xcconfig].each do |f|
-  ext_group.new_reference(f) unless ext_group.files.any? { |r| r.path == f }
-end
-# Panda mood artwork for the widget (PandaSad/PandaSleeping/PandaCurious/PandaExcited).
-assets_ref = ext_group.files.find { |r| r.path == 'Assets.xcassets' } || ext_group.new_reference('Assets.xcassets')
-unless ext.resources_build_phase.files_references.include?(assets_ref)
-  ext.resources_build_phase.add_file_reference(assets_ref)
-end
-xcconfig_ref = ext_group.files.find { |r| r.path == 'RedPandaControls.xcconfig' }
-
-ext.build_configurations.each do |c|
-  c.base_configuration_reference = xcconfig_ref
-  s = c.build_settings
-  s['PRODUCT_BUNDLE_IDENTIFIER'] = "#{BUNDLE_ID}.controls"
-  s['PRODUCT_NAME'] = '$(TARGET_NAME)'
-  s['INFOPLIST_FILE'] = "#{EXT_NAME}/Info.plist"
-  s['GENERATE_INFOPLIST_FILE'] = 'YES'
-  s['CODE_SIGN_ENTITLEMENTS'] = "#{EXT_NAME}/#{EXT_NAME}.entitlements"
-  s['CODE_SIGN_STYLE'] = 'Automatic'
-  s['IPHONEOS_DEPLOYMENT_TARGET'] = IOS
-  s['SWIFT_VERSION'] = '5.0'
-  s['TARGETED_DEVICE_FAMILY'] = '1'
-  s['SKIP_INSTALL'] = 'YES'
-  s['APPLICATION_EXTENSION_API_ONLY'] = 'YES'
-  s['LD_RUNPATH_SEARCH_PATHS'] = ['$(inherited)', '@executable_path/Frameworks', '@executable_path/../../Frameworks']
-  s['MARKETING_VERSION'] = '$(FLUTTER_BUILD_NAME)'
-  s['CURRENT_PROJECT_VERSION'] = '$(FLUTTER_BUILD_NUMBER)'
-  s.delete('INFOPLIST_KEY_CFBundleDisplayName')
+# Embeds an app extension in Runner (same "Embed Foundation Extensions" phase for all).
+def embed_extension(runner, ext)
+  runner.add_dependency(ext) unless runner.dependencies.any? { |d| d.target == ext }
+  embed = runner.copy_files_build_phases.find { |p| p.name == 'Embed Foundation Extensions' }
+  unless embed
+    embed = runner.new_copy_files_build_phase('Embed Foundation Extensions')
+    embed.dst_subfolder_spec = '13' # PlugIns
+  end
+  unless embed.files_references.include?(ext.product_reference)
+    bf = embed.add_file_reference(ext.product_reference)
+    bf.settings = { 'ATTRIBUTES' => ['RemoveHeadersOnCopy'] }
+  end
+  # Flutter's "Thin Binary" script must run after embedding, or Xcode reports a build cycle.
+  thin = runner.build_phases.find { |p| p.respond_to?(:name) && p.name == 'Thin Binary' }
+  if thin && runner.build_phases.index(embed) > runner.build_phases.index(thin)
+    runner.build_phases.delete(embed)
+    runner.build_phases.insert(runner.build_phases.index(thin), embed)
+  end
 end
 
-runner.add_dependency(ext) unless runner.dependencies.any? { |d| d.target == ext }
+# Creates/configures an app extension target from ios/<name>/ (Info.plist,
+# <name>.entitlements, <name>.xcconfig + its Swift files) plus the given shared files.
+def configure_extension(project, runner, shared, name:, bundle_id:, shared_files:, resources: [])
+  ext = project.targets.find { |t| t.name == name } ||
+        project.new_target(:app_extension, name, :ios, IOS)
+  group = group_for(project, name, name)
+  sources = Dir.children(File.join(ROOT, name)).select { |f| f.end_with?('.swift') }.sort
+  add_sources(group, ext, sources)
+  add_sources(shared, ext, shared_files)
+  ['Info.plist', "#{name}.entitlements", "#{name}.xcconfig"].each do |f|
+    group.new_reference(f) unless group.files.any? { |r| r.path == f }
+  end
+  resources.each do |f|
+    ref = group.files.find { |r| r.path == f } || group.new_reference(f)
+    ext.resources_build_phase.add_file_reference(ref) unless ext.resources_build_phase.files_references.include?(ref)
+  end
+  xcconfig_ref = group.files.find { |r| r.path == "#{name}.xcconfig" }
 
-embed = runner.copy_files_build_phases.find { |p| p.name == 'Embed Foundation Extensions' }
-unless embed
-  embed = runner.new_copy_files_build_phase('Embed Foundation Extensions')
-  embed.dst_subfolder_spec = '13' # PlugIns
+  ext.build_configurations.each do |c|
+    c.base_configuration_reference = xcconfig_ref
+    s = c.build_settings
+    s['PRODUCT_BUNDLE_IDENTIFIER'] = bundle_id
+    s['PRODUCT_NAME'] = '$(TARGET_NAME)'
+    s['INFOPLIST_FILE'] = "#{name}/Info.plist"
+    s['GENERATE_INFOPLIST_FILE'] = 'YES'
+    s['CODE_SIGN_ENTITLEMENTS'] = "#{name}/#{name}.entitlements"
+    s['CODE_SIGN_STYLE'] = 'Automatic'
+    s['DEVELOPMENT_TEAM'] = TEAM
+    s['IPHONEOS_DEPLOYMENT_TARGET'] = IOS
+    s['SWIFT_VERSION'] = '5.0'
+    s['TARGETED_DEVICE_FAMILY'] = '1'
+    s['SKIP_INSTALL'] = 'YES'
+    s['APPLICATION_EXTENSION_API_ONLY'] = 'YES'
+    s['LD_RUNPATH_SEARCH_PATHS'] = ['$(inherited)', '@executable_path/Frameworks', '@executable_path/../../Frameworks']
+    # From pubspec.yaml via Flutter's Generated.xcconfig (Xcode Cloud: CI_BUILD_NUMBER).
+    s['MARKETING_VERSION'] = '$(FLUTTER_BUILD_NAME)'
+    s['CURRENT_PROJECT_VERSION'] = '$(FLUTTER_BUILD_NUMBER)'
+    s.delete('INFOPLIST_KEY_CFBundleDisplayName')
+  end
+  embed_extension(runner, ext)
+  ext
 end
-unless embed.files_references.include?(ext.product_reference)
-  bf = embed.add_file_reference(ext.product_reference)
-  bf.settings = { 'ATTRIBUTES' => ['RemoveHeadersOnCopy'] }
-end
-# Flutter's "Thin Binary" script must run after embedding, or Xcode reports a build cycle.
-thin = runner.build_phases.find { |p| p.respond_to?(:name) && p.name == 'Thin Binary' }
-if thin
-  runner.build_phases.delete(embed)
-  runner.build_phases.insert(runner.build_phases.index(thin), embed)
-end
+
+# Widget extension: Controls, Live Activity, Lock/Home Screen widget. Panda mood artwork
+# (PandaSad/PandaSleeping/PandaCurious/PandaExcited) in its Assets.xcassets.
+configure_extension(project, runner, shared, name: EXT_NAME, bundle_id: "#{BUNDLE_ID}.controls",
+                    shared_files: shared_files, resources: ['Assets.xcassets'])
+
+# Share extension: shared text/links -> to-dos. Only extension-safe shared code
+# (VoiceRecorder & co. use APIs unavailable in share extensions).
+configure_extension(project, runner, shared, name: SHARE_NAME, bundle_id: "#{BUNDLE_ID}.share",
+                    shared_files: %w[NoteStore.swift SharedText.swift])
 
 project.save
-puts "Configured Runner + #{EXT_NAME} (iOS #{IOS}, #{BUNDLE_ID})"
+puts "Configured Runner + #{EXT_NAME} + #{SHARE_NAME} (iOS #{IOS}, #{BUNDLE_ID})"

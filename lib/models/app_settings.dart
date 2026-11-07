@@ -8,6 +8,7 @@ enum SwipeAction {
   deadline('Set deadline', 'Opens the days-from-now dial.'),
   remindLater('Remind me later today', 'A one-off nudge in three hours.'),
   duplicate('Duplicate', 'Copies the item, handy for recurring chores.'),
+  basket('Put in leave basket', 'Reminds you when you leave this place or your Wi-Fi.'),
   share('Share', 'Shares the item as text.');
 
   const SwipeAction(this.label, this.description);
@@ -33,6 +34,9 @@ class AppSettings {
     this.nagIntensity = NagIntensity.normal,
     this.quietStartHour = 22,
     this.quietEndHour = 8,
+    this.leaveRadiusMeters = 50,
+    this.leaveOnPlace = true,
+    this.leaveOnWifi = true,
   });
 
   final SwipeAction swipeAction;
@@ -40,17 +44,32 @@ class AppSettings {
   final int quietStartHour;
   final int quietEndHour;
 
+  /// Leave basket: remind when more than this far from where it was armed.
+  final int leaveRadiusMeters;
+  final bool leaveOnPlace;
+
+  /// Leave basket: remind when the Wi-Fi connection drops.
+  final bool leaveOnWifi;
+
+  static const leaveRadiusChoices = [50, 100, 150, 200, 300, 500, 1000];
+
   AppSettings copyWith({
     SwipeAction? swipeAction,
     NagIntensity? nagIntensity,
     int? quietStartHour,
     int? quietEndHour,
+    int? leaveRadiusMeters,
+    bool? leaveOnPlace,
+    bool? leaveOnWifi,
   }) =>
       AppSettings(
         swipeAction: swipeAction ?? this.swipeAction,
         nagIntensity: nagIntensity ?? this.nagIntensity,
         quietStartHour: quietStartHour ?? this.quietStartHour,
         quietEndHour: quietEndHour ?? this.quietEndHour,
+        leaveRadiusMeters: leaveRadiusMeters ?? this.leaveRadiusMeters,
+        leaveOnPlace: leaveOnPlace ?? this.leaveOnPlace,
+        leaveOnWifi: leaveOnWifi ?? this.leaveOnWifi,
       );
 
   static T _enum<T extends Enum>(List<T> values, Object? name, T fallback) =>
@@ -61,6 +80,9 @@ class AppSettings {
         nagIntensity: _enum(NagIntensity.values, j['nagIntensity'], NagIntensity.normal),
         quietStartHour: (j['quietStartHour'] as int?) ?? 22,
         quietEndHour: (j['quietEndHour'] as int?) ?? 8,
+        leaveRadiusMeters: (j['leaveRadiusMeters'] as int?) ?? 50,
+        leaveOnPlace: (j['leaveOnPlace'] as bool?) ?? true,
+        leaveOnWifi: (j['leaveOnWifi'] as bool?) ?? true,
       );
 
   Map<String, dynamic> toJson() => {
@@ -68,5 +90,8 @@ class AppSettings {
         'nagIntensity': nagIntensity.name,
         'quietStartHour': quietStartHour,
         'quietEndHour': quietEndHour,
+        'leaveRadiusMeters': leaveRadiusMeters,
+        'leaveOnPlace': leaveOnPlace,
+        'leaveOnWifi': leaveOnWifi,
       };
 }

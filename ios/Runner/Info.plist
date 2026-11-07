@@ -28,6 +28,10 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Red Panda reminds you of your leave basket when you leave a place, even while the app is closed.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Red Panda remembers where you filled your leave basket, so it can remind you when you leave.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Red Panda records your voice notes.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>

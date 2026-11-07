@@ -15,10 +15,12 @@ with a cheerful red panda mascot. Design doc: https://claude.ai/artifact/Lqv8riw
 | `lib/logic/`, `lib/gamification/` | List order and filters, bamboo stash (pure Dart, unit-tested) |
 | `ios/Shared/` | Swift shared by app + extension: storage, App Intents, voice recorder |
 | `ios/RedPandaControls/` | Widget extension: Lock Screen / Control Center controls, Live Activity |
+| `ios/RedPandaShare/` | Share extension: shared text becomes items (`ios/Shared/SharedText.swift` splits it; check with `tool/share_text_check`) |
+| `ios/Runner/LeaveBasket.swift` | Leave basket reminder: geofence (CLMonitor) and Wi-Fi drop, plus a Shortcuts action |
 | `ios/Runner/` | Flutter host app; `AppDelegate.swift` exposes the App Group path to Dart |
 | `scripts/setup_xcode_targets.rb` | Re-applies the Xcode target setup (already applied) |
 
-Bundle ids: `ch.masdatos.redpanda`, `ch.masdatos.redpanda.controls`; App Group `group.ch.masdatos.redpanda`.
+Bundle ids: `ch.masdatos.redpanda`, `ch.masdatos.redpanda.controls`, `ch.masdatos.redpanda.share`; App Group `group.ch.masdatos.redpanda`.
 Minimum iOS 18.
 
 ## First build on the Mac

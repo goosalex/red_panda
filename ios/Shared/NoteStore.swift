@@ -29,6 +29,8 @@ struct StoredNote: Codable {
   var categoryId: String?
   var snoozedUntil: Date?
   var remindAt: Date?
+  // Leave basket: remind when leaving this place / Wi-Fi.
+  var leaveBasket: Bool?
 }
 
 enum NoteStore {
