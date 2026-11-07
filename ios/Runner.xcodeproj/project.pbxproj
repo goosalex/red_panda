@@ -13,18 +13,24 @@
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		409C13F5E46476B30B199EC6 /* RedPandaControlsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92463F6711735FBCBA4DAB97 /* RedPandaControlsBundle.swift */; };
 		54DA513CE67218395380D062 /* VoiceActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */; };
+		66694FB8C1231A0D844735FF /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE2B21416617BF8125F0198 /* Reminders.swift */; };
+		6AB32486BE41EC3AA783AB32 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		6CC047E4BDF3C61F5D8C1702 /* VoiceActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
 		78E179C36E21CC3FEBB4CF26 /* NoteIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB4236F6C7232F861B8004 /* NoteIntents.swift */; };
+		89054FE58BF8A323B57092E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7CA17729908D3523848D40 /* Assets.xcassets */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		98C113566D12E53ECC4E0187 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98CCBB9A04DA65818D9817 /* NoteStore.swift */; };
+		9A92C17A83F83767CF09E4EE /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C28C0F3E1233276D693F7 /* Motion.swift */; };
 		A46E97FD9B33694B86DB9061 /* RedPandaControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 04851D370A548B64405E2495 /* RedPandaControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AD4BE059DECB4888708B373D /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		B0F75AEDCC33391873FE46D2 /* RedPandaShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */; };
 		C34059417177181D1DD36363 /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
+		C9C31423FDB374360180E262 /* PandaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5BED17B790374C085BBC7 /* PandaWidget.swift */; };
 		D6A5B5D90C96437D1B268419 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F40FCAA1B07ECFC933400 /* Controls.swift */; };
 		DE0A7AD4663B8EFB9C634D09 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98CCBB9A04DA65818D9817 /* NoteStore.swift */; };
 		DFD0F3189CD88C02E0073C0D /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
@@ -79,9 +85,11 @@
 		11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceActivityAttributes.swift; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		1C7CA17729908D3523848D40 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetCache.swift; sourceTree = "<group>"; };
 		4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceLiveActivity.swift; sourceTree = "<group>"; };
 		56547D8A827EE3C74F9DE06D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedPandaShortcuts.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7DAD9A87B8C4EEC4A0815D92 /* RedPandaControls.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RedPandaControls.xcconfig; sourceTree = "<group>"; };
 		92463F6711735FBCBA4DAB97 /* RedPandaControlsBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedPandaControlsBundle.swift; sourceTree = "<group>"; };
+		960C28C0F3E1233276D693F7 /* Motion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		963D49087DE7833C92603115 /* Runner.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
@@ -103,8 +112,10 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB5BED17B790374C085BBC7 /* PandaWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PandaWidget.swift; sourceTree = "<group>"; };
 		C484CAFDAFEE3677232325D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E94426C541F296483E3FFE12 /* RedPandaControls.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = RedPandaControls.entitlements; sourceTree = "<group>"; };
+		ECE2B21416617BF8125F0198 /* Reminders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +171,8 @@
 				56547D8A827EE3C74F9DE06D /* Info.plist */,
 				E94426C541F296483E3FFE12 /* RedPandaControls.entitlements */,
 				7DAD9A87B8C4EEC4A0815D92 /* RedPandaControls.xcconfig */,
+				BBB5BED17B790374C085BBC7 /* PandaWidget.swift */,
+				1C7CA17729908D3523848D40 /* Assets.xcassets */,
 			);
 			path = RedPandaControls;
 			sourceTree = "<group>";
@@ -213,6 +226,8 @@
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */,
 				963D49087DE7833C92603115 /* Runner.entitlements */,
+				ECE2B21416617BF8125F0198 /* Reminders.swift */,
+				960C28C0F3E1233276D693F7 /* Motion.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -224,6 +239,7 @@
 				5B98CCBB9A04DA65818D9817 /* NoteStore.swift */,
 				11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */,
 				6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */,
+				4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -324,7 +340,7 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */,
+				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -360,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89054FE58BF8A323B57092E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +437,9 @@
 				98C113566D12E53ECC4E0187 /* NoteStore.swift in Sources */,
 				6CC047E4BDF3C61F5D8C1702 /* VoiceActivityAttributes.swift in Sources */,
 				DFD0F3189CD88C02E0073C0D /* VoiceRecorder.swift in Sources */,
+				66694FB8C1231A0D844735FF /* Reminders.swift in Sources */,
+				9A92C17A83F83767CF09E4EE /* Motion.swift in Sources */,
+				AD4BE059DECB4888708B373D /* WidgetCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +454,8 @@
 				DE0A7AD4663B8EFB9C634D09 /* NoteStore.swift in Sources */,
 				54DA513CE67218395380D062 /* VoiceActivityAttributes.swift in Sources */,
 				C34059417177181D1DD36363 /* VoiceRecorder.swift in Sources */,
+				C9C31423FDB374360180E262 /* PandaWidget.swift in Sources */,
+				6AB32486BE41EC3AA783AB32 /* WidgetCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +503,8 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = RedPandaControls/RedPandaControls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedPandaControls/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -563,8 +585,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Red Panda's List";
@@ -588,8 +610,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
@@ -607,8 +629,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
@@ -624,8 +646,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
@@ -644,8 +666,8 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = RedPandaControls/RedPandaControls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedPandaControls/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -785,8 +807,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Red Panda's List";
@@ -814,8 +836,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Red Panda's List";
@@ -842,8 +864,8 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = RedPandaControls/RedPandaControls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 92CR5QLW8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedPandaControls/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -909,7 +931,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */ = {
+		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage;
 		};
