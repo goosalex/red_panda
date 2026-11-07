@@ -189,10 +189,20 @@ final class LeaveBasket: NSObject, CLLocationManagerDelegate {
     defaults.set(Date(), forKey: Key.lastFired)
 
     let content = UNMutableNotificationContent()
-    content.title = "🧺 Before you go…"
-    let shown = items.prefix(4).joined(separator: ", ")
-    let more = items.count > 4 ? " and \(items.count - 4) more" : ""
-    content.body = "The red panda packed your basket: \(shown)\(more)."
+    content.title = String(localized: "🧺 Before you go…")
+    let separator = String(
+      localized: "list.separator", defaultValue: ", ",
+      comment: "Between the item titles in the leave basket notification")
+    let shown = items.prefix(4).joined(separator: separator)
+    if items.count > 4 {
+      content.body = String(
+        localized: "The red panda packed your basket: \(shown) and \(items.count - 4) more.",
+        comment: "Leave basket notification: the first four items, then how many more")
+    } else {
+      content.body = String(
+        localized: "The red panda packed your basket: \(shown).",
+        comment: "Leave basket notification: the basket's items")
+    }
     content.sound = .default
     let request = UNNotificationRequest(
       identifier: Self.notificationId, content: content, trigger: nil)
@@ -209,7 +219,7 @@ final class LeaveBasket: NSObject, CLLocationManagerDelegate {
       $0.leaveBasket == true && $0.doneAt == nil && !($0.snoozedUntil.map { $0 > now } ?? false)
     }
     .sorted { $0.createdAt > $1.createdAt }
-    .map { ($0.text?.isEmpty == false ? $0.text : nil) ?? "Voice note" }
+    .map { ($0.text?.isEmpty == false ? $0.text : nil) ?? String(localized: "Voice note") }
   }
 
   // MARK: Location plumbing

@@ -82,7 +82,7 @@ final class ShareModel: ObservableObject {
         saved.append(note)
       }
     } catch {
-      self.error = "Couldn't save: \(error.localizedDescription)"
+      self.error = String(localized: "Couldn't save: \(error.localizedDescription)")
       return
     }
     // Cache first: the reload may only run once the iPhone is locked again.

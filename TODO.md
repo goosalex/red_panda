@@ -83,3 +83,11 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 
 - [x] Fix: the Undo bar after deleting (and other Undo bars) slides away after 5 seconds
 - [x] Twinkling stars next to the moon at night (still with Reduce Motion)
+
+## 0.4.0
+
+- [x] All app texts in English, French, German, Spanish (Latin America), Italian, Japanese and Arabic (Levantine, right-to-left)
+- [x] Widgets, controls, Siri phrases, notifications, share sheet and permission prompts translated too (iOS String Catalogs)
+- [x] News entries in every language
+- [ ] Quick capture preview images still show English text
+- [ ] Shortcuts button names in the automation guides ("Leaves", "Run Immediately", …) checked against a localised iOS only by memory

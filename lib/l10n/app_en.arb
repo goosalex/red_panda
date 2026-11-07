@@ -1,0 +1,501 @@
+{
+  "@@locale": "en",
+  "appTitle": "Red Panda",
+  "swipeSnooze": "Snooze until tomorrow",
+  "swipeSnoozeInfo": "Hides the item until tomorrow morning. Costs bamboo.",
+  "swipePostpone": "Postpone deadline by a day",
+  "swipePostponeInfo": "Free while the deadline is far; costs bamboo when it is close.",
+  "swipePin": "Pin to top",
+  "swipePinInfo": "Moves the item to the top of the list.",
+  "swipeCategory": "Move to category",
+  "swipeCategoryInfo": "Pick a cloud for the item.",
+  "swipeDeadline": "Set deadline",
+  "swipeDeadlineInfo": "Opens the days-from-now dial.",
+  "swipeRemindLater": "Remind me later today",
+  "swipeRemindLaterInfo": "A one-off nudge in three hours.",
+  "swipeDuplicate": "Duplicate",
+  "swipeDuplicateInfo": "Copies the item, handy for recurring chores.",
+  "swipeBasket": "Put in leave basket",
+  "swipeBasketInfo": "Reminds you when you leave this place or your Wi-Fi.",
+  "swipeShare": "Share",
+  "swipeShareInfo": "Shares the item as text.",
+  "nagOff": "Off",
+  "nagGentle": "Gentle",
+  "nagNormal": "Normal",
+  "nagPersistent": "Persistent",
+  "basketIn": "In the leave basket 🧺 The panda reminds you when you leave this place.",
+  "basketOut": "Out of the leave basket.",
+  "basketEmptyStatus": "The basket is empty. Drag items into it to be reminded about them when you leave.",
+  "basketNeedsLocation": "Red Panda needs your location to notice when you leave. Allow it in Settings.",
+  "basketWatching": "Watching",
+  "basketWatchingSince": "Watching (since {time})",
+  "@basketWatchingSince": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "basketReasonPlace": "you get a reminder when you move more than {radius} m away.",
+  "@basketReasonPlace": {
+    "placeholders": {
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "basketReasonWifi": "you get a reminder when your Wi-Fi drops.",
+  "basketReasonBoth": "you get a reminder when you move more than {radius} m away or your Wi-Fi drops.",
+  "@basketReasonBoth": {
+    "placeholders": {
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "basketNotWatching": "Not watching right now. Tap \"Watch from here\" to start.",
+  "basketSheetTitle": "🧺 Leave basket · {count}",
+  "@basketSheetTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "basketNeedsAlways": "To notice leaving while Red Panda is closed, set Location to \"Always\" in Settings.",
+  "basketWatchHere": "Watch from here",
+  "openSettings": "Open Settings",
+  "basketEmptyAction": "Empty the basket",
+  "basketWatchingHere": "Watching from here 📍",
+  "noLocation": "Couldn't get your location.",
+  "streakPraise": "{days, plural, =1{1-day streak! The panda is proud.} other{{days}-day streak! The panda is proud.}}",
+  "@streakPraise": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooEarned": "+{earned} 🎋 bamboo for the panda ({balance} in the stash)",
+  "@bambooEarned": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "balance": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooFull": "The bamboo stash is full ({cap}). Snooze something, or keep going!",
+  "@bambooFull": {
+    "placeholders": {
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "deleted": "Deleted",
+  "undo": "Undo",
+  "wokenUp": "Woken up early.",
+  "nudgeAt": "The panda will nudge you at {time}.",
+  "@nudgeAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "snoozeTooPoor": "Not enough bamboo to snooze (needs {cost}, you have {balance}). Finish a task to earn some 🎋",
+  "@snoozeTooPoor": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      },
+      "balance": {
+        "type": "int"
+      }
+    }
+  },
+  "snoozed": "Snoozed until tomorrow · −{cost} 🎋",
+  "@snoozed": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "postponeTooPoor": "Postponing this close to the deadline costs {cost} 🎋, and the stash is empty.",
+  "@postponeTooPoor": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "deadlineMoved": "Deadline moved to {when}",
+  "@deadlineMoved": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "deadlineMovedCost": "Deadline moved to {when} · −{cost} 🎋",
+  "@deadlineMovedCost": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "set": "Set",
+  "ok": "OK",
+  "noCloudsYet": "No clouds yet. Tap \"+ category\" next to the panda.",
+  "noCategory": "No category",
+  "filedUnder": "Filed under {name} ☁️",
+  "@filedUnder": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newCloud": "New category cloud",
+  "rename": "Rename",
+  "renameCloud": "Rename cloud",
+  "removeCloud": "Remove cloud",
+  "removeCloudInfo": "Its items stay, just without a category",
+  "cloudNameHint": "e.g. Home, Work, Shopping",
+  "micNeeded": "Red Panda needs the microphone. Allow it in Settings > Red Panda.",
+  "recordFailed": "Couldn't start recording.",
+  "search": "Search",
+  "closeSearch": "Close search",
+  "settings": "Settings",
+  "newTextNote": "New text note",
+  "onlyCategory": "Only {name}",
+  "@onlyCategory": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onlyBasket": "Only the leave basket",
+  "emptyBasketList": "The leave basket is empty. Drag items onto the basket to be reminded about them when you leave.",
+  "emptyCategoryDay": "Nothing in {name}. Drag an item onto its cloud, or tap the sun to see everything.",
+  "@emptyCategoryDay": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyCategoryNight": "Nothing in {name}. Drag an item onto its cloud, or tap the moon to see everything.",
+  "@emptyCategoryNight": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noNotes": "No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.",
+  "hideSnoozed": "Hide snoozed",
+  "showSnoozed": "{count} snoozed · show",
+  "@showSnoozed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "undoCheck": "Undo check",
+  "wakeUp": "Wake up",
+  "streakChip": "🔥 {days}d",
+  "@streakChip": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "tickedToday": "✓ {count} today",
+  "@tickedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooTooltip": "Bamboo: earn it by finishing tasks, spend it on snoozes",
+  "level": "Lv {level}",
+  "@level": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "pandaSadOverdue": "🥺 The panda is sad: {count} overdue",
+  "@pandaSadOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueTodayWatching": "⏰ {count} due today. The panda is watching.",
+  "@dueTodayWatching": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordVoice": "Record a voice note",
+  "stopVoice": "Stop and save the voice note",
+  "snoozedUntil": " · 💤 until {time}",
+  "@snoozedUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "edit": "Edit",
+  "done": "Done",
+  "tickOff": "Tick off",
+  "inLeaveBasket": "In the leave basket",
+  "daysLate": "{days}d late",
+  "@daysLate": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "today": "today",
+  "daysShort": "{days}d",
+  "@daysShort": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dueOn": "Due {date}",
+  "@dueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "dragHint": "Drag to reorder or onto a category cloud",
+  "noteHint": "Note",
+  "newNoteHint": "New note",
+  "deadline": "Deadline",
+  "leaveBasket": "Leave basket",
+  "leaveBasketTooltip": "Remind me when I leave this place",
+  "save": "Save",
+  "add": "Add",
+  "turnDial": "Turn the dial",
+  "clear": "Clear",
+  "cloudSemantics": "Category {name}, {count} open",
+  "@cloudSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cloudHintShowAll": "Double tap to show all items",
+  "cloudHintOnly": "Double tap to show only this category",
+  "addCategory": "Add a category",
+  "plusCategory": "+ category",
+  "sun": "Sun",
+  "moon": "Moon",
+  "showsAllItems": "Shows all items",
+  "noDeadline": "no deadline",
+  "tomorrow": "tomorrow",
+  "inDays": "in {days} days",
+  "@inDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "noDate": "no date",
+  "dayUnit": "{days, plural, =1{day} other{days}}",
+  "@dayUnit": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "basketSemantics": "{count, plural, =1{Leave basket, 1 item} other{Leave basket, {count} items}}",
+  "@basketSemantics": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "basketWatchingSuffix": ", watching",
+  "basketHint": "Drop items here to be reminded when you leave. Double tap to filter.",
+  "settingsTitle": "Settings",
+  "settingsHeaderList": "List",
+  "settingsHeaderReminders": "Reminders",
+  "settingsHeaderPanda": "Panda",
+  "settingsCloudSync": "iCloud sync",
+  "settingsCloudNote": "Notes, voice notes, categories and bamboo sync through your iCloud Drive to every iPhone and iPad signed in to the same Apple Account. Settings stay on each device.",
+  "settingsOn": "On",
+  "settingsOff": "Off",
+  "settingsSwipeRight": "Swipe right",
+  "settingsSwipeDrawerTitle": "Swipe right on an item",
+  "settingsSwipeDrawerNote": "Ticked-off items always un-tick; snoozed items wake up.",
+  "settingsNag": "Sad panda reminders",
+  "settingsNagNote": "Notifications and widgets nag you as deadlines come closer.",
+  "settingsQuietFrom": "Quiet from",
+  "settingsQuietUntil": "Quiet until",
+  "settingsLeaveBasket": "Leave basket",
+  "settingsBambooRules": "Bamboo rules",
+  "settingsBambooMax": "Max {cap}",
+  "@settingsBambooMax": {
+    "placeholders": {
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "bambooTitle": "🎋 Bamboo",
+  "bambooRules": "Every finished item feeds the panda {perCompletion} 🎋 (+{earlyBonus} when done before its deadline day). Snoozing costs {snoozeCost} 🎋; postponing a deadline is free until {freeDays, plural, =1{1 day} other{{freeDays} days}} before it, then costs {lateCost} 🎋. The stash holds at most {cap}.",
+  "@bambooRules": {
+    "placeholders": {
+      "perCompletion": {
+        "type": "int"
+      },
+      "earlyBonus": {
+        "type": "int"
+      },
+      "snoozeCost": {
+        "type": "int"
+      },
+      "freeDays": {
+        "type": "int"
+      },
+      "lateCost": {
+        "type": "int"
+      },
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsQuickCapture": "Quick capture",
+  "settingsQuickCaptureValue": "Lock Screen, Siri…",
+  "settingsNews": "News",
+  "newsVersion": "Version {version}",
+  "@newsVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newsVersionNew": "Version {version} · new",
+  "@newsVersionNew": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newsPr": "PR #{pr}",
+  "@newsPr": {
+    "placeholders": {
+      "pr": {
+        "type": "int"
+      }
+    }
+  },
+  "cloudNotSignedIn": "Not signed in",
+  "cloudSyncing": "Syncing…",
+  "cloudDownloading": "Downloading…",
+  "cloudFailed": "Failed, retrying",
+  "basketTitle": "🧺 Leave basket",
+  "basketNote": "Items in the basket remind you as soon as you leave the place where you put them in, or your Wi-Fi drops.",
+  "basketOnPlace": "When I leave this place",
+  "basketRadius": "Radius",
+  "basketRadiusTitle": "Remind me when I am further away than",
+  "basketRadiusNote": "iPhones place you to about 100 m, so a small radius may fire a little late.",
+  "basketOnWifi": "When my Wi-Fi drops",
+  "basketLocationAccess": "Location access",
+  "locationAlways": "Always",
+  "locationWhileUsing": "While using",
+  "locationNotAsked": "Not asked yet",
+  "basketWhyAlways": "Why \"Always\"?",
+  "basketNoTracking": "No tracking",
+  "basketHeaderShortcuts": "Shortcuts automations",
+  "basketShortcutsNote": "Red Panda only notices a Wi-Fi drop while it is open or was just in use. A Shortcuts automation catches it any time, and can watch a fixed place like home.",
+  "automationWifi": "When I leave a Wi-Fi",
+  "automationPlace": "When I leave a place",
+  "automationSetUp": "Set up",
+  "automationMine": "My automations",
+  "shortcutsApp": "Shortcuts",
+  "shortcutsOpen": "Open Shortcuts",
+  "shortcutsRemindAction": "Remind me of my leave basket",
+  "guideOpenShortcuts": "Tap \"Open Shortcuts\" below: the New Automation list opens.",
+  "guideWifiScroll": "Scroll down and tap Wi-Fi.",
+  "guideWifiNetwork": "Choose your network, tick \"Leaves\" and untick \"Joins\".",
+  "guideRunImmediately": "Pick \"Run Immediately\", then tap Next.",
+  "guidePlaceLeave": "Tap Leave, then Location > Choose, and pick the place (e.g. home).",
+  "guideAddAction": "Tap \"New Blank Automation\", then Add Action, search \"leave basket\" and pick \"{action}\".",
+  "@guideAddAction": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      }
+    }
+  },
+  "guideDone": "Tap Done. From now on the panda reminds you of your basket.",
+  "locationInfoTitle": "Why \"Always\" location?",
+  "locationInfoLeaveTitle": "Only to notice you leaving",
+  "locationInfoLeaveBody": "With \"While using\", iOS tells Red Panda nothing once it is closed, so the basket could only remind you while the app is open. \"Always\" lets iOS wake Red Panda the moment you leave.",
+  "locationInfoBatteryTitle": "No battery drain",
+  "locationInfoBatteryBody": "Red Panda does not follow you. It asks iOS once for where you are and draws one circle around it. iOS watches that circle with the cell and Wi-Fi signals it uses anyway, and Red Panda sleeps until you cross the edge. Then the circle is removed.",
+  "locationInfoPrivacyTitle": "Your location stays on your iPhone",
+  "locationInfoPrivacyBody": "Red Panda has no server and sends your location nowhere. Only the circle's centre is kept, on this device, until the reminder fires. iCloud sync never includes it.",
+  "locationInfoWifiTitle": "Wi-Fi needs no location",
+  "locationInfoWifiBody": "The \"Wi-Fi drops\" trigger works without location access.",
+  "captureLockScreen": "Lock Screen buttons",
+  "captureLockScreenHow": "Long-press the Lock Screen, tap Customise > Lock Screen, tap a control slot at the bottom and pick Red Panda > Text note, Voice note or Show Panda's basket.",
+  "captureWidgets": "Widgets",
+  "captureWidgetsHow": "Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > Add Widget and search \"Red Panda\": its buttons add a note or show Panda's basket.",
+  "captureControlCentre": "Control Centre",
+  "captureControlCentreHow": "Open Control Centre, tap +, Add a Control, search \"Red Panda\".",
+  "captureActionButton": "Action Button",
+  "captureActionButtonHow": "Settings > Action Button > Controls, then choose Red Panda > Text note, Voice note or Show Panda's basket.",
+  "captureSiri": "Siri",
+  "captureSiriHow": "Say \"Note with Red Panda\", \"Voice note with Red Panda\" or \"Show my Red Panda basket\".",
+  "capturePreview": "{spot} preview",
+  "@capturePreview": {
+    "placeholders": {
+      "spot": {
+        "type": "String"
+      }
+    }
+  },
+  "captureLinkMicrophone": "Microphone & Speech access",
+  "captureLinkSiri": "Siri & Search",
+  "wifi": "Wi-Fi"
+}

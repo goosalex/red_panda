@@ -97,8 +97,7 @@ struct ShareView: View {
   }
 
   private var addTitle: String {
-    let n = model.selectedCount
-    return n == 1 ? "Add 1 item" : "Add \(n) items"
+    String(localized: "Add \(model.selectedCount) items", comment: "Share sheet button")
   }
 
   private var emptyState: some View {
@@ -149,7 +148,7 @@ private struct EntryRow: View {
           .foregroundStyle(entry.included ? PandaColor.orange : PandaColor.ink.opacity(0.35))
       }
       .buttonStyle(.plain)
-      .accessibilityLabel(entry.included ? "Included" : "Not included")
+      .accessibilityLabel(entry.included ? Text("Included") : Text("Not included"))
 
       TextField("To-do", text: $entry.text, axis: .vertical)
         .lineLimit(1...6)

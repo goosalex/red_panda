@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 import 'days_dial.dart';
@@ -123,7 +124,7 @@ class _NoteEditorState extends State<_NoteEditor> {
             maxLines: 5,
             textCapitalization: TextCapitalization.sentences,
             textInputAction: TextInputAction.done,
-            decoration: InputDecoration(hintText: editing ? 'Note' : 'New note'),
+            decoration: InputDecoration(hintText: editing ? context.l10n.noteHint : context.l10n.newNoteHint),
             onSubmitted: (_) => _submit(),
           ),
           const SizedBox(height: 8),
@@ -138,7 +139,7 @@ class _NoteEditorState extends State<_NoteEditor> {
                     if (widget.showDeadline)
                       ActionChip(
                         avatar: Icon(_days == null ? Icons.alarm_add_outlined : Icons.alarm, size: 18),
-                        label: Text(_days == null ? 'Deadline' : DaysDial.label(_days)),
+                        label: Text(_days == null ? context.l10n.deadline : DaysDial.label(context.l10n, _days)),
                         onPressed: () => setState(() {
                           _showDial = !_showDial;
                           if (_showDial && _days == null) _days = 1;
@@ -146,8 +147,8 @@ class _NoteEditorState extends State<_NoteEditor> {
                       ),
                     FilterChip(
                       avatar: const Icon(Icons.shopping_basket_outlined, size: 18),
-                      label: const Text('Leave basket'),
-                      tooltip: 'Remind me when I leave this place',
+                      label: Text(context.l10n.leaveBasket),
+                      tooltip: context.l10n.leaveBasketTooltip,
                       selected: _basket,
                       showCheckmark: false,
                       onSelected: (v) => setState(() => _basket = v),
@@ -156,7 +157,7 @@ class _NoteEditorState extends State<_NoteEditor> {
                 ),
               ),
               const SizedBox(width: 8),
-              FilledButton(onPressed: _submit, child: Text(editing ? 'Save' : 'Add')),
+              FilledButton(onPressed: _submit, child: Text(editing ? context.l10n.save : context.l10n.add)),
             ],
           ),
           AnimatedSize(
@@ -173,14 +174,14 @@ class _NoteEditorState extends State<_NoteEditor> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(DaysDial.label(_days), style: Theme.of(context).textTheme.titleMedium),
-                            const Text('Turn the dial'),
+                            Text(DaysDial.label(context.l10n, _days), style: Theme.of(context).textTheme.titleMedium),
+                            Text(context.l10n.turnDial),
                             TextButton(
                               onPressed: () => setState(() {
                                 _days = null;
                                 _showDial = false;
                               }),
-                              child: const Text('Clear'),
+                              child: Text(context.l10n.clear),
                             ),
                           ],
                         ),

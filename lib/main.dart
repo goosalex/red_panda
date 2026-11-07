@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rive/rive.dart' as rive;
 
+import 'l10n/l10n.dart';
 import 'storage/note_store.dart';
 import 'ui/home_screen.dart';
 
@@ -24,8 +26,15 @@ class RedPandaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Red Panda',
+      onGenerateTitle: (c) => c.l10n.appTitle,
       debugShowCheckedModeBanner: false,
+      supportedLocales: appLocales,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       theme: ThemeData(colorSchemeSeed: _seed, useMaterial3: true),
       darkTheme: ThemeData(colorSchemeSeed: _seed, brightness: Brightness.dark, useMaterial3: true),
       home: HomeScreen(store: store),

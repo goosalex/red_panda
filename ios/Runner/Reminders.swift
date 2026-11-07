@@ -215,47 +215,54 @@ enum Reminders {
     return options[n % options.count]
   }
 
+  /// The messages are looked up in Localizable.xcstrings in the app's current
+  /// language; every language keeps the same number of options per level, so
+  /// pick() chooses the same slot everywhere.
   static func message(_ level: Level, title rawTitle: String, key: String) -> String {
     let t = rawTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-    let title = t.isEmpty ? "that little to-do" : "“\(t.count > 80 ? String(t.prefix(79)) + "…" : t)”"
+    let short = t.count > 80 ? String(t.prefix(79)) + "…" : t
+    let title =
+      t.isEmpty
+      ? String(localized: "that little to-do", comment: "Reminder text for a to-do without a title")
+      : String(localized: "“\(short)”", comment: "A to-do's title quoted inside a reminder")
     let options: [String]
     switch level {
     case .remind:
       options = [
-        "The panda tugs your sleeve: \(title) 🐾",
-        "Psst! The red panda remembered for you: \(title)",
-        "A fluffy tail swishes past with a note: \(title)",
+        String(localized: "The panda tugs your sleeve: \(title) 🐾"),
+        String(localized: "Psst! The red panda remembered for you: \(title)"),
+        String(localized: "A fluffy tail swishes past with a note: \(title)"),
       ]
     case .dayBefore:
       options = [
-        "Tomorrow’s the day for \(title). The red panda is already a tiny bit nervous 🐾",
-        "The red panda peeks over your shoulder: \(title) is due tomorrow.",
-        "Heads up from the bamboo grove: \(title) is due tomorrow 🎋",
+        String(localized: "Tomorrow’s the day for \(title). The red panda is already a tiny bit nervous 🐾"),
+        String(localized: "The red panda peeks over your shoulder: \(title) is due tomorrow."),
+        String(localized: "Heads up from the bamboo grove: \(title) is due tomorrow 🎋"),
       ]
     case .dueToday:
       options = [
-        "The red panda is staring at your list with big sad eyes 🥺 \(title) is due today.",
-        "\(title) is due today. The panda has stopped chewing its bamboo to watch.",
-        "Today’s the day! The red panda believes in you: \(title) 🐾",
-        "A small paw taps your screen: \(title) is due today.",
+        String(localized: "The red panda is staring at your list with big sad eyes 🥺 \(title) is due today."),
+        String(localized: "\(title) is due today. The panda has stopped chewing its bamboo to watch."),
+        String(localized: "Today’s the day! The red panda believes in you: \(title) 🐾"),
+        String(localized: "A small paw taps your screen: \(title) is due today."),
       ]
     case .overdue1:
       options = [
-        "A tiny sniffle from the bamboo grove… \(title) is overdue 🥺",
-        "The red panda waited all day for \(title). It’s still waiting.",
-        "\(title) slipped past its deadline. The panda’s ears have drooped a little.",
+        String(localized: "A tiny sniffle from the bamboo grove… \(title) is overdue 🥺"),
+        String(localized: "The red panda waited all day for \(title). It’s still waiting."),
+        String(localized: "\(title) slipped past its deadline. The panda’s ears have drooped a little."),
       ]
     case .overdue2:
       options = [
-        "The red panda has curled up in a sad little ball. \(title) is two days late 😢",
-        "Two days now. The panda keeps checking for \(title) and sighing softly.",
-        "The bamboo has gone untouched. The panda is too worried about \(title) to eat 🎋",
+        String(localized: "The red panda has curled up in a sad little ball. \(title) is two days late 😢"),
+        String(localized: "Two days now. The panda keeps checking for \(title) and sighing softly."),
+        String(localized: "The bamboo has gone untouched. The panda is too worried about \(title) to eat 🎋"),
       ]
     case .overdue3:
       options = [
-        "The red panda has written \(title) on a leaf and is holding it up with trembling paws 🥺",
-        "Day three. The panda is sitting by the window, hoping you’ll come back for \(title).",
-        "The panda’s tail has stopped swishing. Only you can fix \(title) 💔",
+        String(localized: "The red panda has written \(title) on a leaf and is holding it up with trembling paws 🥺"),
+        String(localized: "Day three. The panda is sitting by the window, hoping you’ll come back for \(title)."),
+        String(localized: "The panda’s tail has stopped swishing. Only you can fix \(title) 💔"),
       ]
     case .missYou:
       options = [missYouMessage(count: 1, key: key)]
@@ -264,12 +271,11 @@ enum Reminders {
   }
 
   static func missYouMessage(count: Int, key: String) -> String {
-    let things = count == 1 ? "1 thing is" : "\(count) things are"
-    return pick(
+    pick(
       [
-        "The red panda misses you 🥺 \(things) still waiting in the bamboo grove.",
-        "It’s awfully quiet without you. The panda has been guarding your list: \(things) waiting.",
-        "The red panda keeps peeking at the door. \(things) still on your list 🐾",
+        String(localized: "The red panda misses you 🥺 \(count) things are still waiting in the bamboo grove."),
+        String(localized: "It’s awfully quiet without you. The panda has been guarding your list: \(count) things are waiting."),
+        String(localized: "The red panda keeps peeking at the door. \(count) things are still on your list 🐾"),
       ], key: key)
   }
 }

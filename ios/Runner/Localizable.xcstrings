@@ -1,0 +1,2399 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ is due today. The panda has stopped chewing its bamboo to watch.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "C'est aujourd'hui pour %@. Le panda a arrêté de mâchouiller son bambou pour surveiller."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heute ist %@ fällig. Der Panda hat aufgehört, an seinem Bambus zu kauen, um zuzuschauen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy vence %@. El panda dejó de masticar su bambú para mirar."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi scade %@. Il panda ha smesso di masticare il suo bambù per guardare."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日が%@の期限です。パンダは竹をかじるのをやめて見守っています。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اليوم موعد %@. الباندا وقّف أكل الخيزران ليتفرّج."
+          }
+        }
+      }
+    },
+    "%@ slipped past its deadline. The panda’s ears have drooped a little.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'échéance de %@ est passée. Les oreilles du panda tombent un peu."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Frist für %@ ist verstrichen. Die Ohren des Pandas hängen ein bisschen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se pasó la fecha de %@. Al panda se le cayeron un poco las orejitas."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La scadenza di %@ è passata. Le orecchie del panda si sono un po' abbassate."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@の期限が過ぎてしまいました。パンダの耳が少したれています。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "راح موعد %@. دينات الباندا نزلوا شوي."
+          }
+        }
+      }
+    },
+    "A fluffy tail swishes past with a note: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une queue touffue passe avec un petit mot : %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein flauschiger Schwanz wedelt mit einem Zettel vorbei: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una colita esponjosa pasa con una nota: %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una coda soffice passa di qui con un biglietto: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ふわふわのしっぽがメモを持って通りすぎます：%@"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذنب منفوش مرق ومعه ورقة: %@"
+          }
+        }
+      }
+    },
+    "A small paw taps your screen: %@ is due today.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une petite patte tapote votre écran : %@ est pour aujourd'hui."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eine kleine Pfote tippt auf deinen Bildschirm: %@ ist heute fällig."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una patita toca tu pantalla: %@ vence hoy."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una zampetta picchietta sul tuo schermo: %@ scade oggi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小さな前足が画面をトントン：%@の期限は今日です。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كفّ زغيرة عم تدقّ على شاشتك: موعد %@ اليوم."
+          }
+        }
+      }
+    },
+    "A tiny sniffle from the bamboo grove… %@ is overdue 🥺": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un petit reniflement dans la bambouseraie… %@ est en retard 🥺"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein leises Schniefen aus dem Bambuswald … %@ ist überfällig 🥺"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un pequeño sollozo desde el bosque de bambú… ya pasó la fecha de %@ 🥺"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un piccolo singhiozzo dal boschetto di bambù… %@ è in ritardo 🥺"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "竹やぶから小さなすすり泣き… %@の期限が過ぎました 🥺"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شهقة زغيرة من غابة الخيزران… تأخّرنا على %@ 🥺"
+          }
+        }
+      }
+    },
+    "Allow Live Activities for Red Panda to record voice notes.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorisez les activités en direct pour Red Panda afin d'enregistrer des notes vocales."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erlaube Live-Aktivitäten für Red Panda, um Sprachnotizen aufzunehmen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permite las Actividades en vivo de Red Panda para grabar notas de voz."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consenti le Attività live per Red Panda per registrare note vocali."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ボイスメモを録音するには、Red Pandaのライブアクティビティを許可してください。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اسمح بالأنشطة المباشرة لـ Red Panda لتسجّل ملاحظات صوتية."
+          }
+        }
+      }
+    },
+    "Capture a quick text note with Red Panda.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note rapidement quelque chose avec Red Panda."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hält schnell eine Textnotiz mit Red Panda fest."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anota algo rápido con Red Panda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annota al volo una nota di testo con Red Panda."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaですばやくテキストメモを残します。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سجّل ملاحظة نصّية سريعة مع Red Panda."
+          }
+        }
+      }
+    },
+    "Day three. The panda is sitting by the window, hoping you’ll come back for %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Troisième jour. Le panda est assis près de la fenêtre et espère que vous reviendrez pour %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tag drei. Der Panda sitzt am Fenster und hofft, dass du für %@ zurückkommst."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Día tres. El panda está sentado junto a la ventana, esperando que vuelvas por %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terzo giorno. Il panda è seduto alla finestra e spera che tornerai per %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3日目。パンダは窓辺に座って、あなたが%@のために戻ってくるのを待っています。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اليوم التالت. الباندا قاعد حدّ الشبّاك، ناطرك ترجع لـ %@."
+          }
+        }
+      }
+    },
+    "Heads up from the bamboo grove: %@ is due tomorrow 🎋": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Petit message de la bambouseraie : %@ est pour demain 🎋"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kleine Warnung aus dem Bambuswald: %@ ist morgen fällig 🎋"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aviso desde el bosque de bambú: %@ vence mañana 🎋"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avviso dal boschetto di bambù: %@ scade domani 🎋"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "竹やぶからのお知らせ：%@の期限は明日です 🎋"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "خبرية من غابة الخيزران: موعد %@ بكرا 🎋"
+          }
+        }
+      }
+    },
+    "It’s awfully quiet without you. The panda has been guarding your list: %lld things are waiting.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "It’s awfully quiet without you. The panda has been guarding your list: %lld thing is waiting."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "It’s awfully quiet without you. The panda has been guarding your list: %lld things are waiting."
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "C'est bien calme sans vous. Le panda a gardé votre liste : %lld chose attend."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "C'est bien calme sans vous. Le panda a gardé votre liste : %lld choses attendent."
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ohne dich ist es so still. Der Panda hat deine Liste bewacht: %lld Sache wartet."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ohne dich ist es so still. Der Panda hat deine Liste bewacht: %lld Sachen warten."
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Está muy callado sin ti. El panda cuidó tu lista: %lld cosa está esperando."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Está muy callado sin ti. El panda cuidó tu lista: %lld cosas están esperando."
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "È tutto così silenzioso senza di te. Il panda ha fatto la guardia alla tua lista: %lld cosa ti aspetta."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "È tutto così silenzioso senza di te. Il panda ha fatto la guardia alla tua lista: %lld cose ti aspettano."
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "あなたがいないととても静か。パンダがリストを守っています：%lld件が待っています。"
+                }
+              }
+            }
+          }
+        },
+        "ar": {
+          "variations": {
+            "plural": {
+              "zero": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في %lld شغلة ناطرة."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في شغلة وحدة ناطرة."
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في شغلتين ناطرين."
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في %lld شغلات ناطرين."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في %lld شغلة ناطرة."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الدنيا كتير هادية بلاك. الباندا عم يحرس قائمتك: في %lld شغلة ناطرة."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Leave basket": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panier de départ"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mitnehm-Korb"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canasta de salida"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cestino da portare"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お出かけかご"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سلّة الطلعة"
+          }
+        }
+      }
+    },
+    "list.separator": {
+      "comment": "Between the item titles in the leave basket notification",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "、"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "، "
+          }
+        }
+      }
+    },
+    "New text note": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle note"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neue Textnotiz"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nueva nota de texto"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuova nota di testo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しいテキストメモ"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظة نصّية جديدة"
+          }
+        }
+      }
+    },
+    "Note": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notiz"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メモ"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظة"
+          }
+        }
+      }
+    },
+    "Open Red Panda on your leave basket.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvre Red Panda sur votre panier de départ."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffnet Red Panda mit deinem Mitnehm-Korb."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre Red Panda en tu canasta de salida."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apre Red Panda sul tuo cestino da portare."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaをお出かけかごの画面で開きます。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بيفتح Red Panda على سلّة الطلعة تبعك."
+          }
+        }
+      }
+    },
+    "Open Red Panda once to allow the microphone.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez Red Panda une fois pour autoriser le micro."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffne Red Panda einmal, um das Mikrofon zu erlauben."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre Red Panda una vez para permitir el micrófono."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri Red Panda una volta per consentire il microfono."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイクを許可するには、Red Pandaを一度開いてください。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "افتح Red Panda مرة وحدة لتسمحله بالمايكروفون."
+          }
+        }
+      }
+    },
+    "Open Red Panda to write a text note.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvre Red Panda pour écrire une note."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffnet Red Panda, um eine Textnotiz zu schreiben."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre Red Panda para escribir una nota de texto."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apre Red Panda per scrivere una nota di testo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaを開いてテキストメモを書きます。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بيفتح Red Panda لتكتب ملاحظة نصّية."
+          }
+        }
+      }
+    },
+    "Panda's basket": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panier du panda"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pandas Korb"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canasta del panda"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cestino del panda"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダのかご"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سلّة الباندا"
+          }
+        }
+      }
+    },
+    "Psst! The red panda remembered for you: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Psst ! Le panda s'en est souvenu pour vous : %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Psst! Der Panda hat für dich dran gedacht: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Psst! El panda se acordó por ti: %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Psst! Il panda se n'è ricordato per te: %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ねえねえ！パンダが覚えていてくれました：%@"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بسّ بسّ! الباندا تذكّرلك: %@"
+          }
+        }
+      }
+    },
+    "Record a quick voice note with Red Panda.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistre une note vocale rapide avec Red Panda."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nimmt schnell eine Sprachnotiz mit Red Panda auf."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Graba una nota de voz rápida con Red Panda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registra al volo una nota vocale con Red Panda."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaですばやくボイスメモを録音します。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سجّل ملاحظة صوتية سريعة مع Red Panda."
+          }
+        }
+      }
+    },
+    "Red Panda couldn't start recording.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Panda n'a pas pu démarrer l'enregistrement."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Panda konnte die Aufnahme nicht starten."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Panda no pudo iniciar la grabación."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Panda non è riuscito ad avviare la registrazione."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaは録音を開始できませんでした。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Panda ما قدر يبلّش التسجيل."
+          }
+        }
+      }
+    },
+    "Remind me of my leave basket": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me rappeler mon panier de départ"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An meinen Mitnehm-Korb erinnern"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recordarme mi canasta de salida"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ricordami il cestino da portare"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お出かけかごをお知らせ"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذكّرني بسلّة الطلعة"
+          }
+        }
+      }
+    },
+    "Saved. The panda is happy.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistré. Le panda est content."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gespeichert. Der Panda freut sich."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardado. El panda está feliz."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvato. Il panda è contento."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存しました。パンダはごきげんです。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "انحفظت. الباندا مبسوط."
+          }
+        }
+      }
+    },
+    "Show Panda's basket": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher le panier du panda"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pandas Korb zeigen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar la canasta del panda"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra il cestino del panda"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダのかごを表示"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فرجيني سلّة الباندا"
+          }
+        }
+      }
+    },
+    "Shows a notification with the items in Red Panda's leave basket.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affiche une notification avec les éléments du panier de départ de Red Panda."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeigt eine Mitteilung mit den Einträgen in Red Pandas Mitnehm-Korb."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muestra una notificación con los elementos de la canasta de salida de Red Panda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra una notifica con le voci del cestino da portare di Red Panda."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red Pandaのお出かけかごの項目を通知で表示します。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بيفرجيك إشعار بالشغلات اللي بسلّة الطلعة بـ Red Panda."
+          }
+        }
+      }
+    },
+    "Stop voice note": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrêter la note vocale"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sprachnotiz stoppen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detener nota de voz"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ferma nota vocale"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ボイスメモを停止"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وقّف الملاحظة الصوتية"
+          }
+        }
+      }
+    },
+    "Text note": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note texte"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Textnotiz"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota de texto"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota di testo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テキストメモ"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظة نصّية"
+          }
+        }
+      }
+    },
+    "that little to-do": {
+      "comment": "Reminder text for a to-do without a title",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "cette petite tâche"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "diese kleine Aufgabe"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "esa tareíta"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "quel piccolo impegno"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "あのちょっとした用事"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هالشغلة الزغيرة"
+          }
+        }
+      }
+    },
+    "The bamboo has gone untouched. The panda is too worried about %@ to eat 🎋": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le bambou n'a pas été touché. Le panda s'inquiète trop pour %@ pour manger 🎋"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Bambus bleibt unberührt. Der Panda sorgt sich zu sehr um %@, um zu fressen 🎋"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El bambú sigue intacto. El panda está tan preocupado por %@ que no come 🎋"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il bambù è rimasto intatto. Il panda è troppo in pensiero per %@ per mangiare 🎋"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "竹に手がつけられていません。パンダは%@が心配で食べられません 🎋"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الخيزران ما حدا قرّبله. الباندا قلقان كتير على %@ وما عم ياكل 🎋"
+          }
+        }
+      }
+    },
+    "The panda tugs your sleeve: %@ 🐾": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda vous tire par la manche : %@ 🐾"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda zupft an deinem Ärmel: %@ 🐾"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda te jala la manga: %@ 🐾"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda ti tira la manica: %@ 🐾"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダがそでを引っぱっています：%@ 🐾"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا عم يشدّك من كمّك: %@ 🐾"
+          }
+        }
+      }
+    },
+    "The panda’s tail has stopped swishing. Only you can fix %@ 💔": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La queue du panda ne remue plus. Il n'y a que vous pour régler %@ 💔"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Schwanz des Pandas wedelt nicht mehr. Nur du kannst %@ erledigen 💔"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La colita del panda dejó de moverse. Solo tú puedes resolver %@ 💔"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La coda del panda ha smesso di muoversi. Solo tu puoi sistemare %@ 💔"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダのしっぽが動かなくなりました。%@を片づけられるのはあなただけです 💔"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ذنب الباندا وقّف يتحرّك. بس إنت فيك تخلّص %@ 💔"
+          }
+        }
+      }
+    },
+    "The red panda has curled up in a sad little ball. %@ is two days late 😢": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda s'est roulé en petite boule triste. %@ a deux jours de retard 😢"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda hat sich zu einer traurigen kleinen Kugel eingerollt. %@ ist zwei Tage zu spät 😢"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda se hizo bolita, muy triste. %@ lleva dos días de atraso 😢"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda si è raggomitolato in una pallina triste. %@ è in ritardo di due giorni 😢"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダはしょんぼり丸くなっています。%@は2日遅れです 😢"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا لفّ حاله متل طابة زغيرة حزينة. صرلنا يومين متأخرين على %@ 😢"
+          }
+        }
+      }
+    },
+    "The red panda has written %@ on a leaf and is holding it up with trembling paws 🥺": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda a écrit %@ sur une feuille et la brandit de ses pattes tremblantes 🥺"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda hat %@ auf ein Blatt geschrieben und hält es mit zitternden Pfoten hoch 🥺"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda escribió %@ en una hoja y la levanta con sus patitas temblorosas 🥺"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda ha scritto %@ su una foglia e la tiene su con le zampette tremanti 🥺"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダは葉っぱに%@と書いて、ふるえる前足で掲げています 🥺"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا كتب %@ على ورقة شجر وعم يرفعها بإيدين عم يرجفوا 🥺"
+          }
+        }
+      }
+    },
+    "The red panda is staring at your list with big sad eyes 🥺 %@ is due today.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda fixe votre liste avec de grands yeux tristes 🥺 %@ est pour aujourd'hui."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda starrt mit großen traurigen Augen auf deine Liste 🥺 %@ ist heute fällig."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda mira tu lista con ojitos tristes 🥺 %@ vence hoy."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda fissa la tua lista con grandi occhi tristi 🥺 %@ scade oggi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダが大きな悲しい目でリストを見つめています 🥺 %@の期限は今日です。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا عم يتطلّع بقائمتك بعيون كبار حزينة 🥺 موعد %@ اليوم."
+          }
+        }
+      }
+    },
+    "The red panda keeps peeking at the door. %lld things are still on your list 🐾": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "The red panda keeps peeking at the door. %lld thing is still on your list 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "The red panda keeps peeking at the door. %lld things are still on your list 🐾"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Le panda n'arrête pas de regarder la porte. Il reste %lld chose sur votre liste 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Le panda n'arrête pas de regarder la porte. Il reste %lld choses sur votre liste 🐾"
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Der Panda schaut immer wieder zur Tür. %lld Sache steht noch auf deiner Liste 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Der Panda schaut immer wieder zur Tür. %lld Sachen stehen noch auf deiner Liste 🐾"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "El panda no deja de asomarse a la puerta. Todavía queda %lld cosa en tu lista 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "El panda no deja de asomarse a la puerta. Todavía quedan %lld cosas en tu lista 🐾"
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Il panda continua a sbirciare verso la porta. C'è ancora %lld cosa nella tua lista 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Il panda continua a sbirciare verso la porta. Ci sono ancora %lld cose nella tua lista 🐾"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "パンダは何度もドアのほうをのぞいています。リストにまだ%lld件残っています 🐾"
+                }
+              }
+            }
+          }
+        },
+        "ar": {
+          "variations": {
+            "plural": {
+              "zero": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في %lld شغلة عقائمتك 🐾"
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في شغلة وحدة عقائمتك 🐾"
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في شغلتين عقائمتك 🐾"
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في %lld شغلات عقائمتك 🐾"
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في %lld شغلة عقائمتك 🐾"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا كل شوي بيتطلّع عالباب. لسّا في %lld شغلة عقائمتك 🐾"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "The red panda misses you 🥺 %lld things are still waiting in the bamboo grove.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "The red panda misses you 🥺 %lld thing is still waiting in the bamboo grove."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "The red panda misses you 🥺 %lld things are still waiting in the bamboo grove."
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Vous manquez au panda 🥺 %lld chose attend encore dans la bambouseraie."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Vous manquez au panda 🥺 %lld choses attendent encore dans la bambouseraie."
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Der Panda vermisst dich 🥺 %lld Sache wartet noch im Bambuswald."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Der Panda vermisst dich 🥺 %lld Sachen warten noch im Bambuswald."
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "El panda te extraña 🥺 %lld cosa sigue esperando en el bosque de bambú."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "El panda te extraña 🥺 %lld cosas siguen esperando en el bosque de bambú."
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Il panda sente la tua mancanza 🥺 %lld cosa ti aspetta ancora nel boschetto di bambù."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Il panda sente la tua mancanza 🥺 %lld cose ti aspettano ancora nel boschetto di bambù."
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "パンダはあなたに会いたがっています 🥺 竹やぶでまだ%lld件が待っています。"
+                }
+              }
+            }
+          }
+        },
+        "ar": {
+          "variations": {
+            "plural": {
+              "zero": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في %lld شغلة لسّا ناطرة بغابة الخيزران."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في شغلة وحدة لسّا ناطرة بغابة الخيزران."
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في شغلتين لسّا ناطرين بغابة الخيزران."
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في %lld شغلات لسّا ناطرين بغابة الخيزران."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في %lld شغلة لسّا ناطرة بغابة الخيزران."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "الباندا مشتاقلك 🥺 في %lld شغلة لسّا ناطرة بغابة الخيزران."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "The red panda packed your basket: %@ and %lld more.": {
+      "comment": "Leave basket notification: the first four items, then how many more",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The red panda packed your basket: %1$@ and %#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg more"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg more"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda a préparé votre panier : %1$@ et %#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg autre"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg autres"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda hat deinen Korb gepackt: %1$@ und %#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg weiterer"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg weitere"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda preparó tu canasta: %1$@ y %#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg más"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg más"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda ha preparato il tuo cestino: %1$@ e %#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg altra"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg altre"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダがかごを用意しました：%1$@ ほか%#@more@"
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg件"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا جهّزلك السلّة: %1$@ و%#@more@."
+          },
+          "substitutions": {
+            "more": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "zero": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg كمان"
+                    }
+                  },
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "وحدة كمان"
+                    }
+                  },
+                  "two": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "تنتين كمان"
+                    }
+                  },
+                  "few": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg كمان"
+                    }
+                  },
+                  "many": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg كمان"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg كمان"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "The red panda packed your basket: %@.": {
+      "comment": "Leave basket notification: the basket's items",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda a préparé votre panier : %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda hat deinen Korb gepackt: %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda preparó tu canasta: %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda ha preparato il tuo cestino: %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダがかごを用意しました：%@"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا جهّزلك السلّة: %@."
+          }
+        }
+      }
+    },
+    "The red panda peeks over your shoulder: %@ is due tomorrow.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda jette un œil par-dessus votre épaule : %@ est pour demain."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda schaut dir über die Schulter: %@ ist morgen fällig."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda se asoma por tu hombro: %@ vence mañana."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda sbircia da sopra la tua spalla: %@ scade domani."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダが肩ごしにのぞいています：%@の期限は明日です。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا عم يتطلّع من فوق كتفك: موعد %@ بكرا."
+          }
+        }
+      }
+    },
+    "The red panda waited all day for %@. It’s still waiting.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le panda a attendu %@ toute la journée. Il attend toujours."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Panda hat den ganzen Tag auf %@ gewartet. Er wartet immer noch."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El panda esperó %@ todo el día. Sigue esperando."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il panda ha aspettato %@ tutto il giorno. Sta ancora aspettando."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パンダは一日じゅう%@を待っていました。今も待っています。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الباندا ضلّ ناطر %@ طول النهار. ولسّا ناطر."
+          }
+        }
+      }
+    },
+    "Today’s the day! The red panda believes in you: %@ 🐾": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "C'est le grand jour ! Le panda croit en vous : %@ 🐾"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heute ist der Tag! Der Panda glaubt an dich: %@ 🐾"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Hoy es el día! El panda cree en ti: %@ 🐾"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È il grande giorno! Il panda crede in te: %@ 🐾"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日がその日！パンダはあなたを信じています：%@ 🐾"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اليوم هو اليوم! الباندا مآمن فيك: %@ 🐾"
+          }
+        }
+      }
+    },
+    "Tomorrow’s the day for %@. The red panda is already a tiny bit nervous 🐾": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demain, c'est le grand jour pour %@. Le panda est déjà un tout petit peu nerveux 🐾"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Morgen ist der Tag für %@. Der Panda ist schon ein klitzekleines bisschen nervös 🐾"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mañana es el día de %@. El panda ya está un poquito nervioso 🐾"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Domani è il giorno di %@. Il panda è già un pochino agitato 🐾"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "明日は%@の日。パンダはもうちょっぴりドキドキしています 🐾"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بكرا موعد %@. الباندا من هلّق متوتّر شوي 🐾"
+          }
+        }
+      }
+    },
+    "Two days now. The panda keeps checking for %@ and sighing softly.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déjà deux jours. Le panda guette %@ et soupire doucement."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schon zwei Tage. Der Panda hält Ausschau nach %@ und seufzt leise."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya van dos días. El panda sigue buscando %@ y suspira bajito."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono già due giorni. Il panda continua a cercare %@ e sospira piano."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もう2日。パンダは%@を何度も確かめては、そっとため息をついています。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صرلها يومين. الباندا كل شوي بيتطلّع على %@ وبيتنهّد بهدوء."
+          }
+        }
+      }
+    },
+    "Voice note": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note vocale"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sprachnotiz"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota de voz"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota vocale"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ボイスメモ"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظة صوتية"
+          }
+        }
+      }
+    },
+    "What's the note?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Que voulez-vous noter ?"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Was möchtest du notieren?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué quieres anotar?"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa vuoi annotare?"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "何をメモしますか？"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شو بدّك تكتب؟"
+          }
+        }
+      }
+    },
+    "“%@”": {
+      "comment": "A to-do's title quoted inside a reminder",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "« %@ »"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "„%@“"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@”"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "«%@»"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「%@」"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "«%@»"
+          }
+        }
+      }
+    },
+    "🧺 Before you go…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 Avant de partir…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 Bevor du gehst …"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 Antes de salir…"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 Prima di uscire…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 お出かけの前に…"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🧺 قبل ما تطلع…"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

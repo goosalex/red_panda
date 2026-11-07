@@ -23,10 +23,10 @@ enum PandaMood {
 
   var headline: String {
     switch self {
-    case .sleeping: return "The panda is napping"
-    case .curious: return "The panda is curious"
-    case .excited: return "The panda is thrilled!"
-    case .sad: return "The panda is sad"
+    case .sleeping: return String(localized: "The panda is napping")
+    case .curious: return String(localized: "The panda is curious")
+    case .excited: return String(localized: "The panda is thrilled!")
+    case .sad: return String(localized: "The panda is sad")
     }
   }
 
@@ -50,10 +50,10 @@ struct PandaItem: Hashable {
   var dueLabel: String? {
     guard let d = daysLeft else { return nil }
     switch d {
-    case ..<0: return "\(-d) d overdue"
-    case 0: return overdue ? "overdue" : "today"
-    case 1: return "tomorrow"
-    default: return "in \(d) d"
+    case ..<0: return String(localized: "\(-d) d overdue", comment: "Due label: days past the deadline")
+    case 0: return overdue ? String(localized: "overdue") : String(localized: "today")
+    case 1: return String(localized: "tomorrow")
+    default: return String(localized: "in \(d) d", comment: "Due label: days until the deadline")
     }
   }
 }
@@ -71,26 +71,31 @@ struct PandaEntry: TimelineEntry {
   var next: PandaItem? { top.first { $0.dueAt != nil } ?? top.first }
 
   var countsLine: String {
-    if openCount == 0 { return doneTodayCount > 0 ? "All done today!" : "Nothing to do" }
-    var s = "\(openCount) open"
-    if overdueCount > 0 { s += " · \(overdueCount) overdue" }
-    else if dueTodayCount > 0 { s += " · \(dueTodayCount) today" }
+    if openCount == 0 {
+      return doneTodayCount > 0 ? String(localized: "All done today!") : String(localized: "Nothing to do")
+    }
+    var s = String(localized: "\(openCount) open", comment: "Widget: number of open to-dos")
+    if overdueCount > 0 {
+      s += " · " + String(localized: "\(overdueCount) overdue", comment: "Widget: number of overdue to-dos")
+    } else if dueTodayCount > 0 {
+      s += " · " + String(localized: "\(dueTodayCount) today", comment: "Widget: number of to-dos due today")
+    }
     return s
   }
 
   var inlineLine: String {
-    if overdueCount > 0 { return "The panda is sad: \(overdueCount) overdue" }
-    if dueTodayCount > 0 { return "🐾 \(dueTodayCount) due today" }
-    if openCount > 0 { return "🐾 \(openCount) open" }
-    return doneTodayCount > 0 ? "🐾 All done, happy panda" : "🐾 All clear"
+    if overdueCount > 0 { return String(localized: "The panda is sad: \(overdueCount) overdue") }
+    if dueTodayCount > 0 { return String(localized: "🐾 \(dueTodayCount) due today") }
+    if openCount > 0 { return String(localized: "🐾 \(openCount) open") }
+    return doneTodayCount > 0 ? String(localized: "🐾 All done, happy panda") : String(localized: "🐾 All clear")
   }
 
   static let placeholder = PandaEntry(
     date: Date(), mood: .curious, openCount: 3, overdueCount: 0, dueTodayCount: 1,
     doneTodayCount: 0,
     top: [
-      PandaItem(title: "Buy bamboo", dueAt: Date(), daysLeft: 0, overdue: false),
-      PandaItem(title: "Call Grandma", dueAt: nil, daysLeft: nil, overdue: false),
+      PandaItem(title: String(localized: "Buy bamboo"), dueAt: Date(), daysLeft: 0, overdue: false),
+      PandaItem(title: String(localized: "Call Grandma"), dueAt: nil, daysLeft: nil, overdue: false),
     ])
 
   static func make(notes: [StoredNote], at now: Date, calendar cal: Calendar = .current)
@@ -146,8 +151,8 @@ struct PandaEntry: TimelineEntry {
   /// Same as Note.title in lib/models/note.dart.
   static func title(of n: StoredNote) -> String {
     let words = (n.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-    if n.kind == "text" || !words.isEmpty { return words.isEmpty ? "Untitled note" : words }
-    return "Voice note"
+    if n.kind == "text" || !words.isEmpty { return words.isEmpty ? String(localized: "Untitled note") : words }
+    return String(localized: "Voice note")
   }
 }
 
@@ -190,7 +195,7 @@ struct PandaWidget: Widget {
     StaticConfiguration(kind: Self.kind, provider: PandaProvider()) { entry in
       PandaWidgetView(entry: entry)
     }
-    .configurationDisplayName("Red Panda")
+    .configurationDisplayName(Text(verbatim: "Red Panda"))
     .description("How the panda feels about your to-dos, and what's due next.")
     .supportedFamilies([
       .accessoryInline, .accessoryRectangular, .accessoryCircular, .systemSmall, .systemMedium,
@@ -241,7 +246,7 @@ struct PandaWidgetView: View {
         Image(systemName: entry.overdueCount > 0 ? "alarm.fill" : entry.mood.symbol)
           .font(.system(size: 16, weight: .semibold))
           .widgetAccentable()
-        Text("\(entry.overdueCount > 0 ? entry.overdueCount : entry.openCount)")
+        Text(entry.overdueCount > 0 ? entry.overdueCount : entry.openCount, format: .number)
           .font(.system(size: 20, weight: .bold, design: .rounded))
           .minimumScaleFactor(0.6)
         if entry.overdueCount > 0 {
@@ -255,7 +260,7 @@ struct PandaWidgetView: View {
     VStack(alignment: .leading, spacing: 1) {
       HStack(spacing: 4) {
         Image(systemName: entry.mood.symbol)
-        Text(entry.overdueCount > 0 ? "The panda is sad" : "Red Panda")
+        entry.overdueCount > 0 ? Text("The panda is sad") : Text(verbatim: "Red Panda")
       }
       .font(.headline)
       .widgetAccentable()
@@ -264,7 +269,7 @@ struct PandaWidgetView: View {
         HStack(spacing: 3) {
           if next.dueLabel != nil { Image(systemName: "alarm") }
           Text(next.title).lineLimit(1)
-          if let label = next.dueLabel { Text("· \(label)").layoutPriority(1) }
+          if let label = next.dueLabel { Text(verbatim: "· \(label)").layoutPriority(1) }
         }
         .font(.caption)
       }
@@ -330,7 +335,7 @@ struct PandaWidgetView: View {
 private struct QuickButton<I: AppIntent>: View {
   let intent: I
   let glyph: String
-  let label: String
+  let label: LocalizedStringKey
 
   var body: some View {
     Button(intent: intent) {
