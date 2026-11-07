@@ -21,6 +21,10 @@ class NoteStore {
   static const _channel = MethodChannel('red_panda/app_group');
 
   final Directory root;
+
+  /// Called after notes, categories or the bamboo stash changed on disk
+  /// (iCloud sync picks the change up).
+  void Function()? onChanged;
   Directory get _notesDir => Directory('${root.path}/notes');
   Directory get audioDir => Directory('${root.path}/audio');
   File get _categoriesFile => File('${root.path}/categories.json');
@@ -63,7 +67,10 @@ class NoteStore {
     return notes;
   }
 
-  Future<void> save(Note note) => _writeJson(File('${_notesDir.path}/${note.id}.json'), note.toJson());
+  Future<void> save(Note note) async {
+    await _writeJson(File('${_notesDir.path}/${note.id}.json'), note.toJson());
+    onChanged?.call();
+  }
 
   Future<void> saveAll(Iterable<Note> notes) async {
     for (final n in notes) {
@@ -78,6 +85,7 @@ class NoteStore {
       final a = File('${audioDir.path}/${note.audioFile}');
       if (await a.exists()) await a.delete();
     }
+    onChanged?.call();
   }
 
   Future<Note> addText(String text, {DateTime? dueAt, String? categoryId}) async {
@@ -102,8 +110,10 @@ class NoteStore {
     ];
   }
 
-  Future<void> saveCategories(List<Category> categories) =>
-      _writeJson(_categoriesFile, {'categories': [for (final c in categories) c.toJson()]});
+  Future<void> saveCategories(List<Category> categories) async {
+    await _writeJson(_categoriesFile, {'categories': [for (final c in categories) c.toJson()]});
+    onChanged?.call();
+  }
 
   Future<AppSettings> loadSettings() async {
     final j = await _readJson(_settingsFile);
@@ -117,7 +127,10 @@ class NoteStore {
     return j == null ? const BambooWallet() : BambooWallet.fromJson(j);
   }
 
-  Future<void> saveWallet(BambooWallet w) => _writeJson(_stateFile, w.toJson());
+  Future<void> saveWallet(BambooWallet w) async {
+    await _writeJson(_stateFile, w.toJson());
+    onChanged?.call();
+  }
 
   Future<Map<String, dynamic>?> _readJson(File f) async {
     try {

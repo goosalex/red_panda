@@ -37,6 +37,7 @@ class AppSettings {
     this.leaveRadiusMeters = 50,
     this.leaveOnPlace = true,
     this.leaveOnWifi = true,
+    this.icloudSync = true,
   });
 
   final SwipeAction swipeAction;
@@ -51,6 +52,10 @@ class AppSettings {
   /// Leave basket: remind when the Wi-Fi connection drops.
   final bool leaveOnWifi;
 
+  /// Sync notes, categories and bamboo through iCloud (this setting itself
+  /// stays on the device).
+  final bool icloudSync;
+
   static const leaveRadiusChoices = [50, 100, 150, 200, 300, 500, 1000];
 
   AppSettings copyWith({
@@ -61,6 +66,7 @@ class AppSettings {
     int? leaveRadiusMeters,
     bool? leaveOnPlace,
     bool? leaveOnWifi,
+    bool? icloudSync,
   }) =>
       AppSettings(
         swipeAction: swipeAction ?? this.swipeAction,
@@ -70,6 +76,7 @@ class AppSettings {
         leaveRadiusMeters: leaveRadiusMeters ?? this.leaveRadiusMeters,
         leaveOnPlace: leaveOnPlace ?? this.leaveOnPlace,
         leaveOnWifi: leaveOnWifi ?? this.leaveOnWifi,
+        icloudSync: icloudSync ?? this.icloudSync,
       );
 
   static T _enum<T extends Enum>(List<T> values, Object? name, T fallback) =>
@@ -83,6 +90,7 @@ class AppSettings {
         leaveRadiusMeters: (j['leaveRadiusMeters'] as int?) ?? 50,
         leaveOnPlace: (j['leaveOnPlace'] as bool?) ?? true,
         leaveOnWifi: (j['leaveOnWifi'] as bool?) ?? true,
+        icloudSync: (j['icloudSync'] as bool?) ?? true,
       );
 
   Map<String, dynamic> toJson() => {
@@ -93,5 +101,6 @@ class AppSettings {
         'leaveRadiusMeters': leaveRadiusMeters,
         'leaveOnPlace': leaveOnPlace,
         'leaveOnWifi': leaveOnWifi,
+        'icloudSync': icloudSync,
       };
 }

@@ -9,10 +9,12 @@ class ComposeRequests {
   /// Calls [onPing] whenever native says a request may be waiting,
   /// [onNotesChanged] when native rewrote notes (e.g. a new transcript), and
   /// [onRecordingChanged] when a voice recording started or stopped.
+  /// [onCloudChanged] when iCloud brought changes from another device.
   static void listen(VoidCallback onPing,
-      {VoidCallback? onNotesChanged, VoidCallback? onRecordingChanged}) {
+      {VoidCallback? onNotesChanged, VoidCallback? onRecordingChanged, VoidCallback? onCloudChanged}) {
     channel.setMethodCallHandler((call) async {
       if (call.method == 'compose') onPing();
+      if (call.method == 'cloudChanged') onCloudChanged?.call();
       if (call.method == 'notesChanged') onNotesChanged?.call();
       if (call.method == 'recordingChanged') onRecordingChanged?.call();
     });
@@ -21,9 +23,15 @@ class ComposeRequests {
   static void stopListening() => channel.setMethodCallHandler(null);
 
   /// Whether a compose request was waiting (and clears it).
-  static Future<bool> take() async {
+  static Future<bool> take() => _take('takeCompose');
+
+  /// Whether the "Panda's basket" control or widget button asked to show the
+  /// leave basket (and clears it). Pinged like compose requests.
+  static Future<bool> takeBasket() => _take('takeBasket');
+
+  static Future<bool> _take(String method) async {
     try {
-      return await channel.invokeMethod<bool>('takeCompose') ?? false;
+      return await channel.invokeMethod<bool>(method) ?? false;
     } on MissingPluginException {
       return false;
     } on PlatformException {

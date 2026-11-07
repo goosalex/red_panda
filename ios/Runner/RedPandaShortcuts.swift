@@ -18,5 +18,10 @@ struct RedPandaShortcuts: AppShortcutsProvider {
       phrases: ["Leave basket in \(.applicationName)", "What's in my \(.applicationName) basket"],
       shortTitle: "Leave basket",
       systemImageName: "basket")
+    AppShortcut(
+      intent: OpenBasketIntent(),
+      phrases: ["Show my \(.applicationName) basket", "Open the \(.applicationName) basket"],
+      shortTitle: "Panda's basket",
+      systemImageName: "basket.fill")
   }
 }

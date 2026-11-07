@@ -25,6 +25,9 @@ class ShortcutsLinks {
     return url != app && await _open(app);
   }
 
+  /// Opens any URL (e.g. a web page in Safari), without the fallback.
+  static Future<bool> openExternal(String url) => _open(url);
+
   static Future<bool> _open(String url) async {
     try {
       return await channel.invokeMethod<bool>('openUrl', {'url': url}) ?? false;
