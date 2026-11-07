@@ -110,4 +110,20 @@ void main() {
     await pumpHome(tester);
     expect(find.text('3d'), findsOneWidget);
   });
+
+  testWidgets('the Undo bar after deleting goes away by itself after 5 s', (tester) async {
+    await add(tester, 'old chore');
+    await pumpHome(tester);
+    await tester.drag(find.text('old chore'), const Offset(-600, 0));
+    await settle(tester);
+    expect(find.text('Undo'), findsOneWidget);
+
+    // settle() took ~4 s: still there, gone a little after the 5 s.
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.text('Undo'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 1));
+    await settle(tester);
+    expect(find.text('Undo'), findsNothing);
+    expect(await notes(tester), isEmpty, reason: 'not undone: deleted for good');
+  });
 }

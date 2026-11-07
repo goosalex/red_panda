@@ -77,3 +77,9 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 ## 0.3.1
 
 - [x] Fix: notes added via Share (and Siri / Action Button) now update the widgets' open count, also on the Lock Screen
+
+
+## 0.3.2
+
+- [x] Fix: the Undo bar after deleting (and other Undo bars) slides away after 5 seconds
+- [x] Twinkling stars next to the moon at night (still with Reduce Motion)

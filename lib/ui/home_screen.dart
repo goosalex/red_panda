@@ -289,11 +289,20 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     await widget.store.saveWallet(w);
   }
 
+  /// How long a bar with an Undo button stays before it slides away.
+  static const undoDuration = Duration(seconds: 5);
+
   void _say(String text, {SnackBarAction? action}) {
     if (!mounted) return;
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(text), action: action));
+      // Bars with an action would otherwise stay until tapped (persist).
+      ..showSnackBar(SnackBar(
+        content: Text(text),
+        action: action,
+        duration: action == null ? const Duration(milliseconds: 4000) : undoDuration,
+        persist: false,
+      ));
   }
 
   // ---------------------------------------------------------- compose / edit
@@ -420,6 +429,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       ..hideCurrentSnackBar();
     final bar = ctl.showSnackBar(SnackBar(
       content: const Text('Deleted'),
+      duration: undoDuration,
+      persist: false, // with an action it would otherwise stay until tapped
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () async {

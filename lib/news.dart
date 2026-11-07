@@ -10,6 +10,10 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.3.2', 6, [
+    'The Undo bar goes away after 5 seconds',
+    'Twinkling stars next to the moon',
+  ]),
   NewsEntry('0.3.1', 5, [
     'Widgets count notes shared from other apps straight away',
   ]),
