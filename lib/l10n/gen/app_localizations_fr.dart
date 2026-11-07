@@ -727,7 +727,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get captureLockScreenHow =>
-      'Appuyez longuement sur l\'écran verrouillé, touchez Personnaliser > Écran verrouillé, touchez un emplacement de commande en bas et choisissez Red Panda > Note texte, Note vocale ou Voir le panier du panda.';
+      'Appuyez longuement sur l\'écran verrouillé, touchez Personnaliser > Écran verrouillé, touchez un emplacement de commande en bas et choisissez Red Panda > Note texte, Note vocale ou Afficher le panier du panda.';
 
   @override
   String get captureWidgets => 'Widgets';
@@ -748,7 +748,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Réglages > Bouton Action > Commandes, puis choisissez Red Panda > Note texte, Note vocale ou Voir le panier du panda.';
+      'Réglages > Bouton Action > Commandes, puis choisissez Red Panda > Note texte, Note vocale ou Afficher le panier du panda.';
 
   @override
   String get captureSiri => 'Siri';

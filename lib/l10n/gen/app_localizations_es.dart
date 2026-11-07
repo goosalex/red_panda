@@ -724,7 +724,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get captureLockScreenHow =>
-      'Mantén presionada la pantalla bloqueada, toca Personalizar > Pantalla bloqueada, toca un espacio de control abajo y elige Red Panda > Nota de texto, Nota de voz o Ver la canasta del panda.';
+      'Mantén presionada la pantalla bloqueada, toca Personalizar > Pantalla bloqueada, toca un espacio de control abajo y elige Red Panda > Nota de texto, Nota de voz o Mostrar la canasta del panda.';
 
   @override
   String get captureWidgets => 'Widgets';
@@ -745,7 +745,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get captureActionButtonHow =>
-      'Configuración > Botón de acción > Controles, luego elige Red Panda > Nota de texto, Nota de voz o Ver la canasta del panda.';
+      'Configuración > Botón de acción > Controles, luego elige Red Panda > Nota de texto, Nota de voz o Mostrar la canasta del panda.';
 
   @override
   String get captureSiri => 'Siri';
