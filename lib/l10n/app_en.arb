@@ -480,7 +480,7 @@
   "captureLockScreen": "Lock Screen buttons",
   "captureLockScreenHow": "Long-press the Lock Screen, tap Customise > Lock Screen, tap a control slot at the bottom and pick Red Panda > Text note, Voice note or Show Panda's basket.",
   "captureWidgets": "Widgets",
-  "captureWidgetsHow": "Customise the Lock Screen and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, long-press, tap Edit > Add Widget and search \"Red Panda\": its buttons add a note or show Panda's basket.",
+  "captureWidgetsHow": "[Customise the Lock Screen](lockScreenWidget) and tap the widget area under the clock (or the line above it) to add the Red Panda widget with your next deadline. On the Home Screen, [long-press, tap Edit > Add Widget](homeScreenWidget) and search \"Red Panda\": its buttons add a note or show Panda's basket.",
   "captureControlCentre": "Control Centre",
   "captureControlCentreHow": "Open Control Centre, tap +, Add a Control, search \"Red Panda\".",
   "captureActionButton": "Action Button",
@@ -510,5 +510,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "walkLockScreenTitle": "Red Panda on the Lock Screen",
+  "walkHomeScreenTitle": "Red Panda on the Home Screen",
+  "walkLongPress": "Long-press"
 }

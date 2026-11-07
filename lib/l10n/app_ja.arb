@@ -194,7 +194,7 @@
   "captureLockScreen": "ロック画面のボタン",
   "captureLockScreenHow": "ロック画面を長押しし、「カスタマイズ」>「ロック画面」をタップ。下部のコントロール枠をタップして、Red Panda >「テキストメモ」「ボイスメモ」「パンダのかごを表示」から選びます。",
   "captureWidgets": "ウィジェット",
-  "captureWidgetsHow": "ロック画面をカスタマイズし、時計の下のウィジェット欄（またはその上の行）をタップすると、次の期限を表示するRed Pandaウィジェットを追加できます。ホーム画面では長押しして「編集」>「ウィジェットを追加」をタップし、「Red Panda」を検索。ボタンでメモを追加したり、パンダのかごを表示したりできます。",
+  "captureWidgetsHow": "[ロック画面をカスタマイズ](lockScreenWidget)し、時計の下のウィジェット欄（またはその上の行）をタップすると、次の期限を表示するRed Pandaウィジェットを追加できます。ホーム画面では[長押しして「編集」>「ウィジェットを追加」をタップ](homeScreenWidget)し、「Red Panda」を検索。ボタンでメモを追加したり、パンダのかごを表示したりできます。",
   "captureControlCentre": "コントロールセンター",
   "captureControlCentreHow": "コントロールセンターを開き、＋をタップして「コントロールを追加」から「Red Panda」を検索します。",
   "captureActionButton": "アクションボタン",
@@ -210,5 +210,8 @@
   "walkSiriTitle": "Red PandaとSiri",
   "walkActionButtonTitle": "アクションボタンにRed Panda",
   "walkActionButtonNote": "iPhoneでは「コントロール」が出るまでスワイプを続けてください。",
-  "walkSemantics": "設定での手順のアニメーション：{path}"
+  "walkSemantics": "設定での手順のアニメーション：{path}",
+  "walkLockScreenTitle": "ロック画面にRed Panda",
+  "walkHomeScreenTitle": "ホーム画面にRed Panda",
+  "walkLongPress": "長押し"
 }

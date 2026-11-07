@@ -194,7 +194,7 @@
   "captureLockScreen": "Boutons de l'écran verrouillé",
   "captureLockScreenHow": "Appuyez longuement sur l'écran verrouillé, touchez Personnaliser > Écran verrouillé, touchez un emplacement de commande en bas et choisissez Red Panda > Note texte, Note vocale ou Afficher le panier du panda.",
   "captureWidgets": "Widgets",
-  "captureWidgetsHow": "Personnalisez l'écran verrouillé et touchez la zone des widgets sous l'heure (ou la ligne au-dessus) pour ajouter le widget Red Panda avec votre prochaine échéance. Sur l'écran d'accueil, appuyez longuement, touchez Modifier > Ajouter un widget et cherchez « Red Panda » : ses boutons ajoutent une note ou montrent le panier du panda.",
+  "captureWidgetsHow": "[Personnalisez l'écran verrouillé](lockScreenWidget) et touchez la zone des widgets sous l'heure (ou la ligne au-dessus) pour ajouter le widget Red Panda avec votre prochaine échéance. Sur l'écran d'accueil, [appuyez longuement, touchez Modifier > Ajouter un widget](homeScreenWidget) et cherchez « Red Panda » : ses boutons ajoutent une note ou montrent le panier du panda.",
   "captureControlCentre": "Centre de contrôle",
   "captureControlCentreHow": "Ouvrez le Centre de contrôle, touchez +, Ajouter une commande, cherchez « Red Panda ».",
   "captureActionButton": "Bouton Action",
@@ -210,5 +210,8 @@
   "walkSiriTitle": "Red Panda et Siri",
   "walkActionButtonTitle": "Red Panda sur le bouton Action",
   "walkActionButtonNote": "Sur votre iPhone, continuez à balayer jusqu'à Commandes.",
-  "walkSemantics": "Animation du chemin dans Réglages : {path}"
+  "walkSemantics": "Animation du chemin dans Réglages : {path}",
+  "walkLockScreenTitle": "Red Panda sur l'écran verrouillé",
+  "walkHomeScreenTitle": "Red Panda sur l'écran d'accueil",
+  "walkLongPress": "Appui long"
 }

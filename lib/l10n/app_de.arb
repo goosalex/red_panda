@@ -194,7 +194,7 @@
   "captureLockScreen": "Sperrbildschirm-Tasten",
   "captureLockScreenHow": "Sperrbildschirm lange drücken, auf „Anpassen“ > „Sperrbildschirm“ tippen, unten auf einen Platz für Steuerelemente tippen und Red Panda > Textnotiz, Sprachnotiz oder Pandas Korb zeigen wählen.",
   "captureWidgets": "Widgets",
-  "captureWidgetsHow": "Passe den Sperrbildschirm an und tippe auf den Widget-Bereich unter der Uhr (oder die Zeile darüber), um das Red Panda-Widget mit deiner nächsten Frist hinzuzufügen. Auf dem Home-Bildschirm lange drücken, „Bearbeiten“ > „Widget hinzufügen“ tippen und nach „Red Panda“ suchen: Seine Tasten fügen eine Notiz hinzu oder zeigen Pandas Korb.",
+  "captureWidgetsHow": "[Passe den Sperrbildschirm an](lockScreenWidget) und tippe auf den Widget-Bereich unter der Uhr (oder die Zeile darüber), um das Red Panda-Widget mit deiner nächsten Frist hinzuzufügen. Auf dem Home-Bildschirm [lange drücken, „Bearbeiten“ > „Widget hinzufügen“ tippen](homeScreenWidget) und nach „Red Panda“ suchen: Seine Tasten fügen eine Notiz hinzu oder zeigen Pandas Korb.",
   "captureControlCentre": "Kontrollzentrum",
   "captureControlCentreHow": "Öffne das Kontrollzentrum, tippe auf +, dann „Steuerelement hinzufügen“ und suche nach „Red Panda“.",
   "captureActionButton": "Aktionstaste",
@@ -210,5 +210,8 @@
   "walkSiriTitle": "Red Panda und Siri",
   "walkActionButtonTitle": "Red Panda auf der Aktionstaste",
   "walkActionButtonNote": "Auf deinem iPhone wischst du weiter, bis Steuerelemente kommt.",
-  "walkSemantics": "Animation des Wegs in den Einstellungen: {path}"
+  "walkSemantics": "Animation des Wegs in den Einstellungen: {path}",
+  "walkLockScreenTitle": "Red Panda auf dem Sperrbildschirm",
+  "walkHomeScreenTitle": "Red Panda auf dem Home-Bildschirm",
+  "walkLongPress": "Lange drücken"
 }

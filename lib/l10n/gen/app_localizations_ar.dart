@@ -735,7 +735,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'خصّص شاشة القفل وكبوس على محل الأدوات تحت الساعة (أو السطر اللي فوقها) لتضيف أداة Red Panda مع أقرب موعد عندك. على الشاشة الرئيسية، اضغط مطوّل، كبوس \"تعديل\" > \"إضافة أداة\" ودوّر على \"Red Panda\": أزرارها بتضيف ملاحظة أو بتفرجيك سلّة الباندا.';
+      '[خصّص شاشة القفل](lockScreenWidget) وكبوس على محل الأدوات تحت الساعة (أو السطر اللي فوقها) لتضيف أداة Red Panda مع أقرب موعد عندك. على الشاشة الرئيسية، [اضغط مطوّل، كبوس \"تعديل\" > \"إضافة أداة\"](homeScreenWidget) ودوّر على \"Red Panda\": أزرارها بتضيف ملاحظة أو بتفرجيك سلّة الباندا.';
 
   @override
   String get captureControlCentre => 'مركز التحكم';
@@ -792,4 +792,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String walkSemantics(String path) {
     return 'رسوم متحركة للطريق بالإعدادات: $path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'Red Panda على شاشة القفل';
+
+  @override
+  String get walkHomeScreenTitle => 'Red Panda على الشاشة الرئيسية';
+
+  @override
+  String get walkLongPress => 'ضغط مطوّل';
 }

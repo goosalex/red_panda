@@ -351,6 +351,428 @@
    }
   ]
  },
+ "homeScreenWidget": {
+  "ar": [
+   {
+    "image": "ar_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_01.jpg",
+    "label": "تعديل",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_02.jpg",
+    "label": "إضافة أداة",
+    "tap": {
+     "x": 0.6691542288557214,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_03.jpg",
+    "label": "البحث عن أدوات",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_05.jpg",
+    "label": "إضافة أداة",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_06.jpg",
+    "label": "تم",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ar_homeScreenWidget_07.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_01.jpg",
+    "label": "Bearbeiten",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_02.jpg",
+    "label": "Widget hinzufügen",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_03.jpg",
+    "label": "In Widgets suchen",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_05.jpg",
+    "label": "Widget hinzufügen",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_06.jpg",
+    "label": "Fertig",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "de_homeScreenWidget_07.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_01.jpg",
+    "label": "Edit",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_02.jpg",
+    "label": "Add Widget",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_03.jpg",
+    "label": "Search Widgets",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_05.jpg",
+    "label": "Add Widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_06.jpg",
+    "label": "Done",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "en_homeScreenWidget_07.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_01.jpg",
+    "label": "Editar",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_02.jpg",
+    "label": "Añadir widget",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_03.jpg",
+    "label": "Buscar widgets",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_05.jpg",
+    "label": "Añadir widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_06.jpg",
+    "label": "OK",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "es_homeScreenWidget_07.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_01.jpg",
+    "label": "Modifier",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_02.jpg",
+    "label": "Ajouter un widget",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_03.jpg",
+    "label": "Rechercher des widgets",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_05.jpg",
+    "label": "Ajouter le widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_06.jpg",
+    "label": "OK",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "fr_homeScreenWidget_07.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_01.jpg",
+    "label": "Modifica",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_02.jpg",
+    "label": "Aggiungi widget",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_03.jpg",
+    "label": "Cerca nei widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_05.jpg",
+    "label": "Aggiungi widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_06.jpg",
+    "label": "Fine",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "it_homeScreenWidget_07.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_homeScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.62
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_01.jpg",
+    "label": "編集",
+    "tap": {
+     "x": 0.1791044776119403,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_02.jpg",
+    "label": "ウィジェットを追加",
+    "tap": {
+     "x": 0.3308457711442786,
+     "y": 0.10163996948893973
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_03.jpg",
+    "label": "ウィジェットを検索",
+    "tap": {
+     "x": 0.5,
+     "y": 0.20137299771167047
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2929061784897025
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_05.jpg",
+    "label": "ウィジェットを追加",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9439359267734554
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_06.jpg",
+    "label": "完了",
+    "tap": {
+     "x": 0.8208955223880597,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ja_homeScreenWidget_07.jpg"
+   }
+  ]
+ },
  "location": {
   "ar": [
    {
@@ -609,6 +1031,493 @@
    },
    {
     "image": "ja_location_04.jpg"
+   }
+  ]
+ },
+ "lockScreenWidget": {
+  "ar": [
+   {
+    "image": "ar_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_01.jpg",
+    "label": "تخصيص",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_02.jpg",
+    "label": "تخصيص خلفية شاشة القفل",
+    "tap": {
+     "x": 0.753731343283582,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_03.jpg",
+    "label": "إضافة أداة",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_04.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.5,
+      "y": 0.75
+     },
+     "to": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_05.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8924485125858123
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_06.jpg",
+    "label": "أداة · مستطيلة",
+    "tap": {
+     "x": 0.3855721393034826,
+     "y": 0.7597254004576658
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_07.jpg",
+    "label": "تم",
+    "tap": {
+     "x": 0.18159203980099503,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ar_lockScreenWidget_08.jpg"
+   }
+  ],
+  "de": [
+   {
+    "image": "de_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_01.jpg",
+    "label": "Anpassen",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_02.jpg",
+    "label": "Hintergrund auf Sperrbildschirm anpassen",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_03.jpg",
+    "label": "Widget hinzufügen",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_04.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.5,
+      "y": 0.75
+     },
+     "to": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_05.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.8100686498855834
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_06.jpg",
+    "label": "Widget · Rechteckig",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7700228832951945
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_07.jpg",
+    "label": "Fertig",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "de_lockScreenWidget_08.jpg"
+   }
+  ],
+  "en": [
+   {
+    "image": "en_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_01.jpg",
+    "label": "Customize",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_02.jpg",
+    "label": "Customize Lock Screen Wallpaper",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_03.jpg",
+    "label": "Add Widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.9603356216628528
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_05.jpg",
+    "label": "Widget · Rectangular",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7700228832951945
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_06.jpg",
+    "label": "Done",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "en_lockScreenWidget_07.jpg"
+   }
+  ],
+  "es": [
+   {
+    "image": "es_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_01.jpg",
+    "label": "Personalizar",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_02.jpg",
+    "label": "Personalizar el fondo de la pantalla de bloqueo",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_03.jpg",
+    "label": "Añadir widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_04.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.5,
+      "y": 0.75
+     },
+     "to": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_05.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7276887871853546
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_06.jpg",
+    "label": "Widget · Rectangular",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7700228832951945
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_07.jpg",
+    "label": "OK",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "es_lockScreenWidget_08.jpg"
+   }
+  ],
+  "fr": [
+   {
+    "image": "fr_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_01.jpg",
+    "label": "Personnaliser",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_02.jpg",
+    "label": "Personnaliser le fond d’écran de l’écran verrouillé",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_03.jpg",
+    "label": "Ajouter le widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_04.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.5,
+      "y": 0.75
+     },
+     "to": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_05.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7276887871853546
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_06.jpg",
+    "label": "Widget · Rectangulaire",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7700228832951945
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_07.jpg",
+    "label": "OK",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "fr_lockScreenWidget_08.jpg"
+   }
+  ],
+  "it": [
+   {
+    "image": "it_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_01.jpg",
+    "label": "Personalizza",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_02.jpg",
+    "label": "Personalizza lo sfondo della schermata di blocco",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_03.jpg",
+    "label": "Aggiungi widget",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_04.jpg",
+    "swipe": {
+     "from": {
+      "x": 0.5,
+      "y": 0.75
+     },
+     "to": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_05.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7276887871853546
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_06.jpg",
+    "label": "Widget · Rettangolare",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7700228832951945
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_07.jpg",
+    "label": "Fine",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "it_lockScreenWidget_08.jpg"
+   }
+  ],
+  "ja": [
+   {
+    "image": "ja_lockScreenWidget_00.jpg",
+    "press": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_01.jpg",
+    "label": "カスタマイズ",
+    "tap": {
+     "x": 0.5004145936981759,
+     "y": 0.9250572082379863
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_02.jpg",
+    "label": "ロック画面の壁紙をカスタマイズ",
+    "tap": {
+     "x": 0.2462686567164179,
+     "y": 0.5001906941266209
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_03.jpg",
+    "label": "ウィジェットを追加",
+    "tap": {
+     "x": 0.5,
+     "y": 0.2917620137299771
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_04.jpg",
+    "label": "Red Panda",
+    "tap": {
+     "x": 0.5,
+     "y": 0.7131960335621662
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_05.jpg",
+    "label": "ウィジェット · 長方形",
+    "tap": {
+     "x": 0.6144278606965174,
+     "y": 0.7456140350877193
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_06.jpg",
+    "label": "完了",
+    "tap": {
+     "x": 0.818407960199005,
+     "y": 0.03775743707093822
+    }
+   },
+   {
+    "image": "ja_lockScreenWidget_07.jpg"
    }
   ]
  },

@@ -732,7 +732,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get captureWidgetsHow =>
-      'Passe den Sperrbildschirm an und tippe auf den Widget-Bereich unter der Uhr (oder die Zeile darüber), um das Red Panda-Widget mit deiner nächsten Frist hinzuzufügen. Auf dem Home-Bildschirm lange drücken, „Bearbeiten“ > „Widget hinzufügen“ tippen und nach „Red Panda“ suchen: Seine Tasten fügen eine Notiz hinzu oder zeigen Pandas Korb.';
+      '[Passe den Sperrbildschirm an](lockScreenWidget) und tippe auf den Widget-Bereich unter der Uhr (oder die Zeile darüber), um das Red Panda-Widget mit deiner nächsten Frist hinzuzufügen. Auf dem Home-Bildschirm [lange drücken, „Bearbeiten“ > „Widget hinzufügen“ tippen](homeScreenWidget) und nach „Red Panda“ suchen: Seine Tasten fügen eine Notiz hinzu oder zeigen Pandas Korb.';
 
   @override
   String get captureControlCentre => 'Kontrollzentrum';
@@ -789,4 +789,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String walkSemantics(String path) {
     return 'Animation des Wegs in den Einstellungen: $path';
   }
+
+  @override
+  String get walkLockScreenTitle => 'Red Panda auf dem Sperrbildschirm';
+
+  @override
+  String get walkHomeScreenTitle => 'Red Panda auf dem Home-Bildschirm';
+
+  @override
+  String get walkLongPress => 'Lange drücken';
 }
