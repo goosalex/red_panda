@@ -47,6 +47,13 @@
 		DFD0F3189CD88C02E0073C0D /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
 		E2DAABE7BF3823285F150BA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C484CAFDAFEE3677232325D1 /* Foundation.framework */; };
 		FA304BFB579D5653F0C2385E /* VoiceLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */; };
+		255D2B9A5665548D6BEA532B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 05E1F6409F7925581196136A /* Localizable.xcstrings */; };
+		85D51C333F12C39E72F4070F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */; };
+		44D38C0B151CEBD78BBA4F45 /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */; };
+		AFC004CDA3912027B5A48430 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */; };
+		294879E8AFE9EDBD632C1442 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */; };
+		BB386CC4DD1B61B219886045 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */; };
+		E206DBB9C3F206BB245A8500 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +151,13 @@
 		D85DE16B5EE6B5DA686DB9C9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E94426C541F296483E3FFE12 /* RedPandaControls.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = RedPandaControls.entitlements; sourceTree = "<group>"; };
 		ECE2B21416617BF8125F0198 /* Reminders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		05E1F6409F7925581196136A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
+		B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +215,8 @@
 		83E0385E47C100CB2AA1FE9C /* RedPandaControls */ = {
 			isa = PBXGroup;
 			children = (
+				CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */,
+				B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */,
 				0C0F40FCAA1B07ECFC933400 /* Controls.swift */,
 				92463F6711735FBCBA4DAB97 /* RedPandaControlsBundle.swift */,
 				4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */,
@@ -253,6 +269,9 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */,
+				2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */,
+				05E1F6409F7925581196136A /* Localizable.xcstrings */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -275,6 +294,8 @@
 		F3C6A80E8A8486332367D690 /* RedPandaShare */ = {
 			isa = PBXGroup;
 			children = (
+				380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */,
+				2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */,
 				B3617476DD4F0C21CAE16EC9 /* ShareView.swift */,
 				360F67A3857ABE9017E6ADB2 /* ShareViewController.swift */,
 				D85DE16B5EE6B5DA686DB9C9 /* Info.plist */,
@@ -409,6 +430,12 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				es,
+				it,
+				ja,
+				ar,
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
@@ -431,6 +458,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E206DBB9C3F206BB245A8500 /* InfoPlist.xcstrings in Resources */,
+				BB386CC4DD1B61B219886045 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +474,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D38C0B151CEBD78BBA4F45 /* AppShortcuts.xcstrings in Resources */,
+				85D51C333F12C39E72F4070F /* InfoPlist.xcstrings in Resources */,
+				255D2B9A5665548D6BEA532B /* Localizable.xcstrings in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
@@ -456,6 +488,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294879E8AFE9EDBD632C1442 /* InfoPlist.xcstrings in Resources */,
+				AFC004CDA3912027B5A48430 /* Localizable.xcstrings in Resources */,
 				89054FE58BF8A323B57092E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
