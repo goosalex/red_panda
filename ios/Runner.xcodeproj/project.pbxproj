@@ -20,6 +20,7 @@
 		576AEE60510FF44D4B6D40F1 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98CCBB9A04DA65818D9817 /* NoteStore.swift */; };
 		59F5F3114E1942ECC6719092 /* SharedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407C6EB7625969BF31F5D77 /* SharedText.swift */; };
 		66694FB8C1231A0D844735FF /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE2B21416617BF8125F0198 /* Reminders.swift */; };
+		D0C5A1E2B3C4D5E6F7081931 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		6AB32486BE41EC3AA783AB32 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		6CC047E4BDF3C61F5D8C1702 /* VoiceActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -511,6 +512,7 @@
 				22B817ADD9463D472B836EFA /* ShareView.swift in Sources */,
 				2D1927140B368763C9FE894C /* ShareViewController.swift in Sources */,
 				576AEE60510FF44D4B6D40F1 /* NoteStore.swift in Sources */,
+				D0C5A1E2B3C4D5E6F7081931 /* WidgetCache.swift in Sources */,
 				C51A57052BE6412C6B02C667 /* SharedText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

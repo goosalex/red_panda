@@ -26,6 +26,18 @@ enum WidgetCache {
     _ = notes()
   }
 
+  /// Called by whoever just wrote notes outside the app (share extension,
+  /// Siri / Action Button intents): puts them into the cache too. Lock Screen
+  /// widgets mostly refresh while locked, when the new note files are not
+  /// readable, so without this they keep counting the old list.
+  static func didSave(_ saved: [StoredNote]) {
+    var all = notes()
+    let ids = Set(saved.map(\.id))
+    all.removeAll { ids.contains($0.id) }
+    all.append(contentsOf: saved)
+    save(all)
+  }
+
   private static func save(_ notes: [StoredNote]) {
     let encoder = JSONEncoder()
     encoder.dateEncodingStrategy = .iso8601
