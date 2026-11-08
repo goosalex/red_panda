@@ -279,6 +279,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noNotes => 'まだメモがありません。ロック画面やアクションボタンから記録するか、+ をタップしてください。';
 
   @override
+  String get noNotesPad => 'まだメモがありません。ロック画面やコントロールセンターから記録するか、+ をタップしてください。';
+
+  @override
   String get hideSnoozed => 'スヌーズ中を隠す';
 
   @override

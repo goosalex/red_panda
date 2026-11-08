@@ -5,11 +5,13 @@ import '../l10n/l10n.dart';
 import '../l10n/labels.dart';
 import '../models/app_settings.dart';
 import '../news.dart';
+import '../platform/device.dart';
 import '../platform/leave_basket.dart';
 import '../platform/shortcuts_links.dart';
 import '../storage/cloud_sync.dart';
 import '../storage/note_store.dart';
 import 'link_text.dart';
+import 'readable.dart';
 import 'walkthrough.dart';
 
 /// Settings: one line per setting. Choices open in a drawer (bottom sheet),
@@ -132,6 +134,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: s == null
           ? const Center(child: CircularProgressIndicator())
           : ListView(
+              padding: readableInsets(context),
               children: [
                 _Header(l.settingsHeaderList),
                 ValueListenableBuilder(
@@ -303,6 +306,7 @@ class _LeaveBasketSettingsPageState extends State<LeaveBasketSettingsPage> with 
     return Scaffold(
       appBar: AppBar(title: Text(l.basketTitle)),
       body: ListView(
+        padding: readableInsets(context),
         children: [
           _Note(l.basketNote),
           SwitchListTile(
@@ -511,7 +515,9 @@ class QuickCapturePage extends StatelessWidget {
   final VoidCallback? onNagSettings;
   final VoidCallback? onBasketSettings;
 
-  static const spots = CaptureSpot.values;
+  /// An iPad has no Action Button.
+  static List<CaptureSpot> get spots =>
+      [for (final s in CaptureSpot.values) if (!Device.isPad || s != CaptureSpot.actionButton) s];
 
   void _open(BuildContext context, CaptureLink l) {
     switch (l) {
@@ -532,6 +538,7 @@ class QuickCapturePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l.settingsQuickCapture)),
       body: ListView(
+        padding: readableInsets(context),
         children: [
           for (final spot in spots)
             ExpansionTile(
@@ -581,6 +588,7 @@ class NewsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l.settingsNews)),
       body: ListView(
+        padding: readableInsets(context),
         children: [
           for (final (i, n) in news.indexed) ...[
             ListTile(

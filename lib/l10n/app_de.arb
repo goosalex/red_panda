@@ -76,6 +76,7 @@
   "emptyCategoryDay": "Nichts in {name}. Zieh einen Eintrag auf die Wolke oder tippe auf die Sonne, um alles zu sehen.",
   "emptyCategoryNight": "Nichts in {name}. Zieh einen Eintrag auf die Wolke oder tippe auf den Mond, um alles zu sehen.",
   "noNotes": "Noch keine Notizen. Halte eine über den Sperrbildschirm oder die Aktionstaste fest, oder tippe auf +.",
+  "noNotesPad": "Noch keine Notizen. Halte eine über den Sperrbildschirm oder das Kontrollzentrum fest, oder tippe auf +.",
   "hideSnoozed": "Geschlummerte ausblenden",
   "showSnoozed": "{count} geschlummert · zeigen",
   "undoCheck": "Abhaken rückgängig",

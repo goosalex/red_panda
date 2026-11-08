@@ -12,6 +12,7 @@ import '../models/app_settings.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 import '../platform/compose_requests.dart';
+import '../platform/device.dart';
 import '../platform/leave_basket.dart';
 import '../platform/motion.dart';
 import '../platform/reminders.dart';
@@ -22,6 +23,7 @@ import '../storage/note_store.dart';
 import 'category_clouds.dart';
 import 'confetti.dart';
 import 'days_dial.dart';
+import 'readable.dart';
 import 'leave_basket_button.dart';
 import 'link_text.dart';
 import 'note_editor.dart';
@@ -845,7 +847,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: readableMargin(context, min: 16)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -935,7 +937,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   child: ListView(
                     key: _listKey,
                     controller: _scroll,
-                    padding: const EdgeInsets.only(bottom: 96),
+                    padding: readableInsets(context).copyWith(bottom: 96),
                     children: [
                       if (visible.isEmpty)
                         Padding(
@@ -947,7 +949,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 ? (SkyButton.isDay(now)
                                     ? context.l10n.emptyCategoryDay(filter.name)
                                     : context.l10n.emptyCategoryNight(filter.name))
-                                : context.l10n.noNotes,
+                                : (Device.isPad ? context.l10n.noNotesPad : context.l10n.noNotes),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -1080,7 +1082,7 @@ class _ProgressHeader extends StatelessWidget {
     final t = Theme.of(context).textTheme;
     final scheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+      padding: EdgeInsets.symmetric(horizontal: readableMargin(context, min: 16)).copyWith(top: 4, bottom: 8),
       child: Column(
         children: [
           Row(

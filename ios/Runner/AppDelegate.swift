@@ -102,6 +102,8 @@ import UIKit
         }
       case "leaveBasketStatus":
         Task { @MainActor in result(LeaveBasket.shared.status()) }
+      case "isPad":
+        Task { @MainActor in result(UIDevice.current.userInterfaceIdiom == .pad) }
       case "openAppSettings":
         Task { @MainActor in
           if let url = URL(string: UIApplication.openSettingsURLString) {

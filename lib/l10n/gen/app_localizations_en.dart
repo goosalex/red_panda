@@ -291,6 +291,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.';
 
   @override
+  String get noNotesPad =>
+      'No notes yet. Capture one from the Lock Screen or Control Centre, or tap +.';
+
+  @override
   String get hideSnoozed => 'Hide snoozed';
 
   @override

@@ -289,6 +289,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'لسّا ما في ملاحظات. سجّل وحدة من شاشة القفل أو زر الإجراءات، أو كبوس +.';
 
   @override
+  String get noNotesPad =>
+      'لسّا ما في ملاحظات. سجّل وحدة من شاشة القفل أو مركز التحكم، أو كبوس +.';
+
+  @override
   String get hideSnoozed => 'خبّي المؤجّلة';
 
   @override

@@ -293,6 +293,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Pas encore de notes. Ajoutez-en une depuis l\'écran verrouillé ou le bouton Action, ou touchez +.';
 
   @override
+  String get noNotesPad =>
+      'Pas encore de notes. Ajoutez-en une depuis l\'écran verrouillé ou le Centre de contrôle, ou touchez +.';
+
+  @override
   String get hideSnoozed => 'Masquer les reportés';
 
   @override

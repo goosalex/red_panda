@@ -76,6 +76,7 @@
   "emptyCategoryDay": "Niente in {name}. Trascina una voce sulla sua nuvola, o tocca il sole per vedere tutto.",
   "emptyCategoryNight": "Niente in {name}. Trascina una voce sulla sua nuvola, o tocca la luna per vedere tutto.",
   "noNotes": "Ancora nessuna nota. Creane una dalla schermata di blocco o dal tasto Azione, oppure tocca +.",
+  "noNotesPad": "Ancora nessuna nota. Creane una dalla schermata di blocco o dal Centro di Controllo, oppure tocca +.",
   "hideSnoozed": "Nascondi rimandati",
   "showSnoozed": "{count} rimandati · mostra",
   "undoCheck": "Togli la spunta",

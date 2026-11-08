@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rive/rive.dart' as rive;
 
 import 'l10n/l10n.dart';
+import 'platform/device.dart';
 import 'storage/note_store.dart';
 import 'ui/home_screen.dart';
 
@@ -13,6 +14,7 @@ Future<void> main() async {
   } catch (_) {
     // Placeholder mascot works without the Rive runtime.
   }
+  await Device.load();
   final store = await NoteStore.open();
   runApp(RedPandaApp(store: store));
 }

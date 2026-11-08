@@ -76,6 +76,7 @@
   "emptyCategoryDay": "Nada en {name}. Arrastra un elemento a su nube o toca el sol para ver todo.",
   "emptyCategoryNight": "Nada en {name}. Arrastra un elemento a su nube o toca la luna para ver todo.",
   "noNotes": "Aún no hay notas. Crea una desde la pantalla bloqueada o el botón de acción, o toca +.",
+  "noNotesPad": "Aún no hay notas. Crea una desde la pantalla bloqueada o el Centro de control, o toca +.",
   "hideSnoozed": "Ocultar pospuestos",
   "showSnoozed": "{count} pospuestos · ver",
   "undoCheck": "Desmarcar",
