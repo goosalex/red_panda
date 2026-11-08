@@ -204,6 +204,10 @@
     }
   },
   "noNotes": "No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.",
+  "noNotesPad": "No notes yet. Capture one from the Lock Screen or Control Centre, or tap +.",
+  "@noNotesPad": {
+    "description": "Empty list on an iPad, which has no Action Button."
+  },
   "hideSnoozed": "Hide snoozed",
   "showSnoozed": "{count} snoozed · show",
   "@showSnoozed": {

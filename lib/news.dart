@@ -19,6 +19,26 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.6.0', 10, [
+    {
+      'en': 'Red Panda now runs natively on iPad: normal-sized text, more notes on screen, in a centred column',
+      'fr': "Red Panda fonctionne nativement sur iPad : texte de taille normale, plus de notes à l'écran, dans une colonne centrée",
+      'de': 'Red Panda läuft jetzt nativ auf dem iPad: normal große Schrift, mehr Notizen auf dem Bildschirm, in einer mittigen Spalte',
+      'es': 'Red Panda ahora funciona de forma nativa en iPad: texto de tamaño normal y más notas en pantalla, en una columna centrada',
+      'it': 'Red Panda ora funziona in modo nativo su iPad: testo di dimensioni normali, più note sullo schermo, in una colonna centrata',
+      'ja': 'Red PandaがiPadにネイティブ対応：文字は通常サイズで、中央の列により多くのメモを表示',
+      'ar': 'Red Panda صار يشتغل عالآيباد مباشرة: خط بحجمه الطبيعي وملاحظات أكتر عالشاشة، بعمود بالنص',
+    },
+    {
+      'en': 'On iPad, Quick capture no longer mentions the Action Button',
+      'fr': "Sur iPad, Capture rapide ne mentionne plus le bouton Action",
+      'de': 'Auf dem iPad erwähnt „Schnell notieren“ die Aktionstaste nicht mehr',
+      'es': 'En iPad, Captura rápida ya no menciona el botón de acción',
+      'it': 'Su iPad, Cattura rapida non menziona più il tasto Azione',
+      'ja': 'iPadではクイックキャプチャにアクションボタンが表示されなくなりました',
+      'ar': 'عالآيباد، التسجيل السريع ما عاد يذكر زر الإجراءات',
+    },
+  ]),
   NewsEntry('0.5.1', 9, [
     {
       'en': 'Walkthroughs for adding the widgets to the Lock Screen and Home Screen',

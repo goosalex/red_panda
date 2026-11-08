@@ -76,6 +76,7 @@
   "emptyCategoryDay": "Rien dans {name}. Glissez un élément sur son nuage, ou touchez le soleil pour tout voir.",
   "emptyCategoryNight": "Rien dans {name}. Glissez un élément sur son nuage, ou touchez la lune pour tout voir.",
   "noNotes": "Pas encore de notes. Ajoutez-en une depuis l'écran verrouillé ou le bouton Action, ou touchez +.",
+  "noNotesPad": "Pas encore de notes. Ajoutez-en une depuis l'écran verrouillé ou le Centre de contrôle, ou touchez +.",
   "hideSnoozed": "Masquer les reportés",
   "showSnoozed": "{count} reporté(s) · afficher",
   "undoCheck": "Décocher",

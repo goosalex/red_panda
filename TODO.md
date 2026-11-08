@@ -99,6 +99,13 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
 - [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping
 
+## 0.6.0
+
+- [x] Native iPad app (iPhone and iPad device family for the app and its extensions): iPhone point sizes, only Dynamic Type scales text
+- [x] Readable column (700 pt, centred) for the notes list, progress header and Settings; lists still scroll from the margins
+- [x] No Action Button on iPad: hidden in Quick capture and in the empty-list hint
+- [ ] Walkthroughs are recorded on an iPhone; iPad Settings looks different (sidebar)
+
 ## 0.5.1
 
 - [x] Walkthroughs for the widgets: Lock Screen (long-press › Customise › Lock Screen › Add Widget › Red Panda) and Home Screen (long-press › Edit › Add Widget › Red Panda), linked from Quick capture › Widgets

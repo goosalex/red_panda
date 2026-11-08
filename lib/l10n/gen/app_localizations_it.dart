@@ -291,6 +291,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ancora nessuna nota. Creane una dalla schermata di blocco o dal tasto Azione, oppure tocca +.';
 
   @override
+  String get noNotesPad =>
+      'Ancora nessuna nota. Creane una dalla schermata di blocco o dal Centro di Controllo, oppure tocca +.';
+
+  @override
   String get hideSnoozed => 'Nascondi rimandati';
 
   @override

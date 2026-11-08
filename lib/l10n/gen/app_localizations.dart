@@ -564,6 +564,12 @@ abstract class AppLocalizations {
   /// **'No notes yet. Capture one from the Lock Screen or the Action Button, or tap +.'**
   String get noNotes;
 
+  /// Empty list on an iPad, which has no Action Button.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes yet. Capture one from the Lock Screen or Control Centre, or tap +.'**
+  String get noNotesPad;
+
   /// No description provided for @hideSnoozed.
   ///
   /// In en, this message translates to:

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
+import 'readable.dart';
 
 /// One item in the list.
 ///
@@ -200,7 +201,7 @@ class _DragHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width * 0.8;
+    final width = MediaQuery.sizeOf(context).width.clamp(0.0, readableWidth) * 0.8;
     final handle = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       child: Icon(Icons.drag_indicator, color: Theme.of(context).colorScheme.onSurfaceVariant),

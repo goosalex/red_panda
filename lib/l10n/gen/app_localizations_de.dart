@@ -292,6 +292,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Noch keine Notizen. Halte eine über den Sperrbildschirm oder die Aktionstaste fest, oder tippe auf +.';
 
   @override
+  String get noNotesPad =>
+      'Noch keine Notizen. Halte eine über den Sperrbildschirm oder das Kontrollzentrum fest, oder tippe auf +.';
+
+  @override
   String get hideSnoozed => 'Geschlummerte ausblenden';
 
   @override
