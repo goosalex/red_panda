@@ -99,10 +99,15 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
 - [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping
 
+## 0.6.2
+
+- [x] iOS 26 controls showed no glyph: tool/glyphs/make_glyphs.py wrote a hand-made template that Xcode compiled as template version 0 (Regular-M only, partly bitmaps). It now writes an SF Symbols 6 variable template (Ultralight-S, Regular-S, Black-S, "Template v.6.0"), compiled as interpolatable vector glyphs with hierarchical layers
+- [ ] Confirm the glyphs on an iOS 26 iPhone via TestFlight
+
 ## 0.6.1
 
 - [x] iOS 26: Lock Screen controls (Text note, Panda's basket) showed no glyph and did nothing. The open-app intents now declare `supportedModes` (`.foreground(.immediate)`), which replaced `openAppWhenRun` in iOS 26
-- [ ] Confirm on an iOS 26 iPhone via TestFlight (this Mac can't run the iOS 26 simulator); if the glyph is still missing, fall back to system symbols on iOS 26
+- [x] Confirmed on an iOS 26 iPhone via TestFlight: the buttons work again, but still showed no glyph (fixed in 0.6.2)
 
 ## 0.6.0
 

@@ -220,6 +220,9 @@ void main() {
     await tester.tap(find.text('Neuigkeiten'));
     await settle(tester);
     expect(find.text('Version ${news.first.version} · neu'), findsOneWidget);
+    // An older line: scroll the News list (the last scrollable) down to it.
+    await tester.scrollUntilVisible(find.textContaining('Red Panda spricht jetzt Französisch'), 200,
+        scrollable: find.byType(Scrollable).last);
     expect(find.textContaining('Red Panda spricht jetzt Französisch'), findsOneWidget);
   });
 
