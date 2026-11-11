@@ -30,6 +30,13 @@ struct OpenComposeIntent: AppIntent {
   static let title: LocalizedStringResource = "New text note"
   static let description = IntentDescription("Open Red Panda to write a text note.")
   static let openAppWhenRun: Bool = true
+  #if compiler(>=6.2)
+  /// iOS 26 replaces openAppWhenRun, which fails when the intent runs in the
+  /// controls extension (on iOS 26 the Lock Screen controls showed no glyph
+  /// and did nothing). Brings the app forward right away instead.
+  @available(iOS 26.0, *)
+  static var supportedModes: IntentModes { .foreground(.immediate) }
+  #endif
   static let isDiscoverable: Bool = false
 
   init() {}
@@ -48,6 +55,13 @@ struct OpenBasketIntent: AppIntent {
   static let title: LocalizedStringResource = "Show Panda's basket"
   static let description = IntentDescription("Open Red Panda on your leave basket.")
   static let openAppWhenRun: Bool = true
+  #if compiler(>=6.2)
+  /// iOS 26 replaces openAppWhenRun, which fails when the intent runs in the
+  /// controls extension (on iOS 26 the Lock Screen controls showed no glyph
+  /// and did nothing). Brings the app forward right away instead.
+  @available(iOS 26.0, *)
+  static var supportedModes: IntentModes { .foreground(.immediate) }
+  #endif
 
   init() {}
 
