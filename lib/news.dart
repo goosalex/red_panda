@@ -19,6 +19,17 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.6.1', 11, [
+    {
+      'en': 'iOS 26: fix for the Lock Screen buttons that lost their glyph and did nothing',
+      'fr': "iOS 26 : correction des boutons de l'écran verrouillé qui avaient perdu leur symbole et ne faisaient plus rien",
+      'de': 'iOS 26: Korrektur für die Tasten auf dem Sperrbildschirm, die ihr Symbol verloren und nichts mehr taten',
+      'es': 'iOS 26: corrección de los botones de la pantalla bloqueada que perdían su símbolo y no hacían nada',
+      'it': 'iOS 26: correzione dei pulsanti della schermata di blocco che perdevano il simbolo e non facevano nulla',
+      'ja': 'iOS 26：ロック画面のボタンでアイコンが消えて反応しなくなる問題を修正',
+      'ar': 'iOS 26: تصليح أزرار شاشة القفل اللي كان يروح رمزها وما تعمل شي',
+    },
+  ]),
   NewsEntry('0.6.0', 10, [
     {
       'en': 'Red Panda now runs natively on iPad: normal-sized text, more notes on screen, in a centred column',
