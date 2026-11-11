@@ -1,7 +1,10 @@
 """Builds Red Panda's custom SF Symbols (Xcode .symbolset templates).
 
 Shapes are drawn in a 100 x 100 box (y down), combined with path booleans,
-then placed on the Regular-M glyph of an SF Symbols template. Layers:
+then placed on the three masters (Ultralight-S, Regular-S, Black-S) of an
+SF Symbols 6 variable template ("Template v.6.0"), as the SF Symbols app
+exports it. iOS 26 controls showed nothing for the earlier hand-made
+template with a single Regular-M glyph. Layers:
 the action (pencil, mic, basket) is hierarchical primary, the little panda
 behind it secondary (rendered lighter), with a gap cut around the action.
 
@@ -222,16 +225,23 @@ GLYPHS = {
 
 # ------------------------------------------------------------------ template
 
-BASE_M, CAP_M = 1126.0, 1055.54
-SIZE = 96.0  # glyph box in template units (cap height is ~70.5)
-LEFT = 1500.0
+SIZE = 96.0  # glyph box at medium scale, in template units (cap height is ~70.5)
 BEARING = 4.0
+# A small-scale glyph is this much of a medium one. The system derives the
+# medium and large scales, and the weights in between, from the masters.
+SMALL = 0.783
+# The masters and their left margins. The glyphs are filled shapes, so every
+# weight shares one outline: identical point structures, as interpolation needs.
+MASTERS = [("Ultralight-S", 515.611), ("Regular-S", 1403.59), ("Black-S", 2884.6)]
+BASE_S = 696.0
+WIDTH_S = (SIZE + 2 * BEARING) * SMALL
 
 
 def to_template(path):
-    k = SIZE / 100.0
-    top = BASE_M + 12.0 - SIZE  # box bottom slightly below the baseline
-    return transformed(path, lambda x, y: (LEFT + BEARING + x * k, top + y * k))
+    """Coordinates relative to a master's left margin on the baseline (y up is
+    negative); the box bottom sits slightly below the baseline."""
+    k = SIZE * SMALL / 100.0
+    return transformed(path, lambda x, y: (BEARING * SMALL + x * k, (y - 100.0) * k + 12.0 * SMALL))
 
 
 def svg_d(path):
@@ -252,31 +262,48 @@ def svg_d(path):
 
 
 def template(name, front, back):
-    right = LEFT + 2 * BEARING + SIZE
     guide = 'style="fill:none;stroke:#27AAE1;opacity:1;stroke-width:0.5;"'
-    lines = []
-    for n, y in [("Baseline-S", 696), ("Capline-S", 625.541), ("Baseline-M", BASE_M),
-                 ("Capline-M", CAP_M), ("Baseline-L", 1556), ("Capline-L", 1485.54)]:
-        lines.append(f'<line id="{n}" {guide} x1="263" x2="3036" y1="{y}" y2="{y}"/>')
-    lines.append(f'<line id="left-margin-Regular-M" {guide} x1="{LEFT}" x2="{LEFT}" y1="1030.79" y2="1150.12"/>')
-    lines.append(f'<line id="right-margin-Regular-M" {guide} x1="{right}" x2="{right}" y1="1030.79" y2="1150.12"/>')
+    margin = 'style="fill:none;stroke:#00AEEF;stroke-width:0.5;opacity:1.0;"'
+    note = 'style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;"'
+    lines = [f'<line id="{n}" {guide} x1="263" x2="3036" y1="{y}" y2="{y}"/>'
+             for n, y in [("Baseline-S", BASE_S), ("Capline-S", 625.541), ("Baseline-M", 1126),
+                          ("Capline-M", 1055.54), ("Baseline-L", 1556), ("Capline-L", 1485.54)]]
+    back_d, front_d = svg_d(to_template(back)), svg_d(to_template(front))
+    groups = []
+    for master, left in MASTERS:
+        right = left + WIDTH_S
+        lines.append(f'<line id="right-margin-{master}" {margin} x1="{right:.3f}" x2="{right:.3f}" y1="600.785" y2="720.121"/>')
+        lines.append(f'<line id="left-margin-{master}" {margin} x1="{left}" x2="{left}" y1="600.785" y2="720.121"/>')
+        groups.append(f'''  <g id="{master}" transform="matrix(1 0 0 1 {left} {BASE_S})">
+   <path class="monochrome-0 multicolor-0:tintColor hierarchical-0:secondary SFSymbolsPreviewWireframe" d="{back_d}"/>
+   <path class="monochrome-1 multicolor-1:tintColor hierarchical-1:primary SFSymbolsPreviewWireframe" d="{front_d}"/>
+  </g>''')
+    guides = "\n".join("  " + l for l in lines)
     return f'''<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!--Generator: Red Panda tool/glyphs (make_glyphs.py)-->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3300" height="2200">
-<!--glyph: "{name}", point size: 100.0, template writer version: "138.0.0"-->
-<g id="Notes">
-<text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;" transform="matrix(1 0 0 1 263 322)">Red Panda glyph {name}: the action, with a small panda behind it (secondary).</text>
-</g>
-<g id="Guides">
-{chr(10).join(lines)}
-</g>
-<g id="Symbols">
-<g id="Regular-M">
-<path class="monochrome-0 multicolor-0:tintColor hierarchical-0:secondary" d="{svg_d(to_template(back))}"/>
-<path class="monochrome-1 multicolor-1:tintColor hierarchical-1:primary" d="{svg_d(to_template(front))}"/>
-</g>
-</g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3300 2200">
+ <!--glyph: "{name}", point size: 100.0, template writer version: "138.0.0"-->
+ <style>.monochrome-0 {{-sfsymbols-motion-group:1}}
+.monochrome-1 {{-sfsymbols-motion-group:0}}
+.multicolor-0:tintColor {{-sfsymbols-motion-group:1}}
+.multicolor-1:tintColor {{-sfsymbols-motion-group:0}}
+.hierarchical-0:secondary {{-sfsymbols-motion-group:1}}
+.hierarchical-1:primary {{-sfsymbols-motion-group:0}}
+.SFSymbolsPreviewWireframe {{fill:none;opacity:1.0;stroke:black;stroke-width:0.5}}
+</style>
+ <g id="Notes">
+  <text id="template-version" {note} transform="matrix(1 0 0 1 3036 1933)">Template v.6.0</text>
+  <text {note} transform="matrix(1 0 0 1 3036 1951)">Requires Xcode 16 or greater</text>
+  <text id="descriptive-name" {note} transform="matrix(1 0 0 1 3036 1969)">Red Panda {name}: the action, a small panda behind it</text>
+  <text {note} transform="matrix(1 0 0 1 3036 1987)">Typeset at 100.0 points</text>
+ </g>
+ <g id="Guides">
+{guides}
+ </g>
+ <g id="Symbols">
+{chr(10).join(groups)}
+ </g>
 </svg>
 '''
 

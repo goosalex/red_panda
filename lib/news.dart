@@ -19,6 +19,17 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.6.2', 12, [
+    {
+      'en': 'iOS 26: the Lock Screen and Control Centre buttons show their panda glyphs again',
+      'fr': "iOS 26 : les boutons de l'écran verrouillé et du Centre de contrôle affichent de nouveau leurs symboles de panda",
+      'de': 'iOS 26: Die Tasten auf dem Sperrbildschirm und im Kontrollzentrum zeigen wieder ihre Panda-Symbole',
+      'es': 'iOS 26: los botones de la pantalla bloqueada y del Centro de control vuelven a mostrar sus símbolos de panda',
+      'it': 'iOS 26: i pulsanti della schermata di blocco e del Centro di Controllo mostrano di nuovo i simboli del panda',
+      'ja': 'iOS 26：ロック画面とコントロールセンターのボタンにパンダのアイコンが再び表示されます',
+      'ar': 'iOS 26: أزرار شاشة القفل ومركز التحكم رجعت تبيّن رموز الباندا',
+    },
+  ]),
   NewsEntry('0.6.1', 11, [
     {
       'en': 'iOS 26: fix for the Lock Screen buttons that lost their glyph and did nothing',
