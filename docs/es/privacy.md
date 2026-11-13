@@ -9,7 +9,7 @@ lang: es
 *Última actualización: 12 de noviembre de 2026*
 
 Red Panda es una app de tareas y notas para iPhone y iPad de Mas Datos GmbH. Su código fuente es público en
-[github.com/goosalex/red_panda](https://github.com/goosalex/red_panda), así que cualquiera puede comprobar lo
+[github.com/os-mas-datos/red_panda](https://github.com/os-mas-datos/red_panda), así que cualquiera puede comprobar lo
 que dice esta página.
 
 ## En resumen
@@ -75,5 +75,5 @@ repositorio. Red Panda no empezará a recopilar datos.
 ## Contacto
 
 Preguntas sobre privacidad: abre un issue en
-[github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+[github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 Los issues son públicos, así que no incluyas datos personales.

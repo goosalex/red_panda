@@ -11,7 +11,7 @@ lang: ar
 *آخر تحديث: 12 تشرين الثاني 2026*
 
 Red Panda تطبيق مهام وملاحظات للآيفون والآيباد من Mas Datos GmbH. الكود المصدري تبعو منشور على
-[github.com/goosalex/red_panda](https://github.com/goosalex/red_panda)، فأي حدا فيه يتأكد من الحكي اللي بهالصفحة.
+[github.com/os-mas-datos/red_panda](https://github.com/os-mas-datos/red_panda)، فأي حدا فيه يتأكد من الحكي اللي بهالصفحة.
 
 ## باختصار
 
@@ -71,7 +71,7 @@ Red Panda ما بيجمع بيانات من حدا، ولا من الأولاد.
 ## التواصل
 
 أسئلة عن الخصوصية: افتح issue على
-[github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+[github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 الـ issues عامة، فما تكتب فيها معلومات شخصية.
 
 </div>

@@ -36,7 +36,7 @@ void main() {
     for (final d in locales) {
       for (final page in ['privacy', 'support']) {
         final url = File('${d.path}/${page}_url.txt').readAsStringSync().trim();
-        final m = RegExp(r'^https://goosalex\.github\.io/red_panda/(\w+)/(\w+)/$').firstMatch(url);
+        final m = RegExp(r'^https://os-mas-datos\.github\.io/red_panda/(\w+)/(\w+)/$').firstMatch(url);
         expect(m, isNotNull, reason: url);
         expect(File('docs/${m!.group(1)}/${m.group(2)}.md').existsSync(), isTrue, reason: url);
       }

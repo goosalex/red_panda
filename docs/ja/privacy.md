@@ -9,7 +9,7 @@ lang: ja
 *最終更新日：2026年11月12日*
 
 Red Panda は Mas Datos GmbH による iPhone・iPad 用の ToDo とメモのアプリです。ソースコードは
-[github.com/goosalex/red_panda](https://github.com/goosalex/red_panda) で公開されているため、
+[github.com/os-mas-datos/red_panda](https://github.com/os-mas-datos/red_panda) で公開されているため、
 このページの内容は誰でも確かめられます。
 
 ## 要約
@@ -71,5 +71,5 @@ Red Panda がデータの収集を始めることはありません。
 ## お問い合わせ
 
 プライバシーに関するご質問は
-[github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues)
+[github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues)
 で issue を作成してください。issue は公開されるため、個人情報は書かないでください。

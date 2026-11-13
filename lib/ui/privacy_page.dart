@@ -10,11 +10,11 @@ import 'readable.dart';
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});
 
-  static const sourceUrl = 'https://github.com/goosalex/red_panda';
+  static const sourceUrl = 'https://github.com/os-mas-datos/red_panda';
 
   /// The privacy policy on GitHub Pages (docs/), in [lang] where it exists.
   static String policyUrl(String lang) =>
-      'https://goosalex.github.io/red_panda/${appLocales.any((l) => l.languageCode == lang) ? lang : 'en'}/privacy/';
+      'https://os-mas-datos.github.io/red_panda/${appLocales.any((l) => l.languageCode == lang) ? lang : 'en'}/privacy/';
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ done, and keep the panda happy.
 
 ## Questions and problems
 
-Open an issue at [github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+Open an issue at [github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 Please say which iPhone or iPad, which iOS version and which Red Panda version (Settings > News) you use.
 Issues are public, so please don't include personal details.
 

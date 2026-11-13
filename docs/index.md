@@ -17,4 +17,4 @@ Red Panda collects no data: no analytics, no advertising, no tracking.
 | 日本語 | [プライバシー](ja/privacy/) | [サポート](ja/support/) |
 | العربية | [الخصوصية](ar/privacy/) | [الدعم](ar/support/) |
 
-Source code: [github.com/goosalex/red_panda](https://github.com/goosalex/red_panda)
+Source code: [github.com/os-mas-datos/red_panda](https://github.com/os-mas-datos/red_panda)
