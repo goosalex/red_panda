@@ -1,0 +1,5 @@
+# GitHub Pages (Settings > Pages > Deploy from branch: main, /docs).
+# Serves the privacy policy and support pages linked from the app and the App Store.
+title: Red Panda
+description: A to-do and notes app with a panda. No data collected.
+theme: jekyll-theme-minimal

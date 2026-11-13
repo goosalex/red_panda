@@ -763,4 +763,50 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get walkLongPress => '長押し';
+
+  @override
+  String get settingsPrivacy => 'プライバシー';
+
+  @override
+  String get settingsPrivacyValue => '収集なし';
+
+  @override
+  String get privacyNothingTitle => 'Red Panda は何も収集しません';
+
+  @override
+  String get privacyNothingBody =>
+      '分析、広告、トラッキング、アカウントはありません。Red Panda には独自のサーバーがないため、データが送られる先はどこにもありません。';
+
+  @override
+  String get privacyNotesTitle => 'メモはあなただけのもの';
+
+  @override
+  String get privacyNotesBody =>
+      'メモと音声録音はこのデバイスに保存されます。iCloud 同期をオンにすると、あなただけが読めるあなた自身の iCloud Drive にコピーされます。';
+
+  @override
+  String get privacyLocationTitle => '位置情報はお出かけかごのためだけ';
+
+  @override
+  String get privacyLocationBody =>
+      'Red Panda はあなたの行き先を記録しません。かごに入れた場所を iOS に一度だけ尋ね、離れたかどうかは iOS だけが見守ります。位置情報が送信されたり同期されたりすることはありません。';
+
+  @override
+  String get privacyVoiceTitle => '音声メモは iPhone 上でテキストに';
+
+  @override
+  String get privacyVoiceBody =>
+      'お使いの言語で iOS が対応していれば、音声はデバイス上で認識されます。対応していない場合は、Apple のプライバシーポリシーのもとで Apple の音声認識が使われます。';
+
+  @override
+  String get privacyOpenTitle => 'オープンソース';
+
+  @override
+  String get privacyOpenBody => 'Red Panda のコードはすべて公開されているので、誰でもこの約束を確かめられます。';
+
+  @override
+  String get privacyPolicyLink => 'プライバシーポリシー全文';
+
+  @override
+  String get privacySourceLink => 'GitHub のソースコード';
 }

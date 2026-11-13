@@ -1404,6 +1404,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Long-press'**
   String get walkLongPress;
+
+  /// No description provided for @settingsPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get settingsPrivacy;
+
+  /// No description provided for @settingsPrivacyValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing collected'**
+  String get settingsPrivacyValue;
+
+  /// No description provided for @privacyNothingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda collects nothing'**
+  String get privacyNothingTitle;
+
+  /// No description provided for @privacyNothingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'No analytics, no advertising, no tracking and no account. Red Panda has no server of its own, so there is nowhere your data could go.'**
+  String get privacyNothingBody;
+
+  /// No description provided for @privacyNotesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your notes stay yours'**
+  String get privacyNotesTitle;
+
+  /// No description provided for @privacyNotesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes and voice recordings are stored on this device. With iCloud sync on, they are copied to your own iCloud Drive, which only you can read.'**
+  String get privacyNotesBody;
+
+  /// No description provided for @privacyLocationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Location only for the leave basket'**
+  String get privacyLocationTitle;
+
+  /// No description provided for @privacyLocationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Panda never records where you go. It asks iOS once where the basket was filled, and iOS alone watches for you leaving. The location is never sent anywhere and never synced.'**
+  String get privacyLocationBody;
+
+  /// No description provided for @privacyVoiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice notes become text on your iPhone'**
+  String get privacyVoiceTitle;
+
+  /// No description provided for @privacyVoiceBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Speech is recognised on the device wherever iOS supports it for your language. Otherwise iOS uses Apple\'s speech recognition, under Apple\'s privacy policy.'**
+  String get privacyVoiceBody;
+
+  /// No description provided for @privacyOpenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open source'**
+  String get privacyOpenTitle;
+
+  /// No description provided for @privacyOpenBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every line of Red Panda is public, so anyone can check these promises.'**
+  String get privacyOpenBody;
+
+  /// No description provided for @privacyPolicyLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Full privacy policy'**
+  String get privacyPolicyLink;
+
+  /// No description provided for @privacySourceLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Source code on GitHub'**
+  String get privacySourceLink;
 }
 
 class _AppLocalizationsDelegate

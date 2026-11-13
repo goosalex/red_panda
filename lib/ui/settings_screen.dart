@@ -11,6 +11,7 @@ import '../platform/shortcuts_links.dart';
 import '../storage/cloud_sync.dart';
 import '../storage/note_store.dart';
 import 'link_text.dart';
+import 'privacy_page.dart';
 import 'readable.dart';
 import 'walkthrough.dart';
 
@@ -199,6 +200,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   value: l.newsVersion(news.first.version),
                   page: true,
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NewsPage())),
+                ),
+                SettingRow(
+                  icon: Icons.privacy_tip_outlined,
+                  title: l.settingsPrivacy,
+                  value: l.settingsPrivacyValue,
+                  page: true,
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PrivacyPage())),
                 ),
               ],
             ),

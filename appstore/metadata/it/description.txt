@@ -1,0 +1,23 @@
+Red Panda è un'app di promemoria e note con un panda che è felice quando porti a termine le cose.
+
+ANNOTA IN UN SECONDO
+• Scrivi o detta una nota: il parlato diventa testo direttamente sul tuo iPhone
+• Pulsanti della schermata di blocco e del Centro di Controllo, tasto Azione, Siri e widget
+• Condividi testo o link da qualsiasi app: ogni riga diventa una voce
+
+PORTA A TERMINE
+• Spunta, scorri per fissare in cima, rimandare a domani o spostare una scadenza
+• Scadenze e categorie tengono la lista in ordine
+• Ogni voce completata dà bambù al panda; rimandare costa un po'
+
+PROMEMORIA CHE AIUTANO
+• Il panda si rattrista quando le scadenze si avvicinano, con delicatezza o con insistenza, con ore di silenzio
+• Cestino da portare: ciò che devi portare ti avvisa appena lasci un luogo o cade il tuo Wi-Fi
+
+SOLO TUO
+• Red Panda non raccoglie nulla: niente analisi, niente pubblicità, niente tracciamento, nessun account
+• Le tue note restano sul dispositivo, e nel tuo iCloud Drive se attivi la sincronizzazione
+• La tua posizione non lascia mai il tuo iPhone; serve solo al cestino da portare
+• Open source: chiunque può verificare queste promesse
+
+Per iPhone e iPad, in italiano, inglese, francese, tedesco, spagnolo, giapponese e arabo.

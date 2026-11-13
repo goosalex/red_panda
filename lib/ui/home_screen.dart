@@ -31,6 +31,7 @@ import 'note_tile.dart';
 import 'panda/panda_stage.dart';
 import 'settings_screen.dart';
 import 'walkthrough.dart';
+import '../platform/clock.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.store});
@@ -157,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// the basket is empty.
   Future<void> _syncBasket({bool rearmHere = false}) async {
     final status = await LeaveBasket.sync(
-      titles: basketTitles(_notes, DateTime.now()),
+      titles: basketTitles(_notes, clockNow()),
       radiusMeters: _settings.leaveRadiusMeters,
       onPlace: _settings.leaveOnPlace,
       onWifi: _settings.leaveOnWifi,
@@ -177,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   Future<void> _basketSheet() async {
     final s = _settings;
-    final count = basketTitles(_notes, DateTime.now()).length;
+    final count = basketTitles(_notes, clockNow()).length;
     final l = _leave;
     final t = context.l10n;
     final reason = s.leaveOnPlace && s.leaveOnWifi
@@ -262,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   /// Idle panda: sleeps, or sits there sad while something is overdue.
   void _updateMood() {
-    final s = dueSummary(_notes, DateTime.now());
+    final s = dueSummary(_notes, clockNow());
     _stage.idlePose = s.overdue > 0 ? PandaPose.sad : PandaPose.sleeping;
   }
 
@@ -271,7 +272,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void _scheduleNag() {
     _nagDebounce?.cancel();
     _nagDebounce = Timer(const Duration(milliseconds: 400), () {
-      final now = DateTime.now();
+      final now = clockNow();
       final items = [
         for (final n in _notes)
           if (!n.isDone && !n.isSnoozed(now))
@@ -335,7 +336,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       _searching = false;
       _query = '';
     });
-    if (basketTitles(_notes, DateTime.now()).isEmpty) await _basketSheet();
+    if (basketTitles(_notes, clockNow()).isEmpty) await _basketSheet();
   }
 
   void _onTyping(bool typing) {
@@ -361,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         onTyping: _onTyping,
       );
       if (draft == null) return;
-      final due = draft.days == null ? null : endOfDayIn(draft.days!, DateTime.now());
+      final due = draft.days == null ? null : endOfDayIn(draft.days!, clockNow());
       final added = await widget.store.addText(draft.text, dueAt: due, categoryId: draft.categoryId);
       if (draft.leaveBasket) await widget.store.save(added.copyWith(leaveBasket: true));
       if (due != null) await _ensureNotifications();
@@ -372,7 +373,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _edit(Note n) async {
-    final now = DateTime.now();
+    final now = clockNow();
     final before = n.daysLeft(now);
     final draft = await showNoteEditor(
       context,
@@ -400,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // ------------------------------------------------------------ ticking off
 
   Future<void> _toggle(Note n) async {
-    final now = DateTime.now();
+    final now = clockNow();
     if (n.isDone) {
       await widget.store.save(n.copyWith(clearDone: true));
       HapticFeedback.lightImpact();
@@ -461,7 +462,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   /// Left-to-right swipe. Always returns false: the row springs back, and
   /// items that leave the list (snooze) are gone after the reload.
   Future<bool> _swipeRight(Note n) async {
-    final now = DateTime.now();
+    final now = clockNow();
     if (n.isDone) {
       await _toggle(n); // undo check
       return false;
@@ -511,7 +512,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       _say(context.l10n.snoozeTooPoor(BambooWallet.snoozeCost, _wallet.balance));
       return;
     }
-    final now = DateTime.now();
+    final now = clockNow();
     final until = DateTime(now.year, now.month, now.day + 1, _settings.quietEndHour);
     await widget.store.save(n.copyWith(snoozedUntil: until));
     await _saveWallet(paid);
@@ -531,7 +532,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _postpone(Note n) async {
-    final now = DateTime.now();
+    final now = clockNow();
     final cost = BambooWallet.postponeCost(n, now);
     final paid = _wallet.spend(cost);
     if (paid == null) {
@@ -549,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _pickDeadline(Note n) async {
-    final now = DateTime.now();
+    final now = clockNow();
     final start = n.daysLeft(now);
     int? days = start == null ? 1 : (start < 0 ? 0 : start);
     final ok = await showDialog<bool>(
@@ -774,7 +775,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       if (_recordingSince == null) {
         await VoiceRecording.start();
         HapticFeedback.mediumImpact();
-        _setRecording(DateTime.now());
+        _setRecording(DateTime.now()); // real time: native recordings report real start times
         _stage.startTyping(); // the panda listens
       } else {
         _setRecording(null);
@@ -799,7 +800,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
+    final now = clockNow();
     final p = _progress;
     final visible = visibleNotes(_notes,
         now: now, categoryId: _filterId, query: _query, showSnoozed: _showSnoozed, basketOnly: _basketOnly);

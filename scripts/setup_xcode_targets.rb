@@ -26,7 +26,7 @@ runner.build_configurations.each do |c|
   s['CODE_SIGN_ENTITLEMENTS'] = 'Runner/Runner.entitlements'
   s['CODE_SIGN_STYLE'] = 'Automatic'
   s['DEVELOPMENT_TEAM'] = TEAM
-  s['TARGETED_DEVICE_FAMILY'] = '1'
+  s['TARGETED_DEVICE_FAMILY'] = '1,2' # iPhone and iPad
 end
 project.targets.select { |t| t.name == 'RunnerTests' }.each do |t|
   t.build_configurations.each do |c|
@@ -52,6 +52,9 @@ add_sources(runner_group, runner, %w[RedPandaShortcuts.swift Reminders.swift Mot
 unless runner_group.files.any? { |r| r.path == 'Runner.entitlements' }
   runner_group.new_reference('Runner.entitlements')
 end
+# Privacy manifest: no tracking, no collected data, the reasons for UserDefaults and file dates.
+privacy = runner_group.files.find { |r| r.path == 'PrivacyInfo.xcprivacy' } || runner_group.new_reference('PrivacyInfo.xcprivacy')
+runner.resources_build_phase.add_file_reference(privacy) unless runner.resources_build_phase.files_references.include?(privacy)
 
 shared = group_for(project, 'Shared', 'Shared')
 shared_files = Dir.children(File.join(ROOT, 'Shared')).select { |f| f.end_with?('.swift') }.sort
@@ -107,7 +110,7 @@ def configure_extension(project, runner, shared, name:, bundle_id:, shared_files
     s['DEVELOPMENT_TEAM'] = TEAM
     s['IPHONEOS_DEPLOYMENT_TARGET'] = IOS
     s['SWIFT_VERSION'] = '5.0'
-    s['TARGETED_DEVICE_FAMILY'] = '1'
+    s['TARGETED_DEVICE_FAMILY'] = '1,2' # iPhone and iPad
     s['SKIP_INSTALL'] = 'YES'
     s['APPLICATION_EXTENSION_API_ONLY'] = 'YES'
     s['LD_RUNPATH_SEARCH_PATHS'] = ['$(inherited)', '@executable_path/Frameworks', '@executable_path/../../Frameworks']
@@ -123,12 +126,12 @@ end
 # Widget extension: Controls, Live Activity, Lock/Home Screen widget. Panda mood artwork
 # (PandaSad/PandaSleeping/PandaCurious/PandaExcited) in its Assets.xcassets.
 configure_extension(project, runner, shared, name: EXT_NAME, bundle_id: "#{BUNDLE_ID}.controls",
-                    shared_files: shared_files, resources: ['Assets.xcassets'])
+                    shared_files: shared_files, resources: ['Assets.xcassets', 'PrivacyInfo.xcprivacy'])
 
 # Share extension: shared text/links -> to-dos. Only extension-safe shared code
 # (VoiceRecorder & co. use APIs unavailable in share extensions).
 configure_extension(project, runner, shared, name: SHARE_NAME, bundle_id: "#{BUNDLE_ID}.share",
-                    shared_files: %w[NoteStore.swift SharedText.swift])
+                    shared_files: %w[NoteStore.swift SharedText.swift], resources: ['PrivacyInfo.xcprivacy'])
 
 project.save
 puts "Configured Runner + #{EXT_NAME} + #{SHARE_NAME} (iOS #{IOS}, #{BUNDLE_ID})"

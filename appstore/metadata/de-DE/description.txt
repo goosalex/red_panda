@@ -1,0 +1,23 @@
+Red Panda ist eine To-do- und Notiz-App mit einem Panda, der sich freut, wenn du Dinge erledigst.
+
+IN EINER SEKUNDE NOTIERT
+• Tipp oder diktier eine Notiz: Sprache wird direkt auf deinem iPhone zu Text
+• Tasten auf dem Sperrbildschirm und im Kontrollzentrum, Aktionstaste, Siri und Widgets
+• Teile Text oder Links aus jeder App, und jede Zeile wird ein Eintrag
+
+ERLEDIGEN
+• Abhaken, wischen zum Anheften, auf morgen schlummern oder eine Frist verschieben
+• Fristen und Kategorien halten die Liste in Ordnung
+• Jeder erledigte Eintrag füttert den Panda mit Bambus; Schlummern kostet etwas
+
+ERINNERUNGEN, DIE HELFEN
+• Der Panda wird traurig, wenn Fristen näher rücken, sanft oder hartnäckig, mit Ruhezeiten
+• Mitnehm-Korb: Was mit muss, meldet sich, sobald du einen Ort verlässt oder dein WLAN wegfällt
+
+NUR DEINS
+• Red Panda erfasst nichts: keine Analyse, keine Werbung, kein Tracking, kein Konto
+• Deine Notizen bleiben auf deinem Gerät, und in deinem eigenen iCloud Drive, wenn du Sync einschaltest
+• Dein Standort verlässt nie dein iPhone; er dient nur dem Mitnehm-Korb
+• Open Source: Jede und jeder kann diese Versprechen prüfen
+
+Für iPhone und iPad, auf Deutsch, Englisch, Französisch, Spanisch, Italienisch, Japanisch und Arabisch.

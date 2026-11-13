@@ -99,6 +99,17 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
 - [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping
 
+## 0.7.0
+
+- [x] Privacy manifests (PrivacyInfo.xcprivacy) for the app and both extensions: no tracking, no collected data; reasons for UserDefaults (CA92.1) and file dates (C617.1, iCloud sync)
+- [x] Settings > Panda > Privacy: what Red Panda does with your data, with links to the policy and the source code
+- [x] Privacy policy and support pages in docs/ (GitHub Pages), in all 7 languages
+- [x] App Store texts in appstore/metadata/, App Privacy and review answers in appstore/README.md
+- [x] App Store screenshots for the 6.9" iPhone and the 13" iPad, per language (tool/screenshots): list, leave basket, voice note, Settings, Privacy
+- [ ] Screenshots show no typed note: the simulator keyboard follows the Mac's layout, not the screenshot language
+- [ ] Turn on GitHub Pages (main, /docs) so the privacy and support links work
+- [ ] Fill in App Store Connect from appstore/README.md and submit for review
+
 ## 0.6.2
 
 - [x] iOS 26 controls showed no glyph: tool/glyphs/make_glyphs.py wrote a hand-made template that Xcode compiled as template version 0 (Regular-M only, partly bitmaps). It now writes an SF Symbols 6 variable template (Ultralight-S, Regular-S, Black-S, "Template v.6.0"), compiled as interpolatable vector glyphs with hierarchical layers

@@ -19,6 +19,26 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.7.0', 13, [
+    {
+      'en': 'New in Settings: Privacy. Red Panda collects nothing: no analytics, no tracking, and your location never leaves your iPhone',
+      'fr': "Nouveau dans les Réglages : Confidentialité. Red Panda ne collecte rien : pas d'analyse, pas de pistage, et votre position ne quitte jamais votre iPhone",
+      'de': 'Neu in den Einstellungen: Datenschutz. Red Panda erfasst nichts: keine Analyse, kein Tracking, und dein Standort verlässt nie dein iPhone',
+      'es': 'Nuevo en Configuración: Privacidad. Red Panda no recopila nada: sin analíticas, sin rastreo, y tu ubicación nunca sale de tu iPhone',
+      'it': 'Novità nelle Impostazioni: Privacy. Red Panda non raccoglie nulla: niente analisi, niente tracciamento, e la tua posizione non lascia mai il tuo iPhone',
+      'ja': '設定に「プライバシー」を追加。Red Panda は何も収集しません。分析もトラッキングもなく、位置情報が iPhone の外に出ることはありません',
+      'ar': 'جديد بالإعدادات: الخصوصية. Red Panda ما بيجمع ولا شي: ما في تحليلات ولا تتبّع، وموقعك أبداً ما بيطلع من الآيفون تبعك',
+    },
+    {
+      'en': 'Privacy policy and support pages in every language, ready for the App Store',
+      'fr': "Politique de confidentialité et pages d'assistance dans toutes les langues, prêtes pour l'App Store",
+      'de': 'Datenschutzerklärung und Support-Seiten in allen Sprachen, bereit für den App Store',
+      'es': 'Política de privacidad y páginas de soporte en todos los idiomas, listas para el App Store',
+      'it': "Informativa sulla privacy e pagine di assistenza in tutte le lingue, pronte per l'App Store",
+      'ja': 'すべての言語のプライバシーポリシーとサポートページ。App Store の準備ができました',
+      'ar': 'سياسة الخصوصية وصفحات الدعم بكل اللغات، جاهزين للـ App Store',
+    },
+  ]),
   NewsEntry('0.6.2', 12, [
     {
       'en': 'iOS 26: the Lock Screen and Control Centre buttons show their panda glyphs again',

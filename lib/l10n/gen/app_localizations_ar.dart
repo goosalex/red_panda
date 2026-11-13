@@ -805,4 +805,51 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get walkLongPress => 'ضغط مطوّل';
+
+  @override
+  String get settingsPrivacy => 'الخصوصية';
+
+  @override
+  String get settingsPrivacyValue => 'ما في جمع بيانات';
+
+  @override
+  String get privacyNothingTitle => 'Red Panda ما بيجمع ولا شي';
+
+  @override
+  String get privacyNothingBody =>
+      'ما في تحليلات ولا إعلانات ولا تتبّع ولا حساب. Red Panda ما إلو سيرفر خاص فيه، فبياناتك ما إلها وين تروح.';
+
+  @override
+  String get privacyNotesTitle => 'ملاحظاتك بتضل إلك';
+
+  @override
+  String get privacyNotesBody =>
+      'الملاحظات والتسجيلات الصوتية بتنحفظ على هالجهاز. إذا شغّلت مزامنة iCloud، بتنسخ على iCloud Drive تبعك، وما حدا بيقدر يقراها غيرك.';
+
+  @override
+  String get privacyLocationTitle => 'الموقع بس لسلّة الطلعة';
+
+  @override
+  String get privacyLocationBody =>
+      'Red Panda أبداً ما بيسجّل وين بتروح. بيسأل iOS مرة وحدة وين تعبّت السلة، و iOS لحالو بينتبه إذا طلعت. الموقع ما بينبعت لمكان وما بيتزامن أبداً.';
+
+  @override
+  String get privacyVoiceTitle => 'الملاحظات الصوتية بتصير نص على الآيفون تبعك';
+
+  @override
+  String get privacyVoiceBody =>
+      'الكلام بيتعرّف عليه على الجهاز إذا iOS بيدعم هالشي للغتك. غير هيك، iOS بيستعمل التعرّف على الكلام من Apple، حسب سياسة الخصوصية تبع Apple.';
+
+  @override
+  String get privacyOpenTitle => 'مفتوح المصدر';
+
+  @override
+  String get privacyOpenBody =>
+      'كل سطر من Red Panda منشور، فأي حدا فيه يتأكد من هالوعود.';
+
+  @override
+  String get privacyPolicyLink => 'سياسة الخصوصية كاملة';
+
+  @override
+  String get privacySourceLink => 'الكود المصدري على GitHub';
 }

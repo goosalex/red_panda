@@ -214,5 +214,19 @@
   "walkSemantics": "設定での手順のアニメーション：{path}",
   "walkLockScreenTitle": "ロック画面にRed Panda",
   "walkHomeScreenTitle": "ホーム画面にRed Panda",
-  "walkLongPress": "長押し"
+  "walkLongPress": "長押し",
+  "settingsPrivacy": "プライバシー",
+  "settingsPrivacyValue": "収集なし",
+  "privacyNothingTitle": "Red Panda は何も収集しません",
+  "privacyNothingBody": "分析、広告、トラッキング、アカウントはありません。Red Panda には独自のサーバーがないため、データが送られる先はどこにもありません。",
+  "privacyNotesTitle": "メモはあなただけのもの",
+  "privacyNotesBody": "メモと音声録音はこのデバイスに保存されます。iCloud 同期をオンにすると、あなただけが読めるあなた自身の iCloud Drive にコピーされます。",
+  "privacyLocationTitle": "位置情報はお出かけかごのためだけ",
+  "privacyLocationBody": "Red Panda はあなたの行き先を記録しません。かごに入れた場所を iOS に一度だけ尋ね、離れたかどうかは iOS だけが見守ります。位置情報が送信されたり同期されたりすることはありません。",
+  "privacyVoiceTitle": "音声メモは iPhone 上でテキストに",
+  "privacyVoiceBody": "お使いの言語で iOS が対応していれば、音声はデバイス上で認識されます。対応していない場合は、Apple のプライバシーポリシーのもとで Apple の音声認識が使われます。",
+  "privacyOpenTitle": "オープンソース",
+  "privacyOpenBody": "Red Panda のコードはすべて公開されているので、誰でもこの約束を確かめられます。",
+  "privacyPolicyLink": "プライバシーポリシー全文",
+  "privacySourceLink": "GitHub のソースコード"
 }

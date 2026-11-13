@@ -517,5 +517,19 @@
   },
   "walkLockScreenTitle": "Red Panda on the Lock Screen",
   "walkHomeScreenTitle": "Red Panda on the Home Screen",
-  "walkLongPress": "Long-press"
+  "walkLongPress": "Long-press",
+  "settingsPrivacy": "Privacy",
+  "settingsPrivacyValue": "Nothing collected",
+  "privacyNothingTitle": "Red Panda collects nothing",
+  "privacyNothingBody": "No analytics, no advertising, no tracking and no account. Red Panda has no server of its own, so there is nowhere your data could go.",
+  "privacyNotesTitle": "Your notes stay yours",
+  "privacyNotesBody": "Notes and voice recordings are stored on this device. With iCloud sync on, they are copied to your own iCloud Drive, which only you can read.",
+  "privacyLocationTitle": "Location only for the leave basket",
+  "privacyLocationBody": "Red Panda never records where you go. It asks iOS once where the basket was filled, and iOS alone watches for you leaving. The location is never sent anywhere and never synced.",
+  "privacyVoiceTitle": "Voice notes become text on your iPhone",
+  "privacyVoiceBody": "Speech is recognised on the device wherever iOS supports it for your language. Otherwise iOS uses Apple's speech recognition, under Apple's privacy policy.",
+  "privacyOpenTitle": "Open source",
+  "privacyOpenBody": "Every line of Red Panda is public, so anyone can check these promises.",
+  "privacyPolicyLink": "Full privacy policy",
+  "privacySourceLink": "Source code on GitHub"
 }

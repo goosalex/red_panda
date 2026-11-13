@@ -214,5 +214,19 @@
   "walkSemantics": "Animation des Wegs in den Einstellungen: {path}",
   "walkLockScreenTitle": "Red Panda auf dem Sperrbildschirm",
   "walkHomeScreenTitle": "Red Panda auf dem Home-Bildschirm",
-  "walkLongPress": "Lange drücken"
+  "walkLongPress": "Lange drücken",
+  "settingsPrivacy": "Datenschutz",
+  "settingsPrivacyValue": "Nichts wird erfasst",
+  "privacyNothingTitle": "Red Panda erfasst nichts",
+  "privacyNothingBody": "Keine Analyse, keine Werbung, kein Tracking und kein Konto. Red Panda hat keinen eigenen Server, deine Daten können also nirgendwohin.",
+  "privacyNotesTitle": "Deine Notizen bleiben deine",
+  "privacyNotesBody": "Notizen und Sprachaufnahmen werden auf diesem Gerät gespeichert. Mit iCloud-Sync werden sie in dein eigenes iCloud Drive kopiert, das nur du lesen kannst.",
+  "privacyLocationTitle": "Standort nur für den Mitnehm-Korb",
+  "privacyLocationBody": "Red Panda zeichnet nie auf, wohin du gehst. Es fragt iOS einmal, wo der Korb gefüllt wurde, und nur iOS achtet darauf, wann du gehst. Der Standort wird nie verschickt und nie synchronisiert.",
+  "privacyVoiceTitle": "Sprachnotizen werden auf deinem iPhone zu Text",
+  "privacyVoiceBody": "Sprache wird auf dem Gerät erkannt, wo iOS das für deine Sprache kann. Sonst nutzt iOS die Spracherkennung von Apple, gemäß der Datenschutzrichtlinie von Apple.",
+  "privacyOpenTitle": "Open Source",
+  "privacyOpenBody": "Jede Zeile von Red Panda ist öffentlich, so kann jede und jeder diese Versprechen prüfen.",
+  "privacyPolicyLink": "Vollständige Datenschutzerklärung",
+  "privacySourceLink": "Quellcode auf GitHub"
 }
