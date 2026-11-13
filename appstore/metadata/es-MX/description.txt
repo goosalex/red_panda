@@ -1,0 +1,23 @@
+Red Panda es una app de tareas y notas con un panda que se pone feliz cuando terminas cosas.
+
+ANOTA EN UN SEGUNDO
+• Escribe o dicta una nota: la voz se convierte en texto en tu iPhone
+• Botones de la pantalla bloqueada y del Centro de control, botón de acción, Siri y widgets
+• Comparte texto o enlaces desde cualquier app y cada línea se vuelve un elemento
+
+TERMINA LO QUE EMPIEZAS
+• Márcalos, desliza para fijar, posponer hasta mañana o mover una fecha límite
+• Fechas límite y categorías mantienen la lista en orden
+• Cada elemento terminado le da bambú al panda; posponer cuesta un poco
+
+RECORDATORIOS QUE AYUDAN
+• El panda se pone triste cuando se acercan las fechas límite, con suavidad o con insistencia, y con horas de silencio
+• Canasta de salida: lo que tienes que llevar te avisa en cuanto sales de un lugar o se cae tu Wi-Fi
+
+SOLO TUYO
+• Red Panda no recopila nada: sin analíticas, sin publicidad, sin rastreo, sin cuenta
+• Tus notas se quedan en tu dispositivo, y en tu propio iCloud Drive si activas la sincronización
+• Tu ubicación nunca sale de tu iPhone; solo se usa para la canasta de salida
+• Código abierto: cualquiera puede comprobar estas promesas
+
+Para iPhone y iPad, en español, inglés, francés, alemán, italiano, japonés y árabe.

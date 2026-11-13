@@ -6,12 +6,14 @@
 	objectVersion = 56;
 	objects = {
 		A0000000000000000000A001 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000F001; };
+		A0000000000000000000A002 /* StoreShots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000F003; };
 		A0000000000000000000F001 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		A0000000000000000000F003 /* StoreShots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreShots.swift; sourceTree = "<group>"; };
 		A0000000000000000000F002 /* Walkthroughs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Walkthroughs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0000000000000000000G001 = {isa = PBXGroup; children = (A0000000000000000000G002, A0000000000000000000G003, ); sourceTree = "<group>"; };
-		A0000000000000000000G002 /* Walkthroughs */ = {isa = PBXGroup; children = (A0000000000000000000F001, ); path = Walkthroughs; sourceTree = "<group>"; };
+		A0000000000000000000G002 /* Walkthroughs */ = {isa = PBXGroup; children = (A0000000000000000000F001, A0000000000000000000F003, ); path = Walkthroughs; sourceTree = "<group>"; };
 		A0000000000000000000G003 /* Products */ = {isa = PBXGroup; children = (A0000000000000000000F002, ); name = Products; sourceTree = "<group>"; };
-		A0000000000000000000P001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A0000000000000000000A001, ); runOnlyForDeploymentPostprocessing = 0; };
+		A0000000000000000000P001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A0000000000000000000A001, A0000000000000000000A002, ); runOnlyForDeploymentPostprocessing = 0; };
 		A0000000000000000000T001 /* Walkthroughs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0000000000000000000L002;

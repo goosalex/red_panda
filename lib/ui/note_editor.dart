@@ -4,6 +4,7 @@ import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
 import 'days_dial.dart';
+import '../platform/clock.dart';
 
 /// Result of the compose / edit sheet.
 class NoteDraft {
@@ -72,7 +73,7 @@ class _NoteEditor extends StatefulWidget {
 
 class _NoteEditorState extends State<_NoteEditor> {
   late final _text = TextEditingController(text: widget.note?.title ?? '');
-  late int? _days = widget.note == null ? null : _clampDays(widget.note!.daysLeft(DateTime.now()));
+  late int? _days = widget.note == null ? null : _clampDays(widget.note!.daysLeft(clockNow()));
   late String? _categoryId = widget.initialCategoryId;
   late bool _basket = widget.initialLeaveBasket;
   late bool _showDial = widget.showDeadline && _days != null;

@@ -1,4 +1,5 @@
 import '../models/note.dart';
+import '../platform/clock.dart';
 
 /// Gentle progress: streak of consecutive days with at least one tick,
 /// today's count, and an XP/level bar. Derived from the notes, no extra state.
@@ -22,7 +23,7 @@ class Progress {
   bool get isMilestone => milestones.contains(streakDays);
 
   factory Progress.from(List<Note> notes, {DateTime? now}) {
-    now ??= DateTime.now();
+    now ??= clockNow();
     final days = <DateTime>{};
     var ticked = 0;
     for (final n in notes) {

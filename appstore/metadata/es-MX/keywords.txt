@@ -1,0 +1,1 @@
+tareas,pendientes,notas,recordatorios,lista,compras,checklist,notas de voz,widget,pantalla

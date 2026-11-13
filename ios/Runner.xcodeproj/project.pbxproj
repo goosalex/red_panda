@@ -9,18 +9,21 @@
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		22B817ADD9463D472B836EFA /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3617476DD4F0C21CAE16EC9 /* ShareView.swift */; };
+		255D2B9A5665548D6BEA532B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 05E1F6409F7925581196136A /* Localizable.xcstrings */; };
 		2585FAC0A91F5F839EE75C6C /* SharedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407C6EB7625969BF31F5D77 /* SharedText.swift */; };
+		294879E8AFE9EDBD632C1442 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */; };
 		2D1927140B368763C9FE894C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F67A3857ABE9017E6ADB2 /* ShareViewController.swift */; };
 		3044BADAEC7AB13EC62D3FFC /* RedPandaShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1C5D311DE090D53AEA7ABDE8 /* RedPandaShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		391CD528C68F4C50066B25F6 /* NoteIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB4236F6C7232F861B8004 /* NoteIntents.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		409C13F5E46476B30B199EC6 /* RedPandaControlsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92463F6711735FBCBA4DAB97 /* RedPandaControlsBundle.swift */; };
+		44D38C0B151CEBD78BBA4F45 /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */; };
 		54DA513CE67218395380D062 /* VoiceActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */; };
 		576AEE60510FF44D4B6D40F1 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98CCBB9A04DA65818D9817 /* NoteStore.swift */; };
 		59F5F3114E1942ECC6719092 /* SharedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407C6EB7625969BF31F5D77 /* SharedText.swift */; };
+		5F8E3211FCE6CA09C778E482 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 33F63820355222B10134DF09 /* PrivacyInfo.xcprivacy */; };
 		66694FB8C1231A0D844735FF /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE2B21416617BF8125F0198 /* Reminders.swift */; };
-		D0C5A1E2B3C4D5E6F7081931 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		6AB32486BE41EC3AA783AB32 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		6CC047E4BDF3C61F5D8C1702 /* VoiceActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -28,7 +31,9 @@
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
 		78E179C36E21CC3FEBB4CF26 /* NoteIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB4236F6C7232F861B8004 /* NoteIntents.swift */; };
+		85D51C333F12C39E72F4070F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */; };
 		89054FE58BF8A323B57092E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7CA17729908D3523848D40 /* Assets.xcassets */; };
+		8A47E8F2750396671C80BB96 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BE5E1674B2F84D6DF59E7794 /* PrivacyInfo.xcprivacy */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
@@ -36,24 +41,22 @@
 		9A92C17A83F83767CF09E4EE /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C28C0F3E1233276D693F7 /* Motion.swift */; };
 		A46E97FD9B33694B86DB9061 /* RedPandaControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 04851D370A548B64405E2495 /* RedPandaControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AD4BE059DECB4888708B373D /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
+		AFC004CDA3912027B5A48430 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */; };
 		B0F75AEDCC33391873FE46D2 /* RedPandaShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */; };
 		B734EAF694EACB16200C7A4A /* LeaveBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30314E0F7955E9156306AB /* LeaveBasket.swift */; };
+		BB386CC4DD1B61B219886045 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */; };
 		C10D5A1E2B3C4D5E6F708192 /* ICloudSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */; };
 		C34059417177181D1DD36363 /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
 		C51A57052BE6412C6B02C667 /* SharedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407C6EB7625969BF31F5D77 /* SharedText.swift */; };
 		C9C31423FDB374360180E262 /* PandaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5BED17B790374C085BBC7 /* PandaWidget.swift */; };
+		D0C5A1E2B3C4D5E6F7081931 /* WidgetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */; };
 		D6A5B5D90C96437D1B268419 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F40FCAA1B07ECFC933400 /* Controls.swift */; };
 		DE0A7AD4663B8EFB9C634D09 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98CCBB9A04DA65818D9817 /* NoteStore.swift */; };
 		DFD0F3189CD88C02E0073C0D /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */; };
-		E2DAABE7BF3823285F150BA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C484CAFDAFEE3677232325D1 /* Foundation.framework */; };
-		FA304BFB579D5653F0C2385E /* VoiceLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */; };
-		255D2B9A5665548D6BEA532B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 05E1F6409F7925581196136A /* Localizable.xcstrings */; };
-		85D51C333F12C39E72F4070F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */; };
-		44D38C0B151CEBD78BBA4F45 /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */; };
-		AFC004CDA3912027B5A48430 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */; };
-		294879E8AFE9EDBD632C1442 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */; };
-		BB386CC4DD1B61B219886045 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */; };
 		E206DBB9C3F206BB245A8500 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */; };
+		E2DAABE7BF3823285F150BA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C484CAFDAFEE3677232325D1 /* Foundation.framework */; };
+		EF4B627606C0C52E102108AF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89FF9F0AE00C15F8ED658597 /* PrivacyInfo.xcprivacy */; };
+		FA304BFB579D5653F0C2385E /* VoiceLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		04851D370A548B64405E2495 /* RedPandaControls.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RedPandaControls.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E1F6409F7925581196136A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0C0F40FCAA1B07ECFC933400 /* Controls.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
 		11CB6F97D695D156C8161578 /* VoiceActivityAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceActivityAttributes.swift; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
@@ -114,16 +118,19 @@
 		1C5D311DE090D53AEA7ABDE8 /* RedPandaShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RedPandaShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7CA17729908D3523848D40 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5268C8DDD90E0154C1A7D9 /* RedPandaShare.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = RedPandaShare.entitlements; sourceTree = "<group>"; };
+		2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F63820355222B10134DF09 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		360F67A3857ABE9017E6ADB2 /* ShareViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		4407C6EB7625969BF31F5D77 /* SharedText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SharedText.swift; sourceTree = "<group>"; };
 		4AF7EC8A891F1294ACF3F504 /* WidgetCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetCache.swift; sourceTree = "<group>"; };
 		4D46B46EF17D2D8E71CF1792 /* VoiceLiveActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceLiveActivity.swift; sourceTree = "<group>"; };
 		56547D8A827EE3C74F9DE06D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A075D762FD8672C78206F04 /* RedPandaShortcuts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedPandaShortcuts.swift; sourceTree = "<group>"; };
-		C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ICloudSync.swift; sourceTree = "<group>"; };
 		5A30314E0F7955E9156306AB /* LeaveBasket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LeaveBasket.swift; sourceTree = "<group>"; };
 		5B98CCBB9A04DA65818D9817 /* NoteStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		6195276CD95DA71A8C5A48AD /* VoiceRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceRecorder.swift; sourceTree = "<group>"; };
@@ -135,6 +142,8 @@
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7DAD9A87B8C4EEC4A0815D92 /* RedPandaControls.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RedPandaControls.xcconfig; sourceTree = "<group>"; };
 		85CBFF059E2CFAC5004B50F3 /* RedPandaShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RedPandaShare.xcconfig; sourceTree = "<group>"; };
+		89FF9F0AE00C15F8ED658597 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
 		92463F6711735FBCBA4DAB97 /* RedPandaControlsBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RedPandaControlsBundle.swift; sourceTree = "<group>"; };
 		960C28C0F3E1233276D693F7 /* Motion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		963D49087DE7833C92603115 /* Runner.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
@@ -145,19 +154,16 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B3617476DD4F0C21CAE16EC9 /* ShareView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		BBB5BED17B790374C085BBC7 /* PandaWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PandaWidget.swift; sourceTree = "<group>"; };
+		BE5E1674B2F84D6DF59E7794 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ICloudSync.swift; sourceTree = "<group>"; };
 		C484CAFDAFEE3677232325D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		D85DE16B5EE6B5DA686DB9C9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E94426C541F296483E3FFE12 /* RedPandaControls.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = RedPandaControls.entitlements; sourceTree = "<group>"; };
 		ECE2B21416617BF8125F0198 /* Reminders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
-		05E1F6409F7925581196136A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		2A1D7005B6B18F5CD91F95BA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		8F591C21A6E3582B35371981 /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
-		B316A6861C7704E84DF31EF0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		CF664CF1BACC0A5F289C2BBE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		2EACE85E4ED1BFE0DAEAC225 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		380C4294FAD14025F62CD13F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,7 @@
 				7DAD9A87B8C4EEC4A0815D92 /* RedPandaControls.xcconfig */,
 				BBB5BED17B790374C085BBC7 /* PandaWidget.swift */,
 				1C7CA17729908D3523848D40 /* Assets.xcassets */,
+				33F63820355222B10134DF09 /* PrivacyInfo.xcprivacy */,
 			);
 			path = RedPandaControls;
 			sourceTree = "<group>";
@@ -287,6 +294,7 @@
 				960C28C0F3E1233276D693F7 /* Motion.swift */,
 				5A30314E0F7955E9156306AB /* LeaveBasket.swift */,
 				C10D5A1E2B3C4D5E6F708193 /* ICloudSync.swift */,
+				BE5E1674B2F84D6DF59E7794 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -301,6 +309,7 @@
 				D85DE16B5EE6B5DA686DB9C9 /* Info.plist */,
 				1F5268C8DDD90E0154C1A7D9 /* RedPandaShare.entitlements */,
 				85CBFF059E2CFAC5004B50F3 /* RedPandaShare.xcconfig */,
+				89FF9F0AE00C15F8ED658597 /* PrivacyInfo.xcprivacy */,
 			);
 			name = RedPandaShare;
 			path = RedPandaShare;
@@ -460,6 +469,7 @@
 			files = (
 				E206DBB9C3F206BB245A8500 /* InfoPlist.xcstrings in Resources */,
 				BB386CC4DD1B61B219886045 /* Localizable.xcstrings in Resources */,
+				EF4B627606C0C52E102108AF /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +491,7 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				8A47E8F2750396671C80BB96 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +502,7 @@
 				294879E8AFE9EDBD632C1442 /* InfoPlist.xcstrings in Resources */,
 				AFC004CDA3912027B5A48430 /* Localizable.xcstrings in Resources */,
 				89054FE58BF8A323B57092E7 /* Assets.xcassets in Resources */,
+				5F8E3211FCE6CA09C778E482 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

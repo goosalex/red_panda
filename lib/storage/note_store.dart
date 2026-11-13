@@ -9,6 +9,7 @@ import '../gamification/bamboo.dart';
 import '../models/app_settings.dart';
 import '../models/category.dart';
 import '../models/note.dart';
+import '../platform/clock.dart';
 
 /// Reads and writes notes in the shared App Group container, so notes saved
 /// by the Lock Screen / Action Button intents (Swift) show up here.
@@ -91,7 +92,7 @@ class NoteStore {
   Future<Note> addText(String text, {DateTime? dueAt, String? categoryId}) async {
     final note = Note(
       id: newId(),
-      createdAt: DateTime.now(),
+      createdAt: clockNow(),
       kind: NoteKind.text,
       text: text,
       dueAt: dueAt,

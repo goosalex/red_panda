@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'clock.dart';
 
 /// State of the leave reminder on the native side.
 class LeaveStatus {
@@ -23,7 +24,7 @@ class LeaveStatus {
           (p) => p.name == m['permission'],
           orElse: () => LocationPermission.unknown,
         ),
-        armedAt: m['armedAt'] is int ? DateTime.fromMillisecondsSinceEpoch(m['armedAt'] as int) : null,
+        armedAt: m['armedAt'] is int ? DateTime.fromMillisecondsSinceEpoch(m['armedAt'] as int).add(clockOffset) : null,
         radiusMeters: m['radius'] as int?,
       );
 }

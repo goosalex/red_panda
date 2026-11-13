@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../l10n/l10n.dart';
 import '../models/category.dart';
 import '../models/note.dart';
+import '../platform/clock.dart';
 
 /// Little clouds, one per category, hovering around the sleeping panda.
 ///
@@ -284,7 +285,7 @@ class SkyButton extends StatefulWidget {
 class _SkyButtonState extends State<SkyButton> with SingleTickerProviderStateMixin {
   late final _twinkle = AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
-  bool get _day => SkyButton.isDay(widget.now ?? DateTime.now());
+  bool get _day => SkyButton.isDay(widget.now ?? clockNow());
 
   @override
   void didChangeDependencies() {

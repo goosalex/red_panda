@@ -802,4 +802,52 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get walkLongPress => 'Lange drücken';
+
+  @override
+  String get settingsPrivacy => 'Datenschutz';
+
+  @override
+  String get settingsPrivacyValue => 'Nichts wird erfasst';
+
+  @override
+  String get privacyNothingTitle => 'Red Panda erfasst nichts';
+
+  @override
+  String get privacyNothingBody =>
+      'Keine Analyse, keine Werbung, kein Tracking und kein Konto. Red Panda hat keinen eigenen Server, deine Daten können also nirgendwohin.';
+
+  @override
+  String get privacyNotesTitle => 'Deine Notizen bleiben deine';
+
+  @override
+  String get privacyNotesBody =>
+      'Notizen und Sprachaufnahmen werden auf diesem Gerät gespeichert. Mit iCloud-Sync werden sie in dein eigenes iCloud Drive kopiert, das nur du lesen kannst.';
+
+  @override
+  String get privacyLocationTitle => 'Standort nur für den Mitnehm-Korb';
+
+  @override
+  String get privacyLocationBody =>
+      'Red Panda zeichnet nie auf, wohin du gehst. Es fragt iOS einmal, wo der Korb gefüllt wurde, und nur iOS achtet darauf, wann du gehst. Der Standort wird nie verschickt und nie synchronisiert.';
+
+  @override
+  String get privacyVoiceTitle =>
+      'Sprachnotizen werden auf deinem iPhone zu Text';
+
+  @override
+  String get privacyVoiceBody =>
+      'Sprache wird auf dem Gerät erkannt, wo iOS das für deine Sprache kann. Sonst nutzt iOS die Spracherkennung von Apple, gemäß der Datenschutzrichtlinie von Apple.';
+
+  @override
+  String get privacyOpenTitle => 'Open Source';
+
+  @override
+  String get privacyOpenBody =>
+      'Jede Zeile von Red Panda ist öffentlich, so kann jede und jeder diese Versprechen prüfen.';
+
+  @override
+  String get privacyPolicyLink => 'Vollständige Datenschutzerklärung';
+
+  @override
+  String get privacySourceLink => 'Quellcode auf GitHub';
 }

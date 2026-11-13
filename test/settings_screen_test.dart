@@ -9,6 +9,7 @@ import 'package:red_panda/news.dart';
 import 'package:red_panda/platform/shortcuts_links.dart';
 import 'package:red_panda/storage/cloud_sync.dart';
 import 'package:red_panda/storage/note_store.dart';
+import 'package:red_panda/ui/privacy_page.dart';
 import 'package:red_panda/ui/settings_screen.dart';
 
 void main() {
@@ -199,6 +200,41 @@ void main() {
     await tester.tap(find.text('PR #${news.first.pr}'));
     await settle(tester);
     expect(opened, [news.first.url]);
+  });
+
+  testWidgets('privacy page says nothing is collected and links the policy', (tester) async {
+    await pumpSettings(tester);
+    await tester.scrollUntilVisible(find.text('Privacy'), 100);
+    expect(find.text('Nothing collected'), findsOneWidget);
+    await tester.tap(find.text('Privacy'));
+    await settle(tester);
+    expect(find.text('Red Panda collects nothing'), findsOneWidget);
+    expect(find.text('Location only for the leave basket'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Full privacy policy'), 100);
+    await tester.tap(find.text('Full privacy policy'));
+    await settle(tester);
+    expect(opened, ['https://goosalex.github.io/red_panda/en/privacy/']);
+  });
+
+  test('every policy and support page exists, one per app language', () {
+    for (final locale in appLocales) {
+      final lang = locale.languageCode;
+      expect(PrivacyPage.policyUrl(lang), endsWith('/$lang/privacy/'));
+      for (final page in ['privacy', 'support']) {
+        final f = File('docs/$lang/$page.md');
+        expect(f.existsSync(), isTrue, reason: f.path);
+        expect(f.readAsStringSync(), contains('permalink: /$lang/$page/'), reason: f.path);
+      }
+    }
+    expect(PrivacyPage.policyUrl('xx'), endsWith('/en/privacy/'));
+  });
+
+  test('the privacy manifests declare no tracking and no collected data', () {
+    for (final target in ['Runner', 'RedPandaControls', 'RedPandaShare']) {
+      final m = File('ios/$target/PrivacyInfo.xcprivacy').readAsStringSync().replaceAll(RegExp(r'\s'), '');
+      expect(m, contains('<key>NSPrivacyTracking</key><false/>'), reason: target);
+      expect(m, contains('<key>NSPrivacyCollectedDataTypes</key><array/>'), reason: target);
+    }
   });
 
   test('a failing Shortcuts link falls back to the app', () async {

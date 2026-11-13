@@ -214,5 +214,19 @@
   "walkSemantics": "رسوم متحركة للطريق بالإعدادات: {path}",
   "walkLockScreenTitle": "Red Panda على شاشة القفل",
   "walkHomeScreenTitle": "Red Panda على الشاشة الرئيسية",
-  "walkLongPress": "ضغط مطوّل"
+  "walkLongPress": "ضغط مطوّل",
+  "settingsPrivacy": "الخصوصية",
+  "settingsPrivacyValue": "ما في جمع بيانات",
+  "privacyNothingTitle": "Red Panda ما بيجمع ولا شي",
+  "privacyNothingBody": "ما في تحليلات ولا إعلانات ولا تتبّع ولا حساب. Red Panda ما إلو سيرفر خاص فيه، فبياناتك ما إلها وين تروح.",
+  "privacyNotesTitle": "ملاحظاتك بتضل إلك",
+  "privacyNotesBody": "الملاحظات والتسجيلات الصوتية بتنحفظ على هالجهاز. إذا شغّلت مزامنة iCloud، بتنسخ على iCloud Drive تبعك، وما حدا بيقدر يقراها غيرك.",
+  "privacyLocationTitle": "الموقع بس لسلّة الطلعة",
+  "privacyLocationBody": "Red Panda أبداً ما بيسجّل وين بتروح. بيسأل iOS مرة وحدة وين تعبّت السلة، و iOS لحالو بينتبه إذا طلعت. الموقع ما بينبعت لمكان وما بيتزامن أبداً.",
+  "privacyVoiceTitle": "الملاحظات الصوتية بتصير نص على الآيفون تبعك",
+  "privacyVoiceBody": "الكلام بيتعرّف عليه على الجهاز إذا iOS بيدعم هالشي للغتك. غير هيك، iOS بيستعمل التعرّف على الكلام من Apple، حسب سياسة الخصوصية تبع Apple.",
+  "privacyOpenTitle": "مفتوح المصدر",
+  "privacyOpenBody": "كل سطر من Red Panda منشور، فأي حدا فيه يتأكد من هالوعود.",
+  "privacyPolicyLink": "سياسة الخصوصية كاملة",
+  "privacySourceLink": "الكود المصدري على GitHub"
 }

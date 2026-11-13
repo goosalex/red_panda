@@ -214,5 +214,19 @@
   "walkSemantics": "Animación del camino en Configuración: {path}",
   "walkLockScreenTitle": "Red Panda en la pantalla bloqueada",
   "walkHomeScreenTitle": "Red Panda en la pantalla de inicio",
-  "walkLongPress": "Mantén presionado"
+  "walkLongPress": "Mantén presionado",
+  "settingsPrivacy": "Privacidad",
+  "settingsPrivacyValue": "No se recopila nada",
+  "privacyNothingTitle": "Red Panda no recopila nada",
+  "privacyNothingBody": "Sin analíticas, sin publicidad, sin rastreo y sin cuenta. Red Panda no tiene servidor propio, así que tus datos no tienen adónde ir.",
+  "privacyNotesTitle": "Tus notas siguen siendo tuyas",
+  "privacyNotesBody": "Las notas y las grabaciones de voz se guardan en este dispositivo. Con la sincronización de iCloud activada, se copian a tu propio iCloud Drive, que solo tú puedes leer.",
+  "privacyLocationTitle": "Ubicación solo para la canasta de salida",
+  "privacyLocationBody": "Red Panda nunca registra adónde vas. Le pregunta una sola vez a iOS dónde se llenó la canasta, y solo iOS vigila cuándo te vas. La ubicación nunca se envía ni se sincroniza.",
+  "privacyVoiceTitle": "Las notas de voz se convierten en texto en tu iPhone",
+  "privacyVoiceBody": "La voz se reconoce en el dispositivo siempre que iOS lo permita en tu idioma. Si no, iOS usa el reconocimiento de voz de Apple, según la política de privacidad de Apple.",
+  "privacyOpenTitle": "Código abierto",
+  "privacyOpenBody": "Cada línea de Red Panda es pública, así que cualquiera puede comprobar estas promesas.",
+  "privacyPolicyLink": "Política de privacidad completa",
+  "privacySourceLink": "Código fuente en GitHub"
 }

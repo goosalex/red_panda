@@ -801,4 +801,52 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get walkLongPress => 'Tieni premuto';
+
+  @override
+  String get settingsPrivacy => 'Privacy';
+
+  @override
+  String get settingsPrivacyValue => 'Nessun dato raccolto';
+
+  @override
+  String get privacyNothingTitle => 'Red Panda non raccoglie nulla';
+
+  @override
+  String get privacyNothingBody =>
+      'Niente analisi, niente pubblicità, niente tracciamento e nessun account. Red Panda non ha un server suo, quindi i tuoi dati non hanno dove andare.';
+
+  @override
+  String get privacyNotesTitle => 'Le tue note restano tue';
+
+  @override
+  String get privacyNotesBody =>
+      'Le note e le registrazioni vocali sono salvate su questo dispositivo. Con la sincronizzazione iCloud attiva, vengono copiate nel tuo iCloud Drive, che solo tu puoi leggere.';
+
+  @override
+  String get privacyLocationTitle => 'Posizione solo per il cestino da portare';
+
+  @override
+  String get privacyLocationBody =>
+      'Red Panda non registra mai dove vai. Chiede una sola volta a iOS dove è stato riempito il cestino, e solo iOS controlla quando te ne vai. La posizione non viene mai inviata né sincronizzata.';
+
+  @override
+  String get privacyVoiceTitle =>
+      'Le note vocali diventano testo sul tuo iPhone';
+
+  @override
+  String get privacyVoiceBody =>
+      'Il parlato viene riconosciuto sul dispositivo quando iOS lo supporta per la tua lingua. Altrimenti iOS usa il riconoscimento vocale di Apple, secondo l\'informativa sulla privacy di Apple.';
+
+  @override
+  String get privacyOpenTitle => 'Open source';
+
+  @override
+  String get privacyOpenBody =>
+      'Ogni riga di Red Panda è pubblica, così chiunque può verificare queste promesse.';
+
+  @override
+  String get privacyPolicyLink => 'Informativa sulla privacy completa';
+
+  @override
+  String get privacySourceLink => 'Codice sorgente su GitHub';
 }

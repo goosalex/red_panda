@@ -19,6 +19,11 @@ with a cheerful red panda mascot. Design doc: https://claude.ai/artifact/Lqv8riw
 | `ios/Runner/LeaveBasket.swift` | Leave basket reminder: geofence (CLMonitor) and Wi-Fi drop, plus a Shortcuts action |
 | `ios/Runner/` | Flutter host app; `AppDelegate.swift` exposes the App Group path to Dart |
 | `scripts/setup_xcode_targets.rb` | Re-applies the Xcode target setup (already applied) |
+| `ios/*/PrivacyInfo.xcprivacy` | Privacy manifests: no tracking, no collected data |
+| `docs/` | Privacy policy and support pages per language (GitHub Pages: main, /docs) |
+| `appstore/` | App Store texts (`metadata/`), screenshots and the submission guide (`README.md`) |
+| `tool/appstore/store_texts.py` | Writes `appstore/metadata/` |
+| `tool/screenshots/shoot.sh` | Records the App Store screenshots (iPhone 6.9", iPad 13", every language) |
 
 Bundle ids: `ch.masdatos.redpanda`, `ch.masdatos.redpanda.controls`, `ch.masdatos.redpanda.share`; App Group `group.ch.masdatos.redpanda`.
 Minimum iOS 18.
