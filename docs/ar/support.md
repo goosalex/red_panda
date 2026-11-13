@@ -12,7 +12,7 @@ Red Panda تطبيق مهام وملاحظات للآيفون والآيباد. 
 
 ## أسئلة ومشاكل
 
-افتح issue على [github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+افتح issue على [github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 اكتب أي آيفون أو آيباد عندك، وأي نسخة iOS، وأي نسخة من Red Panda (الإعدادات < شو الجديد).
 الـ issues عامة، فما تكتب فيها معلومات شخصية.
 

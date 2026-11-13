@@ -213,7 +213,7 @@ void main() {
     await tester.scrollUntilVisible(find.text('Full privacy policy'), 100);
     await tester.tap(find.text('Full privacy policy'));
     await settle(tester);
-    expect(opened, ['https://goosalex.github.io/red_panda/en/privacy/']);
+    expect(opened, ['https://os-mas-datos.github.io/red_panda/en/privacy/']);
   });
 
   test('every policy and support page exists, one per app language', () {

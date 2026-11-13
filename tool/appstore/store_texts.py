@@ -6,8 +6,8 @@ App Store Connect locales: en-GB is the primary language; en-US gets the same te
 """
 import os
 
-PAGES = "https://goosalex.github.io/red_panda"
-SOURCE = "https://github.com/goosalex/red_panda"
+PAGES = "https://os-mas-datos.github.io/red_panda"
+SOURCE = "https://github.com/os-mas-datos/red_panda"
 
 T = {}
 

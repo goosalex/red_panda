@@ -11,7 +11,7 @@ Red Panda は iPhone・iPad 用の ToDo とメモのアプリです。メモを�
 
 ## ご質問・不具合
 
-[github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues) で issue を作成してください。
+[github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues) で issue を作成してください。
 お使いの iPhone または iPad、iOS のバージョン、Red Panda のバージョン（設定 > 新機能）を書いてください。
 issue は公開されるため、個人情報は書かないでください。
 

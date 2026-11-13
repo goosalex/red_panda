@@ -1,6 +1,6 @@
 # Red Panda
 
-Repo: https://github.com/goosalex/red_panda
+Repo: https://github.com/os-mas-datos/red_panda
 
 Quick-capture notes for iPhone (Lock Screen control, Control Center, Action Button, Siri)
 with a cheerful red panda mascot. Design doc: https://claude.ai/artifact/Lqv8riwdN7aw2CBStJLu8q

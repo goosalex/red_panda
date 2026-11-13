@@ -11,7 +11,7 @@ class NewsEntry {
   /// One map per line: language code → text.
   final List<Map<String, String>> items;
 
-  String get url => 'https://github.com/goosalex/red_panda/pull/$pr';
+  String get url => 'https://github.com/os-mas-datos/red_panda/pull/$pr';
 
   /// The lines in [lang] (a language code such as `de`), English where a
   /// translation is missing.
@@ -19,6 +19,17 @@ class NewsEntry {
 }
 
 const news = [
+  NewsEntry('0.7.1', 14, [
+    {
+      'en': 'Red Panda now lives on GitHub under Mas Datos (os-mas-datos): new links to the privacy policy and the source code',
+      'fr': 'Red Panda est désormais sur GitHub chez Mas Datos (os-mas-datos) : nouveaux liens vers la politique de confidentialité et le code source',
+      'de': 'Red Panda ist jetzt auf GitHub bei Mas Datos (os-mas-datos): neue Links zur Datenschutzerklärung und zum Quellcode',
+      'es': 'Red Panda ahora está en GitHub con Mas Datos (os-mas-datos): nuevos enlaces a la política de privacidad y al código fuente',
+      'it': "Red Panda ora è su GitHub con Mas Datos (os-mas-datos): nuovi link all'informativa sulla privacy e al codice sorgente",
+      'ja': 'Red Panda は GitHub の Mas Datos (os-mas-datos) に移りました。プライバシーポリシーとソースコードへのリンクを更新しました',
+      'ar': 'Red Panda صار على GitHub عند Mas Datos (os-mas-datos): روابط جديدة لسياسة الخصوصية وللكود المصدري',
+    },
+  ]),
   NewsEntry('0.7.0', 13, [
     {
       'en': 'New in Settings: Privacy. Red Panda collects nothing: no analytics, no tracking, and your location never leaves your iPhone',

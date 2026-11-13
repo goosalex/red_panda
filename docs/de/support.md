@@ -11,7 +11,7 @@ wenn sie erledigt ist, und halte den Panda bei Laune.
 
 ## Fragen und Probleme
 
-Eröffne ein Issue auf [github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+Eröffne ein Issue auf [github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 Schreib dazu, welches iPhone oder iPad, welche iOS-Version und welche Red-Panda-Version
 (Einstellungen > Neuigkeiten) du verwendest. Issues sind öffentlich, schreib also bitte keine persönlichen
 Angaben hinein.

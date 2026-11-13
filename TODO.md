@@ -99,6 +99,35 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [ ] Re-record the walkthroughs whenever a language is added or iOS renames a Settings screen (lib/l10n/README.md)
 - [ ] The simulator's Action Button carousel has fewer pages than an iPhone; the walkthrough says to keep swiping
 
+## 0.7.1: move to os-mas-datos
+
+The repository moves from goosalex to os-mas-datos (Mas Datos GmbH). GitHub redirects the repository's
+web and git links, but **not GitHub Pages**: goosalex.github.io/red_panda stops working at the transfer,
+so this release (all links now point to os-mas-datos) is merged only after the transfer.
+
+Before the transfer
+- [x] os-mas-datos has no repository called red_panda (it would block the transfer)
+- [x] No forks, webhooks, deploy keys, Actions secrets or branch protection to carry over
+- [x] Links in the app, docs/, appstore/metadata/, tests and tools point to os-mas-datos (this PR)
+- [ ] Optional: add the LICENSE now, naming Mas Datos GmbH
+- [ ] Don't enter URLs in App Store Connect yet
+
+Transfer
+- [ ] goosalex: Settings > General > Danger Zone > Transfer ownership > `os-mas-datos`
+- [ ] os-mas-datos: accept the email from GitHub (valid for one day)
+
+After the transfer
+- [ ] Access: check that goosalex can still push and merge; otherwise os-mas-datos invites goosalex
+      (Settings > Collaborators), or `gh auth login` as os-mas-datos
+- [ ] GitHub Pages: Settings > Pages still deploys `main` `/docs`; check https://os-mas-datos.github.io/red_panda/
+- [ ] Xcode Cloud: give its GitHub app access to os-mas-datos/red_panda (install it on os-mas-datos) and
+      reconnect the repository in App Store Connect > Xcode Cloud > Settings > Repositories
+- [ ] Merge this PR; its push to main must start the TestFlight build (proves Xcode Cloud is reconnected)
+- [ ] Local checkout: `git remote set-url origin https://github.com/os-mas-datos/red_panda`
+- [ ] goosalex never creates a new repository called red_panda: it would break the redirect that older
+      builds' News links rely on
+- [ ] App Store Connect: privacy, support and marketing URLs from appstore/metadata/
+
 ## 0.7.0
 
 - [x] Privacy manifests (PrivacyInfo.xcprivacy) for the app and both extensions: no tracking, no collected data; reasons for UserDefaults (CA92.1) and file dates (C617.1, iCloud sync)
@@ -107,7 +136,7 @@ Everything below shipped in v0.2 as placeholder-art versions; the panda art is t
 - [x] App Store texts in appstore/metadata/, App Privacy and review answers in appstore/README.md
 - [x] App Store screenshots for the 6.9" iPhone and the 13" iPad, per language (tool/screenshots): list, leave basket, voice note, Settings, Privacy
 - [ ] Screenshots show no typed note: the simulator keyboard follows the Mac's layout, not the screenshot language
-- [ ] Turn on GitHub Pages (main, /docs) so the privacy and support links work
+- [x] Turn on GitHub Pages (main, /docs) so the privacy and support links work
 - [ ] Fill in App Store Connect from appstore/README.md and submit for review
 
 ## 0.6.2

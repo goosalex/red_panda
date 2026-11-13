@@ -11,7 +11,7 @@ c'est fait, et gardez le panda de bonne humeur.
 
 ## Questions et problèmes
 
-Ouvrez un ticket sur [github.com/goosalex/red_panda/issues](https://github.com/goosalex/red_panda/issues).
+Ouvrez un ticket sur [github.com/os-mas-datos/red_panda/issues](https://github.com/os-mas-datos/red_panda/issues).
 Indiquez votre iPhone ou iPad, la version d'iOS et la version de Red Panda (Réglages > Nouveautés).
 Les tickets sont publics : n'y mettez pas de données personnelles.
 

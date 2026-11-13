@@ -11,7 +11,7 @@ The repository stays public, so anyone can check it.
 ## 1. Before the first submission
 
 - [ ] **GitHub Pages**: repository Settings > Pages > Deploy from a branch > `main`, folder `/docs`.
-      The privacy and support links (`https://goosalex.github.io/red_panda/<lang>/privacy/`) only work after this.
+      The privacy and support links (`https://os-mas-datos.github.io/red_panda/<lang>/privacy/`) only work after this.
 - [ ] **Licence**: the repository has no LICENSE file yet, so legally it is "source available", not open
       source. Pick one (for example MIT, Apache-2.0 or GPL-3.0) to make the open-source promise binding.
 - [ ] **EU trader status** (Business > Agreements, or App Information): Digital Services Act. Mas Datos GmbH
@@ -82,7 +82,7 @@ no collected data types.
 > right); speech is recognised on the device where iOS supports it.
 >
 > Lock Screen / Control Centre controls, the Action Button, Siri and widgets only open the app or add a note.
-> The source code is public: https://github.com/goosalex/red_panda
+> The source code is public: https://github.com/os-mas-datos/red_panda
 
 ## 5. Submit
 
